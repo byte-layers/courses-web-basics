@@ -1,0 +1,11 @@
+body {
+  background-color: rgb(238, 241, 245);
+  font-family: system-ui, "Segoe UI", sans-serif;
+}
+
+.carte {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(215, 222, 232);
+  padding: 20px;
+  margin-bottom: 20px;
+}

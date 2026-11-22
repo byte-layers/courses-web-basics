@@ -1,0 +1,14 @@
+body {
+  font-family: system-ui, sans-serif;
+}
+
+.carte {
+  background-color: rgb(224, 231, 255);
+  padding: 24px;
+}
+
+.projets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}

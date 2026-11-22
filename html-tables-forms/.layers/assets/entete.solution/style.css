@@ -1,0 +1,14 @@
+body {
+  font-family: system-ui, sans-serif;
+}
+
+.logo {
+  font-weight: bold;
+  margin: 0;
+}
+
+.entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

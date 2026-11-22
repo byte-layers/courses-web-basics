@@ -1,0 +1,8 @@
+#contenu p {
+  color: rgb(51, 51, 51);
+}
+
+#contenu .alerte {
+  color: rgb(220, 38, 38);
+  font-weight: bold;
+}

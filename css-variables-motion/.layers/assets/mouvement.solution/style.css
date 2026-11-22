@@ -1,0 +1,22 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+}
+
+@keyframes glisse {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+.banniere {
+  background-color: rgb(30, 41, 59);
+  color: rgb(255, 255, 255);
+  padding: 24px;
+  animation: glisse 1.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banniere {
+    animation: none;
+  }
+}

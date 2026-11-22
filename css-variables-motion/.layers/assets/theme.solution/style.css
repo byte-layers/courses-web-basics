@@ -1,0 +1,23 @@
+:root {
+  --accent: rgb(124, 58, 237);
+}
+
+body {
+  font-family: system-ui, sans-serif;
+}
+
+nav a {
+  color: var(--accent);
+}
+
+h1 {
+  color: var(--accent);
+}
+
+.bouton {
+  display: inline-block;
+  background-color: var(--accent);
+  color: rgb(255, 255, 255);
+  padding: 10px 16px;
+  text-decoration: none;
+}

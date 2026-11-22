@@ -1,0 +1,11 @@
+body {
+  font-family: system-ui, "Segoe UI", sans-serif;
+}
+
+.badge {
+  display: inline-block;
+  width: 120px;
+  background-color: rgb(219, 39, 119);
+  color: rgb(255, 255, 255);
+  text-align: center;
+}

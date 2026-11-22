@@ -1,0 +1,19 @@
+body {
+  font-family: system-ui, sans-serif;
+  background-color: rgb(255, 255, 255);
+  color: rgb(30, 41, 59);
+}
+
+nav a {
+  margin-right: 12px;
+}
+
+a:focus-visible {
+  outline: 3px solid rgb(219, 39, 119);
+  outline-offset: 2px;
+}
+
+.note {
+  color: rgb(85, 85, 85);
+  font-size: 14px;
+}

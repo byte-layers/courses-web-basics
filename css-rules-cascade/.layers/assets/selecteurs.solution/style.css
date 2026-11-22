@@ -1,0 +1,17 @@
+body {
+  font-family: system-ui, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  color: rgb(51, 51, 51);
+}
+
+h2 {
+  color: rgb(11, 107, 203);
+}
+
+.intro {
+  font-weight: bold;
+}
+
+#presentation {
+  background-color: rgb(255, 255, 255);
+}

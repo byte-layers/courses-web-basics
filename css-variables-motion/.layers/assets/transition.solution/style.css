@@ -1,0 +1,18 @@
+body {
+  font-family: system-ui, sans-serif;
+  padding: 24px;
+}
+
+.bouton {
+  display: inline-block;
+  background-color: rgb(219, 39, 119);
+  color: rgb(255, 255, 255);
+  padding: 10px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.bouton:hover,
+.bouton:focus-visible {
+  background-color: rgb(124, 58, 237);
+}

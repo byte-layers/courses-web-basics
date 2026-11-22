@@ -1,0 +1,17 @@
+body {
+  font-family: system-ui, sans-serif;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  display: inline-block;
+  margin-right: 16px;
+}

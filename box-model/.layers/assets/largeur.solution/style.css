@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, "Segoe UI", sans-serif;
+}
+
+.colonne {
+  width: 300px;
+  background-color: rgb(224, 242, 254);
+}
+
+.carte {
+  width: 100%;
+  padding: 20px;
+  border: 4px solid rgb(11, 107, 203);
+  background-color: rgb(255, 255, 255);
+}

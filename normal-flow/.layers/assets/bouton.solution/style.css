@@ -1,0 +1,12 @@
+body {
+  font-family: system-ui, sans-serif;
+}
+
+.bouton {
+  display: inline-block;
+  background-color: rgb(219, 39, 119);
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  padding: 12px 20px;
+  margin-top: 24px;
+}

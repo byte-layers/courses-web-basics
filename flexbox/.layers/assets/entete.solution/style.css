@@ -1,0 +1,32 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+}
+
+.entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(30, 41, 59);
+  padding: 12px 24px;
+}
+
+.logo {
+  color: rgb(255, 255, 255);
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.menu {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
