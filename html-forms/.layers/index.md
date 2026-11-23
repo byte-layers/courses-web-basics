@@ -5,7 +5,7 @@ tags:
   - bit
   - html
 difficulty: beginner
-duration: 15
+duration: 18
 requires: "0.9.0"
 ---
 
@@ -44,6 +44,71 @@ step: methode
 ```
 
 Avec `method="get"`, les données s'ajoutent à l'adresse, après un `?` : elles s'affichent, restent dans l'historique et se partagent avec le lien. C'est le bon choix pour une recherche. Avec `method="post"`, elles voyagent dans la requête, sans s'afficher dans l'adresse : c'est le choix d'un message ou d'une inscription.
+
+## À toi : la bonne method pour chaque formulaire
+
+La page a deux formulaires : une **recherche** et une **inscription**, avec un mot de passe. Aucun des deux n'a la bonne `method`. Donne à chacun celle qui lui convient : on doit pouvoir partager le lien d'une recherche, et un mot de passe ne doit jamais s'afficher dans l'adresse. Attention : sans `method`, le navigateur prend `get`. Les formulaires n'envoient rien dans l'aperçu, c'est voulu.
+
+```playground
+runtime: web
+title: La bonne method pour chaque formulaire
+files:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <title>Le club</title>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <form id="recherche" action="/recherche" method="post">
+        <label for="q">Chercher un atelier</label>
+        <input type="search" id="q" name="q">
+        <button type="submit">Chercher</button>
+      </form>
+
+      <form id="inscription" action="/inscription">
+        <p>
+          <label for="pseudo">Pseudo</label>
+          <input type="text" id="pseudo" name="pseudo" required>
+        </p>
+        <p>
+          <label for="mdp">Mot de passe</label>
+          <input type="password" id="mdp" name="mdp" required>
+        </p>
+        <button type="submit">S'inscrire</button>
+      </form>
+    </body>
+    </html>
+  style.css: |
+    body {
+      font-family: system-ui, sans-serif;
+    }
+
+    form {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+    }
+open: [index.html, style.css]
+lock: [style.css]
+check: ask
+verify:
+  - label: la recherche part dans l'adresse, pour qu'on puisse partager le lien
+    selector: "#recherche"
+    attr: { method: "/^get$/i" }
+    hint: "Une recherche se partage : `method=\"get\"` ajoute `?q=…` à l'adresse."
+  - label: l'inscription envoie le mot de passe dans la requête, pas dans l'adresse
+    selector: "#inscription"
+    attr: { method: "/^post$/i" }
+    hint: "Ce formulaire n'a pas de `method` : le navigateur prend `get`, et le mot de passe s'afficherait dans l'adresse. Ajoute `method=\"post\"`."
+solution: assets/method.solution
+```
+
+Le formulaire d'inscription s'affichait et se remplissait normalement : sans `method`, rien ne signale que le mot de passe partirait dans l'adresse, puis dans l'historique du navigateur.
 
 ## Contrôler la saisie : required et type
 

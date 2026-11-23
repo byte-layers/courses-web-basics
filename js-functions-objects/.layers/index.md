@@ -10,7 +10,7 @@ duration: 20
 requires: "0.9.0"
 ---
 
-Ce que vous répétez, vous le nommez une fois ; ce que vous décrivez, vous le rangez ensemble. Vous saurez écrire une **fonction** avec ses paramètres, lui faire rendre un résultat avec `return`, l'écrire sans nom ou en forme fléchée (`(n) => n * 2`), décrire une chose par un **objet** (`{ titre: "Dune", pages: 900 }`), parcourir un tableau d'objets, et reconnaître le piège du `return` oublié : la fonction calcule, mais rend `undefined`.
+Ce que vous répétez, vous le nommez une fois ; ce que vous décrivez, vous le rangez ensemble. Vous saurez écrire une **fonction** avec ses paramètres, lui faire rendre un résultat avec `return`, décrire une chose par un **objet** (`{ titre: "Dune", pages: 900 }`), parcourir un tableau d'objets, écrire une fonction sans nom ou en forme fléchée (`(n) => n * 2`), et reconnaître le piège du `return` oublié : la fonction calcule, mais rend `undefined`.
 
 **Prérequis** : [Répéter : tableaux et boucles](https://byte-layers.com/fr/bits/js-arrays-loops), pour les tableaux et `for…of`.
 
@@ -146,61 +146,6 @@ solution: assets/return.solution
 ```
 
 La console affichait bien `30` : la fonction faisait le calcul, mais ne le donnait à personne. `prixTTC(25)` valait `undefined`, et `undefined * 2` donne `NaN`, sans erreur rouge.
-
-## Une fonction sans nom, et la forme fléchée
-
-Une fonction n'a pas toujours besoin d'un nom : `function (n) { … }`, sans nom, est une **valeur**, comme un nombre ou un texte. On la range dans une variable, ou on la donne à une autre fonction qui l'appellera plus tard. Elle a aussi une écriture plus courte, la **forme fléchée** (*arrow function*). Suivez la même fonction, écrite quatre fois :
-
-```scene
-lesson: assets/fleche.scene.json
-step: fleche
-```
-
-Les quatre écritures font le même travail. La forme fléchée courte, sans accolades, ne vaut que pour un seul calcul à rendre : dès qu'il y a des accolades, `return` redevient obligatoire.
-
-## À toi : écris-la en flèche
-
-La fonction `saluer` est rangée dans une variable, écrite avec `function`. Réécris-la en **forme fléchée**, sans le mot `function` : la console doit toujours afficher « Bonjour Léa ».
-
-```playground
-runtime: web
-title: Écris-la en flèche
-files:
-  index.html: |
-    <!DOCTYPE html>
-    <html lang="fr">
-    <head>
-      <meta charset="utf-8">
-      <title>Salut</title>
-      <script src="script.js" defer></script>
-    </head>
-    <body>
-      <h1>Salut</h1>
-    </body>
-    </html>
-  script.js: |
-    const saluer = function (prenom) {
-      return "Bonjour " + prenom;
-    };
-
-    console.log(saluer("Léa"));
-open: [script.js, index.html]
-lock: [index.html]
-show: [editor, preview, console]
-check: ask
-verify:
-  - label: la console affiche « Bonjour Léa »
-    console: /^Bonjour Léa$/
-    hint: "Si la console affiche `undefined`, la flèche a gardé ses accolades mais perdu son `return` : garde les deux, ou retire les deux."
-  - label: "`saluer` est écrite en forme fléchée, sans le mot `function`"
-    file: script.js
-    includes: /=>/
-    excludes: /\bfunction\b/
-    hint: "Retire `function`, et place `=>` juste après les parenthèses des paramètres : `(prenom) => …`."
-solution: assets/fleche.solution
-```
-
-L'appel `saluer("Léa")` n'a pas changé : seule l'écriture de la fonction change, pas la façon de s'en servir.
 
 ## Un objet : ranger une description
 
@@ -351,6 +296,61 @@ Au départ, la console affichait trois fois `undefined` : la fonction était app
 
 > 📖 [Les fonctions (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Functions) · [Utiliser les objets (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Working_with_objects) · [Les fonctions fléchées (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
+## Une fonction sans nom, et la forme fléchée
+
+Une fonction n'a pas toujours besoin d'un nom : `function (n) { … }`, sans nom, est une **valeur**, comme un nombre ou un texte. On la range dans une variable, ou on la donne à une autre fonction qui l'appellera plus tard. Elle a aussi une écriture plus courte, la **forme fléchée** (*arrow function*). Suivez la même fonction, écrite quatre fois :
+
+```scene
+lesson: assets/fleche.scene.json
+step: fleche
+```
+
+Les quatre écritures font le même travail. La forme fléchée courte, sans accolades, ne vaut que pour un seul calcul à rendre : dès qu'il y a des accolades, `return` redevient obligatoire.
+
+## À toi : écris-la en flèche
+
+La fonction `saluer` est rangée dans une variable, écrite avec `function`. Réécris-la en **forme fléchée**, sans le mot `function` : la console doit toujours afficher « Bonjour Léa ».
+
+```playground
+runtime: web
+title: Écris-la en flèche
+files:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <title>Salut</title>
+      <script src="script.js" defer></script>
+    </head>
+    <body>
+      <h1>Salut</h1>
+    </body>
+    </html>
+  script.js: |
+    const saluer = function (prenom) {
+      return "Bonjour " + prenom;
+    };
+
+    console.log(saluer("Léa"));
+open: [script.js, index.html]
+lock: [index.html]
+show: [editor, preview, console]
+check: ask
+verify:
+  - label: la console affiche « Bonjour Léa »
+    console: /^Bonjour Léa$/
+    hint: "Si la console affiche `undefined`, la flèche a gardé ses accolades mais perdu son `return` : garde les deux, ou retire les deux."
+  - label: "`saluer` est écrite en forme fléchée, sans le mot `function`"
+    file: script.js
+    includes: /=>/
+    excludes: /\bfunction\b/
+    hint: "Retire `function`, et place `=>` juste après les parenthèses des paramètres : `(prenom) => …`."
+solution: assets/fleche.solution
+```
+
+L'appel `saluer("Léa")` n'a pas changé : seule l'écriture de la fonction change, pas la façon de s'en servir.
+
 ## Trois questions pour vérifier ce que vous avez retenu
 
 ```quiz
@@ -386,9 +386,9 @@ questions:
 
 - Une **fonction** nomme un bloc de code ; on l'appelle avec des **arguments**, rangés dans ses **paramètres**.
 - **`return`** rend un résultat au code appelant ; sans `return`, la fonction rend **`undefined`**, et un calcul fait avec donne `NaN`, sans erreur.
-- Une fonction **sans nom** est une valeur : on la range dans une variable ou on la donne à une autre fonction ; sa **forme fléchée** s'écrit `(n) => n * 2`.
 - Un **objet** range des paires clé : valeur ; on lit une valeur avec `objet.cle` ou `objet["cle"]` ; une clé absente vaut `undefined`.
 - Un **tableau d'objets** se parcourt avec `for…of` : c'est la forme habituelle des données d'une application.
+- Une fonction **sans nom** est une valeur : on la range dans une variable ou on la donne à une autre fonction ; sa **forme fléchée** s'écrit `(n) => n * 2`.
 
 Tout ce que vous avez écrit jusqu'ici parle à la console. Pour lire et changer la page elle-même, JavaScript la voit comme des objets : c'est l'objet du bit [Le DOM : la page vue par JavaScript](https://byte-layers.com/fr/bits/dom).
 

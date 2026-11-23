@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Le club</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <form id="recherche" action="/recherche" method="get">
+    <label for="q">Chercher un atelier</label>
+    <input type="search" id="q" name="q">
+    <button type="submit">Chercher</button>
+  </form>
+
+  <form id="inscription" action="/inscription" method="post">
+    <p>
+      <label for="pseudo">Pseudo</label>
+      <input type="text" id="pseudo" name="pseudo" required>
+    </p>
+    <p>
+      <label for="mdp">Mot de passe</label>
+      <input type="password" id="mdp" name="mdp" required>
+    </p>
+    <button type="submit">S'inscrire</button>
+  </form>
+</body>
+</html>
