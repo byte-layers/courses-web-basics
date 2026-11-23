@@ -6,6 +6,8 @@ Les cours insistent sur les pièges du débutant : chaque exercice les fait renc
 
 ## Les bases HTML CSS
 
+Stack `html-css` : « Créer ses premières pages web ».
+
 | Dossier | Contenu | Type |
 |---|---|---|
 | `web-request-response/` | Le web : une adresse, une requête, une page | bit |
@@ -19,6 +21,8 @@ Les cours insistent sur les pièges du débutant : chaque exercice les fait renc
 | `portfolio-v1-challenge/` | Mon portfolio, version 1 | challenge |
 
 ## HTML CSS avancé
+
+Stack `web-layout` : « Mettre en page pour tous les écrans ».
 
 | Dossier | Contenu | Type |
 |---|---|---|
@@ -36,6 +40,8 @@ Les cours insistent sur les pièges du débutant : chaque exercice les fait renc
 
 ## Les bases de JavaScript
 
+Stack `javascript` : « Rendre une page interactive avec JavaScript ».
+
 | Dossier | Contenu | Type |
 |---|---|---|
 | `js-console/` | La console JavaScript : premier contact avec le moteur du navigateur | bit |
@@ -52,7 +58,7 @@ Les cours insistent sur les pièges du débutant : chaque exercice les fait renc
 ## Versions et fichiers
 
 - Les contenus se lisent dans l'ordre des tableaux.
-- Chaque contenu a son tag, de la forme `<dossier>/vN`.
+- Chaque contenu a son tag, de la forme `<dossier>/vN`. Chaque stack a son `stacks/<id>/stack.yml` et son tag `stacks/<id>/vN`.
 - Les bits qui ont un exercice de page web (playground `runtime: web` : éditeur, aperçu, console, contrôles sur la page rendue) demandent l'extension 0.9.0. Les deux autres bits demandent la 0.8.0. Les labs et les challenges demandent la 0.4.0.
 - Dans VS Code, le playground web ne montre pas encore son aperçu : il s'ouvre sur le site.
 - Les labs et les challenges écrivent dans `~/byte-layers/web/`.

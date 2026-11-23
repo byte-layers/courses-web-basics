@@ -1,0 +1,32 @@
+title: "Mettre en page pour tous les écrans"
+description: "Placer les éléments avec le flux, Flexbox et Grid, écrire des tableaux et des formulaires, rendre une page adaptative et accessible, puis comprendre ce que font Bootstrap et Tailwind : jusqu'à la version 2 de votre portfolio."
+level: beginner
+tags: [html, css, web]
+prerequisites: "Savoir écrire une page HTML et sa feuille CSS : le stack « Créer ses premières pages web »."
+layers:
+  - title: "Placer les éléments"
+    summary: "Le flux normal, puis Flexbox sur une ligne et Grid en lignes et colonnes"
+    contents:
+      - { slug: normal-flow, role: read-first }
+      - { slug: flexbox }
+      - { slug: css-grid }
+  - title: "Tableaux et formulaires"
+    summary: "Des données en tableau et des champs qui se remplissent"
+    contents:
+      - { slug: html-tables-forms }
+  - title: "Adaptatif et accessible"
+    summary: "Une page pour tous les écrans et lisible par tous"
+    contents:
+      - { slug: responsive-design }
+      - { slug: web-accessibility }
+  - title: "Outils du CSS"
+    summary: "Variables et mouvement, puis les frameworks et pourquoi le CSS se compile"
+    contents:
+      - { slug: css-variables-motion }
+      - { slug: css-frameworks }
+      - { slug: css-build-tools }
+  - title: "Assembler"
+    summary: "Tout refaire sur votre machine, puis livrer la version 2 de votre portfolio"
+    contents:
+      - { slug: html-css-advanced-lab }
+      - { slug: portfolio-v2-challenge, role: proof }

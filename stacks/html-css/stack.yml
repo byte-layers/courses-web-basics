@@ -1,0 +1,27 @@
+title: "Créer ses premières pages web"
+description: "Comprendre ce qui se passe entre une adresse et une page, structurer un document en HTML, l'habiller en CSS et rencontrer les pièges du débutant avant qu'une IA ne les cache : jusqu'à la première version de votre portfolio."
+level: beginner
+tags: [html, css, web]
+prerequisites: "Avoir VS Code et un navigateur installés. Aucune connaissance du web n'est demandée."
+layers:
+  - title: "Comprendre le web"
+    summary: "Une adresse, une requête, une page, et les trois langages qui la composent"
+    contents:
+      - { slug: web-request-response, role: read-first }
+      - { slug: web-page-languages }
+      - { slug: web-everywhere }
+  - title: "Structurer en HTML"
+    summary: "Le squelette d'une page, son texte, ses liens, ses images et leur sens"
+    contents:
+      - { slug: html-document }
+      - { slug: semantic-html }
+  - title: "Habiller en CSS"
+    summary: "Règles, sélecteurs, cascade et modèle de boîte"
+    contents:
+      - { slug: css-rules-cascade }
+      - { slug: box-model }
+  - title: "Assembler"
+    summary: "Tout refaire sur votre machine, puis publier la version 1 de votre portfolio"
+    contents:
+      - { slug: html-css-basics-lab }
+      - { slug: portfolio-v1-challenge, role: proof }

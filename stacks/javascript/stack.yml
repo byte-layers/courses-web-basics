@@ -1,0 +1,25 @@
+title: "Rendre une page interactive avec JavaScript"
+description: "Parler au moteur du navigateur dans la console, brancher un script sur une page, décider, répéter, ranger son code en fonctions, puis modifier la page, réagir aux actions du visiteur et charger des données : jusqu'à la version 3 de votre portfolio."
+level: beginner
+tags: [javascript, web]
+prerequisites: "Savoir écrire une page HTML et la mettre en page en CSS : les stacks « Créer ses premières pages web » et « Mettre en page pour tous les écrans »."
+layers:
+  - title: "Le langage"
+    summary: "La console, le script dans la page, les conditions, les boucles, les fonctions et les objets"
+    contents:
+      - { slug: js-console, role: read-first }
+      - { slug: js-in-page }
+      - { slug: js-conditions }
+      - { slug: js-arrays-loops }
+      - { slug: js-functions-objects }
+  - title: "La page"
+    summary: "Le DOM, les événements et les données chargées avec fetch"
+    contents:
+      - { slug: dom }
+      - { slug: dom-events }
+      - { slug: json-fetch }
+  - title: "Assembler"
+    summary: "Tout refaire sur votre machine, puis rendre votre portfolio interactif"
+    contents:
+      - { slug: js-basics-lab }
+      - { slug: portfolio-v3-challenge, role: proof }
