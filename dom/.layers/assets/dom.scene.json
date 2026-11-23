@@ -1,0 +1,1482 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "dom-plan",
+ "title": "Le DOM (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "y",
+   "label": "fichier"
+  },
+  {
+   "tone": "v",
+   "label": "objet du DOM"
+  },
+  {
+   "tone": "b",
+   "label": "page affichée"
+  },
+  {
+   "tone": "g",
+   "label": "ajouté, trouvé"
+  }
+ ],
+ "entities": [
+  {
+   "id": "file",
+   "kind": "node",
+   "at": [
+    -10,
+    -7.6
+   ],
+   "tone": "y",
+   "size": [
+    5.8,
+    1.8,
+    1
+   ],
+   "title": "index.html",
+   "sub": "le fichier",
+   "detail": "Le **fichier HTML** que tu as écrit. Le navigateur le lit une fois ; ensuite, il ne change plus."
+  },
+  {
+   "id": "doc",
+   "kind": "program",
+   "at": [
+    0,
+    -7.6
+   ],
+   "tone": "v",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "document",
+   "detail": "La racine de l'arbre : l'objet **`document`**, par lequel JavaScript entre dans le DOM."
+  },
+  {
+   "id": "html",
+   "kind": "program",
+   "at": [
+    0,
+    -5.4
+   ],
+   "tone": "v",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "html"
+  },
+  {
+   "id": "head",
+   "kind": "program",
+   "at": [
+    -4,
+    -3.2
+   ],
+   "tone": "v",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "head"
+  },
+  {
+   "id": "body",
+   "kind": "program",
+   "at": [
+    4,
+    -3.2
+   ],
+   "tone": "v",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "body",
+   "detail": "Un **objet** par élément, rangé dans son parent : `body` contient le titre et la liste."
+  },
+  {
+   "id": "h1",
+   "kind": "program",
+   "at": [
+    1,
+    -1.0
+   ],
+   "tone": "v",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "h1"
+  },
+  {
+   "id": "ul",
+   "kind": "program",
+   "at": [
+    7.5,
+    -1.0
+   ],
+   "tone": "v",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "ul#projets"
+  },
+  {
+   "id": "li1",
+   "kind": "program",
+   "at": [
+    3.5,
+    1.2
+   ],
+   "tone": "v",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "li"
+  },
+  {
+   "id": "li2",
+   "kind": "program",
+   "at": [
+    8,
+    1.2
+   ],
+   "tone": "v",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "li"
+  },
+  {
+   "id": "li3",
+   "kind": "program",
+   "at": [
+    12.5,
+    1.2
+   ],
+   "tone": "g",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "li"
+  },
+  {
+   "id": "js",
+   "kind": "node",
+   "at": [
+    13,
+    -3.6
+   ],
+   "tone": "y",
+   "size": [
+    5.6,
+    1.8,
+    1
+   ],
+   "title": "script.js",
+   "detail": "Le script crée un `<li>` et l'insère dans la liste avec `append`."
+  },
+  {
+   "id": "page",
+   "kind": "layer",
+   "at": [
+    2,
+    5.0
+   ],
+   "tone": "b",
+   "size": [
+    25,
+    3.4,
+    1
+   ],
+   "title": "page affichée"
+  },
+  {
+   "id": "p-h1",
+   "kind": "node",
+   "at": [
+    -7.5,
+    0.5
+   ],
+   "tone": "b",
+   "size": [
+    6,
+    1.5,
+    1
+   ],
+   "in": "page",
+   "title": "Ada Lovelace"
+  },
+  {
+   "id": "p-li1",
+   "kind": "file",
+   "at": [
+    -0.5,
+    0.5
+   ],
+   "tone": "b",
+   "size": [
+    4.6,
+    1.2,
+    1
+   ],
+   "in": "page",
+   "title": "• Portfolio"
+  },
+  {
+   "id": "p-li2",
+   "kind": "file",
+   "at": [
+    4.5,
+    0.5
+   ],
+   "tone": "b",
+   "size": [
+    4.6,
+    1.2,
+    1
+   ],
+   "in": "page",
+   "title": "• Météo"
+  },
+  {
+   "id": "p-li3",
+   "kind": "file",
+   "at": [
+    9.5,
+    0.5
+   ],
+   "tone": "g",
+   "size": [
+    4.6,
+    1.2,
+    1
+   ],
+   "in": "page",
+   "title": "• HTML"
+  },
+  {
+   "id": "js2",
+   "kind": "node",
+   "at": [
+    -15,
+    -7
+   ],
+   "tone": "y",
+   "size": [
+    8.2,
+    2.0,
+    1
+   ],
+   "title": "script.js"
+  },
+  {
+   "id": "body2",
+   "kind": "program",
+   "at": [
+    0,
+    -7
+   ],
+   "tone": "v",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "body"
+  },
+  {
+   "id": "h1b",
+   "kind": "program",
+   "at": [
+    -10,
+    -2
+   ],
+   "tone": "v",
+   "size": [
+    5.4,
+    1.5,
+    1
+   ],
+   "title": "h1"
+  },
+  {
+   "id": "a1",
+   "kind": "program",
+   "at": [
+    -3.5,
+    -2
+   ],
+   "tone": "v",
+   "size": [
+    5.4,
+    1.5,
+    1
+   ],
+   "title": "article.projet"
+  },
+  {
+   "id": "a2",
+   "kind": "program",
+   "at": [
+    3,
+    -2
+   ],
+   "tone": "v",
+   "size": [
+    5.4,
+    1.5,
+    1
+   ],
+   "title": "article.projet"
+  },
+  {
+   "id": "a3",
+   "kind": "program",
+   "at": [
+    9.5,
+    -2
+   ],
+   "tone": "v",
+   "size": [
+    5.4,
+    1.5,
+    1
+   ],
+   "title": "article.projet"
+  },
+  {
+   "id": "nl",
+   "kind": "layer",
+   "at": [
+    3,
+    4.2
+   ],
+   "tone": "g",
+   "size": [
+    21,
+    4.0,
+    1
+   ],
+   "title": "NodeList",
+   "sub": "length : 3",
+   "detail": "Une **NodeList** : un `length`, des index, `for…of` la parcourt. C'est une liste, pas un élément : pas de `classList`."
+  },
+  {
+   "id": "r0",
+   "kind": "file",
+   "at": [
+    -6.5,
+    0.6
+   ],
+   "tone": "g",
+   "size": [
+    5.4,
+    1.3,
+    1
+   ],
+   "in": "nl",
+   "title": "[0]"
+  },
+  {
+   "id": "r1",
+   "kind": "file",
+   "at": [
+    0,
+    0.6
+   ],
+   "tone": "g",
+   "size": [
+    5.4,
+    1.3,
+    1
+   ],
+   "in": "nl",
+   "title": "[1]"
+  },
+  {
+   "id": "r2",
+   "kind": "file",
+   "at": [
+    6.5,
+    0.6
+   ],
+   "tone": "g",
+   "size": [
+    5.4,
+    1.3,
+    1
+   ],
+   "in": "nl",
+   "title": "[2]"
+  },
+  {
+   "id": "js3",
+   "kind": "node",
+   "at": [
+    -14,
+    -6
+   ],
+   "tone": "y",
+   "size": [
+    7,
+    2.0,
+    1
+   ],
+   "title": "script.js"
+  },
+  {
+   "id": "ul3",
+   "kind": "program",
+   "at": [
+    2,
+    -6
+   ],
+   "tone": "v",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "ul#competences"
+  },
+  {
+   "id": "old",
+   "kind": "program",
+   "at": [
+    -1.5,
+    -2
+   ],
+   "tone": "v",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "li : HTML"
+  },
+  {
+   "id": "neu",
+   "kind": "program",
+   "at": [
+    -14,
+    -1.4
+   ],
+   "tone": "g",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "li",
+   "label": "hors de la page",
+   "detail": "`document.createElement(\"li\")` fabrique un élément : il existe, mais il n'est dans aucun parent."
+  },
+  {
+   "id": "page3",
+   "kind": "layer",
+   "at": [
+    4,
+    4.6
+   ],
+   "tone": "b",
+   "size": [
+    24,
+    4.4,
+    1
+   ],
+   "title": "page affichée"
+  },
+  {
+   "id": "p-old",
+   "kind": "file",
+   "at": [
+    -6.5,
+    0.6
+   ],
+   "tone": "b",
+   "size": [
+    6,
+    1.3,
+    1
+   ],
+   "in": "page3",
+   "title": "• HTML"
+  },
+  {
+   "id": "p-neu",
+   "kind": "file",
+   "at": [
+    0.5,
+    0.6
+   ],
+   "tone": "g",
+   "size": [
+    6,
+    1.3,
+    1
+   ],
+   "in": "page3",
+   "title": "• CSS"
+  },
+  {
+   "id": "neu2",
+   "kind": "program",
+   "at": [
+    12.5,
+    -2
+   ],
+   "tone": "g",
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "title": "li : JavaScript"
+  },
+  {
+   "id": "p-neu2",
+   "kind": "file",
+   "at": [
+    7.5,
+    0.6
+   ],
+   "tone": "g",
+   "size": [
+    6,
+    1.3,
+    1
+   ],
+   "in": "page3",
+   "title": "• JavaScript"
+  },
+  {
+   "id": "k1",
+   "kind": "node",
+   "at": [
+    -9,
+    -4.5
+   ],
+   "tone": "y",
+   "size": [
+    14,
+    1.7,
+    1
+   ],
+   "title": "titre.textContent = \"Bonjour !\"",
+   "detail": "`textContent` **remplace** le texte de l'élément."
+  },
+  {
+   "id": "k2",
+   "kind": "node",
+   "at": [
+    -9,
+    -2.0
+   ],
+   "tone": "y",
+   "size": [
+    14,
+    1.7,
+    1
+   ],
+   "title": "carte.classList.add(\"en-avant\")",
+   "detail": "`classList.add` **pose** une classe ; la couleur, elle, est écrite dans le CSS."
+  },
+  {
+   "id": "k3",
+   "kind": "node",
+   "at": [
+    -9,
+    0.5
+   ],
+   "tone": "y",
+   "size": [
+    14,
+    1.7,
+    1
+   ],
+   "title": "carte.classList.toggle(\"en-avant\")",
+   "detail": "`classList.toggle` pose la classe si elle manque, la **retire** si elle y est."
+  },
+  {
+   "id": "css",
+   "kind": "node",
+   "at": [
+    -9,
+    5.0
+   ],
+   "tone": "y",
+   "size": [
+    14,
+    2.2,
+    1
+   ],
+   "title": ".en-avant : fond jaune clair",
+   "sub": "style.css",
+   "detail": "La règle CSS de la classe `en-avant` : la couleur reste ici, en un seul endroit."
+  },
+  {
+   "id": "page4",
+   "kind": "layer",
+   "at": [
+    9,
+    0
+   ],
+   "tone": "b",
+   "size": [
+    14,
+    13,
+    1
+   ],
+   "title": "page affichée"
+  },
+  {
+   "id": "q-h1",
+   "kind": "node",
+   "at": [
+    0,
+    -3.6
+   ],
+   "tone": "b",
+   "size": [
+    10.5,
+    2.2,
+    1
+   ],
+   "in": "page4",
+   "title": "Mes projets",
+   "sub": "h1"
+  },
+  {
+   "id": "q-card",
+   "kind": "node",
+   "at": [
+    0,
+    1.4
+   ],
+   "tone": "b",
+   "size": [
+    10.5,
+    3.0,
+    1
+   ],
+   "in": "page4",
+   "title": "Portfolio",
+   "sub": "class=\"projet\""
+  }
+ ],
+ "steps": [
+  {
+   "id": "arbre",
+   "label": "L'arbre",
+   "title": "Le HTML devient un arbre d'objets, le DOM",
+   "body": [
+    "Le navigateur construit un objet par élément, rangé dans son parent. Il dessine cet arbre ; JavaScript le modifie."
+   ],
+   "hud": [
+    {
+     "label": "index.html",
+     "value": "lu"
+    }
+   ],
+   "show": [
+    "file",
+    "doc"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "file",
+       "to": "doc"
+      }
+     ],
+     "ms": 500
+    },
+    {
+     "do": "send",
+     "path": [
+      "file",
+      "doc"
+     ],
+     "label": "lecture",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "show": [
+      "html",
+      "head",
+      "body"
+     ],
+     "link": [
+      {
+       "from": "doc",
+       "to": "html"
+      },
+      {
+       "from": "html",
+       "to": "head"
+      },
+      {
+       "from": "html",
+       "to": "body"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "file",
+       "to": "doc"
+      }
+     ],
+     "say": "En lisant le HTML, le navigateur construit un **arbre** : un objet par élément, rangé dans son parent."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "show": [
+      "h1",
+      "ul",
+      "li1",
+      "li2"
+     ],
+     "link": [
+      {
+       "from": "body",
+       "to": "h1"
+      },
+      {
+       "from": "body",
+       "to": "ul"
+      },
+      {
+       "from": "ul",
+       "to": "li1"
+      },
+      {
+       "from": "ul",
+       "to": "li2"
+      }
+     ],
+     "say": "`body` contient un titre et une liste, la liste deux `li` : l'arbre suit l'imbrication des balises."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "show": [
+      "page",
+      "p-h1",
+      "p-li1",
+      "p-li2"
+     ],
+     "say": "C'est cet arbre, le **DOM**, que le navigateur dessine à l'écran."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "js"
+     ],
+     "link": [
+      {
+       "from": "js",
+       "to": "ul"
+      }
+     ],
+     "ms": 500
+    },
+    {
+     "do": "send",
+     "path": [
+      "js",
+      "ul"
+     ],
+     "label": "append(li)",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "show": [
+      "li3"
+     ],
+     "link": [
+      {
+       "from": "ul",
+       "to": "li3"
+      }
+     ],
+     "say": "JavaScript ajoute un `li` : il l'ajoute à l'**arbre**, dans la liste."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "p-li3"
+     ],
+     "hud": [
+      {
+       "label": "index.html",
+       "value": "inchangé",
+       "tone": null
+      },
+      {
+       "label": "DOM",
+       "value": "3 li",
+       "tone": "g"
+      }
+     ],
+     "say": "La page affichée le montre aussitôt ; le fichier `index.html`, lui, n'a pas changé."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "chercher",
+   "label": "Chercher",
+   "title": "querySelector rend le premier, querySelectorAll les rend tous",
+   "body": [
+    "Les deux méthodes cherchent avec un sélecteur CSS ; l'une s'arrête au premier élément trouvé, l'autre les prend tous."
+   ],
+   "hud": [
+    {
+     "label": "rend",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "js2",
+    "body2",
+    "h1b",
+    "a1",
+    "a2",
+    "a3"
+   ],
+   "links": [
+    {
+     "from": "js2",
+     "to": "body2"
+    },
+    {
+     "from": "body2",
+     "to": "h1b"
+    },
+    {
+     "from": "body2",
+     "to": "a1"
+    },
+    {
+     "from": "body2",
+     "to": "a2"
+    },
+    {
+     "from": "body2",
+     "to": "a3"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "js2",
+       "label": "querySelector(\".projet\")"
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "js2",
+      "body2",
+      "a1"
+     ],
+     "label": ".projet",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "a1",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "rend",
+       "value": "1 élément",
+       "tone": "g"
+      }
+     ],
+     "say": "`querySelector(\".projet\")` parcourt l'arbre et s'arrête au **premier** élément qui correspond."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "a2",
+       "dim": true
+      },
+      {
+       "id": "a3",
+       "dim": true
+      }
+     ],
+     "say": "Il rend cet élément seul, pas une liste : un élément n'a pas de `length`."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "js2",
+       "label": "querySelectorAll(\".projet\")"
+      },
+      {
+       "id": "a1",
+       "tone": "v"
+      },
+      {
+       "id": "a2",
+       "dim": false
+      },
+      {
+       "id": "a3",
+       "dim": false
+      }
+     ],
+     "hud": [
+      {
+       "label": "rend",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "say": "Même sélecteur, avec `querySelectorAll`."
+    },
+    {
+     "do": "send",
+     "path": [
+      "js2",
+      "body2",
+      "a1"
+     ],
+     "tone": "g"
+    },
+    {
+     "do": "send",
+     "path": [
+      "body2",
+      "a2"
+     ],
+     "tone": "g"
+    },
+    {
+     "do": "send",
+     "path": [
+      "body2",
+      "a3"
+     ],
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "a1",
+       "tone": "g"
+      },
+      {
+       "id": "a2",
+       "tone": "g"
+      },
+      {
+       "id": "a3",
+       "tone": "g"
+      }
+     ],
+     "show": [
+      "nl",
+      "r0",
+      "r1",
+      "r2"
+     ],
+     "link": [
+      {
+       "from": "a1",
+       "to": "r0",
+       "dashed": true
+      },
+      {
+       "from": "a2",
+       "to": "r1",
+       "dashed": true
+      },
+      {
+       "from": "a3",
+       "to": "r2",
+       "dashed": true
+      }
+     ],
+     "hud": [
+      {
+       "label": "rend",
+       "value": "une NodeList",
+       "tone": "g"
+      }
+     ],
+     "say": "Il parcourt tout l'arbre et rend **tous** les éléments trouvés, dans une `NodeList`."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "length",
+       "value": 3,
+       "tone": "g"
+      }
+     ],
+     "say": "Une `NodeList` a un `length` et des index, et `for…of` la parcourt ; mais c'est une liste, pas un élément : pas de `classList`."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "changer",
+   "label": "Changer",
+   "title": "textContent change le texte, classList la classe",
+   "body": [
+    "Le code à gauche, la page à droite : chaque ligne change un élément déjà trouvé."
+   ],
+   "hud": [
+    {
+     "label": "carte",
+     "value": "projet"
+    }
+   ],
+   "show": [
+    "k1",
+    "k2",
+    "k3",
+    "css",
+    "page4",
+    "q-h1",
+    "q-card"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "k1",
+       "to": "q-h1"
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "k1",
+      "q-h1"
+     ],
+     "label": "textContent",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "q-h1",
+       "title": "Bonjour !",
+       "tone": "g"
+      }
+     ],
+     "say": "`textContent` **remplace** le texte du titre : la page affiche aussitôt le nouveau."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "k2",
+       "to": "q-card"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "k1",
+       "to": "q-h1"
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "k2",
+      "q-card"
+     ],
+     "label": "add",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "q-card",
+       "sub": "class=\"projet en-avant\""
+      }
+     ],
+     "hud": [
+      {
+       "label": "carte",
+       "value": "projet en-avant",
+       "tone": "g"
+      }
+     ],
+     "say": "`classList.add` **pose** la classe `en-avant` sur la carte. Le code n'écrit aucune couleur."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "css",
+       "to": "q-card",
+       "dashed": true
+      }
+     ],
+     "set": [
+      {
+       "id": "q-card",
+       "tone": "g"
+      }
+     ],
+     "say": "C'est la règle du CSS qui colore la carte, dès que la classe est là."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "k3",
+       "to": "q-card"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "k2",
+       "to": "q-card"
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "k3",
+      "q-card"
+     ],
+     "label": "toggle",
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "q-card",
+       "sub": "class=\"projet\"",
+       "tone": "b"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "css",
+       "to": "q-card"
+      }
+     ],
+     "hud": [
+      {
+       "label": "carte",
+       "value": "projet",
+       "tone": null
+      }
+     ],
+     "say": "`classList.toggle` **retire** la classe, puisqu'elle y est : la carte retrouve son fond, sans couleur à effacer."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "send",
+     "path": [
+      "k3",
+      "q-card"
+     ],
+     "label": "toggle",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "q-card",
+       "sub": "class=\"projet en-avant\"",
+       "tone": "g"
+      }
+     ],
+     "link": [
+      {
+       "from": "css",
+       "to": "q-card",
+       "dashed": true
+      }
+     ],
+     "hud": [
+      {
+       "label": "carte",
+       "value": "projet en-avant",
+       "tone": "g"
+      }
+     ],
+     "say": "Un second `toggle` la repose : un même geste allume et éteint."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "inserer",
+   "label": "Créer, insérer",
+   "title": "Fabriquer un élément, puis l'insérer",
+   "body": [
+    "`createElement` fabrique un élément hors de la page ; il n'apparaît qu'une fois inséré avec `append`."
+   ],
+   "hud": [
+    {
+     "label": "dans la page",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "js3",
+    "ul3",
+    "old",
+    "page3",
+    "p-old"
+   ],
+   "links": [
+    {
+     "from": "js3",
+     "to": "ul3",
+     "dashed": true
+    },
+    {
+     "from": "ul3",
+     "to": "old"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "scene",
+     "show": [
+      "neu"
+     ],
+     "link": [
+      {
+       "from": "js3",
+       "to": "neu"
+      }
+     ],
+     "hud": [
+      {
+       "label": "dans la page",
+       "value": "non",
+       "tone": "r"
+      }
+     ],
+     "say": "`createElement(\"li\")` fabrique un `li` : il existe, mais **hors de la page**."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "send",
+     "path": [
+      "js3",
+      "neu"
+     ],
+     "label": "textContent",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "neu",
+       "title": "li : CSS"
+      }
+     ],
+     "say": "`textContent` le remplit. Toujours rien à l'écran : il n'est dans aucun parent."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "neu",
+       "at": [
+        5.5,
+        -2
+       ],
+       "label": null
+      }
+     ],
+     "unlink": [
+      {
+       "from": "js3",
+       "to": "neu"
+      }
+     ],
+     "link": [
+      {
+       "from": "ul3",
+       "to": "neu"
+      },
+      {
+       "from": "js3",
+       "to": "ul3"
+      }
+     ],
+     "show": [
+      "p-neu"
+     ],
+     "hud": [
+      {
+       "label": "dans la page",
+       "value": "oui",
+       "tone": "g"
+      }
+     ],
+     "say": "`append` l'insère à la fin de la liste : il entre dans l'arbre, et la page affichée le montre.",
+     "ms": 1100
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "send",
+     "path": [
+      "js3",
+      "ul3"
+     ],
+     "label": "append(li)",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "show": [
+      "neu2",
+      "p-neu2"
+     ],
+     "link": [
+      {
+       "from": "ul3",
+       "to": "neu2"
+      }
+     ],
+     "say": "Dans une boucle, les trois gestes se répètent : un **nouvel** élément à chaque tour."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

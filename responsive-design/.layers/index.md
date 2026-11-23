@@ -6,7 +6,7 @@ tags:
   - css
   - html
 difficulty: beginner
-duration: 15
+duration: 20
 requires: "0.9.0"
 ---
 
@@ -16,24 +16,31 @@ Le **responsive design** consiste à écrire **une seule page** qui s'adapte à 
 
 # Le responsive design : une page pour tous les écrans
 
-La page du portfolio a été écrite sur un écran d'ordinateur. Elle sera aussi lue sur un téléphone, et ce sera la même page : même HTML, même adresse. Seul le CSS s'ajuste à la largeur.
+Une page écrite sur un écran d'ordinateur sera aussi lue sur un téléphone, et ce sera la même page : même HTML, même adresse. Seul le CSS s'ajuste à la largeur.
 
 ## Une seule page, des largeurs très différentes
 
-Un même site est lu sur des écrans dont la largeur varie du simple au quadruple. Le CSS ne connaît pas l'appareil : il ne connaît que la **largeur de la fenêtre**, en pixels CSS.
+Un même site est lu sur des écrans dont la largeur varie du simple au quadruple, de `360px` pour un téléphone à `1600px` et plus pour un grand écran.
 
-| Appareil | Largeur typique |
-|---|---|
-| Téléphone | 360 à 430 px |
-| Tablette, en portrait | 768 px |
-| Ordinateur portable | 1280 à 1440 px |
-| Grand écran | 1600 px et plus |
+```scene
+lesson: assets/responsive.scene.json
+step: largeurs
+```
+
+Le CSS ne connaît pas l'appareil : il ne connaît que la **largeur de la fenêtre**, en pixels CSS.
 
 Le **test décisif** d'une page adaptative : de `360px` à `1600px`, elle se lit **sans barre de défilement horizontale**. Les outils de développement du navigateur ont un **mode appareil** (Ctrl+Maj+M, ou Cmd+Maj+M sous macOS) qui affiche la page à la largeur de votre choix.
 
 ## La balise meta viewport : sans elle, rien ne marche
 
-Un navigateur de téléphone qui ne sait pas si la page est prévue pour lui fait comme si l'écran mesurait environ **`980px`**, puis réduit le tout : le texte devient minuscule, et aucune de vos règles pour petit écran ne s'applique, puisque la fenêtre « mesure » `980px`. Une ligne dans le `head` lui dit d'utiliser la vraie largeur de l'écran :
+Un navigateur de téléphone qui ne sait pas si la page est prévue pour lui fait comme si l'écran mesurait environ **`980px`**, puis réduit le tout : le texte devient minuscule, et aucune de vos règles pour petit écran ne s'applique, puisque la fenêtre « mesure » `980px`.
+
+```scene
+lesson: assets/responsive.scene.json
+step: viewport
+```
+
+La page n'a pas changé : seule la **largeur de mise en page** est passée de `980px` à la vraie largeur de l'écran. C'est cette ligne, dans le `head`, qui le dit au navigateur :
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,15 +55,24 @@ Un navigateur de téléphone qui ne sait pas si la page est prévue pour lui fai
 
 ## Le piège : des largeurs fixes et le scroll horizontal
 
-Une largeur fixe, `width: 960px`, ne rétrécit jamais : sur un écran de `375px`, la boîte dépasse de `585px`, et la page entière gagne une barre de défilement horizontale. Les images sont le premier coupable, parce qu'elles s'affichent par défaut à leur taille réelle.
+Une largeur fixe, `width: 960px`, ne rétrécit jamais.
 
-| Au lieu de | Écrire | Pourquoi |
-|---|---|---|
-| `width: 960px` | `max-width: 960px` | la boîte s'arrête à `960px` sur grand écran, et rétrécit sur petit écran |
-| rien sur les images | `img { max-width: 100%; height: auto; }` | l'image ne dépasse jamais de son parent et garde ses proportions |
-| `padding: 40px` sur tout | des valeurs modestes, ou en `rem` | sur petit écran, chaque pixel compte |
+```scene
+lesson: assets/responsive.scene.json
+step: debord
+```
 
-**À toi** : la fiche déborde sur un téléphone. Ajoute la balise `meta viewport`, transforme la largeur fixe du conteneur en largeur maximale, et empêche l'image de dépasser.
+Sur un écran de `375px`, la boîte dépasse de `585px`, et la page entière gagne une **barre de défilement horizontale**. Les images sont le premier coupable, parce qu'elles s'affichent par défaut à leur taille réelle.
+
+| Au lieu de | Écrire |
+|---|---|
+| `width: 960px` | `max-width: 960px` : la boîte s'arrête à `960px` sur grand écran, et rétrécit sur petit écran |
+| rien sur les images | `img { max-width: 100%; height: auto; }` : l'image ne dépasse jamais de son parent et garde ses proportions |
+| `padding: 40px` sur tout | des valeurs modestes, ou en `rem` : sur petit écran, chaque pixel compte |
+
+## À toi : une fiche qui déborde
+
+Cette fiche déborde sur un téléphone. Ajoute la balise `meta viewport`, transforme la largeur fixe du conteneur en largeur maximale, et empêche l'image de dépasser.
 
 ```playground
 runtime: web
@@ -130,7 +146,7 @@ Le dernier contrôle vérifie l'autre moitié du travail : `max-width` laisse la
 
 ## Les media queries, en mobile-first
 
-Une **media query** applique des règles **seulement à partir d'une certaine largeur**. La méthode courante, le **mobile-first**, écrit d'abord le style du téléphone, sans condition, puis ajoute des enrichissements pour les écrans plus larges, avec **`min-width`** :
+Une **media query** applique des règles **seulement à partir d'une certaine largeur**. La méthode courante, le **mobile-first**, écrit d'abord le style du téléphone, sans condition, puis l'enrichit pour les écrans plus larges, avec **`min-width`** :
 
 ```css
 .menu {
@@ -145,9 +161,18 @@ Une **media query** applique des règles **seulement à partir d'une certaine la
 }
 ```
 
+Voici ce que fait cette règle quand la fenêtre s'élargit.
+
+```scene
+lesson: assets/responsive.scene.json
+step: media
+```
+
 **`min-width: 700px`** veut dire « la fenêtre fait **au moins** `700px` », donc les grands écrans. `max-width: 700px` veut dire l'inverse, « au plus `700px` ». Confondre les deux est le contresens le plus fréquent : tout est inversé, et aucun message ne le signale. Les media queries se placent **après** les règles de base : à spécificité égale, la dernière règle écrite gagne.
 
-**À toi** : le menu devrait être empilé sur un téléphone et en ligne sur grand écran. C'est l'inverse qui se passe. Trouve le contresens dans la media query et corrige-le.
+## À toi : un menu qui s'adapte
+
+Le menu devrait être empilé sur un téléphone et en ligne sur grand écran. C'est l'inverse qui se passe. Trouve le contresens dans la media query et corrige-le.
 
 ```playground
 runtime: web

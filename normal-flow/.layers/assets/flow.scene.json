@@ -1,0 +1,1033 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "normal-flow",
+ "title": "Bloc, inline : le flux normal",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "v",
+   "label": "bloc"
+  },
+  {
+   "tone": "y",
+   "label": "inline"
+  },
+  {
+   "tone": "g",
+   "label": "inline-block"
+  },
+  {
+   "tone": "r",
+   "label": "marge"
+  }
+ ],
+ "entities": [
+  {
+   "id": "body",
+   "kind": "layer",
+   "at": [
+    0,
+    -0.6
+   ],
+   "tone": "n",
+   "size": [
+    19,
+    10.4,
+    1
+   ],
+   "title": "body",
+   "detail": "La page : le `body` est la boîte qui contient toutes les autres. Sa largeur est celle de la fenêtre."
+  },
+  {
+   "id": "h1",
+   "kind": "node",
+   "at": [
+    0,
+    -3.6
+   ],
+   "tone": "v",
+   "size": [
+    17,
+    1.5,
+    1
+   ],
+   "title": "h1 · Mes projets",
+   "detail": "Un **bloc** commence sur une nouvelle ligne et prend **toute la largeur** de son parent."
+  },
+  {
+   "id": "p",
+   "kind": "layer",
+   "at": [
+    0,
+    -1.3
+   ],
+   "tone": "v",
+   "size": [
+    17,
+    2.4,
+    1
+   ],
+   "title": "p",
+   "detail": "Le paragraphe est un **bloc** : il se pose sous le titre. Il contient du texte et des éléments **inline**."
+  },
+  {
+   "id": "t1",
+   "kind": "file",
+   "at": [
+    -5.6,
+    -0.85
+   ],
+   "tone": "y",
+   "size": [
+    5.2,
+    1.0,
+    1
+   ],
+   "title": "Un site pour un"
+  },
+  {
+   "id": "strong",
+   "kind": "file",
+   "at": [
+    -0.8,
+    -0.85
+   ],
+   "tone": "y",
+   "size": [
+    3.8,
+    1.0,
+    1
+   ],
+   "title": "strong · club",
+   "detail": "`strong` est **inline** : il reste dans la phrase et ne prend que la largeur de son contenu."
+  },
+  {
+   "id": "t2",
+   "kind": "file",
+   "at": [
+    3.6,
+    -0.85
+   ],
+   "tone": "y",
+   "size": [
+    4.6,
+    1.0,
+    1
+   ],
+   "title": "de randonnée,"
+  },
+  {
+   "id": "a",
+   "kind": "file",
+   "at": [
+    -6.0,
+    0.45
+   ],
+   "tone": "y",
+   "size": [
+    4.4,
+    1.0,
+    1
+   ],
+   "title": "a · voir le site",
+   "detail": "Un lien `a` est **inline** : quand la ligne est pleine, il passe à la suivante, comme un mot."
+  },
+  {
+   "id": "foot",
+   "kind": "node",
+   "at": [
+    0,
+    2.6
+   ],
+   "tone": "v",
+   "size": [
+    17,
+    1.5,
+    1
+   ],
+   "title": "p · © 2026"
+  },
+  {
+   "id": "p2",
+   "kind": "layer",
+   "at": [
+    0,
+    -0.4
+   ],
+   "tone": "n",
+   "size": [
+    14,
+    4.4,
+    1
+   ],
+   "title": "p"
+  },
+  {
+   "id": "m-l1",
+   "kind": "file",
+   "at": [
+    -0.9,
+    -0.7
+   ],
+   "tone": "y",
+   "size": [
+    11.4,
+    1.0,
+    1
+   ],
+   "title": "Envie d'en savoir plus sur le club ?"
+  },
+  {
+   "id": "m-l2",
+   "kind": "file",
+   "at": [
+    -4.4,
+    0.7
+   ],
+   "tone": "y",
+   "size": [
+    4.4,
+    1.0,
+    1
+   ],
+   "title": "Écrivez-nous :"
+  },
+  {
+   "id": "btn",
+   "kind": "node",
+   "at": [
+    1.4,
+    0.7
+   ],
+   "tone": "v",
+   "size": [
+    6.0,
+    1.0,
+    1
+   ],
+   "title": "a.bouton",
+   "detail": "Un lien est **inline** : on l'habille en bouton avec un fond et du padding, mais il vit toujours dans la ligne de texte."
+  },
+  {
+   "id": "marge",
+   "kind": "zone",
+   "at": [
+    1.4,
+    -0.4
+   ],
+   "tone": "r",
+   "size": [
+    6.0,
+    1.2
+   ],
+   "label": "margin-top"
+  },
+  {
+   "id": "r-head",
+   "kind": "layer",
+   "at": [
+    0,
+    -0.65
+   ],
+   "tone": "n",
+   "size": [
+    19,
+    7.9,
+    1
+   ],
+   "title": "header",
+   "detail": "Le `header` est un bloc : il contient les trois autres, empilés."
+  },
+  {
+   "id": "r-logo",
+   "kind": "node",
+   "at": [
+    0,
+    -2.7
+   ],
+   "tone": "v",
+   "size": [
+    17,
+    1.4,
+    1
+   ],
+   "title": "p.logo · CM",
+   "detail": "Un paragraphe est un **bloc** : il prend toute la largeur, même pour deux lettres."
+  },
+  {
+   "id": "r-h1",
+   "kind": "node",
+   "at": [
+    0,
+    -0.9
+   ],
+   "tone": "v",
+   "size": [
+    17,
+    1.6,
+    1
+   ],
+   "title": "h1 · Camille Martin"
+  },
+  {
+   "id": "r-p",
+   "kind": "layer",
+   "at": [
+    0,
+    1.5
+   ],
+   "tone": "v",
+   "size": [
+    17,
+    2.4,
+    1
+   ],
+   "title": "p"
+  },
+  {
+   "id": "r-t1",
+   "kind": "file",
+   "at": [
+    -5.6,
+    1.95
+   ],
+   "tone": "y",
+   "size": [
+    5.4,
+    1.0,
+    1
+   ],
+   "title": "Développeuse web à"
+  },
+  {
+   "id": "r-strong",
+   "kind": "file",
+   "at": [
+    -0.3,
+    1.95
+   ],
+   "tone": "y",
+   "size": [
+    4.8,
+    1.0,
+    1
+   ],
+   "title": "strong · Toulouse",
+   "detail": "`strong` est **inline** : il reste dans la phrase."
+  },
+  {
+   "id": "r-a",
+   "kind": "file",
+   "at": [
+    5.3,
+    1.95
+   ],
+   "tone": "y",
+   "size": [
+    6.0,
+    1.0,
+    1
+   ],
+   "title": "a · voir mes projets",
+   "detail": "Le lien `a` est **inline** : il suit le mot d'avant, sur la même ligne."
+  },
+  {
+   "id": "d-col-b",
+   "kind": "layer",
+   "at": [
+    -11.0,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    10.0,
+    7,
+    1
+   ],
+   "title": "display: block",
+   "detail": "**block** : se place sur sa propre ligne, sur toute la largeur. `width`, `height` et les marges du haut et du bas s'appliquent."
+  },
+  {
+   "id": "d-col-i",
+   "kind": "layer",
+   "at": [
+    0.0,
+    0
+   ],
+   "tone": "y",
+   "size": [
+    10.0,
+    7,
+    1
+   ],
+   "title": "display: inline",
+   "detail": "**inline** : se place dans la ligne, à la largeur de son contenu. `width`, `height` et les marges du haut et du bas sont ignorées."
+  },
+  {
+   "id": "d-col-ib",
+   "kind": "layer",
+   "at": [
+    11.0,
+    0
+   ],
+   "tone": "g",
+   "size": [
+    10.0,
+    7,
+    1
+   ],
+   "title": "display: inline-block",
+   "detail": "**inline-block** : se place dans la ligne, comme un inline. `width`, `height` et toutes les marges s'appliquent, comme pour un bloc."
+  },
+  {
+   "id": "d-b-t1",
+   "kind": "file",
+   "at": [
+    -13.3,
+    -1.4
+   ],
+   "tone": "y",
+   "size": [
+    4.4,
+    1.0,
+    1
+   ],
+   "title": "Du texte,"
+  },
+  {
+   "id": "d-b-a",
+   "kind": "node",
+   "at": [
+    -11.0,
+    0.0
+   ],
+   "tone": "v",
+   "size": [
+    9,
+    1.0,
+    1
+   ],
+   "title": "le lien"
+  },
+  {
+   "id": "d-b-t2",
+   "kind": "file",
+   "at": [
+    -13.0,
+    1.4
+   ],
+   "tone": "y",
+   "size": [
+    5.0,
+    1.0,
+    1
+   ],
+   "title": "et la suite."
+  },
+  {
+   "id": "d-b-m",
+   "kind": "zone",
+   "at": [
+    -11.0,
+    0.0
+   ],
+   "tone": "g",
+   "size": [
+    9,
+    1.0
+   ],
+   "label": "margin-top"
+  },
+  {
+   "id": "d-i-t1",
+   "kind": "file",
+   "at": [
+    -2.4,
+    -1.4
+   ],
+   "tone": "y",
+   "size": [
+    4.4,
+    1.0,
+    1
+   ],
+   "title": "Du texte,"
+  },
+  {
+   "id": "d-i-a",
+   "kind": "file",
+   "at": [
+    2.0,
+    -1.4
+   ],
+   "tone": "y",
+   "size": [
+    3.6,
+    1.0,
+    1
+   ],
+   "title": "le lien"
+  },
+  {
+   "id": "d-i-t2",
+   "kind": "file",
+   "at": [
+    -2.2,
+    0.0
+   ],
+   "tone": "y",
+   "size": [
+    5.0,
+    1.0,
+    1
+   ],
+   "title": "et la suite."
+  },
+  {
+   "id": "d-i-m",
+   "kind": "zone",
+   "at": [
+    2.0,
+    -2.4
+   ],
+   "tone": "r",
+   "size": [
+    3.6,
+    1.0
+   ],
+   "label": "margin-top"
+  },
+  {
+   "id": "d-ib-t1",
+   "kind": "file",
+   "at": [
+    8.6,
+    -1.4
+   ],
+   "tone": "y",
+   "size": [
+    4.4,
+    1.0,
+    1
+   ],
+   "title": "Du texte,"
+  },
+  {
+   "id": "d-ib-a",
+   "kind": "node",
+   "at": [
+    13.0,
+    -1.4
+   ],
+   "tone": "g",
+   "size": [
+    3.6,
+    1.0,
+    1
+   ],
+   "title": "le lien"
+  },
+  {
+   "id": "d-ib-t2",
+   "kind": "file",
+   "at": [
+    8.8,
+    0.0
+   ],
+   "tone": "y",
+   "size": [
+    5.0,
+    1.0,
+    1
+   ],
+   "title": "et la suite."
+  },
+  {
+   "id": "d-ib-m",
+   "kind": "zone",
+   "at": [
+    13.0,
+    -1.4
+   ],
+   "tone": "g",
+   "size": [
+    3.6,
+    1.0
+   ],
+   "label": "margin-top"
+  }
+ ],
+ "steps": [
+  {
+   "id": "flux",
+   "label": "Le flux normal",
+   "title": "Les boîtes posées dans l'ordre du HTML",
+   "body": [
+    "Sans CSS de disposition, le navigateur lit le HTML dans l'ordre et pose chaque boîte selon son `display` par défaut."
+   ],
+   "show": [
+    "body"
+   ],
+   "widgets": [
+    {
+     "kind": "editor",
+     "title": "index.html",
+     "lang": "text",
+     "lines": [
+      "<h1>Mes projets</h1>",
+      "<p>Un site pour un",
+      "  <strong>club</strong> de randonnée,",
+      "  <a href=\"#\">voir le site</a>.</p>",
+      "<p>© 2026</p>"
+     ]
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "line",
+     "n": 1
+    },
+    {
+     "do": "scene",
+     "show": [
+      "h1"
+     ],
+     "say": "Le h1 est un bloc : il commence une ligne et prend toute la largeur, même pour deux mots."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "line",
+     "n": 2
+    },
+    {
+     "do": "scene",
+     "show": [
+      "p"
+     ],
+     "say": "Le paragraphe est un bloc aussi : il se pose dessous, sur toute la largeur."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "line",
+     "n": 3
+    },
+    {
+     "do": "scene",
+     "show": [
+      "t1",
+      "strong",
+      "t2"
+     ],
+     "say": "Dans le paragraphe, strong est inline : il reste dans la phrase, à la largeur de son mot."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "line",
+     "n": 4
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "p",
+       "at": [
+        0,
+        -0.65
+       ],
+       "size": [
+        17,
+        3.7,
+        1
+       ]
+      }
+     ],
+     "show": [
+      "a"
+     ],
+     "say": "Le lien ne tient plus au bout de la ligne : il passe à la suivante, comme un mot, et le paragraphe grandit.",
+     "ms": 900
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "line",
+     "n": 5
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "foot",
+       "label": "toute la largeur"
+      }
+     ],
+     "say": "Le dernier paragraphe ne contient presque rien, et prend quand même toute la largeur."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    },
+    {
+     "do": "line",
+     "n": 0
+    }
+   ]
+  },
+  {
+   "id": "reponse",
+   "label": "La réponse",
+   "title": "Trois blocs, trois lignes",
+   "body": [
+    "Le header du quiz : le code, puis ce que le navigateur affiche, sans aucun CSS."
+   ],
+   "show": [
+    "r-head"
+   ],
+   "hud": [
+    {
+     "label": "lignes",
+     "value": "0"
+    }
+   ],
+   "widgets": [
+    {
+     "kind": "editor",
+     "title": "index.html",
+     "lang": "text",
+     "lines": [
+      "<header>",
+      "  <p class=\"logo\">CM</p>",
+      "  <h1>Camille Martin</h1>",
+      "  <p>Développeuse web à",
+      "    <strong>Toulouse</strong>,",
+      "    <a href=\"#projets\">voir mes projets</a>.</p>",
+      "</header>"
+     ]
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "line",
+     "n": 2
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "r-logo",
+       "label": "toute la largeur"
+      }
+     ],
+     "hud": [
+      {
+       "label": "lignes",
+       "value": "1"
+      }
+     ],
+     "say": "Le logo est un paragraphe, donc un bloc : une ligne à lui, sur toute la largeur, pour deux lettres."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "line",
+     "n": 3
+    },
+    {
+     "do": "scene",
+     "show": [
+      "r-h1"
+     ],
+     "hud": [
+      {
+       "label": "lignes",
+       "value": "2"
+      }
+     ],
+     "say": "Le h1 est un bloc : il commence une nouvelle ligne, dessous."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "line",
+     "n": 4
+    },
+    {
+     "do": "scene",
+     "show": [
+      "r-p",
+      "r-t1"
+     ],
+     "hud": [
+      {
+       "label": "lignes",
+       "value": "3"
+      }
+     ],
+     "say": "Le second paragraphe, un bloc aussi : la troisième ligne."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "line",
+     "n": 5
+    },
+    {
+     "do": "scene",
+     "show": [
+      "r-strong"
+     ],
+     "say": "strong est inline : Toulouse reste dans la phrase."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "line",
+     "n": 6
+    },
+    {
+     "do": "scene",
+     "show": [
+      "r-a"
+     ],
+     "hud": [
+      {
+       "label": "lignes",
+       "value": "3 : trois blocs",
+       "tone": "g"
+      }
+     ],
+     "say": "Le lien aussi : il suit le mot d'avant. Trois lignes en tout, pas cinq."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    },
+    {
+     "do": "line",
+     "n": 0
+    }
+   ]
+  },
+  {
+   "id": "marge",
+   "label": "La marge ignorée",
+   "title": "Une marge du haut sur un inline",
+   "body": [
+    "Un lien habillé en bouton, au milieu d'un paragraphe. On lui donne une marge du haut."
+   ],
+   "show": [
+    "p2",
+    "m-l1",
+    "m-l2",
+    "btn"
+   ],
+   "hud": [
+    {
+     "label": "display",
+     "value": "inline"
+    },
+    {
+     "label": "hauteur de ligne",
+     "value": "normale"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "show": [
+      "marge"
+     ],
+     "set": [
+      {
+       "id": "btn",
+       "label": "margin-top: 24px"
+      }
+     ],
+     "say": "On donne au lien une marge du haut de 24 px."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "hauteur de ligne",
+       "value": "inchangée",
+       "tone": "r"
+      }
+     ],
+     "say": "Il est inline : sa ligne garde sa hauteur. La marge passe sous la ligne du dessus, et rien ne bouge."
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  },
+  {
+   "id": "display",
+   "label": "Trois display",
+   "title": "Trois valeurs de display, côte à côte",
+   "body": [
+    "La même phrase, avec un lien au milieu. Seule change la valeur de `display` du lien."
+   ],
+   "show": [
+    "d-col-b",
+    "d-col-i",
+    "d-col-ib"
+   ],
+   "hud": [
+    {
+     "label": "margin-top",
+     "value": "0"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "d-b-t1",
+      "d-b-a",
+      "d-b-t2"
+     ],
+     "say": "block : le lien prend sa propre ligne, sur toute la largeur ; la phrase reprend dessous."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "d-i-t1",
+      "d-i-a",
+      "d-i-t2"
+     ],
+     "say": "inline : le lien reste dans la ligne, à la largeur de son texte."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "d-ib-t1",
+      "d-ib-a",
+      "d-ib-t2"
+     ],
+     "say": "inline-block : dans la ligne aussi, mais avec une vraie boîte, qui accepte width et height."
+    },
+    {
+     "do": "wait",
+     "ms": 1700
+    },
+    {
+     "do": "scene",
+     "show": [
+      "d-i-m"
+     ],
+     "hud": [
+      {
+       "label": "margin-top",
+       "value": "24px"
+      }
+     ],
+     "say": "Une marge du haut de 24 px sur le lien inline : elle n'écarte rien, la ligne garde sa hauteur."
+    },
+    {
+     "do": "wait",
+     "ms": 1700
+    },
+    {
+     "do": "scene",
+     "show": [
+      "d-b-m",
+      "d-ib-m"
+     ],
+     "set": [
+      {
+       "id": "d-b-a",
+       "at": [
+        -11.0,
+        1.0
+       ]
+      },
+      {
+       "id": "d-b-t2",
+       "at": [
+        -13.0,
+        2.4
+       ]
+      },
+      {
+       "id": "d-ib-t1",
+       "at": [
+        8.6,
+        -0.3999999999999999
+       ]
+      },
+      {
+       "id": "d-ib-a",
+       "at": [
+        13.0,
+        -0.3999999999999999
+       ]
+      },
+      {
+       "id": "d-ib-t2",
+       "at": [
+        8.8,
+        1.0
+       ]
+      }
+     ],
+     "say": "La même marge en block et en inline-block : elle compte : le lien et sa ligne descendent pour lui faire de la place.",
+     "ms": 1000
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  }
+ ]
+}

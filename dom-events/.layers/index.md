@@ -7,7 +7,7 @@ tags:
   - dom
   - web
 difficulty: beginner
-duration: 15
+duration: 25
 requires: "0.9.0"
 ---
 
@@ -17,7 +17,7 @@ Une page ne change rien toute seule : elle **attend** que le visiteur fasse quel
 
 # Les événements : réagir aux actions du visiteur
 
-Au bit précédent, votre code construisait la page au chargement, puis plus rien : un monologue. Ici, la page écoute, et c'est ce qui sépare une page d'une application.
+Avec le DOM seul, le code construit la page au chargement, puis plus rien : un monologue. Ici, la page écoute, et c'est ce qui sépare une page d'une application.
 
 ## Écouter un événement : `addEventListener`
 
@@ -33,20 +33,84 @@ function direBonjour() {
 bouton.addEventListener("click", direBonjour);
 ```
 
-| Événement | Se produit quand… | Sur quel élément |
-|---|---|---|
-| `click` | on clique (ou on appuie sur Entrée sur un bouton) | un bouton, un lien, n'importe quel élément |
-| `input` | le contenu d'un champ change, à chaque lettre | un `<input>`, un `<textarea>` |
-| `submit` | on envoie un formulaire, par le bouton ou par Entrée | le `<form>` |
-| `keydown` | on enfonce une touche | la page ou un champ |
+Qui appelle `direBonjour`, et quand ?
 
-La fonction confiée au navigateur s'appelle un **écouteur** (*listener*) ou un gestionnaire. Ce n'est pas vous qui l'appelez : c'est le navigateur, à chaque événement, autant de fois qu'il se produit.
+```scene
+lesson: assets/events.scene.json
+step: ecouter
+```
+
+La fonction confiée au navigateur s'appelle un **écouteur** (*listener*) ou un gestionnaire. Ce n'est pas vous qui l'appelez : c'est le navigateur, à chaque événement, autant de fois qu'il se produit. Les événements les plus courants :
+
+| Événement | Se produit quand… |
+|---|---|
+| `click` | on clique sur un élément, ou on appuie sur Entrée sur un bouton |
+| `input` | le contenu d'un champ (`<input>`, `<textarea>`) change, à chaque lettre |
+| `submit` | on envoie un formulaire ; il s'écoute sur le `<form>` |
+| `keydown` | on enfonce une touche, dans la page ou dans un champ |
+
+## À toi : un bouton qui répond
+
+La fonction `repondre` est écrite, mais personne ne l'appelle : le bouton ne fait rien. Ajoute **une ligne** à la fin de `script.js` pour que le navigateur l'appelle à chaque clic sur le bouton.
+
+```playground
+runtime: web
+title: Un bouton qui répond
+files:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <title>Bonjour</title>
+      <script src="script.js" defer></script>
+    </head>
+    <body>
+      <button id="saluer">Dire bonjour</button>
+      <p id="reponse">En attente d'un clic.</p>
+    </body>
+    </html>
+  script.js: |
+    const bouton = document.querySelector("#saluer");
+    const reponse = document.querySelector("#reponse");
+
+    function repondre() {
+      reponse.textContent = "Bonjour, visiteur !";
+    }
+
+    // À toi : demande au navigateur d'appeler repondre à chaque clic sur le bouton
+open: [script.js, index.html]
+lock: [index.html]
+show: [editor, preview, console]
+verify:
+  - label: "avant tout clic, le paragraphe dit encore « En attente d'un clic. »"
+    selector: "#reponse"
+    text: "/^En attente/"
+    hint: "La fonction ne doit pas s'exécuter au chargement : confie `repondre` au navigateur, sans l'appeler toi-même."
+  - label: un clic sur le bouton affiche « Bonjour, visiteur ! »
+    click: "#saluer"
+    selector: "#reponse"
+    text: Bonjour, visiteur !
+    hint: "Pose un écouteur sur le bouton : `bouton.addEventListener(\"click\", repondre);`"
+  - label: aucune erreur JavaScript
+    errors: none
+solution: assets/bouton.solution
+```
 
 ## Confier la fonction, ne pas l'appeler : `f` contre `f()`
 
 Le nom d'une fonction seul, `basculer`, **désigne** la fonction. Suivi de parenthèses, `basculer()`, il l'**appelle**, tout de suite, et vaut ce qu'elle rend. Écrire `addEventListener("click", basculer())` exécute donc `basculer` au chargement de la page, une seule fois, et confie au navigateur ce qu'elle a rendu, `undefined` : le clic n'a plus rien à exécuter.
 
-La lampe ci-dessous s'allume toute seule au chargement, et le bouton ne répond plus. Lisez le code, puis corrigez **une seule** ligne.
+```scene
+lesson: assets/events.scene.json
+step: f-ou-f
+```
+
+Aucune erreur rouge ne signale ce piège : la fonction a bien tourné, une fois, au mauvais moment. Pour s'en apercevoir, il faut regarder **quand** le code s'exécute : un `console.log` dans la fonction qui s'affiche avant tout clic suffit à le trahir.
+
+## À toi : la lampe qui s'allume toute seule
+
+La lampe ci-dessous s'allume toute seule au chargement, et le bouton ne répond plus. Lis le code, puis corrige **une seule** ligne.
 
 ```playground
 runtime: web
@@ -106,8 +170,6 @@ verify:
 solution: assets/lampe.solution
 ```
 
-Aucune erreur rouge ne signale ce piège : la fonction a bien tourné, une fois, au mauvais moment. Pour s'en apercevoir, il faut regarder **quand** le code s'exécute : un `console.log` dans la fonction qui s'affiche avant tout clic suffit à le trahir.
-
 ## Plusieurs boutons, un seul panneau : les onglets
 
 Des onglets tiennent en une phrase : **tout éteindre, puis rallumer un seul**. Chaque bouton dit quel panneau il ouvre, dans un attribut **`data-`** que l'on invente soi-même (`data-content-id="content2"`), et que `getAttribute` lit :
@@ -117,7 +179,28 @@ const id = onglet.getAttribute("data-content-id"); // "content2"
 const panneau = document.querySelector("#" + id);  // l'élément d'identifiant content2
 ```
 
-On pose un écouteur sur **chaque** onglet, dans une boucle. Le CSS de la page cache tous les panneaux, sauf celui qui porte la classe `active` ; l'onglet ouvert porte la classe `tab-active`. Écrivez la fonction `ouvrir`, qui reçoit l'onglet cliqué.
+Voici ce que donne cette règle à chaque clic, avec l'attribut `data-` qui relie chaque bouton à son panneau :
+
+```scene
+lesson: assets/events-plan.scene.json
+step: onglets
+```
+
+On pose un écouteur sur **chaque** onglet, dans une boucle. La fonction donnée à `addEventListener` est alors écrite sur place, **sans nom** (voir [Fonctions et objets](https://byte-layers.com/fr/bits/js-functions-objects)) :
+
+```javascript
+for (const onglet of onglets) {
+  onglet.addEventListener("click", function () {
+    ouvrir(onglet);
+  });
+}
+```
+
+Le navigateur appellera cette fonction sans nom au clic, et c'est elle qui appelle `ouvrir(onglet)` : ses parenthèses sont à l'intérieur, elles ne s'exécutent qu'au clic.
+
+## À toi : fais fonctionner les onglets
+
+Le CSS de la page cache tous les panneaux, sauf celui qui porte la classe `active` ; l'onglet ouvert porte la classe `tab-active`. La boucle des écouteurs est écrite : écris la fonction `ouvrir`, qui reçoit l'onglet cliqué.
 
 ```playground
 runtime: web
@@ -190,29 +273,20 @@ verify:
 solution: assets/onglets.solution
 ```
 
-Ici, la fonction donnée à `addEventListener` est écrite sur place, sans nom : `function () { ouvrir(onglet); }`. C'est elle que le navigateur appellera au clic, et c'est elle qui appelle `ouvrir` avec le bon onglet. Les parenthèses de `ouvrir(onglet)` sont à l'intérieur : elles ne s'exécutent qu'au clic.
+## Lire un champ : `value` et `trim`
 
-## Lire un champ et valider : `value`, `trim` et `preventDefault`
+Ce que le visiteur a tapé dans un champ se lit dans sa propriété **`value`**, toujours sous forme de texte. Avant de le valider, on retire les espaces du début et de la fin avec **`trim()`** (*rogner*). Suivez un champ rempli d'espaces :
 
-Ce que le visiteur a tapé dans un champ se lit dans sa propriété **`value`**, toujours sous forme de texte. Avant de le valider, on retire les espaces du début et de la fin avec **`trim()`** : `"   ".trim()` donne `""`, un texte vide. Sans `trim`, un champ rempli d'espaces passe pour rempli.
-
-Un formulaire envoyé recharge la page : c'est son comportement par défaut, hérité du temps où chaque envoi partait vers un serveur. Pour le traiter en JavaScript, on écoute **`submit` sur le `<form>`** (qui couvre le bouton et la touche Entrée), et l'on coupe ce comportement avec **`preventDefault()`**, appelé sur l'objet événement que le navigateur passe à l'écouteur :
-
-```javascript
-formulaire.addEventListener("submit", function (evenement) {
-  evenement.preventDefault(); // la page ne se recharge pas
-  const prenom = champPrenom.value.trim();
-  if (prenom === "") {
-    message.textContent = "Remplissez le champ.";
-  } else {
-    message.textContent = "Bonjour " + prenom + " !";
-  }
-});
+```scene
+lesson: assets/events-plan.scene.json
+step: trim
 ```
 
-Sans `preventDefault`, votre code s'exécute bien, puis le rechargement efface tout : la page clignote, la console se vide, et rien ne semble s'être passé. L'aperçu des exercices n'envoie pas de formulaire ; vous le constaterez dans le lab, sur votre machine.
+Sans `trim`, un champ rempli d'espaces passe pour rempli : le test `=== ""` le laisse passer. Avec `trim`, il reste un texte vide, que la validation refuse ; et un mot entouré d'espaces garde son mot, sans les bords.
 
-Ici, le champ contient déjà trois espaces, et le bouton est un simple bouton (`type="button"`), qui n'envoie rien. Écrivez la validation : un champ vide ou plein d'espaces affiche « Remplissez le champ. » et pose la classe `erreur` sur le message.
+## À toi : refuse un champ plein d'espaces
+
+Ici, le champ contient déjà trois espaces, et le bouton est un simple bouton (`type="button"`), qui n'envoie rien. Écris la validation : un champ vide ou plein d'espaces affiche « Remplissez le champ. » et pose la classe `erreur` sur le message.
 
 ```playground
 runtime: web
@@ -264,6 +338,31 @@ verify:
     errors: none
 solution: assets/champ.solution
 ```
+
+## Un formulaire : `submit` et `preventDefault`
+
+Un formulaire envoyé recharge la page : c'est son comportement par défaut, hérité du temps où chaque envoi partait vers un serveur. Pour le traiter en JavaScript, on écoute **`submit` sur le `<form>`** (qui couvre le bouton et la touche Entrée), et l'on coupe ce comportement avec **`preventDefault()`**, appelé sur l'objet événement que le navigateur passe à l'écouteur :
+
+```javascript
+formulaire.addEventListener("submit", function (evenement) {
+  evenement.preventDefault(); // la page ne se recharge pas
+  const prenom = champPrenom.value.trim();
+  if (prenom === "") {
+    message.textContent = "Remplissez le champ.";
+  } else {
+    message.textContent = "Bonjour " + prenom + " !";
+  }
+});
+```
+
+Ce qui se passe à l'envoi, sans puis avec `preventDefault` :
+
+```scene
+lesson: assets/events.scene.json
+step: submit
+```
+
+Sans `preventDefault`, votre code s'exécute bien, puis le rechargement efface tout : la page clignote, la console se vide, et rien ne semble s'être passé. L'aperçu des exercices n'envoie pas de formulaire : le rechargement se constate dans un vrai navigateur, sur votre machine.
 
 > 📖 [Introduction aux événements (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting/Events) · [addEventListener (MDN)](https://developer.mozilla.org/fr/docs/Web/API/EventTarget/addEventListener) · [preventDefault (MDN)](https://developer.mozilla.org/fr/docs/Web/API/Event/preventDefault) · [String.prototype.trim (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/String/trim)
 

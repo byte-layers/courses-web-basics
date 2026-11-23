@@ -13,7 +13,8 @@ layers:
   - title: "Tableaux et formulaires"
     summary: "Des données en tableau et des champs qui se remplissent"
     contents:
-      - { slug: html-tables-forms }
+      - { slug: html-tables }
+      - { slug: html-forms }
   - title: "Adaptatif et accessible"
     summary: "Une page pour tous les écrans et lisible par tous"
     contents:
@@ -22,7 +23,8 @@ layers:
   - title: "Outils du CSS"
     summary: "Variables et mouvement, puis les frameworks et pourquoi le CSS se compile"
     contents:
-      - { slug: css-variables-motion }
+      - { slug: css-variables }
+      - { slug: css-motion }
       - { slug: css-frameworks }
       - { slug: css-build-tools }
   - title: "Assembler"

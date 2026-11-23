@@ -1,0 +1,397 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "web-standards-browsers-history",
+ "title": "Navigateurs et standards, une histoire (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "n",
+   "label": "un navigateur"
+  },
+  {
+   "tone": "r",
+   "label": "maison, ancien"
+  },
+  {
+   "tone": "g",
+   "label": "standard commun"
+  }
+ ],
+ "entities": [
+  {
+   "id": "p1",
+   "kind": "zone",
+   "at": [
+    -14.4,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    9,
+    15
+   ],
+   "label": "fin des années 1990"
+  },
+  {
+   "id": "p2",
+   "kind": "zone",
+   "at": [
+    -4.8,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    9,
+    15
+   ],
+   "label": "pour ne rien casser"
+  },
+  {
+   "id": "p3",
+   "kind": "zone",
+   "at": [
+    4.8,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    9,
+    15
+   ],
+   "label": "2019"
+  },
+  {
+   "id": "p4",
+   "kind": "zone",
+   "at": [
+    14.4,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    9,
+    15
+   ],
+   "label": "depuis 2022"
+  },
+  {
+   "id": "netscape",
+   "kind": "node",
+   "at": [
+    -14.4,
+    -4.2
+   ],
+   "tone": "n",
+   "size": [
+    8,
+    2.8,
+    1
+   ],
+   "title": "Netscape Navigator",
+   "sub": "ajoute <blink>",
+   "label": "le texte clignote",
+   "detail": "`<blink>` faisait **clignoter** un texte, dans Netscape seulement."
+  },
+  {
+   "id": "ie",
+   "kind": "node",
+   "at": [
+    -14.4,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    8,
+    2.8,
+    1
+   ],
+   "title": "Internet Explorer",
+   "sub": "ajoute <marquee>",
+   "label": "le texte défile",
+   "detail": "`<marquee>` faisait **défiler** un texte, dans Internet Explorer d'abord. Il est obsolète, mais le standard HTML demande encore aux navigateurs de l'afficher."
+  },
+  {
+   "id": "badge",
+   "kind": "node",
+   "at": [
+    -14.4,
+    4.4
+   ],
+   "tone": "r",
+   "size": [
+    8,
+    2.8,
+    1
+   ],
+   "title": "« optimisé pour IE »",
+   "sub": "sur beaucoup de sites"
+  },
+  {
+   "id": "quirks",
+   "kind": "node",
+   "at": [
+    -4.8,
+    -4.2
+   ],
+   "tone": "r",
+   "size": [
+    8,
+    2.8,
+    1
+   ],
+   "title": "sans doctype",
+   "sub": "mode quirks",
+   "detail": "Le **mode quirks** (« bizarreries ») imite les anciens navigateurs, pour que les vieilles pages s'affichent comme avant."
+  },
+  {
+   "id": "doctype",
+   "kind": "node",
+   "at": [
+    -4.8,
+    0
+   ],
+   "tone": "g",
+   "size": [
+    8,
+    2.8,
+    1
+   ],
+   "title": "<!DOCTYPE html>",
+   "sub": "mode standard",
+   "detail": "Avec cette première ligne, le navigateur applique les **standards actuels**."
+  },
+  {
+   "id": "living",
+   "kind": "node",
+   "at": [
+    4.8,
+    0
+   ],
+   "tone": "g",
+   "size": [
+    8,
+    2.8,
+    1
+   ],
+   "title": "HTML Living Standard",
+   "sub": "du WHATWG",
+   "detail": "Depuis 2019, le W3C reconnaît le standard du WHATWG comme **le seul standard HTML**."
+  },
+  {
+   "id": "w3c",
+   "kind": "node",
+   "at": [
+    4.8,
+    -4.2
+   ],
+   "tone": "n",
+   "size": [
+    8,
+    2.8,
+    1
+   ],
+   "title": "W3C",
+   "sub": "le reconnaît"
+  },
+  {
+   "id": "interop",
+   "kind": "node",
+   "at": [
+    14.4,
+    -4.2
+   ],
+   "tone": "g",
+   "size": [
+    8,
+    2.8,
+    1
+   ],
+   "title": "Interop",
+   "sub": "un projet commun, chaque année",
+   "detail": "Les éditeurs des trois moteurs choisissent ensemble, chaque année, des fonctions sur lesquelles **réduire leurs écarts**."
+  },
+  {
+   "id": "engines",
+   "kind": "node",
+   "at": [
+    14.4,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    8,
+    2.8,
+    1
+   ],
+   "title": "Blink · Gecko · WebKit",
+   "sub": "réduisent leurs écarts"
+  }
+ ],
+ "steps": [
+  {
+   "id": "histoire",
+   "label": "L'histoire",
+   "title": "Des balises maison aux standards communs",
+   "body": [
+    "Les navigateurs ont longtemps divergé ; ils ont convergé vers les standards sans casser les vieilles pages."
+   ],
+   "hud": [
+    {
+     "label": "une même page",
+     "value": "—"
+    },
+    {
+     "label": "standard HTML",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "p1"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "scene",
+     "show": [
+      "netscape"
+     ],
+     "say": "Fin des années 1990 : Netscape ajoute sa propre balise, `<blink>`, qui fait clignoter un texte."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "ie"
+     ],
+     "say": "Internet Explorer a la sienne, `<marquee>`, qui le fait défiler. Chacun veut attirer les créateurs de sites."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "badge"
+     ],
+     "link": [
+      {
+       "from": "ie",
+       "to": "badge"
+      }
+     ],
+     "hud": [
+      {
+       "label": "une même page",
+       "value": "s'affiche différemment",
+       "tone": "r"
+      }
+     ],
+     "say": "Une même page s'affiche différemment selon le navigateur ; beaucoup de sites affichent « optimisé pour Internet Explorer »."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "show": [
+      "p2",
+      "quirks"
+     ],
+     "link": [
+      {
+       "from": "ie",
+       "to": "quirks",
+       "dashed": true,
+       "label": "imité"
+      }
+     ],
+     "say": "Les navigateurs convergent, sans casser les vieilles pages : **sans doctype**, une page passe en mode quirks, qui imite les anciens navigateurs."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "doctype"
+     ],
+     "hud": [
+      {
+       "label": "une même page",
+       "value": "standards actuels",
+       "tone": "g"
+      }
+     ],
+     "say": "Avec `<!DOCTYPE html>` en première ligne, le navigateur applique **les standards actuels**."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "p3",
+      "living",
+      "w3c"
+     ],
+     "link": [
+      {
+       "from": "w3c",
+       "to": "living"
+      }
+     ],
+     "hud": [
+      {
+       "label": "standard HTML",
+       "value": "un seul",
+       "tone": "g"
+      }
+     ],
+     "say": "2019 : le W3C reconnaît le HTML Living Standard du WHATWG comme **le seul standard HTML**."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "p4",
+      "interop",
+      "engines"
+     ],
+     "link": [
+      {
+       "from": "interop",
+       "to": "engines"
+      }
+     ],
+     "hud": [
+      {
+       "label": "une même page",
+       "value": "écarts sur le récent",
+       "tone": "g"
+      }
+     ],
+     "say": "Depuis 2022, les éditeurs des trois moteurs mènent chaque année le projet **Interop** pour réduire les écarts qui restent."
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  }
+ ]
+}

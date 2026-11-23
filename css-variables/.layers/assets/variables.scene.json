@@ -1,0 +1,195 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "css-variables",
+ "title": "Variables CSS",
+ "lang": "fr",
+ "kit": "plan",
+ "entities": [
+  {
+   "id": "root",
+   "kind": "node",
+   "at": [
+    0,
+    -4.0
+   ],
+   "size": [
+    11.0,
+    1.9,
+    1
+   ],
+   "tone": "r",
+   "title": ":root",
+   "sub": "--accent: rgb(219, 39, 119)",
+   "detail": "`:root` vise l'élément `html` : une variable déclarée ici est disponible dans toute la page."
+  },
+  {
+   "id": "e-h1",
+   "kind": "node",
+   "at": [
+    -7.2,
+    1.6
+   ],
+   "size": [
+    6.0,
+    1.9,
+    1
+   ],
+   "tone": "n",
+   "title": "h1",
+   "sub": "color: var(--accent)",
+   "detail": "`var(--accent)` lit la valeur de la variable là où elle sert."
+  },
+  {
+   "id": "e-btn",
+   "kind": "node",
+   "at": [
+    0.0,
+    1.6
+   ],
+   "size": [
+    6.0,
+    1.9,
+    1
+   ],
+   "tone": "n",
+   "title": ".bouton",
+   "sub": "color: var(--accent)"
+  },
+  {
+   "id": "e-a",
+   "kind": "node",
+   "at": [
+    7.2,
+    1.6
+   ],
+   "size": [
+    6.0,
+    1.9,
+    1
+   ],
+   "tone": "n",
+   "title": "a",
+   "sub": "color: var(--accent)"
+  }
+ ],
+ "steps": [
+  {
+   "id": "variables",
+   "label": "Une variable",
+   "title": "Une valeur écrite une fois, lue partout",
+   "body": [
+    "Une couleur d'accent déclarée sur `:root`, et trois règles qui s'en servent."
+   ],
+   "show": [
+    "root",
+    "e-h1",
+    "e-btn",
+    "e-a"
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "root",
+       "to": "e-h1"
+      },
+      {
+       "from": "root",
+       "to": "e-btn"
+      },
+      {
+       "from": "root",
+       "to": "e-a"
+      }
+     ],
+     "set": [
+      {
+       "id": "e-h1",
+       "tone": "r"
+      },
+      {
+       "id": "e-btn",
+       "tone": "r"
+      },
+      {
+       "id": "e-a",
+       "tone": "r"
+      }
+     ],
+     "say": "Chaque règle lit la valeur avec var(--accent) : les trois éléments prennent la couleur rose.",
+     "ms": 900
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "root",
+       "tone": "b",
+       "sub": "--accent: rgb(37, 99, 235)"
+      }
+     ],
+     "say": "On change la variable, une seule ligne : le bleu remplace le rose."
+    },
+    {
+     "do": "wait",
+     "ms": 600
+    },
+    {
+     "do": "send",
+     "path": [
+      "root",
+      "e-h1"
+     ],
+     "tone": "b"
+    },
+    {
+     "do": "send",
+     "path": [
+      "root",
+      "e-btn"
+     ],
+     "tone": "b"
+    },
+    {
+     "do": "send",
+     "path": [
+      "root",
+      "e-a"
+     ],
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "e-h1",
+       "tone": "b"
+      },
+      {
+       "id": "e-btn",
+       "tone": "b"
+      },
+      {
+       "id": "e-a",
+       "tone": "b"
+      }
+     ],
+     "say": "Les trois éléments suivent, sans qu'on touche à leurs règles."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

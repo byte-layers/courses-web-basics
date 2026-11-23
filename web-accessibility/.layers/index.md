@@ -7,13 +7,13 @@ tags:
   - css
   - accessibility
 difficulty: beginner
-duration: 15
+duration: 20
 requires: "0.9.0"
 ---
 
 Une page **accessible** se lit et s'utilise par tout le monde : au clavier, sans souris ; à l'oreille, avec un **lecteur d'écran** ; avec une vue faible et un zoom à 200 %. Vous saurez reconnaître les cinq erreurs les plus fréquentes, les relier aux critères du **RGAA**, le référentiel français, et les trouver avec des outils.
 
-**Prérequis** : le bit [Tableaux et formulaires HTML](https://byte-layers.com/fr/bits/html-tables-forms), pour les étiquettes reliées, et le bit [Le sens avant la forme](https://byte-layers.com/fr/bits/semantic-html), pour les balises sémantiques.
+**Prérequis** : le bit [Les formulaires HTML](https://byte-layers.com/fr/bits/html-forms), pour les étiquettes reliées, et le bit [Le sens avant la forme](https://byte-layers.com/fr/bits/semantic-html), pour les balises sémantiques.
 
 # L'accessibilité web : une page lisible par tous
 
@@ -21,25 +21,59 @@ Une page peut être belle sur votre écran et inutilisable pour une partie de se
 
 ## Qui lit votre page autrement
 
-Une personne aveugle écoute la page avec un **lecteur d'écran** (NVDA ou JAWS sous Windows, VoiceOver sous macOS et iOS, TalkBack sous Android) : il lit le texte, annonce les titres, les liens, les champs et leurs étiquettes, et décrit les images par leur texte alternatif. Une personne qui ne peut pas tenir une souris navigue **au clavier** : Tab pour passer d'un lien ou d'un champ au suivant, Entrée pour l'activer. Une personne malvoyante **agrandit** le texte et a besoin de contrastes francs.
+Une personne aveugle écoute la page avec un **lecteur d'écran** (NVDA ou JAWS sous Windows, VoiceOver sous macOS et iOS, TalkBack sous Android) : il lit le texte, annonce les titres, les liens, les champs et leurs étiquettes, et décrit les images par leur texte alternatif.
 
-Le **WCAG** (*Web Content Accessibility Guidelines*) est la norme internationale du W3C. En France, le **RGAA** (Référentiel général d'amélioration de l'accessibilité) la traduit en 106 critères à vérifier, chacun formulé comme une question. Il est obligatoire pour les services publics, et l'Acte européen sur l'accessibilité étend depuis juin 2025 des obligations à une partie des services privés, comme le commerce en ligne.
+```scene
+lesson: assets/a11y.scene.json
+step: lecteur
+```
+
+Le lecteur d'écran ne voit pas la page : il **lit le HTML**, balise par balise. Ce qui n'est pas écrit dans le code, comme la description d'une image, n'existe pas pour lui. Une personne qui ne peut pas tenir une souris navigue **au clavier** : Tab pour passer d'un lien ou d'un champ au suivant, Entrée pour l'activer. Une personne malvoyante **agrandit** le texte et a besoin de contrastes francs.
+
+En France, ces besoins sont traduits en critères à vérifier par le **RGAA**, obligatoire pour les services publics.
+
+> 📖 [Le RGAA, référentiel général d'amélioration de l'accessibilité (DINUM)](https://accessibilite.numerique.gouv.fr/) · [Les WCAG, la norme internationale (W3C)](https://www.w3.org/WAI/standards-guidelines/wcag/fr)
 
 ## Cinq erreurs fréquentes, et le critère RGAA qui les détecte
 
 La plupart des défauts d'une page débutante tiennent en quelques erreurs, qui se corrigent en une ligne chacune.
 
-| Erreur | Ce que ça donne | Critère RGAA | Correction |
-|---|---|---|---|
-| Une image sans `alt` | le lecteur d'écran lit le nom du fichier, `IMG_2043.jpg` | 1.1 | `alt="Le sommet du pic du Midi"` ; `alt=""` pour une image décorative |
-| Un texte gris clair sur blanc | illisible avec une vue faible, ou au soleil | 3.2 | un contraste d'au moins **4,5:1** pour le texte courant |
-| Pas de `lang` sur `html` | le lecteur d'écran lit le français avec un accent anglais | 8.3 | `<html lang="fr">` |
-| Un niveau de titre sauté, `h1` puis `h4` | la liste des titres, qu'on parcourt au lecteur d'écran, a des trous | 9.1 | `h1`, puis `h2`, puis `h3`, sans sauter de niveau |
-| `outline: none` sur le focus | au clavier, on ne sait plus où l'on est | 10.7 | garder le contour, ou le remplacer par un style visible |
+```scene
+lesson: assets/a11y.scene.json
+step: erreurs
+```
 
-Le **contraste** est le rapport de luminosité entre le texte et son fond : `1:1` pour du blanc sur blanc, `21:1` pour du noir sur blanc. Les outils de développement l'affichent : inspectez un texte, cliquez sur le petit carré de couleur de sa propriété `color`, et le sélecteur de couleur indique le rapport.
+Chaque erreur a son **critère RGAA**, le numéro qui permet de la retrouver dans la grille :
 
-Le **focus** est l'élément qui reçoit les touches du clavier. Le navigateur l'entoure d'un contour, l'`outline`. Une règle `outline: none`, souvent ajoutée parce que le contour « fait moche » au clic, le supprime pour tout le monde. Si vous voulez le changer, utilisez **`:focus-visible`**, qui ne s'applique qu'à la navigation au clavier :
+| Erreur | Correction (critère) |
+|---|---|
+| une image sans `alt` | `alt="Le sommet du pic du Midi"` ; `alt=""` pour une image décorative (1.1) |
+| un texte gris clair sur blanc | un contraste d'au moins **4,5:1** pour le texte courant (3.2) |
+| pas de `lang` sur `html` | `<html lang="fr">` (8.3) |
+| un niveau de titre sauté, `h1` puis `h4` | `h1`, puis `h2`, puis `h3`, sans sauter de niveau (9.1) |
+| `outline: none` sur le focus | garder le contour, ou le remplacer par un style visible (10.7) |
+
+## Le contraste : un rapport d'au moins 4,5:1
+
+Le **contraste** est le rapport de luminosité entre le texte et son fond : `1:1` pour du blanc sur blanc, `21:1` pour du noir sur blanc.
+
+```scene
+lesson: assets/a11y.scene.json
+step: contraste
+```
+
+Sous **4,5:1**, un texte courant se lit mal avec une vue faible, ou au soleil. Les outils de développement mesurent le rapport : inspectez un texte, cliquez sur le petit carré de couleur de sa propriété `color`, et le sélecteur de couleur l'indique.
+
+## Le focus visible
+
+Le **focus** est l'élément qui reçoit les touches du clavier. Le navigateur l'entoure d'un contour, l'`outline`.
+
+```scene
+lesson: assets/a11y.scene.json
+step: focus
+```
+
+Une règle `outline: none`, souvent ajoutée parce que le contour « fait moche » au clic, le supprime pour tout le monde. Si vous voulez le changer, utilisez **`:focus-visible`**, qui ne s'applique qu'à la navigation au clavier :
 
 ```css
 a:focus-visible {
@@ -48,9 +82,9 @@ a:focus-visible {
 }
 ```
 
-## Trouve les cinq erreurs
+## À toi : trouve les cinq erreurs
 
-**À toi** : cette page de portfolio contient les cinq erreurs du tableau. Corrige-les dans `index.html` et `style.css`, puis clique sur **Vérifier**. Avant de corriger le focus, essaie : clique dans l'aperçu, puis appuie sur Tab pour passer d'un lien à l'autre.
+Cette page de portfolio contient les cinq erreurs du tableau. Corrige-les dans `index.html` et `style.css`, puis clique sur **Vérifier**. Avant de corriger le focus, essaie : clique dans l'aperçu, puis appuie sur Tab pour passer d'un lien à l'autre.
 
 ```playground
 runtime: web
@@ -141,7 +175,14 @@ solution: assets/erreurs.solution
 
 ## Vérifier : Lighthouse, puis la grille et le clavier
 
-Un outil automatique trouve une partie des erreurs. **Lighthouse**, intégré à Chrome et à Edge (outils de développement, onglet *Lighthouse*, catégorie *Accessibility*), analyse la page et donne un score sur 100, avec la liste des défauts : `alt` manquants, contrastes, `lang`, champs sans étiquette. Il ne sait pas juger si un `alt` est **pertinent**, si l'ordre des titres a du **sens**, ni si la page se parcourt **au clavier** sans piège.
+Un outil automatique trouve une partie des erreurs. **Lighthouse**, intégré à Chrome et à Edge (outils de développement, onglet *Lighthouse*, catégorie *Accessibility*), analyse la page et donne un score sur 100, avec la liste des défauts : `alt` manquants, contrastes, `lang`, champs sans étiquette.
+
+```scene
+lesson: assets/a11y.scene.json
+step: lighthouse
+```
+
+Il ne sait pas juger si un `alt` est **pertinent**, si les titres ont du **sens**, ni si la page se parcourt **au clavier** sans piège.
 
 Le reste se vérifie à la main, avec une grille comme celle du RGAA, et trois gestes simples :
 
@@ -188,11 +229,11 @@ questions:
 
 ## Récap
 
-- Une page **accessible** s'utilise au **clavier**, avec un **lecteur d'écran** et avec un **zoom** ; le **RGAA** traduit la norme WCAG en critères à vérifier.
+- Une page **accessible** s'utilise au **clavier**, avec un **lecteur d'écran** et avec un **zoom** ; le **RGAA** traduit ces besoins en critères à vérifier.
 - Cinq erreurs fréquentes : image sans **`alt`**, **contraste** sous 4,5:1, pas de **`lang`**, **titres** sautés, **focus** supprimé par `outline: none`.
 - **Lighthouse** trouve une partie des erreurs ; la grille, Tab, le zoom à 200 % et la liste des titres trouvent le reste.
 
-Une page cohérente garde aussi ses choix de couleurs au même endroit, et elle bouge sans gêner ceux que le mouvement dérange : c'est l'objet du bit [Variables CSS et mouvement](https://byte-layers.com/fr/bits/css-variables-motion).
+Une page cohérente garde aussi ses choix de couleurs au même endroit, et elle bouge sans gêner ceux que le mouvement dérange : c'est l'objet des bits [Variables CSS : un choix écrit une fois](https://byte-layers.com/fr/bits/css-variables) et [Transitions et animations CSS](https://byte-layers.com/fr/bits/css-motion).
 
 ```ack
 J'ai compris

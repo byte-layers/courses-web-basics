@@ -5,7 +5,7 @@ tags:
   - bit
   - css
 difficulty: beginner
-duration: 15
+duration: 20
 requires: "0.9.0"
 ---
 
@@ -21,6 +21,13 @@ Le flux normal empile les blocs. Avec Flexbox, vous prenez la main sur ce rangem
 
 Flexbox fonctionne toujours **par paire** : on écrit `display: flex` sur un élément, le **conteneur**, et ce sont ses **enfants directs** qui se rangent côte à côte. Les petits-enfants ne sont pas concernés : un enfant peut devenir à son tour le conteneur des siens.
 
+```scene
+lesson: assets/flex.scene.json
+step: conteneur
+```
+
+Le logo et le menu ont bougé parce que leur **parent** est devenu un conteneur flex ; les liens, eux, ont attendu que `.menu` le devienne à son tour. En CSS, tout se règle donc sur le parent :
+
 ```css
 .entete {
   display: flex;   /* sur le parent : ses enfants passent côte à côte */
@@ -30,7 +37,45 @@ Flexbox fonctionne toujours **par paire** : on écrit `display: flex` sur un él
 
 L'erreur la plus fréquente est d'écrire `display: flex` sur les éléments qu'on veut aligner, au lieu de leur parent : rien ne se met côte à côte, et aucun message ne le signale.
 
-**À toi** : dans l'entête, mets le logo à gauche et le menu à droite, sur la même ligne, centrés en hauteur ; puis les quatre liens côte à côte, avec `16px` entre eux. La feuille de départ contient déjà l'erreur classique : trouve-la.
+## Répartir et aligner : justify-content et align-items
+
+Un conteneur flex a deux réglages principaux. **`justify-content`** décide où va l'espace libre **le long de la ligne** ; **`align-items`** décide comment les éléments s'alignent **en travers**, quand ils n'ont pas la même hauteur.
+
+```scene
+lesson: assets/flex.scene.json
+step: repartir
+```
+
+| `justify-content` | Effet sur la ligne |
+|---|---|
+| `flex-start` | tout au début (par défaut) |
+| `center` | groupés au centre |
+| `flex-end` | tout à la fin |
+| `space-between` | le premier au début, le dernier à la fin, l'espace réparti entre eux |
+
+| `align-items` | Effet en travers |
+|---|---|
+| `stretch` | tous étirés à la même hauteur (par défaut) |
+| `center` | centrés |
+| `flex-start` | alignés en haut |
+
+## À toi : le centrage parfait
+
+Le centrage parfait, horizontal et vertical, tient en trois déclarations. Le piège est de confondre les deux propriétés : complète-les, chacune à sa place.
+
+```fill
+place: stage
+text: ".boite { display: flex; _____: center; _____: center; }   /* centré sur la ligne, puis en travers */"
+blanks:
+  - answers: [justify-content]
+    hint: "La propriété qui répartit l'espace le long de la ligne."
+  - answers: [align-items]
+    hint: "La propriété qui aligne en travers de la ligne."
+```
+
+## À toi : le logo à gauche, le menu à droite
+
+Dans l'entête, mets le logo à gauche et le menu à droite, sur la même ligne, centrés en hauteur ; puis les quatre liens côte à côte, avec `16px` entre eux. La feuille de départ contient déjà l'erreur classique : trouve-la.
 
 ```playground
 runtime: web
@@ -113,46 +158,20 @@ solution: assets/entete.solution
 
 Deux conteneurs flex imbriqués, c'est courant : `.entete` range le logo et le menu, `.menu` range ses liens. La règle `display: flex` sur `.menu li` ne servait à rien : chaque `li` rangeait son seul enfant, le lien.
 
-## Répartir et aligner : justify-content et align-items
-
-Un conteneur flex a deux réglages principaux. **`justify-content`** décide où va l'espace libre **le long de la ligne** ; **`align-items`** décide comment les éléments s'alignent **en travers**, quand ils n'ont pas la même hauteur.
-
-| `justify-content` | Effet sur la ligne |
-|---|---|
-| `flex-start` | tout au début (par défaut) |
-| `center` | groupés au centre |
-| `flex-end` | tout à la fin |
-| `space-between` | le premier au début, le dernier à la fin, l'espace réparti entre eux |
-
-| `align-items` | Effet en travers |
-|---|---|
-| `stretch` | tous étirés à la même hauteur (par défaut) |
-| `center` | centrés |
-| `flex-start` | alignés en haut |
-
-Le centrage parfait, horizontal et vertical, tient en trois lignes. Complète-les.
-
-```fill
-text: ".boite { display: flex; _____: center; _____: center; }   /* centré sur la ligne, puis en travers */"
-blanks:
-  - answers: [justify-content]
-    hint: "La propriété qui répartit l'espace le long de la ligne."
-  - answers: [align-items]
-    hint: "La propriété qui aligne en travers de la ligne."
-```
-
 ## Le piège : avec flex-direction: column, les axes s'inversent
 
 Un conteneur flex a un **axe principal**, la direction dans laquelle il range ses enfants, et un **axe secondaire**, perpendiculaire. Par défaut, `flex-direction: row` : l'axe principal est horizontal. `justify-content` agit toujours sur l'axe principal, `align-items` sur l'axe secondaire.
 
+```scene
+lesson: assets/flex.scene.json
+step: axes
+```
+
 Avec **`flex-direction: column`**, les enfants s'empilent et l'axe principal devient **vertical**. Les deux propriétés échangent leur effet visible : `justify-content: center` centre alors **en hauteur**, et c'est `align-items: center` qui centre **en largeur**.
 
-| `flex-direction` | Axe principal (`justify-content`) | Axe secondaire (`align-items`) |
-|---|---|---|
-| `row` (par défaut) | horizontal | vertical |
-| `column` | vertical | horizontal |
+## À toi : centrer une colonne de boutons
 
-**À toi** : les deux boutons de la carte sont empilés avec `flex-direction: column`, et ils s'étirent sur toute la largeur. On voudrait les centrer horizontalement, à la largeur de leur texte. `justify-content: center` est déjà là, et il ne change rien en largeur : trouve la bonne propriété.
+Les deux boutons de la carte sont empilés avec `flex-direction: column`, et ils s'étirent sur toute la largeur. On voudrait les centrer horizontalement, à la largeur de leur texte. `justify-content: center` est déjà là, et il ne change rien en largeur : trouve la bonne propriété.
 
 ```playground
 runtime: web
@@ -216,15 +235,22 @@ Le réflexe à garder : avant d'écrire `justify-content` ou `align-items`, dema
 
 Par défaut, un conteneur flex garde tous ses enfants **sur une seule ligne**, quitte à les comprimer jusqu'à les rendre illisibles. **`flex-wrap: wrap`** l'autorise à passer à la ligne.
 
-Sur les enfants, le raccourci **`flex`** donne trois valeurs : la capacité à grandir, la capacité à rétrécir, et la **largeur de base** (`flex-basis`). Avec `flex: 1 1 200px`, chaque photo part de `200px`, puis le navigateur en met autant qu'il peut par ligne et partage l'espace restant entre elles.
+```scene
+lesson: assets/flex.scene.json
+step: wrap
+```
+
+Sur les enfants, le raccourci **`flex`** donne trois valeurs : la capacité à grandir, la capacité à rétrécir, et la **largeur de base** (`flex-basis`). Avec `flex: 1 1 160px`, chaque carte part de `160px`, puis le navigateur en met autant qu'il peut par ligne et partage l'espace restant entre elles.
 
 ```css
-.photo {
-  flex: 1 1 200px;  /* peut grandir, peut rétrécir, part de 200px */
+.carte {
+  flex: 1 1 160px;  /* peut grandir, peut rétrécir, part de 160px */
 }
 ```
 
-**À toi** : la galerie comprime ses six photos sur une seule ligne. Autorise le passage à la ligne, et donne à chaque photo une largeur de base de `200px`.
+## À toi : une galerie qui passe à la ligne
+
+La galerie comprime ses six photos sur une seule ligne. Autorise le passage à la ligne, et donne à chaque photo une largeur de base de `200px`.
 
 ```playground
 runtime: web

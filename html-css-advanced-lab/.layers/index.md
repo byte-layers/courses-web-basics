@@ -23,10 +23,10 @@ Vous construisez, étape par étape, la page d'accueil d'un portfolio de dévelo
 1. [Bloc, inline : le flux normal d'une page](https://byte-layers.com/fr/bits/normal-flow)
 2. [Flexbox](https://byte-layers.com/fr/bits/flexbox)
 3. [CSS Grid](https://byte-layers.com/fr/bits/css-grid)
-4. [Tableaux et formulaires HTML](https://byte-layers.com/fr/bits/html-tables-forms)
+4. [Les tableaux HTML](https://byte-layers.com/fr/bits/html-tables) et [Les formulaires HTML](https://byte-layers.com/fr/bits/html-forms)
 5. [Le responsive design](https://byte-layers.com/fr/bits/responsive-design)
 6. [L'accessibilité web](https://byte-layers.com/fr/bits/web-accessibility)
-7. [Variables CSS et mouvement](https://byte-layers.com/fr/bits/css-variables-motion)
+7. [Variables CSS : un choix écrit une fois](https://byte-layers.com/fr/bits/css-variables) et [Transitions et animations CSS](https://byte-layers.com/fr/bits/css-motion)
 8. [Bootstrap : des classes CSS toutes faites](https://byte-layers.com/fr/bits/css-frameworks)
 9. [Tailwind, et pourquoi le CSS se compile](https://byte-layers.com/fr/bits/css-build-tools)
 

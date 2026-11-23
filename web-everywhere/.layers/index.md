@@ -5,8 +5,8 @@ tags:
   - bit
   - web
 difficulty: beginner
-duration: 10
-requires: "0.8.0"
+duration: 15
+requires: "0.9.0"
 ---
 
 HTML, CSS et JavaScript ne servent plus seulement à faire des pages qu'on lit : ils font des applications complètes dans le navigateur, des applications qu'on installe, des apps mobiles et des logiciels de bureau. Vous saurez reconnaître ces quatre usages, ce que chacun ajoute au navigateur, et pourquoi ces trois langages sont devenus le standard de fait des interfaces graphiques.
@@ -15,53 +15,86 @@ HTML, CSS et JavaScript ne servent plus seulement à faire des pages qu'on lit :
 
 # Le web partout : sites, applications, mobile et bureau
 
-Le contenu précédent décrivait une page : un titre, un bouton, un clic qui change un texte. Avec les mêmes langages, on construit aujourd'hui une messagerie, un tableur ou un éditeur de code. Ce contenu fait le tour de ce qu'ils permettent, du navigateur jusqu'au bureau.
+Une page web, c'est d'abord un titre, un bouton, un clic qui change un texte. Avec les mêmes langages, on construit aujourd'hui une messagerie, un tableur ou un éditeur de code. Ce contenu fait le tour de ce qu'ils permettent, du navigateur jusqu'au bureau.
 
 ## Des pages aux applications web
 
 Un **site** se lit : des pages d'information, des liens de l'une à l'autre. Une **application web** se manipule : une messagerie comme Gmail, un traitement de texte comme Google Docs, un outil de dessin comme Figma. Elle tourne entièrement dans le navigateur, sans rien installer, et c'est le JavaScript qui la fait réagir à chaque clic, souvent sans recharger la page.
 
-C'est le client léger du contenu sur les architectures : l'interface vit dans le navigateur, les données sur un serveur. Une nouvelle version se déploie une seule fois, sur le serveur, et chacun l'a à son prochain chargement.
+Voici la différence, clic après clic.
+
+```scene
+lesson: assets/everywhere.scene.json
+step: appli
+```
+
+On parle de **client léger** : l'interface vit dans le navigateur, les données sur un serveur. Une nouvelle version se déploie une seule fois, sur le serveur, et chacun l'a à son prochain chargement.
 
 ## Une seule page pour tous les écrans : le responsive
 
-La même application s'ouvre sur un écran de bureau de 1 600 pixels de large et sur un téléphone de 360 pixels. Plutôt que d'écrire deux sites, on écrit une seule page dont la disposition s'adapte à la largeur de l'écran : c'est le **responsive design** (on dit aussi « adaptatif »). Sur un ordinateur, trois colonnes côte à côte ; sur un téléphone, les mêmes blocs les uns sous les autres. Tout se fait en CSS, et le cours qui suit celui-ci y consacre une étape.
+La même application s'ouvre sur un écran d'ordinateur de 1 600 pixels de large et sur un téléphone de 360 pixels. Plutôt que d'écrire deux sites, on écrit une seule page dont la disposition s'adapte à la largeur de l'écran.
 
-## Les PWA : une application web qu'on installe
+```scene
+lesson: assets/cibles.scene.json
+step: responsive
+```
 
-Une **PWA** (*Progressive Web App*) est une application web qu'on peut installer depuis le navigateur. Elle reçoit une icône sur l'écran d'accueil ou dans le menu des applications, s'ouvre dans sa propre fenêtre, sans barre d'adresse, et peut fonctionner hors connexion. Deux fichiers de plus suffisent pour cela :
+C'est le **responsive design** (*responsive* : qui réagit, qui s'adapte ; on dit aussi « design adaptatif »). Le HTML ne change pas : c'est la feuille de style qui range les blocs, avec des règles qui ne s'appliquent qu'à partir d'une certaine largeur, les *media queries* (requêtes sur le média, ici l'écran).
 
-| Fichier | Ce qu'il apporte |
-|---|---|
-| le **manifeste** (`manifest.json`) | le nom de l'application, son icône, ses couleurs : ce dont le système a besoin pour l'installer |
-| le **service worker** (un fichier JavaScript) | un script qui tourne en arrière-plan, garde des fichiers en réserve et sert la page sans réseau |
+## Installer une PWA : le manifeste
 
-L'installation dépend du navigateur : Chrome et Edge la proposent sur ordinateur, Safari sur iPhone par le menu « Sur l'écran d'accueil ». Une PWA reste une page web : elle n'a pas accès à tout ce qu'une application native peut faire.
+Une **PWA** (*Progressive Web App*, application web progressive) est une application web qu'on peut installer depuis le navigateur. Pour cela, elle fournit un **manifeste** : un petit fichier, `manifest.json`, qui donne son nom, son icône, ses couleurs et sa façon de s'ouvrir. Regardez ce que le navigateur en fait.
+
+```scene
+lesson: assets/everywhere.scene.json
+step: installer
+```
+
+L'application reçoit une icône sur l'écran d'accueil ou dans le menu des applications, et s'ouvre dans sa propre fenêtre. L'installation dépend du navigateur : Chrome et Edge la proposent sur ordinateur, Safari sur iPhone par le menu « Sur l'écran d'accueil ».
+
+## Hors connexion : le service worker
+
+Une PWA peut aussi marcher sans réseau. Elle installe pour cela un **service worker** (littéralement « travailleur de service ») : un fichier JavaScript qui tourne en arrière-plan, entre la page et le réseau. Voici comment il sert l'application quand le réseau manque.
+
+```scene
+lesson: assets/everywhere.scene.json
+step: pwa
+```
+
+Le service worker garde des fichiers en réserve et les sert à la place du serveur. Une PWA reste pourtant une page web : elle n'a pas accès à tout ce qu'une application native peut faire.
 
 ## Le mobile : React Native
 
-Une app mobile **native** est écrite pour un système précis, iOS ou Android, avec ses langages : Swift pour l'un, Kotlin pour l'autre. **React Native** permet d'écrire une seule app en JavaScript pour les deux. Attention : l'écran n'y est pas une page web. On écrit du JavaScript et des styles proches du CSS, mais React Native affiche les composants du système, les vrais boutons et les vraies listes d'iOS ou d'Android.
+Une app mobile **native** (écrite pour le système lui-même) vise un seul système, iOS ou Android, avec ses langages : Swift pour l'un, Kotlin pour l'autre. **React Native** permet d'écrire une seule app en JavaScript pour les deux. **Capacitor** prend un autre chemin. Voici la différence à l'écran.
 
-D'autres outils, comme **Capacitor**, font l'inverse : ils glissent une vraie page HTML, CSS et JavaScript dans une app qu'on publie sur les stores. Dans les deux cas, ce que vous apprenez sur le web resservira.
+```scene
+lesson: assets/cibles.scene.json
+step: mobile
+```
+
+Avec React Native, l'écran n'est pas une page web : on écrit du JavaScript et des styles proches du CSS, mais l'app affiche les vrais boutons et les vraies listes du système. Capacitor, lui, glisse une vraie page HTML, CSS et JavaScript dans une app qu'on publie sur les boutiques d'applications (App Store, Google Play). Dans les deux cas, ce que vous apprenez sur le web resservira.
 
 ## Le bureau : Electron
 
-**Electron** fabrique des logiciels de bureau pour Windows, macOS et Linux à partir d'une application web. Il emporte deux programmes avec chaque logiciel : **Chromium**, la partie libre de Chrome, qui affiche l'interface écrite en HTML, CSS et JavaScript, et **Node.js**, qui donne accès aux fichiers et au système, ce qu'une page web n'a pas le droit de faire.
+**Electron** fabrique des logiciels de bureau pour Windows, macOS et Linux à partir d'une application web. Il emporte deux programmes avec chaque logiciel : **Chromium**, le navigateur libre sur lequel Chrome est construit, et **Node.js**, qui fait tourner du JavaScript hors du navigateur. Regardez ce qui se passe quand on ouvre un fichier.
 
-Vous en utilisez sans doute : **VS Code**, l'éditeur de ce parcours, est une application Electron, tout comme Slack, Discord ou Obsidian. Le prix de cette facilité : chaque logiciel embarque son propre Chromium, et pèse donc plus lourd qu'un logiciel natif.
-
-```fill
-text: "Electron réunit deux programmes : _____, pour afficher l'interface, et _____, pour accéder aux fichiers et au système."
-blanks:
-  - answers: [Chromium, Chrome]
-    hint: La partie libre d'un navigateur bien connu.
-  - answers: [Node.js, Node, NodeJS]
-    hint: Le runtime JavaScript qui tourne hors du navigateur, vu dans l'introduction.
+```scene
+lesson: assets/cibles.scene.json
+step: electron
 ```
+
+Chromium affiche l'interface ; Node.js lit et écrit les fichiers, ce qu'une page web n'a pas le droit de faire. Vous en utilisez sans doute : **VS Code** est une application Electron, tout comme Slack, Discord ou Obsidian. Le prix de cette facilité : chaque logiciel embarque son propre Chromium, et pèse donc plus lourd qu'un logiciel natif.
 
 ## Le standard de fait des interfaces
 
-Le navigateur, la PWA, l'app mobile, le logiciel de bureau : une même équipe peut couvrir ces quatre cibles avec les mêmes langages, et souvent une bonne part du même code. Aucune loi ne l'impose, mais l'usage s'est installé : on parle de **standard de fait**. HTML, CSS et JavaScript sont devenus une façon courante de dessiner une interface graphique, du navigateur au bureau, et c'est la raison de les comprendre vraiment, plutôt que de les laisser écrire à votre place sans savoir les relire.
+Le navigateur, la PWA, l'app mobile, le logiciel de bureau : une même équipe peut couvrir ces quatre cibles avec les mêmes langages.
+
+```scene
+lesson: assets/cibles.scene.json
+step: cibles
+```
+
+Souvent, une bonne part du code est même partagée. Aucune loi ne l'impose, mais l'usage s'est installé : on parle de **standard de fait** (*de facto*, par opposition à une norme imposée). HTML, CSS et JavaScript sont devenus une façon courante de dessiner une interface graphique, du navigateur au bureau, et c'est la raison de les comprendre vraiment, plutôt que de les laisser écrire à votre place sans savoir les relire.
 
 > 📖 [Les applications web progressives (MDN)](https://developer.mozilla.org/fr/docs/Web/Progressive_web_apps) · [Le responsive design (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) · [Electron (en anglais)](https://www.electronjs.org/) · [React Native (en anglais)](https://reactnative.dev/) · [Capacitor (en anglais)](https://capacitorjs.com/)
 
@@ -105,8 +138,8 @@ questions:
 
 ## Récap
 
-- Une **application web** tourne entièrement dans le navigateur : le client léger, déployé une seule fois sur le serveur.
-- Le **responsive design** adapte une seule page à toutes les largeurs d'écran, en CSS.
+- Une **application web** tourne entièrement dans le navigateur : un client léger, déployé une seule fois sur le serveur.
+- Le **responsive design** adapte une seule page à toutes les largeurs d'écran : la feuille de style range les blocs selon la largeur.
 - Une **PWA** est une application web qu'on installe, grâce à un **manifeste** et à un **service worker**, qui la fait marcher hors connexion.
 - **React Native** écrit des apps mobiles en JavaScript avec les composants natifs ; **Capacitor** emballe une vraie page web dans une app.
 - **Electron** fait des logiciels de bureau avec Chromium et Node.js : VS Code, Slack, Discord.

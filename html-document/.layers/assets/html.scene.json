@@ -1,0 +1,549 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "html-document-plan",
+ "title": "Le squelette d'une page HTML (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "r",
+   "label": "ouvert"
+  },
+  {
+   "tone": "g",
+   "label": "fermé"
+  },
+  {
+   "tone": "y",
+   "label": "le fichier HTML"
+  },
+  {
+   "tone": "v",
+   "label": "le navigateur"
+  }
+ ],
+ "entities": [
+  {
+   "id": "e-body",
+   "kind": "layer",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "r",
+   "size": [
+    16,
+    11,
+    1
+   ],
+   "title": "body"
+  },
+  {
+   "id": "e-p",
+   "kind": "layer",
+   "at": [
+    0,
+    0.9
+   ],
+   "tone": "r",
+   "size": [
+    13,
+    7,
+    1
+   ],
+   "in": "e-body",
+   "title": "p",
+   "sub": "Bonjour, je m'appelle"
+  },
+  {
+   "id": "e-strong",
+   "kind": "node",
+   "at": [
+    0,
+    1.2
+   ],
+   "tone": "r",
+   "size": [
+    7,
+    2.2,
+    1
+   ],
+   "in": "e-p",
+   "title": "strong",
+   "sub": "Ada"
+  },
+  {
+   "id": "f",
+   "kind": "layer",
+   "at": [
+    -8.5,
+    0
+   ],
+   "tone": "y",
+   "size": [
+    13,
+    18,
+    1
+   ],
+   "title": "index.html"
+  },
+  {
+   "id": "f-head",
+   "kind": "layer",
+   "at": [
+    0,
+    -3.6
+   ],
+   "tone": "y",
+   "size": [
+    11,
+    6.6,
+    1
+   ],
+   "in": "f",
+   "title": "head"
+  },
+  {
+   "id": "f-meta",
+   "kind": "node",
+   "at": [
+    0,
+    -0.6
+   ],
+   "tone": "y",
+   "size": [
+    9,
+    1.7,
+    1
+   ],
+   "in": "f-head",
+   "title": "meta charset=\"utf-8\""
+  },
+  {
+   "id": "f-title",
+   "kind": "node",
+   "at": [
+    0,
+    1.6
+   ],
+   "tone": "y",
+   "size": [
+    9,
+    1.7,
+    1
+   ],
+   "in": "f-head",
+   "title": "title",
+   "sub": "Mon premier site"
+  },
+  {
+   "id": "f-body",
+   "kind": "layer",
+   "at": [
+    0,
+    4.6
+   ],
+   "tone": "y",
+   "size": [
+    11,
+    6.6,
+    1
+   ],
+   "in": "f",
+   "title": "body"
+  },
+  {
+   "id": "f-h1",
+   "kind": "node",
+   "at": [
+    0,
+    -0.6
+   ],
+   "tone": "y",
+   "size": [
+    9,
+    1.7,
+    1
+   ],
+   "in": "f-body",
+   "title": "h1",
+   "sub": "Ma première page"
+  },
+  {
+   "id": "f-p",
+   "kind": "node",
+   "at": [
+    0,
+    1.6
+   ],
+   "tone": "y",
+   "size": [
+    9,
+    1.7,
+    1
+   ],
+   "in": "f-body",
+   "title": "p",
+   "sub": "Bonjour ! J'apprends…"
+  },
+  {
+   "id": "win",
+   "kind": "layer",
+   "at": [
+    8.5,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    13,
+    18,
+    1
+   ],
+   "title": "navigateur"
+  },
+  {
+   "id": "tab",
+   "kind": "node",
+   "at": [
+    -2.2,
+    -6.6
+   ],
+   "tone": "v",
+   "size": [
+    7.4,
+    1.8,
+    1
+   ],
+   "in": "win",
+   "title": "onglet",
+   "sub": "…"
+  },
+  {
+   "id": "view",
+   "kind": "layer",
+   "at": [
+    0,
+    2.2
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    11.6,
+    1
+   ],
+   "in": "win",
+   "title": "la page"
+  },
+  {
+   "id": "v-h1",
+   "kind": "node",
+   "at": [
+    0,
+    -2.2
+   ],
+   "tone": "v",
+   "size": [
+    9,
+    2.4,
+    1
+   ],
+   "in": "view",
+   "title": "Ma première page"
+  },
+  {
+   "id": "v-p",
+   "kind": "node",
+   "at": [
+    0,
+    1.2
+   ],
+   "tone": "v",
+   "size": [
+    9,
+    1.6,
+    1
+   ],
+   "in": "view",
+   "sub": "Bonjour ! J'apprends à créer des pages…"
+  }
+ ],
+ "steps": [
+  {
+   "id": "emboiter",
+   "label": "S'emboîter",
+   "title": "Des éléments emboîtés",
+   "body": [
+    "Chaque balise ouvrante ouvre une boîte dans la boîte en cours. On ferme toujours la dernière ouverte en premier."
+   ],
+   "show": [
+    "e-body"
+   ],
+   "links": [],
+   "widgets": [
+    {
+     "kind": "editor",
+     "title": "index.html",
+     "lang": "text",
+     "lines": [
+      "<body>",
+      "  <p>Bonjour, je m'appelle",
+      "    <strong>Ada</strong>.",
+      "  </p>",
+      "</body>"
+     ]
+    }
+   ],
+   "script": [
+    {
+     "do": "line",
+     "n": 1
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "e-body",
+       "label": "ouverte"
+      }
+     ],
+     "say": "`<body>` ouvre une boîte : tout ce qui suit sera dedans, jusqu'à `</body>`."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "line",
+     "n": 2
+    },
+    {
+     "do": "scene",
+     "show": [
+      "e-p"
+     ],
+     "say": "`<p>` ouvre un paragraphe, à l'intérieur du body."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "line",
+     "n": 3
+    },
+    {
+     "do": "scene",
+     "show": [
+      "e-strong"
+     ],
+     "say": "`<strong>` ouvre une boîte dans le paragraphe… et se ferme sur la même ligne."
+    },
+    {
+     "do": "wait",
+     "ms": 600
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "e-strong",
+       "tone": "g",
+       "label": "fermée"
+      }
+     ],
+     "ms": 500
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "line",
+     "n": 4
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "e-p",
+       "tone": "g",
+       "label": "fermée"
+      }
+     ],
+     "say": "`</p>` ferme le paragraphe : c'était la dernière boîte encore ouverte."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "line",
+     "n": 5
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "e-body",
+       "tone": "g",
+       "label": "fermée"
+      }
+     ],
+     "say": "`</body>` ferme la première ouverte : le dernier ouvert se ferme toujours en premier."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "squelette",
+   "label": "Le squelette",
+   "title": "Où va chaque partie du squelette",
+   "body": [
+    "Le head parle au navigateur ; le body contient ce que voit le visiteur. Le title et le h1 ne s'affichent pas au même endroit."
+   ],
+   "show": [
+    "f",
+    "f-head",
+    "f-meta",
+    "f-title",
+    "f-body",
+    "f-h1",
+    "f-p",
+    "win",
+    "tab",
+    "view"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "f-title",
+       "to": "tab"
+      }
+     ]
+    },
+    {
+     "do": "send",
+     "path": [
+      "f-title",
+      "tab"
+     ],
+     "label": "Mon premier site"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "tab",
+       "sub": "Mon premier site"
+      }
+     ],
+     "say": "Le texte de `<title>` va dans l'onglet du navigateur, jamais dans la page."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "v-h1",
+       "dim": true
+      }
+     ],
+     "link": [
+      {
+       "from": "f-h1",
+       "to": "v-h1"
+      }
+     ]
+    },
+    {
+     "do": "send",
+     "path": [
+      "f-h1",
+      "v-h1"
+     ],
+     "label": "grand titre"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "v-h1",
+       "dim": null
+      }
+     ],
+     "say": "Le `<h1>` est le grand titre, en haut de la page."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "v-p"
+     ],
+     "link": [
+      {
+       "from": "f-p",
+       "to": "v-p"
+      }
+     ],
+     "say": "Le paragraphe suit, dans la page : tout le body est pour le visiteur."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "f-meta",
+       "label": "ne s'affiche pas"
+      }
+     ],
+     "say": "`<meta charset>` ne s'affiche nulle part : il dit au navigateur comment lire les caractères du fichier."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "f-head",
+       "label": "pour le navigateur"
+      },
+      {
+       "id": "f-body",
+       "label": "pour le visiteur"
+      }
+     ],
+     "say": "Le head renseigne le navigateur ; le body est la page que l'on voit."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

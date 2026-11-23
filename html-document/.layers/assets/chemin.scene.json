@@ -1,0 +1,263 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "html-document-path",
+ "title": "Un chemin relatif (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "n",
+   "label": "dossier"
+  },
+  {
+   "tone": "y",
+   "label": "fichier"
+  },
+  {
+   "tone": "g",
+   "label": "trouvé"
+  },
+  {
+   "tone": "r",
+   "label": "introuvable"
+  }
+ ],
+ "entities": [
+  {
+   "id": "d-site",
+   "kind": "node",
+   "at": [
+    0,
+    -6.5
+   ],
+   "tone": "n",
+   "size": [
+    6,
+    2,
+    1
+   ],
+   "title": "site/"
+  },
+  {
+   "id": "d-pages",
+   "kind": "node",
+   "at": [
+    -7,
+    -1
+   ],
+   "tone": "n",
+   "size": [
+    6,
+    2,
+    1
+   ],
+   "title": "pages/"
+  },
+  {
+   "id": "d-images",
+   "kind": "node",
+   "at": [
+    7,
+    -1
+   ],
+   "tone": "n",
+   "size": [
+    6,
+    2,
+    1
+   ],
+   "title": "images/"
+  },
+  {
+   "id": "d-index",
+   "kind": "file",
+   "at": [
+    -7,
+    5
+   ],
+   "tone": "y",
+   "size": [
+    7,
+    2,
+    1
+   ],
+   "title": "index.html"
+  },
+  {
+   "id": "d-svg",
+   "kind": "file",
+   "at": [
+    7,
+    5
+   ],
+   "tone": "y",
+   "size": [
+    7,
+    2,
+    1
+   ],
+   "title": "capitole.svg"
+  },
+  {
+   "id": "d-ghost",
+   "kind": "node",
+   "at": [
+    0,
+    -1
+   ],
+   "tone": "r",
+   "size": [
+    5.4,
+    2,
+    1
+   ],
+   "title": "Images/ ?",
+   "dim": true
+  }
+ ],
+ "steps": [
+  {
+   "id": "chemin",
+   "label": "Un chemin",
+   "title": "Un chemin relatif, dossier par dossier",
+   "body": [
+    "Le navigateur part du dossier de la page et suit le chemin morceau par morceau : `..` remonte d'un dossier."
+   ],
+   "hud": [
+    {
+     "label": "dans la page",
+     "value": "pages/index.html"
+    },
+    {
+     "label": "src",
+     "value": "../images/capitole.svg"
+    }
+   ],
+   "show": [
+    "d-site",
+    "d-pages",
+    "d-images",
+    "d-index",
+    "d-svg"
+   ],
+   "links": [
+    {
+     "from": "d-site",
+     "to": "d-pages"
+    },
+    {
+     "from": "d-site",
+     "to": "d-images"
+    },
+    {
+     "from": "d-pages",
+     "to": "d-index"
+    },
+    {
+     "from": "d-images",
+     "to": "d-svg"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "d-pages",
+       "label": "on part d'ici"
+      }
+     ],
+     "say": "La page est dans `pages/` : c'est de ce dossier que part le chemin."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "d-pages",
+      "d-site",
+      "d-images",
+      "d-svg"
+     ],
+     "label": "../images/capitole.svg",
+     "explain": [
+      "`..` remonte d'un dossier : on arrive dans `site/`.",
+      "`images/` descend dans le dossier des images.",
+      "`capitole.svg` : le fichier est là."
+     ]
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "d-svg",
+       "tone": "g",
+       "label": "trouvé"
+      },
+      {
+       "id": "d-pages",
+       "label": null
+      }
+     ],
+     "say": "Chaque morceau du chemin est un pas dans l'arbre des dossiers."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "d-svg",
+       "tone": "y",
+       "label": null
+      }
+     ],
+     "show": [
+      "d-ghost"
+     ],
+     "link": [
+      {
+       "from": "d-site",
+       "to": "d-ghost",
+       "dashed": true
+      }
+     ],
+     "hud": [
+      {
+       "label": "src",
+       "value": "../Images/capitole.svg",
+       "tone": "r"
+      }
+     ],
+     "say": "Avec `Images/`, une majuscule de trop : sur la plupart des serveurs, ce dossier n'existe pas."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "d-ghost",
+       "label": "404 : introuvable"
+      }
+     ],
+     "say": "L'image ne s'affiche pas en ligne, même si ton disque, lui, confondait les deux."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

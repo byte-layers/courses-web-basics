@@ -1,23 +1,23 @@
 ---
 title: "Une page web : HTML, CSS et JavaScript"
-description: "Les trois langages d'une page et leurs rôles, comment une page relie sa feuille de style et son script, les standards (WHATWG, W3C, Ecma) et les moteurs des navigateurs, et pourquoi une même page s'est longtemps affichée différemment d'un navigateur à l'autre."
+description: "Les trois langages d'une page et leurs rôles, puis une petite page construite pas à pas : les balises HTML, la structure html, head et body, les attributs, et comment la page relie sa feuille de style et son script."
 tags:
   - bit
   - web
   - html
   - css
 difficulty: beginner
-duration: 15
+duration: 30
 requires: "0.9.0"
 ---
 
-Le texte qu'un navigateur reçoit pour afficher une page est écrit dans trois langages : **HTML** pour le contenu, **CSS** pour l'apparence, **JavaScript** pour le comportement. Vous saurez reconnaître chacun, relier une page à sa feuille de style et à son script, qui écrit les standards de ces langages, ce que sont les moteurs d'un navigateur, et pourquoi une même page s'est longtemps affichée différemment selon le navigateur.
+Le texte qu'un navigateur reçoit pour afficher une page est écrit dans trois langages : **HTML** pour le contenu, **CSS** pour l'apparence, **JavaScript** pour le comportement. Vous allez construire, pas à pas, une petite page qui les utilise tous les trois : un titre et un bouton.
 
-**Prérequis** : [Le web : une adresse, une requête, une page](https://byte-layers.com/fr/bits/web-request-response), pour la requête, la réponse et les fichiers qu'une page demande.
+**Prérequis** : [Le web : une adresse, une requête, une page](https://byte-layers.com/fr/bits/web-request-response), pour la requête, la réponse et les fichiers qu'une page demande. Aucune connaissance en programmation n'est demandée.
 
 # Une page web : HTML, CSS et JavaScript
 
-Dans le contenu précédent, le navigateur recevait le texte d'une page, y trouvait l'adresse d'une feuille de style, puis la demandait au serveur. Ce contenu regarde ce que contiennent ces fichiers, et qui décide de la façon de les écrire.
+Quand le navigateur reçoit une page, il reçoit du texte. Ce contenu montre ce qu'il y a dans ce texte, et comment l'écrire vous-même.
 
 ## Trois langages, trois rôles
 
@@ -29,59 +29,231 @@ Une page web se partage entre trois langages, et chacun répond à une seule que
 | **CSS** (*Cascading Style Sheets*) | `style.css` | à quoi ça ressemble ? | le bouton est rose, le texte fait 20 pixels |
 | **JavaScript** | `script.js` | que se passe-t-il quand on agit ? | un clic sur le bouton change le titre |
 
-Voici les trois fichiers d'une toute petite page. Le HTML décrit le contenu, et c'est lui qui cite les deux autres fichiers :
+Regardez ce que chacun apporte à une même petite page, puis ce qui reste quand on en retire un.
+
+```scene
+lesson: assets/langages.scene.json
+step: trois
+```
+
+C'est cette page, un titre et un bouton, que vous allez construire. Retenez la **séparation** : sans le CSS, la page garde tout son contenu ; sans le JavaScript, elle s'affiche, mais le clic ne fait plus rien.
+
+## Le HTML : des balises
+
+Tout commence par un fichier HTML. Le HTML est un langage fait de **balises** : des mots entre chevrons, `<` et `>`, qui disent le rôle de ce qu'ils entourent. Pour un titre principal, c'est la balise `h1` (*heading 1*, titre de niveau 1) :
 
 ```html
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Trois langages</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1 id="titre">Bonjour !</h1>
-  <button type="button" id="bouton">Clique-moi</button>
-  <script src="script.js"></script>
-</body>
-</html>
+<h1>Bonjour !</h1>
 ```
 
-La feuille de style dit à quoi ressemble le bouton :
+`<h1>` **ouvre** le titre, `</h1>` le **ferme** : la barre oblique `/` marque la fin. Entre les deux, le texte qui s'affiche. Pour un bouton, la balise s'appelle `button` : complète le code sur le plateau.
 
-```css
-#bouton {
-  background-color: rgb(219, 39, 119);
-  color: white;
-}
+```fill
+file: assets/bouton.fill.html
+solution: assets/bouton.html
+title: Un titre et un bouton
+blanks:
+  - answers: [button]
+    hint: La balise porte le nom du bouton en anglais, sans chevrons dans la case.
+  - answers: [/button]
+    hint: "Une balise ouverte se ferme : le même nom, précédé d'une barre oblique `/`."
 ```
 
-Le script, lui, attend un clic sur le bouton, puis remplace le texte du titre :
+Une balise s'ouvre et se **ferme**, et l'oubli de la fermeture est le piège le plus courant : le navigateur ne signale rien, il devine, souvent mal. Quelques balises n'ont pas de fermeture, parce qu'elles n'ont pas de contenu, comme `<img>` pour une image ou `<br>` pour un retour à la ligne : on les dit **auto-fermantes**.
 
-```javascript
-document.querySelector('#bouton').addEventListener('click', function () {
-  document.querySelector('#titre').textContent = 'Merci !';
-});
+Il existe une centaine de balises, et personne ne les connaît toutes par cœur. Ce qui compte, c'est de savoir **où chercher** : la [référence des éléments HTML de MDN](https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements) les décrit toutes. Les principales, vous les reconnaîtrez vite, par habitude.
+
+## La structure d'une page : html, head et body
+
+Des balises seules ne suffisent pas : le navigateur a besoin d'une **structure**, et de quelques informations pour bien afficher la page. Une page HTML est une enveloppe, `<html>`, qui porte deux parties :
+
+- l'**en-tête**, `<head>` : les informations pour le navigateur, comme le nom de l'onglet, les **métadonnées**, ou la feuille de style à charger ;
+- le **corps**, `<body>` : ce qui s'affiche, nos balises de titre et de contenu.
+
+Regardez-la se construire, ligne par ligne :
+
+```scene
+lesson: assets/page.scene.json
+step: structure
 ```
 
-Vous n'avez pas à comprendre chaque ligne : la suite du cours détaille le HTML et le CSS, et le JavaScript a son propre cours. Ce qui compte ici, c'est la séparation. Sans le CSS, la page garde tout son contenu, avec l'apparence par défaut du navigateur. Sans le JavaScript, elle s'affiche normalement, mais le clic ne fait plus rien.
+La première ligne, `<!DOCTYPE html>`, n'est pas une balise : elle annonce au navigateur une page en HTML d'aujourd'hui. Ensuite, l'**en-tête** puis le **corps**, toujours dans cet ordre, tous deux dans `<html>`.
 
-## Relier la feuille de style et le script : `<link>` et `<script>`
+## La structure de base, ligne par ligne
 
-Le HTML cite les deux autres fichiers par deux balises, et chacune a sa forme exacte :
+Voici la structure de base d'une page, que vous retrouverez en tête de toutes les pages que vous écrirez. Une balise peut porter des **attributs** : des précisions écrites `nom="valeur"` dans la balise ouvrante.
 
-| Pour relier | On écrit | Où |
-|---|---|---|
-| une feuille de style | `<link rel="stylesheet" href="style.css">` | dans le `<head>` |
-| un script | `<script src="script.js"></script>` | ici, juste avant `</body>` |
+```scene
+lesson: assets/page.scene.json
+step: base
+```
 
-Le nom du fichier doit être écrit **exactement** : `Script.js` et `script.js` sont deux fichiers différents pour un serveur. Et si la balise est fausse ou le nom mal écrit, la page ne vous prévient pas : elle s'affiche sans le style, ou sans le comportement, en silence.
+`<html lang="fr">` dit que le contenu est en **français** : les lecteurs d'écran le prononcent correctement, et le navigateur ne propose pas de le traduire. `<meta charset="utf-8">` dit comment les caractères sont **codés** : sans lui, les accents peuvent s'afficher en signes bizarres. `<title>` donne le texte de l'**onglet**, pas un titre dans la page.
 
-La page ci-dessous a été écrite par quelqu'un qui s'est trompé deux fois. Le bouton devrait être rose, et un clic devrait changer le titre en « Merci ! ». Ni l'un ni l'autre ne marche. `style.css` et `script.js` sont justes et en lecture seule : corrige `index.html`.
+## À toi : ta première page complète
+
+Bienvenue sur le **playground** : comme sur un ordinateur quand on écrit une page, un éditeur pour le code, et un aperçu pour voir le résultat. Complète la structure : la langue française, un titre d'onglet, puis, dans le corps, le titre `Bonjour !` et le bouton `Clique-moi`.
 
 ```playground
 runtime: web
-title: Relie la feuille de style et le script
+title: Ta première page
+files:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="">
+    <head>
+      <meta charset="utf-8">
+      <title></title>
+    </head>
+    <body>
+      <!-- À toi : un titre h1 « Bonjour ! », puis un bouton « Clique-moi » -->
+    </body>
+    </html>
+verify:
+  - label: la page est en français
+    file: index.html
+    includes: /<html lang="fr">/
+    hint: "Le code de la langue française tient en deux lettres, entre les guillemets de `lang=\"\"`."
+  - label: l'onglet a un titre
+    file: index.html
+    includes: /<title>[^<]+<\/title>/
+    hint: "Écris un texte entre `<title>` et `</title>`."
+  - label: la page affiche le titre « Bonjour ! »
+    selector: h1
+    text: Bonjour !
+    hint: "`<h1>Bonjour !</h1>`, dans le `<body>`"
+  - label: la page affiche un seul bouton « Clique-moi »
+    selector: button
+    count: 1
+    text: Clique-moi
+    hint: "Deux boutons ? Un `<button>` non fermé : vérifie le `</button>`."
+solution: assets/page.solution
+```
+
+Si le contrôle du bouton échoue alors que l'aperçu en montre un, regarde la fermeture : `<button>Clique-moi<button>` ouvre un **second** bouton, vide, au lieu de fermer le premier.
+
+## Ajouter du CSS : `<link>` dans l'en-tête
+
+Le CSS peut s'écrire dans la page, entre `<style>` et `</style>`, mais on le range le plus souvent dans un fichier à part, la **feuille de style**, que la page relie par une balise `<link>` dans son en-tête.
+
+```scene
+lesson: assets/page.scene.json
+step: css
+```
+
+Pourquoi dans l'**en-tête** ? Le navigateur lit la page de haut en bas : les règles sont chargées avant le corps, et la page s'affiche stylée **dès le premier affichage**. Pourquoi `href="style.css"` et pas une adresse en `https://` ? C'est un chemin **relatif** : le fichier est à côté de la page, que la page soit sur un serveur ou sur votre disque. Avec une barre au début, `/style.css` partirait de la racine du site.
+
+## À toi : relie la feuille de style
+
+La feuille `style.css` est prête, et en lecture seule : elle rend le bouton rose. Relie-la dans l'en-tête de `index.html`. Le fonctionnement du CSS, ses règles et sa syntaxe, fait l'objet d'un autre contenu : ici, il s'agit seulement de **relier** le fichier.
+
+```playground
+runtime: web
+title: Relie la feuille de style
+files:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <title>Ma page</title>
+      <!-- À toi : relie la feuille de style style.css -->
+    </head>
+    <body>
+      <h1>Bonjour !</h1>
+      <button type="button" id="bouton">Clique-moi</button>
+    </body>
+    </html>
+  style.css: |
+    #bouton {
+      background-color: rgb(219, 39, 119);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+    }
+open: [index.html, style.css]
+lock: [style.css]
+verify:
+  - label: le bouton est rose, la feuille de style est donc chargée
+    selector: "#bouton"
+    style: { background-color: "rgb(219, 39, 119)" }
+    hint: "`<link rel=\"stylesheet\" href=\"style.css\">`, dans le `<head>`"
+  - label: la feuille de style est reliée dans l'en-tête
+    file: index.html
+    includes: /<head>[\s\S]*<link[^>]*href="style\.css"[\s\S]*<\/head>/
+    hint: "La balise `<link>` va entre `<head>` et `</head>`."
+solution: assets/css.solution
+```
+
+> 💡 **Remarque.** Le nom du fichier s'écrit **exactement** : pour un serveur, `Style.css` et `style.css` sont deux fichiers différents, et un nom faux ne donne aucun message, seulement une page sans style.
+
+## Ajouter du JavaScript : `<script>` à la fin du corps
+
+Le JavaScript, lui aussi, peut s'écrire dans la page, entre `<script>` et `</script>`, ou dans un fichier à part, relié par `<script src="script.js"></script>`. On place souvent cette balise **juste avant** `</body>`.
+
+```scene
+lesson: assets/page.scene.json
+step: js
+```
+
+À la fin du corps, le titre et le bouton sont **déjà lus** quand le script s'exécute : il peut les trouver. Placé plus haut, il chercherait un bouton qui n'existe pas encore. Il existe une autre solution, l'attribut `defer`, que le cours de JavaScript détaille.
+
+## À toi : relie le script
+
+Le script `script.js` est prêt, et en lecture seule : au clic sur le bouton, il change le titre en « Merci ! ». Relie-le, juste avant `</body>`, puis clique sur le bouton de l'aperçu.
+
+```playground
+runtime: web
+title: Relie le script
+files:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <title>Ma page</title>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <h1 id="titre">Bonjour !</h1>
+      <button type="button" id="bouton">Clique-moi</button>
+      <!-- À toi : relie le script script.js -->
+    </body>
+    </html>
+  style.css: |
+    #bouton {
+      background-color: rgb(219, 39, 119);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+    }
+  script.js: |
+    document.querySelector('#bouton').addEventListener('click', function () {
+      document.querySelector('#titre').textContent = 'Merci !';
+    });
+open: [index.html, script.js]
+lock: [style.css, script.js]
+show: [editor, preview, console]
+verify:
+  - label: un clic sur le bouton change le titre en « Merci ! »
+    click: "#bouton"
+    selector: "#titre"
+    text: Merci !
+    hint: "`<script src=\"script.js\"></script>`, juste avant `</body>`"
+  - label: aucune erreur dans la console
+    errors: none
+solution: assets/js.solution
+```
+
+Vous n'avez pas à comprendre le contenu de `script.js` : le JavaScript a son propre cours. Ici aussi, il s'agit de **relier** le bon fichier, au bon endroit.
+
+## Le tout : une page avec deux erreurs
+
+Voici la page complète, écrite par quelqu'un qui s'est trompé deux fois. Le bouton devrait être rose, et un clic devrait changer le titre en « Merci ! ». Ni l'un ni l'autre ne marche. `style.css` et `script.js` sont justes et en lecture seule : corrige `index.html`.
+
+```playground
+runtime: web
+title: Trouve les deux erreurs
 files:
   index.html: |
     <!DOCTYPE html>
@@ -132,51 +304,9 @@ verify:
 solution: assets/relier.solution
 ```
 
-Les deux fautes de cette page sont classiques. `<style>` sert à écrire du CSS directement dans la page, entre ses balises ; il ne sait pas charger un fichier, et un attribut qu'il ne connaît pas est simplement ignoré. Le `S` majuscule de `Script.js` désigne un fichier qui n'existe pas. Dans les deux cas, rien ne s'affiche à l'écran pour vous le dire : il faut savoir où regarder.
+Les deux fautes sont classiques. `<style>` sert à écrire du CSS directement dans la page ; il ne sait pas charger un fichier, et un attribut qu'il ne connaît pas est simplement ignoré. Le `S` majuscule de `Script.js` désigne un fichier qui n'existe pas. Dans les deux cas, **rien ne s'affiche** pour vous le dire : il faut savoir où regarder.
 
-## Des standards : WHATWG, W3C et Ecma
-
-Si tous les navigateurs savent lire ces trois langages, c'est parce qu'ils sont décrits par des **standards** : des documents publics qui disent ce que chaque balise, chaque propriété, chaque instruction doit faire. Personne ne possède le web ; ces textes sont écrits par des organismes où se retrouvent les éditeurs de navigateurs et d'autres membres.
-
-| Langage | Standard | Écrit par |
-|---|---|---|
-| HTML | le *HTML Living Standard*, mis à jour en continu | le **WHATWG**, un groupe fondé par des éditeurs de navigateurs ; depuis 2019, le W3C le reconnaît comme le seul standard HTML |
-| CSS | une série de **modules** (couleurs, boîtes, polices…), chacun avec sa version | le groupe de travail CSS du **W3C** (*World Wide Web Consortium*) |
-| JavaScript | **ECMAScript** (le texte s'appelle ECMA-262), une nouvelle édition chaque année depuis 2015 | le comité TC39 d'**Ecma International** |
-
-```fill
-text: "Le standard du langage JavaScript s'appelle _____, et celui du HTML est tenu par le _____."
-blanks:
-  - answers: [ECMAScript, ECMA-262, ECMA Script]
-    hint: Il porte le nom de l'organisme qui le publie, Ecma International.
-  - answers: [WHATWG]
-    hint: Un sigle de six lettres, pour Web Hypertext Application Technology Working Group.
-```
-
-## Le navigateur et ses moteurs
-
-Un navigateur contient deux programmes qui font le gros du travail. Le **moteur de rendu** lit le HTML et le CSS et dessine la page ; le **moteur JavaScript** exécute les scripts. Ce sont eux qui appliquent les standards, et il n'en existe plus que trois familles :
-
-| Navigateurs | Moteur de rendu | Moteur JavaScript |
-|---|---|---|
-| Chrome, Edge, Opera, Brave | Blink | V8 (le même que dans Node.js) |
-| Firefox | Gecko | SpiderMonkey |
-| Safari | WebKit | JavaScriptCore |
-
-Sur iPhone et iPad, Apple a longtemps imposé WebKit à tous les navigateurs : Chrome pour iPhone dessine donc les pages avec le moteur de Safari. Depuis 2024, l'Union européenne a obtenu que d'autres moteurs y soient autorisés.
-
-## Pourquoi une page s'affichait différemment selon le navigateur
-
-Les standards n'ont pas toujours été suivis. À la fin des années 1990, Netscape Navigator et Internet Explorer se disputaient le marché, et chacun ajoutait ses propres balises pour attirer les créateurs de sites : `<blink>` faisait clignoter un texte dans Netscape, `<marquee>` le faisait défiler dans Internet Explorer. Les navigateurs appliquaient aussi les standards à leur rythme, et parfois à leur façon : Internet Explorer 5 calculait la largeur d'un bloc autrement que le standard, un écart que vous retrouverez dans le contenu sur le modèle de boîte. Une même page s'affichait donc différemment d'un navigateur à l'autre, et beaucoup de sites affichaient « optimisé pour Internet Explorer ».
-
-Les navigateurs ont fini par converger vers les standards, mais ils ne pouvaient pas casser les millions de pages écrites pour les anciens comportements. C'est la **rétrocompatibilité** : une page de 1998 doit encore s'afficher aujourd'hui. Deux traces le montrent :
-
-- une page sans la première ligne `<!DOCTYPE html>` est affichée en **mode quirks** (« bizarreries »), qui imite les anciens navigateurs ; avec cette ligne, le navigateur applique les standards actuels. C'est pourquoi elle ouvre toute page que vous écrirez ;
-- `<marquee>` est classé obsolète, mais le standard HTML demande encore aux navigateurs de l'afficher.
-
-Aujourd'hui, les écarts entre navigateurs portent surtout sur les fonctions récentes. Depuis 2022, les éditeurs des trois moteurs mènent chaque année un projet commun, **Interop**, pour les réduire. Avant d'utiliser une fonction récente, un site comme *Can I use* dit quels navigateurs la connaissent.
-
-> 📖 [Qu'est-ce que le HTML ? (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Structuring_content) · [Qu'est-ce que le CSS ? (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Styling_basics/What_is_CSS) · [Qu'est-ce que JavaScript ? (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting/What_is_JavaScript) · [Le HTML Living Standard (WHATWG, en anglais)](https://html.spec.whatwg.org/) · [ECMA-262 (Ecma International, en anglais)](https://tc39.es/ecma262/) · [Modes quirks et standard (MDN)](https://developer.mozilla.org/fr/docs/Web/HTML/Guides/Quirks_mode_and_standards_mode) · [Can I use (en anglais)](https://caniuse.com/)
+> 📖 [Qu'est-ce que le HTML ? (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Structuring_content) · [Référence des éléments HTML (MDN)](https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements) · [Qu'est-ce que le CSS ? (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Styling_basics/What_is_CSS) · [Qu'est-ce que JavaScript ? (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting/What_is_JavaScript)
 
 ## Trois questions pour vérifier ce que vous avez retenu
 
@@ -193,6 +323,13 @@ questions:
       - "Le JavaScript fait les trois : créer, colorer, réagir"
     correct: 1
     explanation: "Le HTML dit ce que la page contient, le CSS à quoi elle ressemble, le JavaScript ce qui se passe quand on agit."
+  - prompt: "Dans quelle partie de la page relie-t-on la feuille de style, et pourquoi ?"
+    answers:
+      - "Dans le `<head>`, pour que les règles soient chargées avant l'affichage du corps"
+      - "À la fin du `<body>`, pour que la page s'affiche plus vite"
+      - "N'importe où : le navigateur la trouve toujours"
+    correct: 1
+    explanation: "Le navigateur lit la page de haut en bas. Reliée dans l'en-tête, la feuille de style est chargée avant le corps : la page s'affiche stylée dès le premier affichage."
   - prompt: "Une page écrit `<link rel=\"stylesheet\" href=\"Style.css\">`, mais le fichier s'appelle `style.css`. Que se passe-t-il sur un serveur ?"
     answers:
       - "Le navigateur affiche une erreur à la place de la page"
@@ -200,24 +337,17 @@ questions:
       - "Le navigateur corrige le nom tout seul"
     correct: 2
     explanation: "Pour la plupart des serveurs, `Style.css` et `style.css` sont deux fichiers différents. Le fichier n'est pas trouvé, et la page s'affiche avec l'apparence par défaut, en silence."
-  - prompt: "Pourquoi une page commence-t-elle par `<!DOCTYPE html>` ?"
-    answers:
-      - "Pour que le serveur sache qu'il doit envoyer du HTML"
-      - "Pour charger le moteur JavaScript"
-      - "Pour que le navigateur applique les standards actuels au lieu d'imiter les anciens navigateurs (le mode quirks)"
-    correct: 3
-    explanation: "Sans doctype, le navigateur passe en mode quirks, qui reproduit les bizarreries des anciens navigateurs pour ne pas casser les vieilles pages. Avec, il suit les standards."
 ```
 
 ## Récap
 
 - Une page parle trois langages : **HTML** pour le contenu, **CSS** pour l'apparence, **JavaScript** pour le comportement.
-- Le HTML relie les deux autres par `<link rel="stylesheet" href="…">` et `<script src="…"></script>`, avec le nom exact du fichier ; une erreur ne s'affiche pas, la page perd son style ou son comportement en silence.
-- Des **standards** décrivent ces langages : le HTML Living Standard du WHATWG, les modules CSS du W3C, ECMAScript d'Ecma International.
-- Chaque navigateur a un **moteur de rendu** et un **moteur JavaScript** : Blink et V8, Gecko et SpiderMonkey, WebKit et JavaScriptCore.
-- Les navigateurs ont longtemps divergé ; la **rétrocompatibilité** garde les vieilles pages lisibles, d'où le **mode quirks** sans doctype.
+- Le HTML est fait de **balises** qui s'ouvrent et se ferment (`<h1>…</h1>`) ; quelques-unes, sans contenu, n'ont pas de fermeture. La référence de MDN les décrit toutes.
+- Une page est une enveloppe `<html>` qui porte un **en-tête** `<head>` (pour le navigateur) puis un **corps** `<body>` (ce qui s'affiche), après la ligne `<!DOCTYPE html>`.
+- Les **attributs** précisent une balise : `lang="fr"` pour la langue, `charset="utf-8"` pour les accents.
+- La feuille de style se relie dans l'en-tête par `<link rel="stylesheet" href="style.css">`, le script à la fin du corps par `<script src="script.js"></script>`, avec le nom exact du fichier : une erreur ne s'affiche pas.
 
-Ces trois langages ne servent plus seulement à faire des pages : on en fait des applications, des apps mobiles et des logiciels de bureau. C'est l'objet du contenu [Le web partout](https://byte-layers.com/fr/bits/web-everywhere).
+Qui décide de ce que fait chaque balise, et pourquoi une page peut s'afficher différemment d'un navigateur à l'autre ? C'est l'objet du contenu [Les standards du web et les moteurs des navigateurs](https://byte-layers.com/fr/bits/web-standards-browsers).
 
 ```ack
 J'ai compris

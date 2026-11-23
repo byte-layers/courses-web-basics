@@ -1,16 +1,16 @@
 ---
 title: "Fonctions et objets en JavaScript"
-description: "Nommer un geste une fois avec une fonction, ses paramètres et son return ; décrire une chose par plusieurs valeurs avec un objet, et parcourir un tableau d'objets ; le piège du return oublié, qui rend undefined."
+description: "Nommer un geste une fois avec une fonction, ses paramètres et son return  ; la fonction sans nom et sa forme fléchée ; décrire une chose par plusieurs valeurs avec un objet, et parcourir un tableau d'objets ; le piège du return oublié, qui rend undefined."
 tags:
   - bit
   - javascript
   - web
 difficulty: beginner
-duration: 15
+duration: 20
 requires: "0.9.0"
 ---
 
-Ce que vous répétez, vous le nommez une fois ; ce que vous décrivez, vous le rangez ensemble. Vous saurez écrire une **fonction** avec ses paramètres, lui faire rendre un résultat avec `return`, décrire une chose par un **objet** (`{ titre: "Dune", pages: 900 }`), parcourir un tableau d'objets, et reconnaître le piège du `return` oublié : la fonction calcule, mais rend `undefined`.
+Ce que vous répétez, vous le nommez une fois ; ce que vous décrivez, vous le rangez ensemble. Vous saurez écrire une **fonction** avec ses paramètres, lui faire rendre un résultat avec `return`, l'écrire sans nom ou en forme fléchée (`(n) => n * 2`), décrire une chose par un **objet** (`{ titre: "Dune", pages: 900 }`), parcourir un tableau d'objets, et reconnaître le piège du `return` oublié : la fonction calcule, mais rend `undefined`.
 
 **Prérequis** : [Répéter : tableaux et boucles](https://byte-layers.com/fr/bits/js-arrays-loops), pour les tableaux et `for…of`.
 
@@ -31,6 +31,13 @@ console.log(addition(5, 3)); // 8
 console.log(addition(2, 2)); // 4
 ```
 
+Suivez l'appel `addition(5, 3)`, puis `addition(2, 2)` :
+
+```scene
+lesson: assets/functions.scene.json
+step: appel
+```
+
 | Morceau | Rôle |
 |---|---|
 | `function addition` | déclare une fonction nommée `addition` |
@@ -40,11 +47,67 @@ console.log(addition(2, 2)); // 4
 
 Vous avez déjà appelé des fonctions toutes faites : `console.log(…)`, `Number(…)`, `Math.max(…)`. Déclarer la vôtre, c'est ajouter un mot au langage.
 
+## À toi : écris ta première fonction
+
+Déclare une fonction `carre`, qui reçoit un nombre et **rend** ce nombre multiplié par lui-même. Puis affiche dans la console `carre(4)` et `carre(7)` : la même fonction, appelée deux fois.
+
+```playground
+runtime: web
+title: Ta première fonction
+files:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <title>Carrés</title>
+      <script src="script.js" defer></script>
+    </head>
+    <body>
+      <h1>Carrés</h1>
+    </body>
+    </html>
+  script.js: |
+    // À toi : déclare la fonction carre(n), qui rend n * n
+
+    // puis affiche carre(4) et carre(7) dans la console
+open: [script.js, index.html]
+lock: [index.html]
+show: [editor, preview, console]
+check: ask
+verify:
+  - label: la console affiche 16
+    console: "/^16$/"
+    hint: "Déclare `function carre(n) { … }` avec `return n * n;` dedans, puis écris `console.log(carre(4));`."
+  - label: la console affiche 49
+    console: "/^49$/"
+  - label: "`carre` rend son résultat avec `return`"
+    file: script.js
+    includes: /return\s/
+    hint: "Le résultat doit être **rendu** par la fonction, avec `return`, pas affiché à l'intérieur."
+  - label: "les deux nombres viennent de deux appels à `carre`"
+    file: script.js
+    includes: /carre\(\s*4\s*\)[\s\S]*carre\(\s*7\s*\)/
+    hint: "Appelle la fonction : `carre(4)`, puis `carre(7)`, sans écrire 16 ni 49 à la main."
+solution: assets/carre.solution
+```
+
+Le nom `n` ne vaut rien tant que personne n'appelle la fonction : il reçoit 4 au premier appel, 7 au second.
+
 ## `return` : rendre un résultat, pas l'afficher
 
 Afficher un résultat et le rendre sont deux choses différentes. `console.log` l'écrit dans la console, pour vous ; **`return`** le donne au code qui a appelé la fonction, qui peut alors s'en servir : le multiplier, le comparer, l'afficher dans la page. Une fonction sans `return` rend **`undefined`**.
 
-La fonction `prixTTC` ci-dessous calcule bien le prix augmenté de 20 %, mais la dernière ligne affiche `NaN` (*Not a Number*, « pas un nombre »). Lisez la console, puis corrigez la fonction pour que deux abonnements coûtent 60.
+```scene
+lesson: assets/functions.scene.json
+step: return
+```
+
+Une fonction qui ne fait qu'afficher ne se réutilise nulle part : son résultat reste dans la console, et le code qui l'appelle ne reçoit rien.
+
+## À toi : la fonction qui calcule mais ne rend rien
+
+La fonction `prixTTC` ci-dessous calcule bien le prix augmenté de 20 %, mais la dernière ligne affiche `NaN` (*Not a Number*, « pas un nombre »). Lis la console, puis corrige la fonction pour que deux abonnements coûtent 60.
 
 ```playground
 runtime: web
@@ -82,7 +145,62 @@ verify:
 solution: assets/return.solution
 ```
 
-La console affichait bien `30` : la fonction faisait le calcul, mais ne le donnait à personne. `prixTTC(25)` valait `undefined`, et `undefined * 2` donne `NaN`, sans erreur rouge. Une fonction qui ne fait qu'afficher ne se réutilise nulle part.
+La console affichait bien `30` : la fonction faisait le calcul, mais ne le donnait à personne. `prixTTC(25)` valait `undefined`, et `undefined * 2` donne `NaN`, sans erreur rouge.
+
+## Une fonction sans nom, et la forme fléchée
+
+Une fonction n'a pas toujours besoin d'un nom : `function (n) { … }`, sans nom, est une **valeur**, comme un nombre ou un texte. On la range dans une variable, ou on la donne à une autre fonction qui l'appellera plus tard. Elle a aussi une écriture plus courte, la **forme fléchée** (*arrow function*). Suivez la même fonction, écrite quatre fois :
+
+```scene
+lesson: assets/fleche.scene.json
+step: fleche
+```
+
+Les quatre écritures font le même travail. La forme fléchée courte, sans accolades, ne vaut que pour un seul calcul à rendre : dès qu'il y a des accolades, `return` redevient obligatoire.
+
+## À toi : écris-la en flèche
+
+La fonction `saluer` est rangée dans une variable, écrite avec `function`. Réécris-la en **forme fléchée**, sans le mot `function` : la console doit toujours afficher « Bonjour Léa ».
+
+```playground
+runtime: web
+title: Écris-la en flèche
+files:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <title>Salut</title>
+      <script src="script.js" defer></script>
+    </head>
+    <body>
+      <h1>Salut</h1>
+    </body>
+    </html>
+  script.js: |
+    const saluer = function (prenom) {
+      return "Bonjour " + prenom;
+    };
+
+    console.log(saluer("Léa"));
+open: [script.js, index.html]
+lock: [index.html]
+show: [editor, preview, console]
+check: ask
+verify:
+  - label: la console affiche « Bonjour Léa »
+    console: /^Bonjour Léa$/
+    hint: "Si la console affiche `undefined`, la flèche a gardé ses accolades mais perdu son `return` : garde les deux, ou retire les deux."
+  - label: "`saluer` est écrite en forme fléchée, sans le mot `function`"
+    file: script.js
+    includes: /=>/
+    excludes: /\bfunction\b/
+    hint: "Retire `function`, et place `=>` juste après les parenthèses des paramètres : `(prenom) => …`."
+solution: assets/fleche.solution
+```
+
+L'appel `saluer("Léa")` n'a pas changé : seule l'écriture de la fonction change, pas la façon de s'en servir.
 
 ## Un objet : ranger une description
 
@@ -97,6 +215,13 @@ console.log(livre.editeur);    // undefined : la clé n'existe pas
 livre.editeur = "Pocket";      // ajoute une clé
 ```
 
+L'objet range une case par clé : on lit une valeur par son nom, et une clé nouvelle s'ajoute.
+
+```scene
+lesson: assets/functions.scene.json
+step: objet
+```
+
 | Écriture | Ce qu'elle fait |
 |---|---|
 | `livre.titre` | lit la valeur de la clé `titre` |
@@ -104,9 +229,78 @@ livre.editeur = "Pocket";      // ajoute une clé
 | `livre.editeur` | une clé absente rend `undefined`, sans erreur |
 | `livre.editeur.nom` | aller chercher **dans** `undefined` lève une erreur : `TypeError: Cannot read properties of undefined` |
 
-Les objets se rangent dans des tableaux : un **tableau d'objets** est la forme la plus courante des données d'une application, une liste de livres, de contacts, de projets. On le parcourt avec `for…of`, et chaque tour reçoit un objet entier.
+## À toi : lis un objet
 
-Votre portfolio liste des projets. Écrivez la fonction `decrire`, qui reçoit un projet et **rend** un texte de la forme `Portfolio (2026, HTML)` ; la boucle du bas l'appelle pour chaque projet.
+Le code doit afficher le titre et le réalisateur du film. La console répond deux fois `undefined`, sans erreur : compare les clés lues avec celles de l'objet, puis corrige les deux lectures.
+
+```playground
+runtime: web
+title: Lis un objet
+files:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <title>Mon film</title>
+      <script src="script.js" defer></script>
+    </head>
+    <body>
+      <h1>Mon film</h1>
+    </body>
+    </html>
+  script.js: |
+    const film = { titre: "Le Voyage de Chihiro", annee: 2001, realisateur: "Hayao Miyazaki" };
+
+    console.log(film.Titre);
+    console.log(film.realisatuer);
+open: [script.js, index.html]
+lock: [index.html]
+show: [editor, preview, console]
+verify:
+  - label: la console affiche « Le Voyage de Chihiro »
+    console: "/^Le Voyage de Chihiro$/"
+    hint: "Une clé s'écrit exactement comme dans l'objet, majuscules comprises : `titre`, pas `Titre`."
+  - label: la console affiche « Hayao Miyazaki »
+    console: "/^Hayao Miyazaki$/"
+    hint: "Relis l'orthographe de la clé lue, lettre par lettre, avec celle de l'objet."
+  - label: les deux valeurs sont lues dans l'objet, pas recopiées
+    file: script.js
+    excludes: /console\.log\(\s*["'`]/
+    hint: "Garde `console.log(film.…)` : c'est la clé qu'il faut corriger, pas la ligne à remplacer par le texte."
+solution: assets/lire.solution
+```
+
+Une clé mal écrite ne lève aucune erreur : le moteur cherche une clé qui n'existe pas, et rend `undefined`. Quand une valeur manque, relis d'abord le nom de la clé.
+
+## Un tableau d'objets : une liste de descriptions
+
+Les objets se rangent dans des tableaux : un **tableau d'objets** est la forme la plus courante des données d'une application, une liste de livres, de contacts, de projets. On le parcourt avec `for…of` :
+
+```javascript
+const livres = [
+  { titre: "Dune", pages: 900 },
+  { titre: "Le Hobbit", pages: 320 },
+  { titre: "Fondation", pages: 280 }
+];
+
+for (const livre of livres) {
+  console.log(livre.titre);
+}
+```
+
+La scène suit les trois tours de la boucle, un par objet du tableau :
+
+```scene
+lesson: assets/functions.scene.json
+step: liste
+```
+
+À chaque tour, `livre` reçoit un **objet entier**, avec toutes ses clés : `livre.titre` lit le titre de l'objet du tour, `livre.pages` lirait son nombre de pages.
+
+## À toi : décris chaque projet
+
+Une liste de projets est décrite par trois objets. Écris la fonction `decrire`, qui reçoit un projet et **rend** un texte de la forme `Portfolio (2026, HTML)` ; la boucle du bas l'appelle pour chaque projet.
 
 ```playground
 runtime: web
@@ -155,28 +349,7 @@ solution: assets/objets.solution
 
 Au départ, la console affichait trois fois `undefined` : la fonction était appelée, mais ne rendait rien. C'est le même piège qu'avec `prixTTC`.
 
-## Une classe : un moule pour fabriquer des objets
-
-Quand on fabrique beaucoup d'objets de la même forme, une **classe** sert de moule. Son `constructor` range les valeurs reçues dans l'objet avec **`this`** (« cet objet-ci »), et ses **méthodes** sont des fonctions qui travaillent sur ces valeurs. Le mot-clé **`new`** fabrique un objet à partir du moule :
-
-```javascript
-class Rectangle {
-  constructor(largeur, hauteur) {
-    this.largeur = largeur;
-    this.hauteur = hauteur;
-  }
-  calculAire() {
-    return this.largeur * this.hauteur;
-  }
-}
-
-const premier = new Rectangle(10, 5);
-console.log(premier.calculAire()); // 50
-```
-
-Dans une méthode, `this.` n'est pas facultatif : `largeur` seul déclenche `ReferenceError: largeur is not defined`, parce que le moteur cherche une variable, pas la valeur rangée dans l'objet. Le lab vous fait écrire cette classe pas à pas.
-
-> 📖 [Les fonctions (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Functions) · [Utiliser les objets (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Working_with_objects) · [Les classes (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Classes)
+> 📖 [Les fonctions (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Functions) · [Utiliser les objets (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Working_with_objects) · [Les fonctions fléchées (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 ## Trois questions pour vérifier ce que vous avez retenu
 
@@ -213,9 +386,9 @@ questions:
 
 - Une **fonction** nomme un bloc de code ; on l'appelle avec des **arguments**, rangés dans ses **paramètres**.
 - **`return`** rend un résultat au code appelant ; sans `return`, la fonction rend **`undefined`**, et un calcul fait avec donne `NaN`, sans erreur.
+- Une fonction **sans nom** est une valeur : on la range dans une variable ou on la donne à une autre fonction ; sa **forme fléchée** s'écrit `(n) => n * 2`.
 - Un **objet** range des paires clé : valeur ; on lit une valeur avec `objet.cle` ou `objet["cle"]` ; une clé absente vaut `undefined`.
 - Un **tableau d'objets** se parcourt avec `for…of` : c'est la forme habituelle des données d'une application.
-- Une **classe** est un moule à objets : `constructor`, `this`, des méthodes, et `new` pour fabriquer.
 
 Tout ce que vous avez écrit jusqu'ici parle à la console. Pour lire et changer la page elle-même, JavaScript la voit comme des objets : c'est l'objet du bit [Le DOM : la page vue par JavaScript](https://byte-layers.com/fr/bits/dom).
 

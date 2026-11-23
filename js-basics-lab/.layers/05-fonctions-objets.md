@@ -48,7 +48,9 @@ Relancez `node formes.js` : la ligne de l'éditeur affiche `Éditeur : undefined
 
 ## 05.3 - Une classe Rectangle
 
-Une classe sert de moule, comme vu dans le bit. Sous un commentaire `// 3. Une classe`, écrivez la classe `Rectangle` en quatre morceaux, **tous à l'intérieur de ses accolades** :
+Une **classe** est un moule qui fabrique des objets de même forme. `new Rectangle(10, 5)` crée un objet à partir du moule et appelle son `constructor` ; à l'intérieur de la classe, **`this`** désigne l'objet en cours de fabrication ou d'utilisation.
+
+Sous un commentaire `// 3. Une classe`, écrivez la classe `Rectangle` en quatre morceaux, **tous à l'intérieur de ses accolades** :
 
 | Morceau | Ce qu'il fait |
 |---|---|

@@ -1,0 +1,803 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "css-rules-cascade-syntaxe",
+ "title": "Une règle CSS, sa police, ses silences (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "y",
+   "label": "code CSS"
+  },
+  {
+   "tone": "v",
+   "label": "le navigateur"
+  },
+  {
+   "tone": "g",
+   "label": "appliqué, trouvé"
+  },
+  {
+   "tone": "r",
+   "label": "ignoré, absent"
+  }
+ ],
+ "entities": [
+  {
+   "id": "a1",
+   "kind": "node",
+   "at": [
+    -7.0,
+    -3.9000000000000004
+   ],
+   "tone": "y",
+   "size": [
+    12,
+    1.7,
+    1
+   ],
+   "title": "h2 {"
+  },
+  {
+   "id": "a2",
+   "kind": "node",
+   "at": [
+    -6.0,
+    -1.3000000000000003
+   ],
+   "tone": "y",
+   "size": [
+    10,
+    1.7,
+    1
+   ],
+   "title": "color: rgb(11, 107, 203);"
+  },
+  {
+   "id": "a3",
+   "kind": "node",
+   "at": [
+    -6.0,
+    1.2999999999999998
+   ],
+   "tone": "y",
+   "size": [
+    10,
+    1.7,
+    1
+   ],
+   "title": "text-align: center;"
+  },
+  {
+   "id": "a4",
+   "kind": "node",
+   "at": [
+    -7.0,
+    3.9000000000000004
+   ],
+   "tone": "y",
+   "size": [
+    12,
+    1.7,
+    1
+   ],
+   "title": "}"
+  },
+  {
+   "id": "z-bloc",
+   "kind": "zone",
+   "at": [
+    -6.5,
+    0.0
+   ],
+   "tone": "y",
+   "size": [
+    14.4,
+    11.0
+   ],
+   "label": "le bloc { … }"
+  },
+  {
+   "id": "n-sel",
+   "kind": "node",
+   "at": [
+    9.5,
+    -3.9000000000000004
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    2,
+    1
+   ],
+   "title": "le sélecteur",
+   "sub": "les éléments visés : tous les h2"
+  },
+  {
+   "id": "n-dec",
+   "kind": "node",
+   "at": [
+    9.5,
+    -1.3000000000000003
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    2,
+    1
+   ],
+   "title": "une déclaration",
+   "sub": "propriété : valeur ;",
+   "detail": "`color` est la **propriété** : la couleur du texte. `rgb(11, 107, 203)` est la **valeur** : un bleu, en rouge, vert et bleu de 0 à 255. On écrit aussi `#0b6bcb` ou `blue`."
+  },
+  {
+   "id": "n-dec2",
+   "kind": "node",
+   "at": [
+    9.5,
+    1.2999999999999998
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    2,
+    1
+   ],
+   "title": "une autre déclaration",
+   "sub": "text-align : l'alignement"
+  },
+  {
+   "id": "p-rule",
+   "kind": "node",
+   "at": [
+    -13,
+    0
+   ],
+   "tone": "y",
+   "size": [
+    10,
+    3,
+    1
+   ],
+   "title": "body { font-family: … }",
+   "sub": "\"Segoe UI\", Verdana, sans-serif"
+  },
+  {
+   "id": "p-list",
+   "kind": "layer",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    11,
+    1
+   ],
+   "title": "la liste, dans l'ordre"
+  },
+  {
+   "id": "p-c1",
+   "kind": "node",
+   "at": [
+    0,
+    -2.8
+   ],
+   "tone": "y",
+   "size": [
+    8,
+    2,
+    1
+   ],
+   "in": "p-list",
+   "title": "\"Segoe UI\""
+  },
+  {
+   "id": "p-c2",
+   "kind": "node",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "y",
+   "size": [
+    8,
+    2,
+    1
+   ],
+   "in": "p-list",
+   "title": "Verdana"
+  },
+  {
+   "id": "p-c3",
+   "kind": "node",
+   "at": [
+    0,
+    2.8
+   ],
+   "tone": "y",
+   "size": [
+    8,
+    2,
+    1
+   ],
+   "in": "p-list",
+   "title": "sans-serif",
+   "sub": "famille générique"
+  },
+  {
+   "id": "p-dev",
+   "kind": "layer",
+   "at": [
+    13,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    8,
+    1
+   ],
+   "title": "l'appareil du visiteur"
+  },
+  {
+   "id": "p-fonts",
+   "kind": "node",
+   "at": [
+    0,
+    0.8
+   ],
+   "tone": "n",
+   "size": [
+    9,
+    3,
+    1
+   ],
+   "in": "p-dev",
+   "title": "polices installées",
+   "sub": "—"
+  },
+  {
+   "id": "s-link",
+   "kind": "node",
+   "at": [
+    -12,
+    -5.5
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    2.2,
+    1
+   ],
+   "title": "<link href=\"css/style.css\">",
+   "sub": "dans index.html"
+  },
+  {
+   "id": "s-missing",
+   "kind": "node",
+   "at": [
+    -12,
+    -1.5
+   ],
+   "tone": "r",
+   "size": [
+    9,
+    2.2,
+    1
+   ],
+   "title": "css/style.css",
+   "sub": "aucun fichier à ce chemin"
+  },
+  {
+   "id": "s-sheet",
+   "kind": "layer",
+   "at": [
+    -12,
+    4
+   ],
+   "tone": "y",
+   "size": [
+    13,
+    7.6,
+    1
+   ],
+   "title": "style.css"
+  },
+  {
+   "id": "s-h1r",
+   "kind": "node",
+   "at": [
+    0,
+    -0.7
+   ],
+   "tone": "y",
+   "size": [
+    11,
+    2,
+    1
+   ],
+   "in": "s-sheet",
+   "title": "h1 { text-allign: center; }"
+  },
+  {
+   "id": "s-pr",
+   "kind": "node",
+   "at": [
+    0,
+    2.0
+   ],
+   "tone": "y",
+   "size": [
+    11,
+    2,
+    1
+   ],
+   "in": "s-sheet",
+   "title": "p { font-size: 20px; }"
+  },
+  {
+   "id": "s-page",
+   "kind": "layer",
+   "at": [
+    10,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    12,
+    10,
+    1
+   ],
+   "title": "la page affichée"
+  },
+  {
+   "id": "s-h1",
+   "kind": "node",
+   "at": [
+    0,
+    -1.6
+   ],
+   "tone": "v",
+   "size": [
+    10,
+    2.2,
+    1
+   ],
+   "in": "s-page",
+   "title": "Le club de lecture",
+   "sub": "h1"
+  },
+  {
+   "id": "s-p",
+   "kind": "node",
+   "at": [
+    0,
+    1.6
+   ],
+   "tone": "v",
+   "size": [
+    10,
+    2.2,
+    1
+   ],
+   "in": "s-page",
+   "title": "Prochaine séance jeudi",
+   "sub": "p"
+  }
+ ],
+ "steps": [
+  {
+   "id": "anatomie",
+   "label": "La règle",
+   "title": "Une règle, morceau par morceau",
+   "body": [
+    "Un sélecteur, puis un bloc de déclarations entre accolades."
+   ],
+   "show": [
+    "a1",
+    "a2",
+    "a3",
+    "a4"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "show": [
+      "n-sel"
+     ],
+     "link": [
+      {
+       "from": "a1",
+       "to": "n-sel"
+      }
+     ],
+     "say": "Le **sélecteur** dit quels éléments la règle vise : ici, tous les titres `<h2>` de la page."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "z-bloc"
+     ],
+     "say": "L'accolade `{` ouvre le **bloc de déclarations**, `}` le ferme. Tout ce qu'on applique est dedans."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "n-dec"
+     ],
+     "link": [
+      {
+       "from": "a2",
+       "to": "n-dec"
+      }
+     ],
+     "say": "Une **déclaration** : la propriété `color`, deux-points, la valeur, puis un point-virgule."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "n-dec2"
+     ],
+     "link": [
+      {
+       "from": "a3",
+       "to": "n-dec2"
+      }
+     ],
+     "say": "Une deuxième déclaration, dans le même bloc. Le `;` les sépare : un oubli, et la suivante ne marche plus."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "repli",
+   "label": "La liste de repli",
+   "title": "La première police présente gagne",
+   "body": [
+    "Le navigateur essaie les polices dans l'ordre, et prend la première que l'appareil possède."
+   ],
+   "hud": [
+    {
+     "label": "police affichée",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "p-rule",
+    "p-list",
+    "p-c1",
+    "p-c2",
+    "p-c3",
+    "p-dev",
+    "p-fonts"
+   ],
+   "links": [
+    {
+     "from": "p-rule",
+     "to": "p-list"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "p-dev",
+       "title": "un PC Windows"
+      },
+      {
+       "id": "p-fonts",
+       "sub": "Segoe UI, Verdana, Arial…"
+      },
+      {
+       "id": "p-c1",
+       "tone": "g",
+       "label": "trouvée"
+      }
+     ],
+     "link": [
+      {
+       "from": "p-c1",
+       "to": "p-dev"
+      }
+     ],
+     "hud": [
+      {
+       "label": "police affichée",
+       "value": "Segoe UI",
+       "tone": "g"
+      }
+     ],
+     "say": "Sur un **PC Windows**, Segoe UI est installée : elle est prise, la suite de la liste est ignorée."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "p-dev",
+       "title": "un Mac"
+      },
+      {
+       "id": "p-fonts",
+       "sub": "Helvetica, Verdana, Arial…"
+      },
+      {
+       "id": "p-c1",
+       "tone": "r",
+       "label": "absente"
+      },
+      {
+       "id": "p-c2",
+       "tone": "g",
+       "label": "trouvée"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "p-c1",
+       "to": "p-dev"
+      }
+     ],
+     "link": [
+      {
+       "from": "p-c2",
+       "to": "p-dev"
+      }
+     ],
+     "hud": [
+      {
+       "label": "police affichée",
+       "value": "Verdana",
+       "tone": "g"
+      }
+     ],
+     "say": "Sur un **Mac**, pas de Segoe UI : le navigateur passe à la suivante, Verdana."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "p-dev",
+       "title": "un téléphone Android"
+      },
+      {
+       "id": "p-fonts",
+       "sub": "Roboto, Noto Sans…"
+      },
+      {
+       "id": "p-c2",
+       "tone": "r",
+       "label": "absente"
+      },
+      {
+       "id": "p-c3",
+       "tone": "g",
+       "label": "existe partout"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "p-c2",
+       "to": "p-dev"
+      }
+     ],
+     "link": [
+      {
+       "from": "p-c3",
+       "to": "p-dev"
+      }
+     ],
+     "hud": [
+      {
+       "label": "police affichée",
+       "value": "Roboto, via sans-serif",
+       "tone": "g"
+      }
+     ],
+     "say": "Sur un **téléphone Android**, ni l'une ni l'autre. `sans-serif` existe partout : il prend la police sans empattements de l'appareil."
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  },
+  {
+   "id": "silence",
+   "label": "Rien ne s'affiche",
+   "title": "Ignoré, sans un message",
+   "body": [
+    "Un fichier introuvable, une propriété mal écrite : la règle ne fait rien, et rien ne le signale."
+   ],
+   "hud": [
+    {
+     "label": "message d'erreur",
+     "value": "aucun"
+    }
+   ],
+   "show": [
+    "s-link",
+    "s-sheet",
+    "s-h1r",
+    "s-pr",
+    "s-page",
+    "s-h1",
+    "s-p"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s-missing"
+     ],
+     "link": [
+      {
+       "from": "s-link",
+       "to": "s-missing"
+      }
+     ]
+    },
+    {
+     "do": "send",
+     "path": [
+      "s-link",
+      "s-missing"
+     ],
+     "label": "style.css ?",
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "s-page",
+       "label": "sans style"
+      }
+     ],
+     "say": "La page demande `css/style.css`. Le fichier est **à côté** de la page, pas dans un dossier `css` : rien n'est chargé."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "hide": [
+      "s-missing"
+     ],
+     "set": [
+      {
+       "id": "s-link",
+       "title": "<link href=\"style.css\">",
+       "tone": "g"
+      },
+      {
+       "id": "s-page",
+       "label": null
+      }
+     ],
+     "link": [
+      {
+       "from": "s-link",
+       "to": "s-sheet"
+      }
+     ],
+     "say": "Avec le bon chemin, `style.css` est chargée."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "s-pr",
+       "tone": "g",
+       "label": "appliquée"
+      },
+      {
+       "id": "s-p",
+       "label": "20 px"
+      }
+     ],
+     "link": [
+      {
+       "from": "s-pr",
+       "to": "s-p"
+      }
+     ],
+     "say": "La règle `p` s'applique : le paragraphe grandit."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "s-h1r",
+       "tone": "r",
+       "label": "propriété inconnue : ignorée"
+      },
+      {
+       "id": "s-h1",
+       "label": "toujours à gauche"
+      }
+     ],
+     "link": [
+      {
+       "from": "s-h1r",
+       "to": "s-h1",
+       "dashed": true
+      }
+     ],
+     "say": "`text-allign`, avec deux l, n'existe pas : la déclaration est **ignorée**, le titre reste à gauche."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "message d'erreur",
+       "value": "toujours aucun",
+       "tone": "r"
+      },
+      {
+       "label": "où le voir",
+       "value": "l'inspecteur"
+      }
+     ],
+     "say": "Aucun message, ni dans la page ni dans l'éditeur. Seul l'**inspecteur** du navigateur montre la propriété barrée."
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  }
+ ]
+}

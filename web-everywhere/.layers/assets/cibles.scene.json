@@ -1,0 +1,904 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "web-everywhere-cibles",
+ "title": "Le web partout : écrans et cibles (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "y",
+   "label": "ton code"
+  },
+  {
+   "tone": "v",
+   "label": "le web, la page"
+  },
+  {
+   "tone": "g",
+   "label": "natif, système"
+  },
+  {
+   "tone": "b",
+   "label": "tes fichiers"
+  }
+ ],
+ "entities": [
+  {
+   "id": "r-css",
+   "kind": "file",
+   "at": [
+    -20,
+    0
+   ],
+   "tone": "y",
+   "size": [
+    8.5,
+    2.6,
+    1
+   ],
+   "title": "style.css",
+   "detail": "Une seule **feuille de style** pour tous les écrans. Ses règles peuvent dépendre de la largeur de l'écran."
+  },
+  {
+   "id": "r-screen",
+   "kind": "layer",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    24,
+    11,
+    1
+   ],
+   "title": "écran d'ordinateur"
+  },
+  {
+   "id": "r-a",
+   "kind": "node",
+   "at": [
+    -7.6,
+    1.2
+   ],
+   "tone": "v",
+   "size": [
+    6.8,
+    6,
+    1
+   ],
+   "in": "r-screen",
+   "title": "dossiers"
+  },
+  {
+   "id": "r-b",
+   "kind": "node",
+   "at": [
+    0,
+    1.2
+   ],
+   "tone": "v",
+   "size": [
+    6.8,
+    6,
+    1
+   ],
+   "in": "r-screen",
+   "title": "messages"
+  },
+  {
+   "id": "r-c",
+   "kind": "node",
+   "at": [
+    7.6,
+    1.2
+   ],
+   "tone": "v",
+   "size": [
+    6.8,
+    6,
+    1
+   ],
+   "in": "r-screen",
+   "title": "message ouvert"
+  },
+  {
+   "id": "m-code",
+   "kind": "file",
+   "at": [
+    -10,
+    0
+   ],
+   "tone": "y",
+   "size": [
+    9,
+    2.6,
+    1
+   ],
+   "title": "ton code JavaScript"
+  },
+  {
+   "id": "m-rn",
+   "kind": "layer",
+   "at": [
+    6,
+    -5
+   ],
+   "tone": "g",
+   "size": [
+    13,
+    7.5,
+    1
+   ],
+   "title": "app React Native",
+   "sub": "iOS ou Android"
+  },
+  {
+   "id": "m-rn-btn",
+   "kind": "node",
+   "at": [
+    0,
+    0.3
+   ],
+   "tone": "g",
+   "size": [
+    10.5,
+    1.8,
+    1
+   ],
+   "in": "m-rn",
+   "title": "un vrai bouton du système"
+  },
+  {
+   "id": "m-rn-list",
+   "kind": "node",
+   "at": [
+    0,
+    2.4
+   ],
+   "tone": "g",
+   "size": [
+    10.5,
+    1.8,
+    1
+   ],
+   "in": "m-rn",
+   "title": "une vraie liste du système"
+  },
+  {
+   "id": "m-cap",
+   "kind": "layer",
+   "at": [
+    6,
+    5
+   ],
+   "tone": "n",
+   "size": [
+    13,
+    7.5,
+    1
+   ],
+   "title": "app Capacitor",
+   "sub": "iOS ou Android"
+  },
+  {
+   "id": "m-cap-web",
+   "kind": "layer",
+   "at": [
+    0,
+    1.1
+   ],
+   "tone": "v",
+   "size": [
+    11,
+    4.2,
+    1
+   ],
+   "in": "m-cap",
+   "title": "une page web"
+  },
+  {
+   "id": "m-cap-btn",
+   "kind": "node",
+   "at": [
+    0,
+    0.7
+   ],
+   "tone": "v",
+   "size": [
+    8,
+    1.6,
+    1
+   ],
+   "in": "m-cap-web",
+   "title": "<button>"
+  },
+  {
+   "id": "x-you",
+   "kind": "actor",
+   "at": [
+    -19,
+    0.8
+   ],
+   "label": "toi"
+  },
+  {
+   "id": "x-app",
+   "kind": "layer",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    24,
+    11,
+    1
+   ],
+   "title": "un logiciel Electron",
+   "sub": "VS Code, Slack, Discord…"
+  },
+  {
+   "id": "x-chr",
+   "kind": "layer",
+   "at": [
+    -5.5,
+    1.3
+   ],
+   "tone": "v",
+   "size": [
+    11,
+    7,
+    1
+   ],
+   "in": "x-app",
+   "title": "Chromium",
+   "sub": "affiche l'interface"
+  },
+  {
+   "id": "x-ui",
+   "kind": "node",
+   "at": [
+    0,
+    1.4
+   ],
+   "tone": "v",
+   "size": [
+    9,
+    2.4,
+    1
+   ],
+   "in": "x-chr",
+   "title": "l'interface",
+   "sub": "HTML, CSS, JavaScript"
+  },
+  {
+   "id": "x-node",
+   "kind": "node",
+   "at": [
+    6,
+    1.3
+   ],
+   "tone": "g",
+   "size": [
+    8.5,
+    3,
+    1
+   ],
+   "in": "x-app",
+   "title": "Node.js",
+   "sub": "fichiers et système",
+   "detail": "**Node.js** fait tourner du JavaScript hors du navigateur, avec accès aux fichiers et au système."
+  },
+  {
+   "id": "x-disk",
+   "kind": "store",
+   "at": [
+    19,
+    0.8
+   ],
+   "tone": "b",
+   "size": [
+    7,
+    3.6,
+    1
+   ],
+   "title": "ton disque",
+   "sub": "rapport.txt"
+  },
+  {
+   "id": "t-code",
+   "kind": "node",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "y",
+   "size": [
+    12,
+    3.2,
+    1
+   ],
+   "title": "HTML, CSS, JavaScript",
+   "sub": "les mêmes langages"
+  },
+  {
+   "id": "t-web",
+   "kind": "node",
+   "at": [
+    -13,
+    -7.5
+   ],
+   "tone": "v",
+   "size": [
+    10.5,
+    3,
+    1
+   ],
+   "title": "le navigateur",
+   "sub": "une application web"
+  },
+  {
+   "id": "t-pwa",
+   "kind": "node",
+   "at": [
+    13,
+    -7.5
+   ],
+   "tone": "v",
+   "size": [
+    10.5,
+    3,
+    1
+   ],
+   "title": "une PWA",
+   "sub": "installée, hors connexion"
+  },
+  {
+   "id": "t-mob",
+   "kind": "node",
+   "at": [
+    -13,
+    7.5
+   ],
+   "tone": "v",
+   "size": [
+    10.5,
+    3,
+    1
+   ],
+   "title": "le téléphone",
+   "sub": "React Native, Capacitor"
+  },
+  {
+   "id": "t-desk",
+   "kind": "node",
+   "at": [
+    13,
+    7.5
+   ],
+   "tone": "v",
+   "size": [
+    10.5,
+    3,
+    1
+   ],
+   "title": "le bureau",
+   "sub": "Electron"
+  }
+ ],
+ "steps": [
+  {
+   "id": "responsive",
+   "label": "Responsive",
+   "title": "Une seule page, toutes les largeurs",
+   "body": [
+    "La même page s'ouvre sur un grand écran et sur un téléphone. La feuille de style range les blocs selon la largeur."
+   ],
+   "hud": [
+    {
+     "label": "largeur",
+     "value": "1 600 px"
+    },
+    {
+     "label": "disposition",
+     "value": "trois colonnes"
+    }
+   ],
+   "show": [
+    "r-css",
+    "r-screen",
+    "r-a",
+    "r-b",
+    "r-c"
+   ],
+   "links": [
+    {
+     "from": "r-css",
+     "to": "r-screen"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "r-css",
+       "label": "écran large : côte à côte"
+      }
+     ],
+     "say": "Sur un ordinateur, l'écran est large : la feuille de style place les trois blocs **côte à côte**."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "r-screen",
+       "size": [
+        11,
+        15,
+        1
+       ],
+       "title": "écran de téléphone"
+      },
+      {
+       "id": "r-a",
+       "at": [
+        0,
+        -2.6
+       ],
+       "size": [
+        8.6,
+        3.2,
+        1
+       ]
+      },
+      {
+       "id": "r-b",
+       "at": [
+        0,
+        1.4
+       ],
+       "size": [
+        8.6,
+        3.2,
+        1
+       ]
+      },
+      {
+       "id": "r-c",
+       "at": [
+        0,
+        5.4
+       ],
+       "size": [
+        8.6,
+        3.2,
+        1
+       ]
+      },
+      {
+       "id": "r-css",
+       "label": "écran étroit : l'un sous l'autre"
+      }
+     ],
+     "hud": [
+      {
+       "label": "largeur",
+       "value": "360 px"
+      },
+      {
+       "label": "disposition",
+       "value": "une colonne"
+      }
+     ],
+     "say": "Sur un téléphone, c'est **la même page** : les mêmes blocs, rangés les uns sous les autres.",
+     "ms": 1100
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "r-css",
+       "label": "une règle selon la largeur"
+      }
+     ],
+     "say": "Pas deux sites : une page, et une feuille de style qui choisit selon la largeur. C'est le **responsive design**."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "mobile",
+   "label": "Mobile",
+   "title": "Du JavaScript, deux façons de faire une app",
+   "body": [
+    "React Native affiche les composants du système. Capacitor glisse une vraie page web dans l'app."
+   ],
+   "hud": [
+    {
+     "label": "à l'écran",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "m-code"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "m-rn"
+     ],
+     "link": [
+      {
+       "from": "m-code",
+       "to": "m-rn"
+      }
+     ],
+     "say": "Avec **React Native**, tu écris ton app en JavaScript, une seule fois pour iOS et pour Android."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "m-rn-btn",
+      "m-rn-list"
+     ],
+     "hud": [
+      {
+       "label": "à l'écran",
+       "value": "composants natifs",
+       "tone": "g"
+      }
+     ],
+     "say": "À l'écran, pas de page web : React Native affiche les **vrais** boutons et les vraies listes du système."
+    },
+    {
+     "do": "wait",
+     "ms": 1700
+    },
+    {
+     "do": "scene",
+     "show": [
+      "m-cap",
+      "m-cap-web",
+      "m-cap-btn"
+     ],
+     "link": [
+      {
+       "from": "m-code",
+       "to": "m-cap"
+      }
+     ],
+     "hud": [
+      {
+       "label": "à l'écran",
+       "value": "une page web",
+       "tone": "v"
+      }
+     ],
+     "say": "Avec **Capacitor**, c'est l'inverse : une vraie page HTML, CSS et JavaScript, glissée dans une app."
+    },
+    {
+     "do": "wait",
+     "ms": 1700
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "m-rn",
+       "label": "publiée sur les boutiques"
+      },
+      {
+       "id": "m-cap",
+       "label": "publiée sur les boutiques"
+      }
+     ],
+     "say": "Les deux se publient sur les boutiques d'applications, et ce que tu sais du web sert dans les deux cas."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "electron",
+   "label": "Bureau",
+   "title": "Chromium pour l'interface, Node.js pour le système",
+   "body": [
+    "Un logiciel Electron emporte deux programmes : Chromium affiche l'interface, Node.js accède aux fichiers."
+   ],
+   "hud": [
+    {
+     "label": "fichier",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "x-you",
+    "x-app",
+    "x-chr",
+    "x-ui",
+    "x-disk"
+   ],
+   "links": [
+    {
+     "from": "x-you",
+     "to": "x-ui"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "x-ui",
+       "label": "clic : Ouvrir un fichier"
+      }
+     ],
+     "say": "L'interface est une page web, affichée par **Chromium**. Tu cliques sur « Ouvrir un fichier »."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "x-ui",
+       "to": "x-disk",
+       "dashed": true,
+       "label": "interdit"
+      }
+     ],
+     "hud": [
+      {
+       "label": "fichier",
+       "value": "pas d'accès",
+       "tone": "r"
+      }
+     ],
+     "say": "Une page web n'a **pas le droit** de lire ton disque : c'est une protection du navigateur."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "show": [
+      "x-node"
+     ],
+     "unlink": [
+      {
+       "from": "x-ui",
+       "to": "x-disk"
+      }
+     ],
+     "link": [
+      {
+       "from": "x-ui",
+       "to": "x-node"
+      },
+      {
+       "from": "x-node",
+       "to": "x-disk"
+      }
+     ],
+     "say": "Electron ajoute **Node.js**, qui, lui, accède aux fichiers et au système."
+    },
+    {
+     "do": "send",
+     "path": [
+      "x-ui",
+      "x-node",
+      "x-disk"
+     ],
+     "label": "lire rapport.txt",
+     "reply": "contenu",
+     "kind": "read"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "x-ui",
+       "label": "rapport.txt affiché"
+      }
+     ],
+     "hud": [
+      {
+       "label": "fichier",
+       "value": "ouvert",
+       "tone": "g"
+      }
+     ],
+     "say": "Node.js lit le fichier et le rend à l'interface, qui l'affiche."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "x-app",
+       "label": "emporte son propre Chromium"
+      }
+     ],
+     "say": "Le prix : chaque logiciel Electron emporte son propre Chromium, et pèse plus lourd qu'un logiciel natif."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "cibles",
+   "label": "Quatre cibles",
+   "title": "Trois langages, quatre cibles",
+   "body": [
+    "Les mêmes langages, et souvent une bonne part du même code, du navigateur au bureau."
+   ],
+   "hud": [
+    {
+     "label": "langages",
+     "value": "3"
+    },
+    {
+     "label": "cibles",
+     "value": "0"
+    }
+   ],
+   "show": [
+    "t-code"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "t-web"
+     ],
+     "link": [
+      {
+       "from": "t-code",
+       "to": "t-web"
+      }
+     ],
+     "hud": [
+      {
+       "label": "cibles",
+       "value": "1"
+      }
+     ],
+     "say": "Dans le **navigateur** : une application web, sans rien installer."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "t-pwa"
+     ],
+     "link": [
+      {
+       "from": "t-code",
+       "to": "t-pwa"
+      }
+     ],
+     "hud": [
+      {
+       "label": "cibles",
+       "value": "2"
+      }
+     ],
+     "say": "Installée depuis le navigateur : une **PWA**, qui marche aussi hors connexion."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "t-mob"
+     ],
+     "link": [
+      {
+       "from": "t-code",
+       "to": "t-mob"
+      }
+     ],
+     "hud": [
+      {
+       "label": "cibles",
+       "value": "3"
+      }
+     ],
+     "say": "Sur le **téléphone** : React Native ou Capacitor."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "t-desk"
+     ],
+     "link": [
+      {
+       "from": "t-code",
+       "to": "t-desk"
+      }
+     ],
+     "hud": [
+      {
+       "label": "cibles",
+       "value": "4"
+      }
+     ],
+     "say": "Sur le **bureau** : Electron, avec Chromium et Node.js."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "t-code",
+       "label": "un standard de fait"
+      }
+     ],
+     "say": "Quatre cibles, trois langages. Aucune loi ne l'impose, l'usage s'est installé : c'est un **standard de fait**."
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  }
+ ]
+}

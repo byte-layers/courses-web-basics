@@ -1,0 +1,328 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "web-request-response-cascade",
+ "title": "Le chargement d'une page (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "b",
+   "label": "la page HTML"
+  },
+  {
+   "tone": "y",
+   "label": "fichiers cités"
+  },
+  {
+   "tone": "g",
+   "label": "données, ensuite"
+  }
+ ],
+ "entities": [
+  {
+   "id": "axe",
+   "kind": "zone",
+   "at": [
+    5.76,
+    -7.2
+   ],
+   "size": [
+    29.45,
+    1.1
+   ],
+   "label": "temps →"
+  },
+  {
+   "id": "w-html",
+   "kind": "node",
+   "at": [
+    -14,
+    -5
+   ],
+   "tone": "b",
+   "size": [
+    8.4,
+    1.7,
+    1
+   ],
+   "title": "la page",
+   "sub": "document HTML"
+  },
+  {
+   "id": "b-html",
+   "kind": "node",
+   "at": [
+    -5.4,
+    -5
+   ],
+   "tone": "b",
+   "size": [
+    6.2,
+    1.6,
+    1
+   ],
+   "title": "200"
+  },
+  {
+   "id": "w-css",
+   "kind": "node",
+   "at": [
+    -14,
+    -2.8
+   ],
+   "tone": "y",
+   "size": [
+    8.4,
+    1.7,
+    1
+   ],
+   "title": "style.css",
+   "sub": "feuille de style"
+  },
+  {
+   "id": "b-css",
+   "kind": "node",
+   "at": [
+    0.025000000000000355,
+    -2.8
+   ],
+   "tone": "y",
+   "size": [
+    3.7199999999999998,
+    1.6,
+    1
+   ],
+   "title": "200"
+  },
+  {
+   "id": "w-js",
+   "kind": "node",
+   "at": [
+    -14,
+    -0.6
+   ],
+   "tone": "y",
+   "size": [
+    8.4,
+    1.7,
+    1
+   ],
+   "title": "script.js",
+   "sub": "script"
+  },
+  {
+   "id": "b-js",
+   "kind": "node",
+   "at": [
+    -0.28500000000000014,
+    -0.6
+   ],
+   "tone": "y",
+   "size": [
+    3.1,
+    1.6,
+    1
+   ],
+   "title": "200"
+  },
+  {
+   "id": "w-logo",
+   "kind": "node",
+   "at": [
+    -14,
+    1.6
+   ],
+   "tone": "y",
+   "size": [
+    8.4,
+    1.7,
+    1
+   ],
+   "title": "logo.svg",
+   "sub": "image"
+  },
+  {
+   "id": "b-logo",
+   "kind": "node",
+   "at": [
+    0.9550000000000001,
+    1.6
+   ],
+   "tone": "y",
+   "size": [
+    4.65,
+    1.6,
+    1
+   ],
+   "title": "200"
+  },
+  {
+   "id": "w-data",
+   "kind": "node",
+   "at": [
+    -14,
+    3.8
+   ],
+   "tone": "g",
+   "size": [
+    8.4,
+    1.7,
+    1
+   ],
+   "title": "/api/projets",
+   "sub": "données, en JSON"
+  },
+  {
+   "id": "b-data",
+   "kind": "node",
+   "at": [
+    7.154999999999999,
+    3.8
+   ],
+   "tone": "g",
+   "size": [
+    4.65,
+    1.6,
+    1
+   ],
+   "title": "200"
+  }
+ ],
+ "steps": [
+  {
+   "id": "cascade",
+   "label": "Le chargement",
+   "title": "Le chargement d'une page, requête par requête",
+   "body": [
+    "Comme l'onglet Réseau du navigateur : une ligne par requête, avec son code de statut et sa durée."
+   ],
+   "hud": [
+    {
+     "label": "requêtes",
+     "value": 0
+    },
+    {
+     "label": "page",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "axe"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "scene",
+     "show": [
+      "w-html",
+      "b-html"
+     ],
+     "hud": [
+      {
+       "label": "requêtes",
+       "value": 1
+      },
+      {
+       "label": "page",
+       "value": "en cours",
+       "tone": "b"
+      }
+     ],
+     "say": "D'abord une seule requête, pour la page. La réponse arrive avec le code `200` : tout va bien."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "show": [
+      "w-css",
+      "b-css",
+      "w-js",
+      "b-js",
+      "w-logo",
+      "b-logo"
+     ],
+     "hud": [
+      {
+       "label": "requêtes",
+       "value": 4
+      }
+     ],
+     "say": "Le navigateur lit le HTML, y trouve trois adresses, et les demande **en même temps**."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "b-css",
+       "label": "CSS"
+      },
+      {
+       "id": "b-js",
+       "label": "JS"
+      },
+      {
+       "id": "b-logo",
+       "label": "image"
+      }
+     ],
+     "hud": [
+      {
+       "label": "page",
+       "value": "affichée",
+       "tone": "g"
+      }
+     ],
+     "say": "Chaque ligne a son propre **code de statut** : ici, `200` partout. La page s'affiche."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "show": [
+      "w-data",
+      "b-data"
+     ],
+     "hud": [
+      {
+       "label": "requêtes",
+       "value": 5
+      }
+     ],
+     "say": "Si la page charge des **données**, son JavaScript envoie encore des requêtes, après l'affichage."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "b-data",
+       "label": "fetch"
+      }
+     ],
+     "say": "Une page, plusieurs requêtes, chacune avec son code : c'est ce qu'on lit dans l'onglet **Réseau**.",
+     "ms": 300
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,444 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "js-json-format",
+ "title": "Le format JSON (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "v",
+   "label": "code JavaScript"
+  },
+  {
+   "tone": "y",
+   "label": "texte JSON"
+  },
+  {
+   "tone": "g",
+   "label": "accepté"
+  },
+  {
+   "tone": "r",
+   "label": "refusé"
+  }
+ ],
+ "entities": [
+  {
+   "id": "j1",
+   "kind": "node",
+   "at": [
+    -14.0,
+    -5.2
+   ],
+   "tone": "v",
+   "size": [
+    11.0,
+    1.8,
+    1
+   ],
+   "title": "{"
+  },
+  {
+   "id": "j2",
+   "kind": "node",
+   "at": [
+    -13.1,
+    -2.6
+   ],
+   "tone": "v",
+   "size": [
+    9.2,
+    1.8,
+    1
+   ],
+   "title": "titre: 'Dune',"
+  },
+  {
+   "id": "j3",
+   "kind": "node",
+   "at": [
+    -13.1,
+    0.0
+   ],
+   "tone": "v",
+   "size": [
+    9.2,
+    1.8,
+    1
+   ],
+   "title": "pages: 900,"
+  },
+  {
+   "id": "j4",
+   "kind": "node",
+   "at": [
+    -13.1,
+    2.6
+   ],
+   "tone": "v",
+   "size": [
+    9.2,
+    1.8,
+    1
+   ],
+   "title": "resumer() { … },"
+  },
+  {
+   "id": "j5",
+   "kind": "node",
+   "at": [
+    -14.0,
+    5.2
+   ],
+   "tone": "v",
+   "size": [
+    11.0,
+    1.8,
+    1
+   ],
+   "title": "}"
+  },
+  {
+   "id": "s1",
+   "kind": "node",
+   "at": [
+    0.0,
+    -5.2
+   ],
+   "tone": "y",
+   "size": [
+    11.0,
+    1.8,
+    1
+   ],
+   "title": "{"
+  },
+  {
+   "id": "s2",
+   "kind": "node",
+   "at": [
+    0.9,
+    -2.6
+   ],
+   "tone": "y",
+   "size": [
+    9.2,
+    1.8,
+    1
+   ],
+   "title": "\"titre\": \"Dune\","
+  },
+  {
+   "id": "s3",
+   "kind": "node",
+   "at": [
+    0.9,
+    0.0
+   ],
+   "tone": "y",
+   "size": [
+    9.2,
+    1.8,
+    1
+   ],
+   "title": "\"pages\": 900"
+  },
+  {
+   "id": "s5",
+   "kind": "node",
+   "at": [
+    0.0,
+    5.2
+   ],
+   "tone": "y",
+   "size": [
+    11.0,
+    1.8,
+    1
+   ],
+   "title": "}"
+  },
+  {
+   "id": "h-js",
+   "kind": "node",
+   "at": [
+    -14,
+    -8.2
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    1.6,
+    1
+   ],
+   "title": "un objet JavaScript",
+   "sub": "dans le code"
+  },
+  {
+   "id": "h-json",
+   "kind": "node",
+   "at": [
+    0,
+    -8.2
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    1.6,
+    1
+   ],
+   "title": "le même, en JSON",
+   "sub": "un texte"
+  },
+  {
+   "id": "n-cle",
+   "kind": "node",
+   "at": [
+    14,
+    -3.9000000000000004
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    2,
+    1
+   ],
+   "title": "clés entre guillemets doubles",
+   "sub": "\"titre\", jamais titre"
+  },
+  {
+   "id": "n-txt",
+   "kind": "node",
+   "at": [
+    14,
+    -1.3
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    2,
+    1
+   ],
+   "title": "textes entre guillemets doubles",
+   "sub": "\"Dune\", jamais 'Dune'"
+  },
+  {
+   "id": "n-virg",
+   "kind": "node",
+   "at": [
+    14,
+    1.2
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    2,
+    1
+   ],
+   "title": "pas de virgule après le dernier",
+   "sub": "[1, 2, 3,] est refusé"
+  },
+  {
+   "id": "n-data",
+   "kind": "node",
+   "at": [
+    14,
+    3.6
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    2,
+    1
+   ],
+   "title": "seulement des données",
+   "sub": "textes, nombres, true, false, null…",
+   "detail": "Le JSON accepte des textes, des nombres, `true`, `false`, `null`, des objets et des tableaux. **Pas de fonction** : une méthode ne passe pas."
+  }
+ ],
+ "steps": [
+  {
+   "id": "json",
+   "label": "Le format JSON",
+   "title": "Un objet, et le même écrit en JSON",
+   "body": [
+    "Presque la même syntaxe que JavaScript, avec quatre règles plus strictes."
+   ],
+   "hud": [
+    {
+     "label": "règles",
+     "value": "0 / 4"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "h-js",
+    "j1",
+    "j2",
+    "j3",
+    "j4",
+    "j5"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "h-json",
+      "s1",
+      "s2"
+     ],
+     "say": "Un objet JavaScript à gauche. Écrivons-le en **JSON**, une ligne après l'autre."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "n-cle"
+     ],
+     "link": [
+      {
+       "from": "s2",
+       "to": "n-cle"
+      }
+     ],
+     "set": [
+      {
+       "id": "s2",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "règles",
+       "value": "1 / 4",
+       "tone": "g"
+      }
+     ],
+     "say": "Première règle : la clé `titre` s'écrit entre **guillemets doubles**, `\"titre\"`."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "n-txt"
+     ],
+     "link": [
+      {
+       "from": "s2",
+       "to": "n-txt"
+      }
+     ],
+     "set": [
+      {
+       "id": "j2",
+       "label": "'Dune' : refusé en JSON"
+      }
+     ],
+     "hud": [
+      {
+       "label": "règles",
+       "value": "2 / 4",
+       "tone": "g"
+      }
+     ],
+     "say": "Les textes aussi : `'Dune'`, entre guillemets simples, devient `\"Dune\"`."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s3"
+     ],
+     "ms": 500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "n-virg"
+     ],
+     "link": [
+      {
+       "from": "s3",
+       "to": "n-virg"
+      }
+     ],
+     "set": [
+      {
+       "id": "s3",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "règles",
+       "value": "3 / 4",
+       "tone": "g"
+      }
+     ],
+     "say": "`\"pages\": 900` est le dernier élément : **pas de virgule** après lui."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "n-data"
+     ],
+     "link": [
+      {
+       "from": "j4",
+       "to": "n-data",
+       "dashed": true
+      }
+     ],
+     "set": [
+      {
+       "id": "j4",
+       "tone": "r",
+       "label": "absente du JSON"
+      }
+     ],
+     "hud": [
+      {
+       "label": "règles",
+       "value": "4 / 4",
+       "tone": "g"
+      }
+     ],
+     "say": "La méthode `resumer` ne passe pas : le JSON ne porte **que des données**, jamais de fonction."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s5"
+     ],
+     "say": "Le résultat est un **texte** : il voyage tel quel du serveur à la page."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

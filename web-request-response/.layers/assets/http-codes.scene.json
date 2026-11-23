@@ -1,0 +1,280 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "web-request-response-codes",
+ "title": "Les codes de statut (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "g",
+   "label": "2xx succès"
+  },
+  {
+   "tone": "b",
+   "label": "3xx redirection"
+  },
+  {
+   "tone": "y",
+   "label": "4xx erreur client"
+  },
+  {
+   "tone": "r",
+   "label": "5xx erreur serveur"
+  }
+ ],
+ "entities": [
+  {
+   "id": "c200",
+   "kind": "node",
+   "at": [
+    -9,
+    -5.4
+   ],
+   "tone": "g",
+   "size": [
+    9,
+    2.6,
+    1
+   ],
+   "title": "200 OK",
+   "sub": "2xx · succès"
+  },
+  {
+   "id": "s200",
+   "kind": "node",
+   "at": [
+    6.5,
+    -5.4
+   ],
+   "tone": "g",
+   "size": [
+    17,
+    2.6,
+    1
+   ],
+   "title": "la ressource existe, la voici",
+   "sub": "à l'écran : la page s'affiche"
+  },
+  {
+   "id": "c301",
+   "kind": "node",
+   "at": [
+    -9,
+    -1.8
+   ],
+   "tone": "b",
+   "size": [
+    9,
+    2.6,
+    1
+   ],
+   "title": "301 Moved Permanently",
+   "sub": "3xx · redirection"
+  },
+  {
+   "id": "s301",
+   "kind": "node",
+   "at": [
+    6.5,
+    -1.8
+   ],
+   "tone": "b",
+   "size": [
+    17,
+    2.6,
+    1
+   ],
+   "title": "déménagée : voici la nouvelle adresse",
+   "sub": "à l'écran : l'adresse change toute seule"
+  },
+  {
+   "id": "c404",
+   "kind": "node",
+   "at": [
+    -9,
+    1.8
+   ],
+   "tone": "y",
+   "size": [
+    9,
+    2.6,
+    1
+   ],
+   "title": "404 Not Found",
+   "sub": "4xx · erreur du client"
+  },
+  {
+   "id": "s404",
+   "kind": "node",
+   "at": [
+    6.5,
+    1.8
+   ],
+   "tone": "y",
+   "size": [
+    17,
+    2.6,
+    1
+   ],
+   "title": "rien à cette adresse",
+   "sub": "à l'écran : une page « introuvable »"
+  },
+  {
+   "id": "c500",
+   "kind": "node",
+   "at": [
+    -9,
+    5.4
+   ],
+   "tone": "r",
+   "size": [
+    9,
+    2.6,
+    1
+   ],
+   "title": "500 Internal Server Error",
+   "sub": "5xx · erreur du serveur"
+  },
+  {
+   "id": "s500",
+   "kind": "node",
+   "at": [
+    6.5,
+    5.4
+   ],
+   "tone": "r",
+   "size": [
+    17,
+    2.6,
+    1
+   ],
+   "title": "le serveur a planté pendant la réponse",
+   "sub": "à l'écran : une page d'erreur, pas ta faute"
+  }
+ ],
+ "steps": [
+  {
+   "id": "codes",
+   "label": "Les codes",
+   "title": "Quatre codes, quatre familles",
+   "body": [
+    "Le premier chiffre du code de statut donne la famille de la réponse."
+   ],
+   "hud": [
+    {
+     "label": "famille",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "c200",
+    "c301",
+    "c404",
+    "c500"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s200"
+     ],
+     "link": [
+      {
+       "from": "c200",
+       "to": "s200"
+      }
+     ],
+     "hud": [
+      {
+       "label": "famille",
+       "value": "2xx : succès",
+       "tone": "g"
+      }
+     ],
+     "say": "`200` : la ressource existe, le serveur l'envoie. C'est le code de presque toutes les lignes."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s301"
+     ],
+     "link": [
+      {
+       "from": "c301",
+       "to": "s301"
+      }
+     ],
+     "hud": [
+      {
+       "label": "famille",
+       "value": "3xx : redirection",
+       "tone": "b"
+      }
+     ],
+     "say": "`301` : la ressource a déménagé. La réponse donne la nouvelle adresse, et le navigateur refait la requête tout seul."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s404"
+     ],
+     "link": [
+      {
+       "from": "c404",
+       "to": "s404"
+      }
+     ],
+     "hud": [
+      {
+       "label": "famille",
+       "value": "4xx : côté client",
+       "tone": "y"
+      }
+     ],
+     "say": "`404` : rien à cette adresse. La demande est en cause : une faute de frappe, une page supprimée."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s500"
+     ],
+     "link": [
+      {
+       "from": "c500",
+       "to": "s500"
+      }
+     ],
+     "hud": [
+      {
+       "label": "famille",
+       "value": "5xx : côté serveur",
+       "tone": "r"
+      }
+     ],
+     "say": "`500` : le serveur a planté en préparant la réponse. Là, ce n'est pas ta demande qui est en cause."
+    },
+    {
+     "do": "wait",
+     "ms": 3000
+    }
+   ]
+  }
+ ]
+}

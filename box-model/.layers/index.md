@@ -16,35 +16,38 @@ Pour le navigateur, chaque élément d'une page est une **boîte** rectangulaire
 
 # Le modèle de boîte : contenu, padding, bordure, marge
 
-Le contenu précédent réglait l'apparence du texte : sa police, sa couleur. Ce contenu règle la place que prend chaque élément, et l'espace entre eux.
+Une règle CSS donne une couleur, une police, un fond. Ce contenu règle autre chose : la place que prend chaque élément, et l'espace entre eux.
 
 ## Chaque élément est une boîte en quatre couches
 
 Un paragraphe, un titre, une carte : chacun occupe un rectangle, et ce rectangle se lit de l'intérieur vers l'extérieur. C'est le **modèle de boîte** (*box model*).
 
-```mermaid
-flowchart TB
-  subgraph M["margin : l'espace extérieur, transparent"]
-    subgraph B["border : la bordure"]
-      subgraph P["padding : l'espace intérieur, le fond s'y étend"]
-        C["le contenu : width et height"]
-      end
-    end
-  end
+```scene
+lesson: assets/box.scene.json
+step: couches
 ```
 
-| Couche | Propriété | Ce qu'elle fait |
-|---|---|---|
-| le **contenu** | `width`, `height` | la zone du texte ou de l'image |
-| le **padding** | `padding` | l'espace entre le contenu et la bordure ; le fond de l'élément s'y étend |
-| la **bordure** | `border` | le trait autour du padding |
-| la **marge** | `margin` | l'espace autour de la bordure, qui sépare l'élément de ses voisins ; le fond du parent y apparaît |
+| Couche, et sa propriété | Ce qu'elle fait |
+|---|---|
+| le **contenu** : `width`, `height` | la zone du texte ou de l'image |
+| le **padding** (*rembourrage*) : `padding` | l'espace entre le contenu et la bordure ; le fond de l'élément s'y étend |
+| la **bordure** : `border` | le trait autour du padding |
+| la **marge** : `margin` | l'espace autour de la bordure, qui sépare l'élément de ses voisins ; le fond du parent y apparaît |
 
-Chaque propriété se règle pour les quatre côtés d'un coup (`padding: 20px`) ou côté par côté (`padding-top`, `padding-right`, `padding-bottom`, `padding-left`). La bordure demande **trois informations** : une épaisseur, un style et une couleur, par exemple `border: 1px solid rgb(215, 222, 232)`. Sans le style `solid`, elle n'apparaît pas : le style vaut `none` par défaut.
+Chaque propriété se règle pour les quatre côtés d'un coup (`padding: 20px`) ou côté par côté (`padding-top`, `padding-right`, `padding-bottom`, `padding-left`).
 
 ## Padding dedans, marge dehors
 
-Pour choisir entre les deux, une seule question : le fond de l'élément doit-il s'étendre dans cet espace ? Oui : c'est du `padding`, le texte s'éloigne du bord de la carte. Non : c'est une `margin`, les cartes s'éloignent les unes des autres.
+Pour choisir entre les deux, une seule question : le fond de l'élément doit-il s'étendre dans cet espace ? Suis la règle `.carte`, ligne par ligne, sur deux cartes collées.
+
+```scene
+lesson: assets/box.scene.json
+step: espaces
+```
+
+Oui, le fond s'étend : c'est du `padding`, le texte s'éloigne du bord de la carte. Non : c'est une `margin`, les cartes s'éloignent les unes des autres. La bordure, elle, demande **trois informations** : une épaisseur, un style et une couleur, par exemple `border: 2px solid rgb(11, 107, 203)`. Sans le style `solid`, elle n'apparaît pas : le style vaut `none` par défaut.
+
+## À toi : aère les cartes
 
 Dans la page ci-dessous, les deux cartes sont collées l'une à l'autre, leur texte touche les bords, et la bordure prévue ne s'affiche pas. Le HTML est fourni en lecture seule : complète la règle `.carte` dans `style.css`.
 
@@ -103,7 +106,14 @@ solution: assets/espaces.solution
 
 ## La vraie largeur d'une boîte : width, padding et bordure
 
-Par défaut, `width` règle la largeur du **contenu** seulement. Le padding et la bordure s'ajoutent autour. Une boîte écrite `width: 300px; padding: 20px; border: 5px solid` occupe donc 300 + 20 + 20 + 5 + 5 pixels : 350, et non 300.
+Par défaut, `width` règle la largeur du **contenu** seulement. Le padding et la bordure s'ajoutent autour, des deux côtés. Regarde une carte prévue pour une colonne de 300 px.
+
+```scene
+lesson: assets/box.scene.json
+step: largeur
+```
+
+La carte écrite `width: 300px; padding: 20px; border: 5px solid` occupe 300 + 20 + 20 + 5 + 5 pixels : 350, et non 300. À ton tour de compter :
 
 ```fill
 text: "Une boîte a `width: 200px`, `padding: 10px` et `border: 2px solid`. Elle occupe _____ px de large, marges non comprises."
@@ -112,12 +122,19 @@ blanks:
     hint: "Le padding et la bordure comptent deux fois : à gauche et à droite. 200 + 10 + 10 + 2 + 2."
 ```
 
-C'est le piège classique : on donne à une carte la largeur de sa colonne, on lui ajoute du padding, et elle déborde. La propriété `box-sizing` change ce calcul :
+## `box-sizing: border-box` : width règle la boîte entière
 
-| `box-sizing` | `width` désigne | `width: 300px` et `padding: 20px` occupent |
-|---|---|---|
-| `content-box` (par défaut) | le contenu seul | 340 px |
-| `border-box` | la boîte entière, padding et bordure compris | 300 px, le contenu se réduit à 260 px |
+C'est le piège classique : on donne à une carte la largeur de sa colonne, on lui ajoute du padding, et elle déborde. La propriété `box-sizing` (*dimensionnement de la boîte*) change ce calcul. Reprenons la même carte.
+
+```scene
+lesson: assets/box.scene.json
+step: borderbox
+```
+
+| `box-sizing` | `width: 300px` et `padding: 20px` occupent |
+|---|---|
+| `content-box` (par défaut) : `width` désigne le contenu seul | 340 px |
+| `border-box` : `width` désigne la boîte entière, padding et bordure compris | 300 px, le contenu se réduit à 260 px |
 
 La plupart des feuilles de style professionnelles s'ouvrent par une règle qui l'applique à tous les éléments, avec le **sélecteur universel** `*` :
 
@@ -127,9 +144,9 @@ La plupart des feuilles de style professionnelles s'ouvrent par une règle qui l
 }
 ```
 
-> 💡 **Remarque.** C'est l'écart d'Internet Explorer 5 évoqué dans le contenu sur les trois langages : il calculait déjà la largeur à la manière de `border-box`, quand les autres navigateurs suivaient `content-box`. `box-sizing` a fini par laisser chacun choisir.
+## À toi : le piège de la largeur
 
-Dans la page ci-dessous, la carte doit tenir exactement dans sa colonne bleue de 300 px. Elle déborde à droite. Corrige `style.css` sans retirer le padding.
+Dans la page ci-dessous, la carte doit tenir exactement dans sa colonne bleue de 300 px. Elle déborde à droite. Avant de corriger, calcule de combien : 100 % de 300 px pour le contenu, plus 2 × 20 px de padding, plus 2 × 4 px de bordure, soit 348 px, et 48 px qui dépassent. Puis corrige `style.css` sans retirer le padding.
 
 ```playground
 runtime: web
@@ -181,13 +198,18 @@ verify:
 solution: assets/largeur.solution
 ```
 
-Avant de corriger, calculez de combien la carte déborde : 100 % de 300 px pour le contenu, plus 2 × 20 px de padding, plus 2 × 4 px de bordure, soit 348 px, et 48 px qui dépassent.
-
 ## Bloc ou en ligne : un `span` ignore `width`
 
-Les boîtes ne se comportent pas toutes de la même façon. Un élément **bloc** (`<p>`, `<h2>`, `<div>`, `<section>`) prend toute la largeur disponible et commence sur une nouvelle ligne ; il accepte `width` et `height`. Un élément **en ligne** (*inline* : `<span>`, `<a>`, `<strong>`) se glisse dans le texte, à la suite des mots ; il **ignore** `width` et `height`, et ses marges du haut et du bas n'écartent pas les lignes.
+Les boîtes ne se comportent pas toutes de la même façon. Regarde un `<div>` et un `<span>` qui reçoivent chacun leur place.
 
-La propriété `display` change ce comportement : `display: inline-block` garde l'élément dans la ligne, mais lui fait accepter une largeur.
+```scene
+lesson: assets/box.scene.json
+step: inline
+```
+
+Un élément **bloc** (*block* : `<p>`, `<h2>`, `<div>`, `<section>`) prend toute la largeur disponible et commence sur une nouvelle ligne ; il accepte `width` et `height`. Un élément **en ligne** (*inline* : `<span>`, `<a>`, `<strong>`) se glisse dans le texte, à la suite des mots ; il **ignore** `width` et `height`, et ses marges du haut et du bas n'écartent pas les lignes. La propriété `display` (*affichage*) change ce comportement : `display: inline-block` garde l'élément dans la ligne, mais lui fait accepter une largeur.
+
+## À toi : une étiquette qui accepte sa largeur
 
 Dans la page ci-dessous, l'étiquette « Gratuit » devrait mesurer 120 px de large, et la règle le demande bien. Rien n'y fait. Corrige la règle `.badge`.
 
@@ -269,7 +291,7 @@ questions:
 - Par défaut, la **largeur réelle** vaut `width` + padding + bordure, des deux côtés ; `* { box-sizing: border-box; }` fait de `width` la largeur de la boîte entière.
 - Un élément **en ligne** comme `<span>` ignore `width` ; `display: inline-block` la lui fait accepter.
 
-Vous avez vu, un par un, les morceaux d'une page : sa requête, ses trois langages, son squelette, son sens, ses règles et ses boîtes. Le lab les assemble sur votre machine, avec VS Code et un navigateur : [Les bases HTML et CSS, sur votre machine](https://byte-layers.com/fr/labs/html-css-basics-lab).
+Vos boîtes ont maintenant la taille que vous avez écrite. Reste à savoir où le navigateur les pose quand vous ne lui dites rien : c'est l'objet du contenu [Bloc, inline : le flux normal d'une page](https://byte-layers.com/fr/bits/normal-flow).
 
 ```ack
 J'ai compris

@@ -1,0 +1,1853 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "js-arrays-loops",
+ "title": "Tableaux et boucles",
+ "lang": "fr",
+ "kit": "feuillete",
+ "legend": [
+  {
+   "tone": "y",
+   "label": "texte"
+  },
+  {
+   "tone": "b",
+   "label": "nombre"
+  },
+  {
+   "tone": "g",
+   "label": "case parcourue"
+  },
+  {
+   "tone": "n",
+   "label": "undefined"
+  },
+  {
+   "tone": "r",
+   "label": "test faux"
+  }
+ ],
+ "entities": [
+  {
+   "id": "c0",
+   "kind": "file",
+   "at": [
+    -5.0,
+    5.0
+   ],
+   "size": [
+    1.9,
+    1.9,
+    0.45
+   ],
+   "tone": "y",
+   "title": "Pomme",
+   "label": "[0]",
+   "detail": "Une **case** du tableau `fruits` : sa valeur, et son numéro, l'**index**, qui commence à 0."
+  },
+  {
+   "id": "c1",
+   "kind": "file",
+   "at": [
+    -2.5,
+    2.5
+   ],
+   "size": [
+    1.9,
+    1.9,
+    0.45
+   ],
+   "tone": "y",
+   "title": "Banane",
+   "label": "[1]"
+  },
+  {
+   "id": "c2",
+   "kind": "file",
+   "at": [
+    0.0,
+    0.0
+   ],
+   "size": [
+    1.9,
+    1.9,
+    0.45
+   ],
+   "tone": "y",
+   "title": "Cerise",
+   "label": "[2]"
+  },
+  {
+   "id": "c3",
+   "kind": "file",
+   "at": [
+    2.5,
+    -2.5
+   ],
+   "size": [
+    1.9,
+    1.9,
+    0.45
+   ],
+   "tone": "y",
+   "title": "Mangue",
+   "label": "[3]"
+  },
+  {
+   "id": "c4",
+   "kind": "file",
+   "at": [
+    5.0,
+    -5.0
+   ],
+   "size": [
+    1.9,
+    1.9,
+    0.45
+   ],
+   "tone": "y",
+   "title": "Poire",
+   "label": "[4]"
+  },
+  {
+   "id": "c5",
+   "kind": "file",
+   "at": [
+    7.5,
+    -7.5
+   ],
+   "size": [
+    1.9,
+    1.9,
+    0.45
+   ],
+   "tone": "y",
+   "title": "Kiwi",
+   "label": "[5]"
+  },
+  {
+   "id": "lire",
+   "kind": "program",
+   "at": [
+    4.5,
+    4.5
+   ],
+   "tone": "v",
+   "title": "fruits[0]",
+   "detail": "Une **expression** qui lit le tableau : le nom du tableau, puis l'index entre crochets."
+  },
+  {
+   "id": "i",
+   "kind": "file",
+   "at": [
+    -0.5,
+    9.5
+   ],
+   "size": [
+    1.6,
+    1.6,
+    0.45
+   ],
+   "tone": "b",
+   "title": "i",
+   "label": "0",
+   "detail": "Le **compteur** de la boucle `for`. Il sert d'index : `fruits[i]`."
+  },
+  {
+   "id": "p0",
+   "kind": "file",
+   "at": [
+    -3.0,
+    3.0
+   ],
+   "tone": "b",
+   "title": "3",
+   "label": "[0]",
+   "detail": "Le tableau `[3, 5, 2]` : trois prix."
+  },
+  {
+   "id": "p1",
+   "kind": "file",
+   "at": [
+    0.0,
+    0.0
+   ],
+   "tone": "b",
+   "title": "5",
+   "label": "[1]"
+  },
+  {
+   "id": "p2",
+   "kind": "file",
+   "at": [
+    3.0,
+    -3.0
+   ],
+   "tone": "b",
+   "title": "2",
+   "label": "[2]"
+  },
+  {
+   "id": "total",
+   "kind": "node",
+   "at": [
+    5.0,
+    5.0
+   ],
+   "size": [
+    2.2,
+    2.2,
+    1.0
+   ],
+   "tone": "b",
+   "title": "total",
+   "label": "0",
+   "detail": "L'**accumulateur** : une variable créée avec `let` avant la boucle, à laquelle chaque tour ajoute une valeur."
+  },
+  {
+   "id": "compte",
+   "kind": "file",
+   "at": [
+    1.0,
+    7.0
+   ],
+   "size": [
+    1.9,
+    1.9,
+    0.45
+   ],
+   "tone": "b",
+   "title": "compte",
+   "label": "3",
+   "detail": "La variable que teste la boucle `while`. Quelque chose dans le bloc doit la changer."
+  },
+  {
+   "id": "test",
+   "kind": "node",
+   "at": [
+    0.0,
+    0.0
+   ],
+   "size": [
+    2.0,
+    2.0,
+    1.0
+   ],
+   "tone": "v",
+   "title": "while (compte > 0)",
+   "detail": "`while` (« tant que ») refait le test **avant chaque tour** : vrai, le bloc s'exécute ; faux, la boucle s'arrête."
+  },
+  {
+   "id": "bloc",
+   "kind": "program",
+   "at": [
+    7.0,
+    1.0
+   ],
+   "tone": "n",
+   "title": "bloc du while",
+   "detail": "Le bloc : `console.log(\"Décollage dans \" + compte);` puis `compte = compte - 1;`."
+  },
+  {
+   "id": "sortie",
+   "kind": "program",
+   "at": [
+    -4.0,
+    -4.0
+   ],
+   "tone": "n",
+   "title": "après la boucle",
+   "detail": "La ligne qui suit la boucle : `console.log(\"Décollage !\");`."
+  }
+ ],
+ "steps": [
+  {
+   "id": "tableau",
+   "label": "Les cases",
+   "title": "Un tableau : des cases numérotées à partir de 0",
+   "body": [
+    "Chaque valeur occupe une case ; on la lit par son numéro, l'index, qui commence à 0."
+   ],
+   "hud": [
+    {
+     "label": "fruits.length",
+     "value": 5,
+     "tone": "b"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "c0",
+    "c1",
+    "c2",
+    "c3",
+    "c4",
+    "lire"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "title": "fruits[0]",
+       "label": null
+      }
+     ],
+     "link": [
+      {
+       "from": "lire",
+       "to": "c0"
+      }
+     ],
+     "unlink": [],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "lire",
+      "c0"
+     ],
+     "reply": "\"Pomme\"",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "label": "\"Pomme\""
+      }
+     ],
+     "say": "`fruits[0]` : la première case porte l'index **0**."
+    },
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "title": "fruits[2]",
+       "label": null
+      }
+     ],
+     "link": [
+      {
+       "from": "lire",
+       "to": "c2"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "lire",
+       "to": "c0"
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "lire",
+      "c2"
+     ],
+     "reply": "\"Cerise\"",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "label": "\"Cerise\""
+      }
+     ],
+     "say": "`fruits[2]` est donc la **troisième** case."
+    },
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "title": "fruits[4]",
+       "label": null
+      }
+     ],
+     "link": [
+      {
+       "from": "lire",
+       "to": "c4"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "lire",
+       "to": "c2"
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "lire",
+      "c4"
+     ],
+     "reply": "\"Poire\"",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "label": "\"Poire\""
+      }
+     ],
+     "say": "Cinq cases, numérotées de 0 à 4 : la dernière est `fruits[length - 1]`."
+    },
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "title": "fruits[5]",
+       "label": "undefined",
+       "tone": "n"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "lire",
+       "to": "c4"
+      }
+     ],
+     "say": "`fruits[5]` : cette case n'existe pas. Pas d'erreur, juste `undefined`."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "c5"
+     ],
+     "set": [
+      {
+       "id": "lire",
+       "title": "fruits.push(\"Kiwi\")",
+       "label": null,
+       "tone": "v"
+      }
+     ],
+     "hud": [
+      {
+       "label": "fruits.length",
+       "value": 6,
+       "tone": "b"
+      }
+     ],
+     "say": "`fruits.push(\"Kiwi\")` ajoute une case à la fin : `length` passe à 6."
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "for",
+   "label": "for",
+   "title": "La boucle for avance son compteur, case après case",
+   "body": [
+    "Avant chaque tour, la boucle teste `i < fruits.length` ; après chaque tour, `i++` ajoute 1 au compteur."
+   ],
+   "hud": [
+    {
+     "label": "i",
+     "value": 0,
+     "tone": "b"
+    },
+    {
+     "label": "test i < length",
+     "value": "—"
+    },
+    {
+     "label": "console",
+     "value": "—"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "c0",
+    "c1",
+    "c2",
+    "c3",
+    "c4",
+    "i"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "i",
+       "at": [
+        -0.5,
+        9.5
+       ],
+       "label": "0"
+      }
+     ],
+     "link": [
+      {
+       "from": "i",
+       "to": "c0"
+      }
+     ],
+     "unlink": [],
+     "hud": [
+      {
+       "label": "i",
+       "value": 0,
+       "tone": "b"
+      },
+      {
+       "label": "test i < length",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "say": "Premier tour : `i` vaut 0, `0 < 5` est vrai, la boucle lit `fruits[0]`.",
+     "ms": 700
+    },
+    {
+     "do": "send",
+     "path": [
+      "i",
+      "c0"
+     ],
+     "reply": "Pomme",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "c0",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "case 0 : Pomme",
+       "tone": null
+      }
+     ]
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "i",
+       "at": [
+        2.0,
+        7.0
+       ],
+       "label": "1"
+      }
+     ],
+     "link": [
+      {
+       "from": "i",
+       "to": "c1"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "i",
+       "to": "c0"
+      }
+     ],
+     "hud": [
+      {
+       "label": "i",
+       "value": 1,
+       "tone": "b"
+      },
+      {
+       "label": "test i < length",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "ms": 700
+    },
+    {
+     "do": "send",
+     "path": [
+      "i",
+      "c1"
+     ],
+     "reply": "Banane",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "c1",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "case 1 : Banane",
+       "tone": null
+      }
+     ],
+     "say": "`i++` : `i` passe à 1, le test est refait, la boucle lit la case 1."
+    },
+    {
+     "do": "wait",
+     "ms": 600
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "i",
+       "at": [
+        4.5,
+        4.5
+       ],
+       "label": "2"
+      }
+     ],
+     "link": [
+      {
+       "from": "i",
+       "to": "c2"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "i",
+       "to": "c1"
+      }
+     ],
+     "hud": [
+      {
+       "label": "i",
+       "value": 2,
+       "tone": "b"
+      },
+      {
+       "label": "test i < length",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "ms": 700
+    },
+    {
+     "do": "send",
+     "path": [
+      "i",
+      "c2"
+     ],
+     "reply": "Cerise",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "c2",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "case 2 : Cerise",
+       "tone": null
+      }
+     ]
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "i",
+       "at": [
+        7.0,
+        2.0
+       ],
+       "label": "3"
+      }
+     ],
+     "link": [
+      {
+       "from": "i",
+       "to": "c3"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "i",
+       "to": "c2"
+      }
+     ],
+     "hud": [
+      {
+       "label": "i",
+       "value": 3,
+       "tone": "b"
+      },
+      {
+       "label": "test i < length",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "ms": 700
+    },
+    {
+     "do": "send",
+     "path": [
+      "i",
+      "c3"
+     ],
+     "reply": "Mangue",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "c3",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "case 3 : Mangue",
+       "tone": null
+      }
+     ]
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "i",
+       "at": [
+        9.5,
+        -0.5
+       ],
+       "label": "4"
+      }
+     ],
+     "link": [
+      {
+       "from": "i",
+       "to": "c4"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "i",
+       "to": "c3"
+      }
+     ],
+     "hud": [
+      {
+       "label": "i",
+       "value": 4,
+       "tone": "b"
+      },
+      {
+       "label": "test i < length",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "ms": 700
+    },
+    {
+     "do": "send",
+     "path": [
+      "i",
+      "c4"
+     ],
+     "reply": "Poire",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "c4",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "case 4 : Poire",
+       "tone": null
+      }
+     ],
+     "say": "Et ainsi de suite jusqu'à la case 4, la dernière."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "i",
+       "at": [
+        12.0,
+        -3.0
+       ],
+       "label": "5",
+       "tone": "r"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "i",
+       "to": "c4"
+      }
+     ],
+     "hud": [
+      {
+       "label": "i",
+       "value": 5,
+       "tone": "r"
+      },
+      {
+       "label": "test i < length",
+       "value": "false",
+       "tone": "r"
+      }
+     ],
+     "say": "`i` passe à 5 : `5 < 5` est faux. La boucle s'arrête **avant** de lire une case qui n'existe pas."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "for-of",
+   "label": "for…of",
+   "title": "for…of donne chaque valeur, l'accumulateur les additionne",
+   "body": [
+    "À chaque tour, `prix` reçoit la valeur suivante du tableau, sans compteur ; `total` en garde la somme."
+   ],
+   "hud": [
+    {
+     "label": "prix",
+     "value": "—"
+    },
+    {
+     "label": "total",
+     "value": 0,
+     "tone": "b"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "p0",
+    "p1",
+    "p2",
+    "total"
+   ],
+   "links": [
+    {
+     "from": "p0",
+     "to": "total"
+    },
+    {
+     "from": "p1",
+     "to": "total"
+    },
+    {
+     "from": "p2",
+     "to": "total"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "total",
+       "label": "0"
+      }
+     ],
+     "say": "`let total = 0` : l'accumulateur part de 0, **avant** la boucle."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "p0",
+      "total"
+     ],
+     "label": "+ 3",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "total",
+       "label": "3"
+      },
+      {
+       "id": "p0",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "prix",
+       "value": 3,
+       "tone": "b"
+      },
+      {
+       "label": "total",
+       "value": 3,
+       "tone": "b"
+      }
+     ],
+     "say": "Premier tour : `prix` reçoit 3, et `total = total + prix` donne 3."
+    },
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "p1",
+      "total"
+     ],
+     "label": "+ 5",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "total",
+       "label": "8"
+      },
+      {
+       "id": "p1",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "prix",
+       "value": 5,
+       "tone": "b"
+      },
+      {
+       "label": "total",
+       "value": 8,
+       "tone": "b"
+      }
+     ],
+     "say": "Deuxième tour : `prix` reçoit 5, le total passe à 8."
+    },
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "p2",
+      "total"
+     ],
+     "label": "+ 2",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "total",
+       "label": "10"
+      },
+      {
+       "id": "p2",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "prix",
+       "value": 2,
+       "tone": "b"
+      },
+      {
+       "label": "total",
+       "value": 10,
+       "tone": "b"
+      }
+     ],
+     "say": "Dernier tour : 2. Plus de valeur, la boucle s'arrête : `total` vaut 10."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "while",
+   "label": "while",
+   "title": "while refait son test avant chaque tour",
+   "body": [
+    "Tant que `compte > 0` est vrai, le bloc s'exécute ; c'est `compte = compte - 1` qui finira par rendre le test faux."
+   ],
+   "hud": [
+    {
+     "label": "compte",
+     "value": 3,
+     "tone": "b"
+    },
+    {
+     "label": "test compte > 0",
+     "value": "—"
+    },
+    {
+     "label": "console",
+     "value": "—"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "compte",
+    "test",
+    "bloc",
+    "sortie"
+   ],
+   "links": [
+    {
+     "from": "compte",
+     "to": "test"
+    },
+    {
+     "from": "test",
+     "to": "bloc",
+     "label": "true"
+    },
+    {
+     "from": "test",
+     "to": "sortie",
+     "label": "false"
+    },
+    {
+     "from": "bloc",
+     "to": "compte",
+     "label": "compte - 1"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "compte",
+      "test"
+     ],
+     "label": "3",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "test",
+       "tone": "g",
+       "label": "true"
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "say": "Avant le premier tour, le test : `3 > 0` est vrai.",
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "test",
+      "bloc"
+     ],
+     "label": "true",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "bloc",
+       "label": "affiche Décollage dans 3"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "Décollage dans 3",
+       "tone": null
+      }
+     ],
+     "say": "Le bloc affiche, puis `compte = compte - 1` fait passer `compte` à 2.",
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "bloc",
+      "compte"
+     ],
+     "label": "- 1",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "compte",
+       "label": "2"
+      },
+      {
+       "id": "test",
+       "tone": "v",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "compte",
+       "value": 2,
+       "tone": "b"
+      },
+      {
+       "label": "test compte > 0",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "wait",
+     "ms": 500
+    },
+    {
+     "do": "send",
+     "path": [
+      "compte",
+      "test"
+     ],
+     "label": "2",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "test",
+       "tone": "g",
+       "label": "true"
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "say": "Le test est refait : `2 > 0`, encore vrai.",
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "test",
+      "bloc"
+     ],
+     "label": "true",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "bloc",
+       "label": "affiche Décollage dans 2"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "Décollage dans 2",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "bloc",
+      "compte"
+     ],
+     "label": "- 1",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "compte",
+       "label": "1"
+      },
+      {
+       "id": "test",
+       "tone": "v",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "compte",
+       "value": 1,
+       "tone": "b"
+      },
+      {
+       "label": "test compte > 0",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "compte",
+      "test"
+     ],
+     "label": "1",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "test",
+       "tone": "g",
+       "label": "true"
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "test",
+      "bloc"
+     ],
+     "label": "true",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "bloc",
+       "label": "affiche Décollage dans 1"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "Décollage dans 1",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "bloc",
+      "compte"
+     ],
+     "label": "- 1",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "compte",
+       "label": "0"
+      },
+      {
+       "id": "test",
+       "tone": "v",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "compte",
+       "value": 0,
+       "tone": "b"
+      },
+      {
+       "label": "test compte > 0",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "compte",
+      "test"
+     ],
+     "label": "0",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "test",
+       "tone": "r",
+       "label": "false"
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "false",
+       "tone": "r"
+      }
+     ],
+     "say": "`compte` vaut 0 : `0 > 0` est faux. La boucle s'arrête."
+    },
+    {
+     "do": "send",
+     "path": [
+      "test",
+      "sortie"
+     ],
+     "label": "false",
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "sortie",
+       "label": "affiche Décollage !"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "Décollage !",
+       "tone": null
+      }
+     ],
+     "say": "Le programme continue après la boucle : `Décollage !`."
+    },
+    {
+     "do": "wait",
+     "ms": 1800
+    },
+    {
+     "do": "scene",
+     "unlink": [
+      {
+       "from": "bloc",
+       "to": "compte"
+      }
+     ],
+     "set": [
+      {
+       "id": "compte",
+       "label": "3"
+      },
+      {
+       "id": "test",
+       "tone": "v",
+       "label": null
+      },
+      {
+       "id": "bloc",
+       "title": "bloc sans compte - 1",
+       "label": null
+      },
+      {
+       "id": "sortie",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "compte",
+       "value": 3,
+       "tone": "b"
+      },
+      {
+       "label": "test compte > 0",
+       "value": "—",
+       "tone": null
+      },
+      {
+       "label": "console",
+       "value": "—",
+       "tone": null
+      },
+      {
+       "label": "tours",
+       "value": 0,
+       "tone": null
+      }
+     ],
+     "say": "La même boucle, **sans** la ligne `compte = compte - 1`.",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "compte",
+      "test"
+     ],
+     "label": "3",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "test",
+       "tone": "g",
+       "label": "true"
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "say": "`3 > 0` : vrai, le bloc s'exécute…",
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "test",
+      "bloc"
+     ],
+     "label": "true",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "bloc",
+       "label": "affiche Décollage dans 3"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "Décollage dans 3",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "test",
+       "tone": "v",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "ms": 300
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "tours",
+       "value": 1,
+       "tone": null
+      }
+     ],
+     "ms": 200
+    },
+    {
+     "do": "send",
+     "path": [
+      "compte",
+      "test"
+     ],
+     "label": "3",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "test",
+       "tone": "g",
+       "label": "true"
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "say": "… et rien ne change `compte` : le test est encore vrai…",
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "test",
+      "bloc"
+     ],
+     "label": "true",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "bloc",
+       "label": "affiche Décollage dans 3"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "Décollage dans 3",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "test",
+       "tone": "v",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "ms": 300
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "tours",
+       "value": 2,
+       "tone": null
+      }
+     ],
+     "ms": 200
+    },
+    {
+     "do": "send",
+     "path": [
+      "compte",
+      "test"
+     ],
+     "label": "3",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "test",
+       "tone": "g",
+       "label": "true"
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "test",
+      "bloc"
+     ],
+     "label": "true",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "bloc",
+       "label": "affiche Décollage dans 3"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "Décollage dans 3",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "test",
+       "tone": "v",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "ms": 300
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "tours",
+       "value": 3,
+       "tone": null
+      }
+     ],
+     "ms": 200
+    },
+    {
+     "do": "send",
+     "path": [
+      "compte",
+      "test"
+     ],
+     "label": "3",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "test",
+       "tone": "g",
+       "label": "true"
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "test",
+      "bloc"
+     ],
+     "label": "true",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "bloc",
+       "label": "affiche Décollage dans 3"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "Décollage dans 3",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "test",
+       "tone": "v",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "ms": 300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "sortie",
+       "dim": true
+      },
+      {
+       "id": "test",
+       "tone": "g",
+       "label": "true"
+      }
+     ],
+     "hud": [
+      {
+       "label": "test compte > 0",
+       "value": "true",
+       "tone": "g"
+      },
+      {
+       "label": "tours",
+       "value": "sans fin",
+       "tone": "r"
+      }
+     ],
+     "say": "… pour toujours. La boucle ne s'arrête **jamais**, et l'onglet ne répond plus."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

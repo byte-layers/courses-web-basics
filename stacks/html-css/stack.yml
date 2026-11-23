@@ -9,6 +9,7 @@ layers:
     contents:
       - { slug: web-request-response, role: read-first }
       - { slug: web-page-languages }
+      - { slug: web-standards-browsers }
       - { slug: web-everywhere }
   - title: "Structurer en HTML"
     summary: "Le squelette d'une page, son texte, ses liens, ses images et leur sens"

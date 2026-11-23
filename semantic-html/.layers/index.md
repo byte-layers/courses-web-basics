@@ -7,7 +7,7 @@ tags:
   - html
   - accessibility
 difficulty: beginner
-duration: 12
+duration: 15
 requires: "0.9.0"
 ---
 
@@ -17,39 +17,62 @@ Une balise HTML ne dit pas seulement où placer un contenu : elle dit **ce qu'il
 
 # Le HTML sémantique : le sens avant la forme
 
-Dans le contenu précédent, chaque balise disait déjà ce qu'était son texte : un titre, un paragraphe, une liste. Ce contenu monte d'un étage : il nomme les grandes zones de la page, et il range les titres en un plan.
+Vous savez déjà dire ce qu'est un texte : un titre, un paragraphe, une liste. Ce contenu monte d'un étage : il nomme les grandes zones d'une page, puis il range ses titres en un plan. Le fil : le site d'un club de randonnée, *Les Marcheurs du Dimanche*.
 
 ## Une page faite de `div` : ce que le navigateur ne sait pas
 
-L'élément `<div>` est une boîte sans signification : il groupe des éléments, et c'est tout. Son cousin `<span>` fait de même à l'intérieur d'une ligne de texte. On peut construire une page entière avec des `<div>`, et elle s'affiche très bien. Mais tous les lecteurs d'une page ne la regardent pas :
+L'élément `<div>` (*division*) est une boîte sans signification : il groupe des éléments, et c'est tout. Son cousin `<span>` fait de même à l'intérieur d'une ligne de texte. On peut construire une page entière avec des `<div>`, et elle s'affiche très bien. Mais tous les lecteurs d'une page ne la regardent pas :
 
-| Lecteur | Ce qu'il fait de la page | Avec des `<div>` partout |
-|---|---|---|
-| un **lecteur d'écran**, qui lit la page à voix haute à une personne aveugle | annonce les zones et permet de sauter directement au menu ou au contenu principal | aucune zone à annoncer : il faut tout écouter, du début |
-| un **moteur de recherche** | cherche le contenu principal et le distingue du menu et du pied de page | tout a le même poids |
-| le **mode lecture** d'un navigateur | ne garde que l'article, sans le menu ni les publicités | il ne trouve pas l'article |
+| Lecteur | Ce qu'il cherche, et ce qu'il trouve dans une page de `<div>` |
+|---|---|
+| un **lecteur d'écran**, qui lit la page à voix haute à une personne aveugle | les zones, pour sauter directement au menu ou au contenu. Avec des `<div>` : aucune zone, il faut tout écouter depuis le début |
+| un **moteur de recherche** | le contenu principal, à distinguer du menu et du pied de page. Avec des `<div>` : il doit deviner |
+| le **mode lecture** d'un navigateur | l'article seul, sans le menu ni les publicités. Avec des `<div>` : il le devine, parfois mal |
+
+Voici l'accueil du club, fait de `<div>`, puis rangé dans des balises qui disent ce qu'est chaque bloc.
+
+```scene
+lesson: assets/semantic.scene.json
+step: zones
+```
 
 Le **HTML sémantique**, c'est choisir la balise qui dit ce qu'est un bloc. Le navigateur en tire un plan de la page, l'**arbre d'accessibilité**, que lisent les lecteurs d'écran.
 
 ## Les balises qui nomment les zones
 
-Ces balises ne changent rien à l'apparence : un `<header>` s'affiche exactement comme un `<div>`. Elles ajoutent du sens.
+Sept balises disent ce qu'est un bloc. Elles ne changent rien à l'apparence : un `<header>` s'affiche exactement comme un `<div>`. Regarde la page d'un récit du club se ranger, zone par zone.
 
-| Balise | Ce qu'elle contient | Zone annoncée par un lecteur d'écran |
-|---|---|---|
-| `<header>` | l'en-tête : le nom du site, souvent le menu | *banner* (bannière), pour l'en-tête de la page |
-| `<nav>` | un groupe de liens de navigation, le menu | *navigation* |
-| `<main>` | le contenu principal ; **un seul** par page | *main* |
-| `<article>` | un contenu qui garde son sens publié seul ailleurs : un billet, une fiche produit, un commentaire | *article* |
-| `<section>` | une partie thématique, avec son titre | *region*, quand elle a un nom |
-| `<aside>` | un contenu à côté du sujet : un encadré, des liens connexes | *complementary* |
-| `<footer>` | le pied de page : contact, mentions | *contentinfo*, pour le pied de la page |
+```scene
+lesson: assets/semantic.scene.json
+step: balises
+```
 
-Pour choisir entre `<article>` et `<section>`, faites le test de la publication : si ce bloc, copié seul dans un e-mail ou un flux d'actualités, garde tout son sens, c'est un `<article>`. Sinon, c'est une `<section>` d'un ensemble plus grand.
+Ce qu'annonce un lecteur d'écran porte un nom anglais, traduit entre parenthèses :
 
-Et `<div>` garde sa place : quand un groupe ne sert qu'à la **mise en page**, sans intention de sens, `<div>` est le bon choix. Le transformer en `<section>` annoncerait une partie qui n'existe pas.
+| Balise | Ce qu'elle contient, et la zone annoncée |
+|---|---|
+| `<header>` (*en-tête*) | le nom du site, souvent le menu. Annoncé *banner* (bannière) quand c'est l'en-tête de la page |
+| `<nav>` | un groupe de liens pour naviguer, le menu. Annoncé *navigation* |
+| `<main>` (*principal*) | le contenu principal, **un seul** par page. Annoncé *main* |
+| `<article>` | un contenu complet : un billet, une fiche produit, un commentaire. Annoncé *article* |
+| `<section>` | une partie, avec son titre. Annoncé *region* (région) quand on lui donne un nom |
+| `<aside>` (*à côté*) | un encadré en marge du sujet, des liens connexes. Annoncé *complementary* (complémentaire) |
+| `<footer>` (*pied de page*) | le contact, les mentions. Annoncé *contentinfo* (informations sur le contenu) quand c'est le pied de la page |
 
-La page ci-dessous est le blog d'un club de randonnée, construit entièrement en `<div>`. Remplace chaque `<div>` par la balise qui dit ce qu'est sa zone, sans oublier la balise fermante. Un seul `<div>` doit rester : celui qui groupe les deux récits pour la mise en page.
+## Article ou section, et la place de `div`
+
+`<article>` ou `<section>` ? Un test suffit : celui de la **publication**. Copie le bloc, seul, dans un e-mail.
+
+```scene
+lesson: assets/semantic.scene.json
+step: article
+```
+
+Le bloc garde tout son sens : c'est un `<article>`. Il ne se comprend plus sans le reste : c'est une `<section>` d'un ensemble plus grand. Et `<div>` garde sa place : un groupe qui ne sert qu'à la **mise en page**, sans intention de sens, reste un `<div>`. En faire une `<section>` annoncerait une partie qui n'existe pas.
+
+## À toi : range les blocs de la page
+
+La page ci-dessous est l'accueil du club, construit entièrement en `<div>`. Remplace chaque `<div>` par la balise qui dit ce qu'est sa zone, sans oublier la balise fermante. Un seul `<div>` doit rester : celui qui groupe les deux récits pour la mise en page.
 
 ```playground
 runtime: web
@@ -127,15 +150,26 @@ verify:
 solution: assets/zones.solution
 ```
 
-L'aperçu n'a pas bougé d'un pixel pendant l'exercice : c'est tout l'enjeu. Ce que vous avez changé ne se voit pas, il s'entend. Le lab de ce cours vous montre le plan que le navigateur en tire, dans ses outils de développement.
+L'aperçu n'a pas bougé d'un pixel pendant l'exercice : c'est tout l'enjeu. Ce que vous avez changé ne se voit pas, il s'entend. Les outils de développement du navigateur montrent le plan qu'il en tire.
 
 ## Les titres : un plan, pas une taille
 
-Les titres `<h1>` à `<h6>` forment le **plan** de la page, comme la table des matières d'un livre : un seul `<h1>`, le sujet de la page ; des `<h2>` pour ses grandes parties ; des `<h3>` pour les sous-parties d'un `<h2>`, et ainsi de suite, sans sauter de niveau. Les lecteurs d'écran proposent de naviguer de titre en titre : c'est souvent la première chose que fait une personne aveugle sur une page.
+Les titres `<h1>` à `<h6>` (*heading*, titre de niveau 1 à 6) forment le **plan** de la page, comme la table des matières d'un livre : un seul `<h1>`, le sujet ; des `<h2>` pour ses parties ; des `<h3>` pour les sous-parties d'un `<h2>`, sans sauter de niveau. Les lecteurs d'écran proposent de naviguer de titre en titre.
 
-Le piège : choisir un titre pour sa **taille**. Le navigateur affiche `<h1>` en très grand et `<h4>` en petit, et il est tentant de prendre `<h1>` pour un texte qu'on veut gros, ou `<h4>` pour un sous-titre qu'on veut discret. La taille se règle en CSS, sur n'importe quel élément : c'est l'objet du contenu suivant. La balise, elle, dit le niveau dans le plan.
+Le piège : choisir un titre pour sa **taille**, `<h1>` pour un texte qu'on veut gros, `<h4>` pour un sous-titre qu'on veut discret. La taille se règle en CSS, sur n'importe quel élément ; la balise dit le **niveau**.
 
-La recette ci-dessous a été écrite en choisissant les titres à l'œil : « Ingrédients » en `<h1>` parce qu'il paraissait plus visible, « Préparation » en `<h4>` parce qu'il paraissait plus discret. Remets ces deux titres à leur place dans le plan.
+Voici le plan de l'accueil du club quand ses titres sont choisis à l'œil, puis remis à leur niveau.
+
+```scene
+lesson: assets/semantic.scene.json
+step: plan
+```
+
+Un lecteur d'écran annonce le niveau de chaque titre : un deuxième `<h1>` y fait croire à un deuxième sujet, un `<h4>` sous un `<h1>` à des parties qui manquent.
+
+## À toi : des titres qui forment un plan
+
+L'accueil du club est maintenant rangé en zones, mais ses titres ont été choisis à l'œil : « Nos derniers récits » en `<h1>` parce qu'il paraissait plus visible, les deux récits en `<h4>` parce qu'ils paraissaient plus discrets. Remets ces titres à leur place dans le plan.
 
 ```playground
 runtime: web
@@ -146,40 +180,109 @@ files:
     <html lang="fr">
     <head>
       <meta charset="utf-8">
-      <title>Tarte aux pommes</title>
+      <title>Les Marcheurs du Dimanche</title>
     </head>
     <body>
-      <h1>Tarte aux pommes</h1>
-      <p>Une recette pour six personnes, prête en une heure.</p>
+      <header>
+        <h1>Les Marcheurs du Dimanche</h1>
+        <p>Le blog d'un club de randonnée</p>
+      </header>
 
-      <h1>Ingrédients</h1>
-      <ul>
-        <li>Une pâte brisée</li>
-        <li>Quatre pommes</li>
-        <li>Trente grammes de sucre</li>
-      </ul>
-
-      <h4>Préparation</h4>
-      <ol>
-        <li>Étalez la pâte dans le moule.</li>
-        <li>Coupez les pommes en fines lamelles et posez-les sur la pâte.</li>
-        <li>Saupoudrez de sucre et faites cuire 35 minutes à 180 °C.</li>
-      </ol>
+      <main>
+        <h1>Nos derniers récits</h1>
+        <article>
+          <h4>Le pic du Midi par la face nord</h4>
+          <p>Départ à 6 h du parking. La montée est raide, mais le panorama récompense l'effort.</p>
+        </article>
+        <article>
+          <h4>Boucle des trois lacs</h4>
+          <p>Une sortie familiale de 12 km, accessible aux enfants à partir de huit ans.</p>
+        </article>
+      </main>
     </body>
     </html>
 verify:
-  - label: un seul `<h1>`, le sujet de la page, « Tarte aux pommes »
+  - label: un seul `<h1>`, le sujet de la page, « Les Marcheurs du Dimanche »
     selector: h1
     count: 1
-    text: Tarte aux pommes
-  - label: les deux grandes parties sont des `<h2>`
+    text: Les Marcheurs du Dimanche
+  - label: « Nos derniers récits » est un `<h2>`, une partie de la page
     selector: h2
+    count: 1
+    text: Nos derniers récits
+    hint: "« Nos derniers récits » est une grande partie, juste sous le sujet"
+  - label: chaque récit est un `<h3>`, une sous-partie des récits
+    selector: article h3
     count: 2
-    hint: "« Ingrédients » et « Préparation » sont deux parties de même niveau, juste sous le sujet"
-  - label: aucun niveau n'est sauté, il ne reste ni `<h3>` ni `<h4>`
-    selector: h3, h4, h5, h6
+    hint: "Un récit est rangé dans « Nos derniers récits » : un cran plus bas qu'un `<h2>`"
+  - label: aucun niveau n'est sauté, il ne reste ni `<h4>`, ni `<h5>`, ni `<h6>`
+    selector: h4, h5, h6
     exists: false
 solution: assets/titres.solution
+```
+
+L'aperçu change cette fois : les titres rapetissent ou grandissent. C'est le style par défaut du navigateur, que le CSS remplacera. Ce qui compte, c'est le plan.
+
+## Le tout : une page avec deux erreurs
+
+Voici la page des prochaines sorties du club. Elle a deux défauts qui ne se voient pas à l'écran : une zone qui ne dit pas ce qu'elle est, et des titres choisis pour leur taille. Corrige `index.html`.
+
+```playground
+runtime: web
+title: Trouve les deux erreurs
+files:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <title>Nos sorties · Les Marcheurs du Dimanche</title>
+    </head>
+    <body>
+      <header>
+        <h1>Les Marcheurs du Dimanche</h1>
+        <div>
+          <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Nos sorties</a></li>
+            <li><a href="#">Nous rejoindre</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <main>
+        <h2>Nos prochaines sorties</h2>
+        <article>
+          <h4>Le lac d'Oô</h4>
+          <p>Dimanche 7 juin, départ à 8 h : 10 km et 600 m de dénivelé.</p>
+        </article>
+        <article>
+          <h4>Le cirque de Gavarnie</h4>
+          <p>Dimanche 14 juin, départ à 7 h : 14 km et 800 m de dénivelé.</p>
+        </article>
+      </main>
+
+      <footer>
+        <p>© 2026 Les Marcheurs du Dimanche</p>
+      </footer>
+    </body>
+    </html>
+verify:
+  - label: le menu est dans un `<nav>`
+    selector: nav a
+    count: 3
+    hint: "Un groupe de liens pour naviguer dans le site, c'est une zone qui a son nom"
+  - label: il ne reste aucun `<div>`
+    selector: div
+    exists: false
+  - label: chaque sortie a un titre `<h3>`, un cran sous « Nos prochaines sorties »
+    selector: article h3
+    count: 2
+    hint: "Sous un `<h2>`, le niveau suivant est `<h3>` : pas de saut jusqu'au `<h4>`"
+  - label: aucun niveau n'est sauté, il ne reste ni `<h4>`, ni `<h5>`, ni `<h6>`
+    selector: h4, h5, h6
+    exists: false
+solution: assets/tout.solution
 ```
 
 > 📖 [Les balises sémantiques et la structure d'une page (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Structuring_content/Structuring_documents) · [HTML : une bonne base pour l'accessibilité (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Accessibility/HTML) · [L'élément div (MDN)](https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/div)
@@ -219,7 +322,7 @@ questions:
 
 - `<div>` et `<span>` groupent sans rien dire ; une page faite de `<div>` n'offre aucun repère aux **lecteurs d'écran**, aux moteurs de recherche et au mode lecture.
 - Les balises **sémantiques** nomment les zones : `<header>`, `<nav>`, `<main>` (un seul), `<article>`, `<section>`, `<aside>`, `<footer>`. Elles ne changent pas l'apparence.
-- **Article ou section** : un bloc qui garde son sens publié seul est un `<article>`.
+- **Article ou section** : un bloc qui garde son sens copié seul ailleurs est un `<article>` ; sinon, c'est une `<section>`.
 - `<div>` reste le bon choix pour un groupe qui ne sert qu'à la mise en page.
 - Les **titres** forment un plan : un seul `<h1>`, des `<h2>`, puis des `<h3>`, sans sauter de niveau ; la taille se règle en CSS.
 

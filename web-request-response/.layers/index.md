@@ -32,9 +32,23 @@ https://byte-layers.com/fr/bits/web-request-response
 | `byte-layers.com` | le **nom de domaine** | le serveur à joindre ; le navigateur le traduit en adresse de machine avant de se connecter |
 | `/fr/bits/web-request-response` | le **chemin** | la ressource demandée sur ce serveur |
 
-Une URL peut aussi finir par des **paramètres**, après un `?` : dans `https://www.google.com/search?q=html`, le paramètre `q` vaut `html`, le texte à chercher. Et un `#` à la fin, comme `#codes`, désigne un endroit dans la page : le navigateur le garde pour lui et ne l'envoie pas au serveur.
+Une URL peut aussi finir par des **paramètres**, après un `?` : dans `https://www.google.com/search?q=html`, le paramètre `q` vaut `html`, le texte à chercher. Enfin, une URL peut finir par un `#`, comme `https://byte-layers.com/fr/bits/web-request-response#section1` : c'est une **ancre**, un repère qui désigne un endroit précis de la page demandée (une section, un titre). Le navigateur la garde pour lui : il ne l'envoie pas au serveur, et s'en sert une fois la page reçue pour descendre jusqu'à ce repère.
+
+Voici ce que le navigateur fait de chaque morceau quand vous tapez l'adresse.
+
+```scene
+lesson: assets/http.scene.json
+step: url
+```
+
+Un nom de domaine ne suffit pas pour se connecter : le navigateur demande d'abord l'adresse de la machine à un **annuaire**, le DNS (*Domain Name System*). Puis il envoie la requête, qui ne porte que le **chemin**. L'ancre `#section1`, elle, ne part pas avec la requête : une fois la page reçue, le navigateur fait défiler la page jusqu'à ce repère.
+
+## Exercice : découper une URL
+
+À vous de reconnaître les trois morceaux d'une autre adresse, celle de la documentation HTML de MDN.
 
 ```fill
+place: stage
 text: "Dans l'adresse `https://developer.mozilla.org/fr/docs/Web/HTML`, le protocole est _____, le nom de domaine est _____ et le chemin est _____."
 blanks:
   - answers: [https]
@@ -48,73 +62,67 @@ blanks:
 
 ## Une requête, une réponse : le protocole HTTP
 
-Le navigateur et le serveur se parlent en **HTTP** (*HyperText Transfer Protocol*). Le principe est celui du client-serveur que vous connaissez : le navigateur, le **client**, envoie une **requête** ; le serveur renvoie une **réponse**. Les deux sont du texte. Voici la requête que votre navigateur envoie pour cette page, réduite à ses premières lignes :
+Le navigateur et le serveur se parlent en **HTTP** (*HyperText Transfer Protocol*). Le principe est celui du client-serveur que vous connaissez : le navigateur, le **client**, envoie une **requête** ; le serveur renvoie une **réponse**. Les deux sont du texte : voici celles de cette page, réduites à leurs premières lignes.
 
-```http
-GET /fr/bits/web-request-response HTTP/1.1
-Host: byte-layers.com
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) …
-Accept: text/html
+```scene
+lesson: assets/http-message.scene.json
+step: message
 ```
 
-La première ligne porte la **méthode**, `GET` (« donne-moi »), le chemin et la version du protocole. Les lignes suivantes sont des **en-têtes** (*headers*) : le serveur visé (`Host`), le navigateur qui demande (`User-Agent`), le format qu'il préfère (`Accept`). Le serveur répond, lui aussi en texte :
-
-```http
-HTTP/1.1 200 OK
-Content-Type: text/html; charset=utf-8
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <title>Le web : une adresse, une requête, une page</title>
-  <link rel="stylesheet" href="/style.css">
-…
-```
-
-La première ligne donne le **code de statut**, `200 OK` : la page existe, la voici. L'en-tête `Content-Type` dit ce que contient la réponse, ici du HTML. Après une ligne vide vient le **corps** de la réponse : la page elle-même, du texte écrit en HTML. Le navigateur ne reçoit pas une image de la page, il reçoit ce texte, et c'est lui qui le lit et dessine la page.
+La requête commence par la **méthode**, `GET` (« donne-moi »), le chemin et la version du protocole ; suivent des **en-têtes** (*headers*). La réponse commence par le **code de statut**, `200 OK`, puis l'en-tête `Content-Type` et, après une ligne vide, le **corps** : la page, du texte en HTML. Le navigateur ne reçoit pas une image de la page, il **lit ce texte** et dessine la page.
 
 > 💡 **Remarque.** `GET` n'est pas la seule méthode. Quand vous envoyez un formulaire, le navigateur utilise souvent `POST`, qui transporte des données vers le serveur. Ce sera l'objet du contenu sur les formulaires.
 
 ## Une page, plusieurs requêtes
 
-Une page se sert presque toujours d'autres fichiers : une feuille de style, des images, des scripts. Le navigateur ne les reçoit pas avec la page. Il lit le HTML, y trouve leurs adresses, comme `/style.css` dans la réponse ci-dessus, et envoie **une requête par fichier**.
+Une page se sert presque toujours d'autres fichiers : une feuille de style, des images, des scripts. Le navigateur ne les reçoit pas avec la page. Il lit le HTML, y trouve leurs adresses, comme `/style.css` dans une balise `<link rel="stylesheet" href="/style.css">`, et envoie **une requête par fichier**.
 
-```mermaid
-sequenceDiagram
-    participant N as Navigateur
-    participant S as Serveur web
-    N->>S: GET /fr/bits/web-request-response
-    S-->>N: 200 OK, le HTML de la page
-    Note over N: lit le HTML, y trouve style.css et logo.svg
-    N->>S: GET /style.css
-    S-->>N: 200 OK, la feuille de style
-    N->>S: GET /logo.svg
-    S-->>N: 200 OK, l'image
-    Note over N: dessine la page
+```scene
+lesson: assets/http.scene.json
+step: plusieurs
 ```
 
-Une page d'un site d'information en déclenche souvent plusieurs dizaines. Les outils de développement du navigateur les montrent toutes, dans l'onglet **Réseau** (*Network*) : c'est la première étape du lab de ce cours.
+Les outils de développement du navigateur montrent toutes ces requêtes dans l'onglet **Réseau** (*Network*), une ligne chacune, comme dans la scène suivante.
+
+```scene
+lesson: assets/http-cascade.scene.json
+step: cascade
+```
+
+Une page d'un site d'information en déclenche souvent plusieurs dizaines, et celles qui chargent des **données** arrivent souvent après l'affichage. Pour le voir, ouvrez les outils (F12), l'onglet **Réseau**, puis rechargez la page. Chaque ligne porte un **code de statut**, comme ce `200` : c'est le sujet de la section suivante.
 
 ## Les codes de statut : 200, 301, 404, 500
 
-Le code de statut est un nombre à trois chiffres, et son premier chiffre donne la famille de la réponse. Vous n'avez pas à les connaître tous : ces quatre-là suffisent pour lire ce qui se passe dans l'onglet Réseau.
+Le code de statut est un nombre à trois chiffres, et son premier chiffre donne la **famille** de la réponse. Vous n'avez pas à les connaître tous : ces quatre-là suffisent pour lire l'onglet Réseau.
 
-| Code | Famille | Ce qu'il veut dire | Ce que vous voyez |
-|---|---|---|---|
-| `200 OK` | 2xx, succès | la ressource existe, la voici | la page s'affiche |
-| `301 Moved Permanently` | 3xx, redirection | la ressource a déménagé, voici sa nouvelle adresse | l'adresse change toute seule dans la barre, puis la page s'affiche |
-| `404 Not Found` | 4xx, erreur du client | rien à cette adresse | une page « introuvable », souvent dessinée par le site |
-| `500 Internal Server Error` | 5xx, erreur du serveur | le serveur a planté en préparant la réponse | une page d'erreur ; ce n'est pas votre faute |
+```scene
+lesson: assets/http-codes.scene.json
+step: codes
+```
 
 Une redirection 301 se voit facilement : tapez `http://wikipedia.org`, l'adresse devient `https://www.wikipedia.org/`. Le serveur a d'abord répondu 301 avec la nouvelle adresse, et le navigateur a refait la requête tout seul.
 
 ## HTTPS : la même conversation, chiffrée
 
-Avec `http://`, la requête et la réponse voyagent en clair : toute machine sur le trajet, le Wi-Fi d'un café par exemple, peut les lire. Avec `https://`, le navigateur et le serveur établissent d'abord une connexion chiffrée, puis échangent exactement les mêmes requêtes et réponses à l'intérieur. Le serveur prouve aussi son identité par un **certificat**, que le navigateur vérifie : c'est ce qu'indique le cadenas à côté de l'adresse. Aujourd'hui, presque tous les sites passent par HTTPS, et la plupart redirigent `http://` vers `https://` par un 301, comme Wikipédia.
+Avec `http://`, tout ce qui passe sur le trajet peut être lu. Avec `https://`, c'est la même conversation, mais à l'abri.
+
+```scene
+lesson: assets/http-message.scene.json
+step: https
+```
+
+La requête et la réponse ne changent pas : le navigateur et le serveur établissent d'abord une **connexion chiffrée**, et le serveur prouve son identité par un **certificat**, que le navigateur vérifie (le cadenas à côté de l'adresse). Le Wi-Fi d'un café ne voit alors plus que du bruit. Aujourd'hui, presque tous les sites passent par HTTPS, et la plupart redirigent `http://` vers `https://` par un 301, comme Wikipédia.
 
 ## Une page ouverte depuis le disque : `file://` n'est pas `http://`
 
-Pendant ce cours, vous écrirez des pages sur votre machine et vous les ouvrirez par un double-clic. L'adresse commence alors par `file://`, par exemple `file:///Users/alice/byte-layers/web/basics/index.html`. Dans ce cas, **il n'y a pas de serveur** : le navigateur lit le fichier directement sur le disque.
+Quand vous écrivez des pages sur votre machine, vous les ouvrez souvent par un double-clic. L'adresse commence alors par `file://`, par exemple `file:///Users/alice/byte-layers/web/basics/index.html`. Dans ce cas, **il n'y a pas de serveur** : le navigateur lit le fichier directement sur le disque.
+
+```scene
+lesson: assets/http.scene.json
+step: disque
+```
+
+Sans serveur, pas de requête HTTP ni de code de statut : le fichier existe, ou non. D'autres règles changent aussi :
 
 | | Page servie (`http://`, `https://`) | Page ouverte depuis le disque (`file://`) |
 |---|---|---|

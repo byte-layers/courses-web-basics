@@ -1,0 +1,887 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "html-tables",
+ "title": "Les tableaux HTML",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "y",
+   "label": "donnée : td"
+  },
+  {
+   "tone": "v",
+   "label": "en-tête : th"
+  },
+  {
+   "tone": "r",
+   "label": "faux tableau"
+  }
+ ],
+ "entities": [
+  {
+   "id": "table",
+   "kind": "layer",
+   "at": [
+    -1.2,
+    -0.85
+   ],
+   "size": [
+    14.8,
+    7.5,
+    1
+   ],
+   "tone": "n",
+   "title": "table",
+   "detail": "Un tableau HTML : des lignes `tr`, des cellules `td` (données) et `th` (en-têtes)."
+  },
+  {
+   "id": "tr-h",
+   "kind": "layer",
+   "at": [
+    -1.3,
+    -2.45
+   ],
+   "size": [
+    13.9,
+    1.5,
+    1
+   ],
+   "tone": "n"
+  },
+  {
+   "id": "tr-r1",
+   "kind": "layer",
+   "at": [
+    -1.3,
+    -0.95
+   ],
+   "size": [
+    13.9,
+    1.5,
+    1
+   ],
+   "tone": "n",
+   "detail": "Une ligne : `<tr>`, pour *table row*."
+  },
+  {
+   "id": "tr-r2",
+   "kind": "layer",
+   "at": [
+    -1.3,
+    0.55
+   ],
+   "size": [
+    13.9,
+    1.5,
+    1
+   ],
+   "tone": "n"
+  },
+  {
+   "id": "tr-r3",
+   "kind": "layer",
+   "at": [
+    -1.3,
+    2.05
+   ],
+   "size": [
+    13.9,
+    1.5,
+    1
+   ],
+   "tone": "n"
+  },
+  {
+   "id": "th-0",
+   "kind": "node",
+   "at": [
+    -5.2,
+    -2.45
+   ],
+   "size": [
+    5.6,
+    1.1,
+    1
+   ],
+   "tone": "v",
+   "title": "Sortie",
+   "detail": "Un **en-tête de colonne** : `<th scope=\"col\">`, dans `<thead>`."
+  },
+  {
+   "id": "th-1",
+   "kind": "node",
+   "at": [
+    -0.2,
+    -2.45
+   ],
+   "size": [
+    3.6,
+    1.1,
+    1
+   ],
+   "tone": "v",
+   "title": "Distance"
+  },
+  {
+   "id": "th-2",
+   "kind": "node",
+   "at": [
+    3.6,
+    -2.45
+   ],
+   "size": [
+    3.6,
+    1.1,
+    1
+   ],
+   "tone": "v",
+   "title": "Date"
+  },
+  {
+   "id": "r1-0",
+   "kind": "node",
+   "at": [
+    -5.2,
+    -0.95
+   ],
+   "size": [
+    5.6,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "Pic du Midi"
+  },
+  {
+   "id": "r1-1",
+   "kind": "node",
+   "at": [
+    -0.2,
+    -0.95
+   ],
+   "size": [
+    3.6,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "14 km",
+   "detail": "Une cellule de données : `<td>`, pour *table data*."
+  },
+  {
+   "id": "r1-2",
+   "kind": "node",
+   "at": [
+    3.6,
+    -0.95
+   ],
+   "size": [
+    3.6,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "12 avril"
+  },
+  {
+   "id": "r2-0",
+   "kind": "node",
+   "at": [
+    -5.2,
+    0.55
+   ],
+   "size": [
+    5.6,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "Lac d'Oô"
+  },
+  {
+   "id": "r2-1",
+   "kind": "node",
+   "at": [
+    -0.2,
+    0.55
+   ],
+   "size": [
+    3.6,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "9 km"
+  },
+  {
+   "id": "r2-2",
+   "kind": "node",
+   "at": [
+    3.6,
+    0.55
+   ],
+   "size": [
+    3.6,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "3 mai"
+  },
+  {
+   "id": "r3-0",
+   "kind": "node",
+   "at": [
+    -5.2,
+    2.05
+   ],
+   "size": [
+    5.6,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "Gavarnie"
+  },
+  {
+   "id": "r3-1",
+   "kind": "node",
+   "at": [
+    -0.2,
+    2.05
+   ],
+   "size": [
+    3.6,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "11 km"
+  },
+  {
+   "id": "r3-2",
+   "kind": "node",
+   "at": [
+    3.6,
+    2.05
+   ],
+   "size": [
+    3.6,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "7 juin"
+  },
+  {
+   "id": "reader",
+   "kind": "actor",
+   "at": [
+    9.1,
+    -1.2
+   ],
+   "tone": "r",
+   "label": "lecteur d'écran",
+   "detail": "Un **lecteur d'écran** lit la page à voix haute ; il annonce chaque cellule avec ses en-têtes."
+  },
+  {
+   "id": "s-table",
+   "kind": "layer",
+   "at": [
+    0,
+    0
+   ],
+   "size": [
+    16.4,
+    13.2,
+    1
+   ],
+   "tone": "n",
+   "title": "table",
+   "detail": "Le tableau entier : `<table>`, qui contient le titre, l'en-tête et le corps."
+  },
+  {
+   "id": "s-caption",
+   "kind": "node",
+   "in": "s-table",
+   "at": [
+    0,
+    -4.6
+   ],
+   "size": [
+    14.6,
+    1.3,
+    1
+   ],
+   "tone": "n",
+   "title": "caption",
+   "sub": "Sorties du printemps",
+   "detail": "Le **titre** du tableau : `<caption>`, juste après `<table>`. Un lecteur d'écran l'annonce en premier."
+  },
+  {
+   "id": "s-thead",
+   "kind": "layer",
+   "in": "s-table",
+   "at": [
+    0,
+    -1.85
+   ],
+   "size": [
+    15.4,
+    3.4,
+    1
+   ],
+   "tone": "v",
+   "title": "thead",
+   "note": "les lignes d'en-tête",
+   "detail": "`<thead>` regroupe la ou les lignes d'en-tête : des `<th scope=\"col\">`."
+  },
+  {
+   "id": "s-th0",
+   "kind": "node",
+   "in": "s-thead",
+   "at": [
+    -4.8,
+    0.75
+   ],
+   "size": [
+    4.3,
+    1.1,
+    1
+   ],
+   "tone": "v",
+   "title": "Sortie"
+  },
+  {
+   "id": "s-th1",
+   "kind": "node",
+   "in": "s-thead",
+   "at": [
+    0.0,
+    0.75
+   ],
+   "size": [
+    4.3,
+    1.1,
+    1
+   ],
+   "tone": "v",
+   "title": "Distance"
+  },
+  {
+   "id": "s-th2",
+   "kind": "node",
+   "in": "s-thead",
+   "at": [
+    4.8,
+    0.75
+   ],
+   "size": [
+    4.3,
+    1.1,
+    1
+   ],
+   "tone": "v",
+   "title": "Date"
+  },
+  {
+   "id": "s-tbody",
+   "kind": "layer",
+   "in": "s-table",
+   "at": [
+    0,
+    3.3
+   ],
+   "size": [
+    15.4,
+    5.8,
+    1
+   ],
+   "tone": "y",
+   "title": "tbody",
+   "note": "les lignes de données",
+   "detail": "`<tbody>` regroupe les lignes de données ; la première cellule de chaque ligne peut être un `<th scope=\"row\">`."
+  },
+  {
+   "id": "s-r0c0",
+   "kind": "node",
+   "in": "s-tbody",
+   "at": [
+    -4.8,
+    -0.3
+   ],
+   "size": [
+    4.3,
+    1.1,
+    1
+   ],
+   "tone": "v",
+   "title": "Pic du Midi"
+  },
+  {
+   "id": "s-r0c1",
+   "kind": "node",
+   "in": "s-tbody",
+   "at": [
+    0.0,
+    -0.3
+   ],
+   "size": [
+    4.3,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "14 km"
+  },
+  {
+   "id": "s-r0c2",
+   "kind": "node",
+   "in": "s-tbody",
+   "at": [
+    4.8,
+    -0.3
+   ],
+   "size": [
+    4.3,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "12 avril"
+  },
+  {
+   "id": "s-r1c0",
+   "kind": "node",
+   "in": "s-tbody",
+   "at": [
+    -4.8,
+    1.5999999999999999
+   ],
+   "size": [
+    4.3,
+    1.1,
+    1
+   ],
+   "tone": "v",
+   "title": "Lac d'Oô"
+  },
+  {
+   "id": "s-r1c1",
+   "kind": "node",
+   "in": "s-tbody",
+   "at": [
+    0.0,
+    1.5999999999999999
+   ],
+   "size": [
+    4.3,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "9 km"
+  },
+  {
+   "id": "s-r1c2",
+   "kind": "node",
+   "in": "s-tbody",
+   "at": [
+    4.8,
+    1.5999999999999999
+   ],
+   "size": [
+    4.3,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "3 mai"
+  },
+  {
+   "id": "m-head",
+   "kind": "layer",
+   "at": [
+    -4,
+    0
+   ],
+   "size": [
+    15,
+    6,
+    1
+   ],
+   "tone": "n",
+   "title": "header, à l'écran"
+  },
+  {
+   "id": "m-td1",
+   "kind": "zone",
+   "in": "m-head",
+   "at": [
+    -4.6,
+    0.6
+   ],
+   "size": [
+    4.2,
+    3.0
+   ],
+   "label": "td"
+  },
+  {
+   "id": "m-td2",
+   "kind": "zone",
+   "in": "m-head",
+   "at": [
+    2.6,
+    0.6
+   ],
+   "size": [
+    8.6,
+    3.0
+   ],
+   "label": "td"
+  },
+  {
+   "id": "m-logo",
+   "kind": "node",
+   "in": "m-head",
+   "at": [
+    -4.6,
+    0.8
+   ],
+   "size": [
+    2.8,
+    1.5,
+    1
+   ],
+   "tone": "y",
+   "title": "CM"
+  },
+  {
+   "id": "m-nav",
+   "kind": "node",
+   "in": "m-head",
+   "at": [
+    2.6,
+    0.8
+   ],
+   "size": [
+    7.0,
+    1.5,
+    1
+   ],
+   "tone": "y",
+   "title": "nav",
+   "sub": "Projets · Contact"
+  },
+  {
+   "id": "m-reader",
+   "kind": "actor",
+   "at": [
+    8.6,
+    0.2
+   ],
+   "tone": "r",
+   "label": "lecteur d'écran"
+  }
+ ],
+ "steps": [
+  {
+   "id": "tableau",
+   "label": "Ligne par ligne",
+   "title": "Un tableau se construit ligne par ligne",
+   "body": [
+    "Le programme des sorties d'un club : des données qui ont un sens en lignes et en colonnes."
+   ],
+   "show": [
+    "table"
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "tr-r1",
+      "r1-0",
+      "r1-1",
+      "r1-2"
+     ],
+     "say": "Un tableau se construit ligne par ligne : une tr, et ses cellules td."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "show": [
+      "tr-r2",
+      "r2-0",
+      "r2-1",
+      "r2-2",
+      "tr-r3",
+      "r3-0",
+      "r3-1",
+      "r3-2"
+     ],
+     "say": "Chaque ligne a trois cellules : les colonnes se forment toutes seules, sans balise pour elles."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "tr-h",
+      "th-0",
+      "th-1",
+      "th-2"
+     ],
+     "say": "La ligne d'en-tête nomme les colonnes : des th, avec scope=\"col\"."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "r1-0",
+       "tone": "v"
+      },
+      {
+       "id": "r2-0",
+       "tone": "v"
+      },
+      {
+       "id": "r3-0",
+       "tone": "v"
+      }
+     ],
+     "say": "Le nom de chaque sortie nomme sa ligne : il devient un th, avec scope=\"row\"."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "pulse",
+     "at": "r1-0"
+    },
+    {
+     "do": "pulse",
+     "at": "th-2"
+    },
+    {
+     "do": "scene",
+     "show": [
+      "reader"
+     ],
+     "link": [
+      {
+       "from": "r1-2",
+       "to": "reader"
+      }
+     ],
+     "say": "Un lecteur d'écran annonce chaque cellule avec ses deux en-têtes : « Pic du Midi, Date : 12 avril »."
+    },
+    {
+     "do": "send",
+     "path": [
+      "r1-2",
+      "reader"
+     ],
+     "label": "Pic du Midi, Date"
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "structure",
+   "label": "caption, thead, tbody",
+   "title": "Les trois parties d'un tableau",
+   "body": [
+    "Le même genre de tableau, rangé en parties : un titre, un en-tête, un corps."
+   ],
+   "show": [
+    "s-table"
+   ],
+   "hud": [
+    {
+     "label": "partie",
+     "value": "—"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s-caption"
+     ],
+     "hud": [
+      {
+       "label": "partie",
+       "value": "caption",
+       "tone": "n"
+      }
+     ],
+     "say": "D'abord le titre du tableau : caption, juste après la balise table."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s-thead",
+      "s-th0",
+      "s-th1",
+      "s-th2"
+     ],
+     "hud": [
+      {
+       "label": "partie",
+       "value": "thead",
+       "tone": "v"
+      }
+     ],
+     "say": "Puis thead : la ligne d'en-tête, dont les th nomment chaque colonne."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s-tbody",
+      "s-r0c0",
+      "s-r0c1",
+      "s-r0c2",
+      "s-r1c0",
+      "s-r1c1",
+      "s-r1c2"
+     ],
+     "hud": [
+      {
+       "label": "partie",
+       "value": "tbody",
+       "tone": "y"
+      }
+     ],
+     "say": "Enfin tbody : les lignes de données. Le nom de chaque sortie y est un th, il nomme sa ligne."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "miseenpage",
+   "label": "Tableau de mise en page",
+   "title": "Bien à l'écran, faux à l'oreille",
+   "body": [
+    "Un entête : le logo à gauche, le menu à droite."
+   ],
+   "show": [
+    "m-head",
+    "m-logo",
+    "m-nav"
+   ],
+   "hud": [
+    {
+     "label": "à l'écran",
+     "value": "rien à redire",
+     "tone": "g"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "show": [
+      "m-td1",
+      "m-td2"
+     ],
+     "set": [
+      {
+       "id": "m-head",
+       "title": "header > table > tr > td"
+      }
+     ],
+     "say": "Derrière, un tableau invisible : une ligne, deux cellules td, l'une pour le logo, l'autre pour le menu."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "show": [
+      "m-reader"
+     ],
+     "link": [
+      {
+       "from": "m-nav",
+       "to": "m-reader"
+      }
+     ],
+     "hud": [
+      {
+       "label": "à l'oreille",
+       "value": "un tableau",
+       "tone": "r"
+      }
+     ],
+     "say": "Un lecteur d'écran, lui, annonce « tableau, une ligne, deux colonnes », puis lit le menu comme une donnée."
+    },
+    {
+     "do": "send",
+     "path": [
+      "m-nav",
+      "m-reader"
+     ],
+     "label": "tableau, 2 colonnes",
+     "tone": "r"
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "un tableau ?",
+       "value": "non",
+       "tone": "r"
+      }
+     ],
+     "say": "Le test : ce contenu a-t-il un sens en lignes et en colonnes ? Non. Ce n'est donc pas un tableau."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1346 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "flexbox",
+ "title": "Flexbox : aligner des éléments",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "v",
+   "label": "bloc"
+  },
+  {
+   "tone": "g",
+   "label": "enfant flex"
+  },
+  {
+   "tone": "r",
+   "label": "axe principal"
+  },
+  {
+   "tone": "b",
+   "label": "axe secondaire"
+  }
+ ],
+ "entities": [
+  {
+   "id": "entete",
+   "kind": "layer",
+   "at": [
+    0.0,
+    0.45
+   ],
+   "tone": "n",
+   "size": [
+    17.0,
+    9.1,
+    1
+   ],
+   "title": ".entete",
+   "detail": "Le **conteneur** : c'est sur lui qu'on écrit `display: flex`."
+  },
+  {
+   "id": "logo",
+   "kind": "node",
+   "at": [
+    0.0,
+    -2.1
+   ],
+   "tone": "v",
+   "size": [
+    16.0,
+    1.2,
+    1
+   ],
+   "title": ".logo",
+   "sub": "CM",
+   "detail": "Le logo est un **enfant direct** de `.entete`."
+  },
+  {
+   "id": "menu",
+   "kind": "layer",
+   "at": [
+    0.0,
+    1.75
+   ],
+   "tone": "v",
+   "size": [
+    16.0,
+    5.5,
+    1
+   ],
+   "title": ".menu",
+   "sub": "ul · 3 liens",
+   "detail": "Le menu est un enfant de `.entete` ; ses liens sont donc des **petits-enfants** de `.entete`."
+  },
+  {
+   "id": "li-1",
+   "kind": "node",
+   "at": [
+    0.0,
+    1.0
+   ],
+   "tone": "v",
+   "size": [
+    15.0,
+    1.0,
+    1
+   ],
+   "title": "li · Projets"
+  },
+  {
+   "id": "li-2",
+   "kind": "node",
+   "at": [
+    0.0,
+    2.3
+   ],
+   "tone": "v",
+   "size": [
+    15.0,
+    1.0,
+    1
+   ],
+   "title": "li · À propos"
+  },
+  {
+   "id": "li-3",
+   "kind": "node",
+   "at": [
+    0.0,
+    3.6
+   ],
+   "tone": "v",
+   "size": [
+    15.0,
+    1.0,
+    1
+   ],
+   "title": "li · Contact"
+  },
+  {
+   "id": "boite",
+   "kind": "layer",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    18.2,
+    6.8,
+    1
+   ],
+   "title": ".boite",
+   "detail": "Un conteneur flex ; ses trois enfants n'ont pas la même hauteur de contenu."
+  },
+  {
+   "id": "it-a",
+   "kind": "node",
+   "at": [
+    -7.1,
+    0.3
+   ],
+   "tone": "g",
+   "size": [
+    3.0,
+    4.6,
+    1
+   ],
+   "title": "A",
+   "detail": "Trois enfants flex, de contenus de hauteurs différentes."
+  },
+  {
+   "id": "it-b",
+   "kind": "node",
+   "at": [
+    -4.1,
+    0.3
+   ],
+   "tone": "g",
+   "size": [
+    3.0,
+    4.6,
+    1
+   ],
+   "title": "B"
+  },
+  {
+   "id": "it-c",
+   "kind": "node",
+   "at": [
+    -1.1,
+    0.3
+   ],
+   "tone": "g",
+   "size": [
+    3.0,
+    4.6,
+    1
+   ],
+   "title": "C"
+  },
+  {
+   "id": "actions",
+   "kind": "layer",
+   "at": [
+    0.0,
+    -1.0
+   ],
+   "tone": "n",
+   "size": [
+    14.0,
+    4.0,
+    1
+   ],
+   "title": ".actions",
+   "detail": "Le conteneur flex des deux boutons de la carte."
+  },
+  {
+   "id": "ax-main",
+   "kind": "zone",
+   "at": [
+    2.0,
+    0.1
+   ],
+   "tone": "r",
+   "size": [
+    9.2,
+    0.8
+   ],
+   "label": "axe principal · justify-content",
+   "detail": "L'**axe principal** : la direction dans laquelle le conteneur range ses enfants. `justify-content` agit toujours sur lui."
+  },
+  {
+   "id": "ax-cross",
+   "kind": "zone",
+   "at": [
+    -5.9,
+    -1.25
+   ],
+   "tone": "b",
+   "size": [
+    0.6,
+    1.1
+   ],
+   "label": "secondaire",
+   "detail": "L'**axe secondaire**, perpendiculaire : `align-items` agit sur lui."
+  },
+  {
+   "id": "btn-ok",
+   "kind": "node",
+   "at": [
+    0.1,
+    -1.25
+   ],
+   "tone": "g",
+   "size": [
+    3.4,
+    1.1,
+    1
+   ],
+   "title": "Réserver"
+  },
+  {
+   "id": "btn-no",
+   "kind": "node",
+   "at": [
+    3.9,
+    -1.25
+   ],
+   "tone": "g",
+   "size": [
+    3.4,
+    1.1,
+    1
+   ],
+   "title": "Annuler"
+  },
+  {
+   "id": "cartes",
+   "kind": "layer",
+   "at": [
+    0.0,
+    -2.25
+   ],
+   "tone": "n",
+   "size": [
+    21.0,
+    3.5,
+    1
+   ],
+   "title": ".cartes",
+   "detail": "Un conteneur flex de six cartes ; chaque carte a `flex: 1 1 160px`."
+  },
+  {
+   "id": "carte-1",
+   "kind": "node",
+   "at": [
+    -8.5,
+    -1.8
+   ],
+   "tone": "g",
+   "size": [
+    3.0,
+    1.6,
+    1
+   ],
+   "title": "90 px",
+   "detail": "Une carte : sa **largeur de base** est 160 px ; elle peut grandir et rétrécir."
+  },
+  {
+   "id": "carte-2",
+   "kind": "node",
+   "at": [
+    -5.1,
+    -1.8
+   ],
+   "tone": "g",
+   "size": [
+    3.0,
+    1.6,
+    1
+   ],
+   "title": "90 px",
+   "detail": "Une carte : sa **largeur de base** est 160 px ; elle peut grandir et rétrécir."
+  },
+  {
+   "id": "carte-3",
+   "kind": "node",
+   "at": [
+    -1.7,
+    -1.8
+   ],
+   "tone": "g",
+   "size": [
+    3.0,
+    1.6,
+    1
+   ],
+   "title": "90 px",
+   "detail": "Une carte : sa **largeur de base** est 160 px ; elle peut grandir et rétrécir."
+  },
+  {
+   "id": "carte-4",
+   "kind": "node",
+   "at": [
+    1.7,
+    -1.8
+   ],
+   "tone": "g",
+   "size": [
+    3.0,
+    1.6,
+    1
+   ],
+   "title": "90 px",
+   "detail": "Une carte : sa **largeur de base** est 160 px ; elle peut grandir et rétrécir."
+  },
+  {
+   "id": "carte-5",
+   "kind": "node",
+   "at": [
+    5.1,
+    -1.8
+   ],
+   "tone": "g",
+   "size": [
+    3.0,
+    1.6,
+    1
+   ],
+   "title": "90 px",
+   "detail": "Une carte : sa **largeur de base** est 160 px ; elle peut grandir et rétrécir."
+  },
+  {
+   "id": "carte-6",
+   "kind": "node",
+   "at": [
+    8.5,
+    -1.8
+   ],
+   "tone": "g",
+   "size": [
+    3.0,
+    1.6,
+    1
+   ],
+   "title": "90 px",
+   "detail": "Une carte : sa **largeur de base** est 160 px ; elle peut grandir et rétrécir."
+  }
+ ],
+ "steps": [
+  {
+   "id": "conteneur",
+   "label": "Conteneur et enfants",
+   "title": "display: flex range les enfants directs",
+   "body": [
+    "Un entête, avec un logo et un menu de trois liens. Sans règle de disposition, ce sont des blocs, empilés."
+   ],
+   "show": [
+    "entete",
+    "logo",
+    "menu",
+    "li-1",
+    "li-2",
+    "li-3"
+   ],
+   "hud": [
+    {
+     "label": ".entete",
+     "value": "display: block"
+    },
+    {
+     "label": ".menu",
+     "value": "display: block"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": ".entete",
+       "value": "display: flex",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "logo",
+       "at": [
+        -6.2,
+        0.05
+       ],
+       "size": [
+        3.6,
+        5.5,
+        1
+       ]
+      },
+      {
+       "id": "menu",
+       "at": [
+        -0.8,
+        0.05
+       ],
+       "size": [
+        6.0,
+        5.5,
+        1
+       ]
+      },
+      {
+       "id": "li-1",
+       "at": [
+        -0.8,
+        -0.7
+       ],
+       "size": [
+        5.0,
+        1.0,
+        1
+       ]
+      },
+      {
+       "id": "li-2",
+       "at": [
+        -0.8,
+        0.6
+       ],
+       "size": [
+        5.0,
+        1.0,
+        1
+       ]
+      },
+      {
+       "id": "li-3",
+       "at": [
+        -0.8,
+        1.9
+       ],
+       "size": [
+        5.0,
+        1.0,
+        1
+       ]
+      },
+      {
+       "id": "entete",
+       "at": [
+        0.0,
+        -0.4
+       ],
+       "size": [
+        17.0,
+        7.4,
+        1
+       ]
+      },
+      {
+       "id": "logo",
+       "tone": "g"
+      },
+      {
+       "id": "menu",
+       "tone": "g"
+      }
+     ],
+     "say": "display: flex sur le parent, .entete : ses deux enfants passent côte à côte, avec un gap entre eux.",
+     "ms": 1000
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "menu",
+       "sub": "liens toujours empilés"
+      }
+     ],
+     "say": "Les liens du menu ne bougent pas : ce sont les petits-enfants de .entete, pas ses enfants."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": ".menu",
+       "value": "display: flex",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "logo",
+       "at": [
+        -6.2,
+        -1.25
+       ],
+       "size": [
+        3.6,
+        2.9,
+        1
+       ]
+      },
+      {
+       "id": "menu",
+       "at": [
+        1.9,
+        -1.25
+       ],
+       "size": [
+        11.4,
+        2.9,
+        1
+       ]
+      },
+      {
+       "id": "li-1",
+       "at": [
+        -1.7,
+        -0.7
+       ],
+       "size": [
+        3.2,
+        1.0,
+        1
+       ]
+      },
+      {
+       "id": "li-2",
+       "at": [
+        1.9,
+        -0.7
+       ],
+       "size": [
+        3.2,
+        1.0,
+        1
+       ]
+      },
+      {
+       "id": "li-3",
+       "at": [
+        5.5,
+        -0.7
+       ],
+       "size": [
+        3.2,
+        1.0,
+        1
+       ]
+      },
+      {
+       "id": "entete",
+       "at": [
+        0.0,
+        -1.7
+       ],
+       "size": [
+        17.0,
+        4.8,
+        1
+       ]
+      },
+      {
+       "id": "menu",
+       "sub": "ul · 3 liens"
+      },
+      {
+       "id": "li-1",
+       "tone": "g"
+      },
+      {
+       "id": "li-2",
+       "tone": "g"
+      },
+      {
+       "id": "li-3",
+       "tone": "g"
+      }
+     ],
+     "say": "display: flex sur .menu : il devient à son tour un conteneur, et ses liens passent en ligne.",
+     "ms": 1000
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "repartir",
+   "label": "Répartir, aligner",
+   "title": "Le long de la ligne, puis en travers",
+   "body": [
+    "Trois éléments dans un conteneur flex, rangés au début de la ligne et étirés à la même hauteur : les deux réglages par défaut."
+   ],
+   "show": [
+    "boite",
+    "it-a",
+    "it-b",
+    "it-c"
+   ],
+   "hud": [
+    {
+     "label": "justify-content",
+     "value": "flex-start"
+    },
+    {
+     "label": "align-items",
+     "value": "stretch"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "justify-content",
+       "value": "center",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "it-a",
+       "at": [
+        -3.0,
+        0.3
+       ],
+       "size": [
+        3.0,
+        4.6,
+        1
+       ]
+      },
+      {
+       "id": "it-b",
+       "at": [
+        0.0,
+        0.3
+       ],
+       "size": [
+        3.0,
+        4.6,
+        1
+       ]
+      },
+      {
+       "id": "it-c",
+       "at": [
+        3.0,
+        0.3
+       ],
+       "size": [
+        3.0,
+        4.6,
+        1
+       ]
+      }
+     ],
+     "say": "justify-content: center : l'espace libre se partage des deux côtés, les éléments se groupent au milieu.",
+     "ms": 900
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "justify-content",
+       "value": "flex-end",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "it-a",
+       "at": [
+        1.1,
+        0.3
+       ],
+       "size": [
+        3.0,
+        4.6,
+        1
+       ]
+      },
+      {
+       "id": "it-b",
+       "at": [
+        4.1,
+        0.3
+       ],
+       "size": [
+        3.0,
+        4.6,
+        1
+       ]
+      },
+      {
+       "id": "it-c",
+       "at": [
+        7.1,
+        0.3
+       ],
+       "size": [
+        3.0,
+        4.6,
+        1
+       ]
+      }
+     ],
+     "say": "flex-end : tout part au bout de la ligne.",
+     "ms": 900
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "justify-content",
+       "value": "space-between",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "it-a",
+       "at": [
+        -7.1,
+        0.3
+       ],
+       "size": [
+        3.0,
+        4.6,
+        1
+       ]
+      },
+      {
+       "id": "it-b",
+       "at": [
+        0.0,
+        0.3
+       ],
+       "size": [
+        3.0,
+        4.6,
+        1
+       ]
+      },
+      {
+       "id": "it-c",
+       "at": [
+        7.1,
+        0.3
+       ],
+       "size": [
+        3.0,
+        4.6,
+        1
+       ]
+      }
+     ],
+     "say": "space-between : le premier au début, le dernier à la fin, l'espace libre entre eux.",
+     "ms": 900
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "align-items",
+       "value": "center",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "it-a",
+       "at": [
+        -7.1,
+        0.3
+       ],
+       "size": [
+        3.0,
+        1.4,
+        1
+       ]
+      },
+      {
+       "id": "it-b",
+       "at": [
+        0.0,
+        0.3
+       ],
+       "size": [
+        3.0,
+        2.6,
+        1
+       ]
+      },
+      {
+       "id": "it-c",
+       "at": [
+        7.1,
+        0.3
+       ],
+       "size": [
+        3.0,
+        1.9,
+        1
+       ]
+      }
+     ],
+     "say": "align-items agit en travers : center rend à chacun sa hauteur et les centre.",
+     "ms": 900
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "align-items",
+       "value": "flex-start",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "it-a",
+       "at": [
+        -7.1,
+        -1.3
+       ],
+       "size": [
+        3.0,
+        1.4,
+        1
+       ]
+      },
+      {
+       "id": "it-b",
+       "at": [
+        0.0,
+        -0.7
+       ],
+       "size": [
+        3.0,
+        2.6,
+        1
+       ]
+      },
+      {
+       "id": "it-c",
+       "at": [
+        7.1,
+        -1.05
+       ],
+       "size": [
+        3.0,
+        1.9,
+        1
+       ]
+      }
+     ],
+     "say": "flex-start les aligne en haut de la ligne.",
+     "ms": 900
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "axes",
+   "label": "Les axes tournent",
+   "title": "flex-direction: column fait tourner les axes",
+   "body": [
+    "Deux boutons dans un conteneur flex, centrés sur la ligne par `justify-content: center`."
+   ],
+   "show": [
+    "actions",
+    "ax-main",
+    "ax-cross",
+    "btn-ok",
+    "btn-no"
+   ],
+   "hud": [
+    {
+     "label": "flex-direction",
+     "value": "row"
+    },
+    {
+     "label": "justify-content",
+     "value": "center"
+    },
+    {
+     "label": "align-items",
+     "value": "stretch"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "flex-direction",
+       "value": "column",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "btn-ok",
+       "at": [
+        2.0,
+        -1.25
+       ],
+       "size": [
+        9.2,
+        1.1,
+        1
+       ]
+      },
+      {
+       "id": "btn-no",
+       "at": [
+        2.0,
+        0.25
+       ],
+       "size": [
+        9.2,
+        1.1,
+        1
+       ]
+      },
+      {
+       "id": "ax-main",
+       "at": [
+        -5.9,
+        -0.5
+       ],
+       "size": [
+        0.6,
+        2.6
+       ],
+       "label": "principal"
+      },
+      {
+       "id": "ax-cross",
+       "at": [
+        2.0,
+        1.6
+       ],
+       "size": [
+        9.2,
+        0.8
+       ],
+       "label": "axe secondaire · align-items"
+      },
+      {
+       "id": "actions",
+       "at": [
+        0.0,
+        -0.25
+       ],
+       "size": [
+        14.0,
+        5.5,
+        1
+       ]
+      }
+     ],
+     "say": "flex-direction: column : les boutons s'empilent, l'axe principal devient vertical, et ils s'étirent sur toute la largeur.",
+     "ms": 1100
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "justify-content",
+       "value": "center (en hauteur)",
+       "tone": "r"
+      }
+     ],
+     "say": "justify-content suit l'axe principal : il agit maintenant en hauteur, et ne centre plus rien en largeur."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "align-items",
+       "value": "stretch (en largeur)",
+       "tone": "b"
+      }
+     ],
+     "say": "La largeur est devenue l'axe secondaire : c'est là qu'agit maintenant align-items, toujours sur stretch."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "wrap",
+   "label": "Passer à la ligne",
+   "title": "Six cartes de 160 px dans 600 px",
+   "body": [
+    "Six cartes, chacune avec `flex: 1 1 160px`, dans un conteneur de 600 px. Le titre de chaque carte dit sa largeur affichée."
+   ],
+   "show": [
+    "cartes",
+    "carte-1",
+    "carte-2",
+    "carte-3",
+    "carte-4",
+    "carte-5",
+    "carte-6"
+   ],
+   "hud": [
+    {
+     "label": "flex-wrap",
+     "value": "nowrap"
+    },
+    {
+     "label": "conteneur",
+     "value": "600 px"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "flex-wrap",
+       "value": "nowrap",
+       "tone": "r"
+      },
+      {
+       "label": "une carte",
+       "value": "90 px",
+       "tone": "r"
+      }
+     ],
+     "say": "Six fois 160 px ne tiennent pas dans 600 px. Sans flex-wrap, tout reste sur une ligne : chaque carte est comprimée à 90 px."
+    },
+    {
+     "do": "wait",
+     "ms": 1800
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "flex-wrap",
+       "value": "wrap",
+       "tone": "g"
+      },
+      {
+       "label": "une carte",
+       "value": "192 px",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "carte-1",
+       "at": [
+        -6.8,
+        -1.8
+       ],
+       "size": [
+        6.4,
+        1.6,
+        1
+       ],
+       "title": "192 px"
+      },
+      {
+       "id": "carte-2",
+       "at": [
+        0.0,
+        -1.8
+       ],
+       "size": [
+        6.4,
+        1.6,
+        1
+       ],
+       "title": "192 px"
+      },
+      {
+       "id": "carte-3",
+       "at": [
+        6.8,
+        -1.8
+       ],
+       "size": [
+        6.4,
+        1.6,
+        1
+       ],
+       "title": "192 px"
+      },
+      {
+       "id": "carte-4",
+       "at": [
+        -6.8,
+        0.2
+       ],
+       "size": [
+        6.4,
+        1.6,
+        1
+       ],
+       "title": "192 px"
+      },
+      {
+       "id": "carte-5",
+       "at": [
+        0.0,
+        0.2
+       ],
+       "size": [
+        6.4,
+        1.6,
+        1
+       ],
+       "title": "192 px"
+      },
+      {
+       "id": "carte-6",
+       "at": [
+        6.8,
+        0.2
+       ],
+       "size": [
+        6.4,
+        1.6,
+        1
+       ],
+       "title": "192 px"
+      },
+      {
+       "id": "cartes",
+       "at": [
+        0.0,
+        -1.25
+       ],
+       "size": [
+        21.0,
+        5.5,
+        1
+       ]
+      }
+     ],
+     "say": "flex-wrap: wrap : trois cartes de 160 px tiennent par ligne, puis on passe à la ligne. Elles grandissent pour partager la place restante.",
+     "ms": 1000
+    },
+    {
+     "do": "wait",
+     "ms": 2000
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "conteneur",
+       "value": "400 px",
+       "tone": "g"
+      },
+      {
+       "label": "une carte",
+       "value": "194 px",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "carte-1",
+       "at": [
+        -6.767,
+        -1.8
+       ],
+       "size": [
+        6.467,
+        1.6,
+        1
+       ],
+       "title": "194 px"
+      },
+      {
+       "id": "carte-2",
+       "at": [
+        0.1,
+        -1.8
+       ],
+       "size": [
+        6.467,
+        1.6,
+        1
+       ],
+       "title": "194 px"
+      },
+      {
+       "id": "carte-3",
+       "at": [
+        -6.767,
+        0.2
+       ],
+       "size": [
+        6.467,
+        1.6,
+        1
+       ],
+       "title": "194 px"
+      },
+      {
+       "id": "carte-4",
+       "at": [
+        0.1,
+        0.2
+       ],
+       "size": [
+        6.467,
+        1.6,
+        1
+       ],
+       "title": "194 px"
+      },
+      {
+       "id": "carte-5",
+       "at": [
+        -6.767,
+        2.2
+       ],
+       "size": [
+        6.467,
+        1.6,
+        1
+       ],
+       "title": "194 px"
+      },
+      {
+       "id": "carte-6",
+       "at": [
+        0.1,
+        2.2
+       ],
+       "size": [
+        6.467,
+        1.6,
+        1
+       ],
+       "title": "194 px"
+      },
+      {
+       "id": "cartes",
+       "at": [
+        -3.333,
+        -0.25
+       ],
+       "size": [
+        14.333,
+        7.5,
+        1
+       ]
+      }
+     ],
+     "say": "La fenêtre rétrécit, le conteneur passe à 400 px : deux cartes par ligne, sans aucune autre règle.",
+     "ms": 1000
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

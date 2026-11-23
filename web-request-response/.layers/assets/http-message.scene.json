@@ -1,0 +1,680 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "web-request-response-http",
+ "title": "Une requête, une réponse (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "n",
+   "label": "serveur, trajet"
+  },
+  {
+   "tone": "b",
+   "label": "requête"
+  },
+  {
+   "tone": "g",
+   "label": "réponse, chiffré"
+  },
+  {
+   "tone": "r",
+   "label": "lu par le trajet"
+  }
+ ],
+ "entities": [
+  {
+   "id": "nav",
+   "kind": "layer",
+   "at": [
+    -13.5,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    8,
+    13,
+    1
+   ],
+   "title": "navigateur",
+   "sub": "le client"
+  },
+  {
+   "id": "page",
+   "kind": "node",
+   "at": [
+    0,
+    2.2
+   ],
+   "tone": "v",
+   "size": [
+    6,
+    4,
+    1
+   ],
+   "in": "nav",
+   "title": "la page",
+   "sub": "dessinée"
+  },
+  {
+   "id": "srv",
+   "kind": "layer",
+   "at": [
+    13.5,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    8,
+    13,
+    1
+   ],
+   "title": "serveur web",
+   "sub": "byte-layers.com"
+  },
+  {
+   "id": "req",
+   "kind": "layer",
+   "at": [
+    0,
+    -6.2
+   ],
+   "tone": "b",
+   "size": [
+    15,
+    11,
+    1
+   ],
+   "title": "la requête"
+  },
+  {
+   "id": "q1",
+   "kind": "node",
+   "at": [
+    0,
+    -2.7
+   ],
+   "tone": "b",
+   "size": [
+    13,
+    1.9,
+    1
+   ],
+   "in": "req",
+   "title": "GET /fr/bits/… HTTP/1.1",
+   "sub": "méthode, chemin, version"
+  },
+  {
+   "id": "q2",
+   "kind": "node",
+   "at": [
+    0,
+    -0.5
+   ],
+   "tone": "b",
+   "size": [
+    13,
+    1.9,
+    1
+   ],
+   "in": "req",
+   "title": "Host: byte-layers.com",
+   "sub": "le serveur visé"
+  },
+  {
+   "id": "q3",
+   "kind": "node",
+   "at": [
+    0,
+    1.7
+   ],
+   "tone": "b",
+   "size": [
+    13,
+    1.9,
+    1
+   ],
+   "in": "req",
+   "title": "User-Agent: Mozilla/5.0 …",
+   "sub": "le navigateur qui demande"
+  },
+  {
+   "id": "q4",
+   "kind": "node",
+   "at": [
+    0,
+    3.9
+   ],
+   "tone": "b",
+   "size": [
+    13,
+    1.9,
+    1
+   ],
+   "in": "req",
+   "title": "Accept: text/html",
+   "sub": "le format qu'il préfère"
+  },
+  {
+   "id": "resp",
+   "kind": "layer",
+   "at": [
+    0,
+    6.2
+   ],
+   "tone": "g",
+   "size": [
+    15,
+    11,
+    1
+   ],
+   "title": "la réponse"
+  },
+  {
+   "id": "r1",
+   "kind": "node",
+   "at": [
+    0,
+    -2.7
+   ],
+   "tone": "g",
+   "size": [
+    13,
+    1.9,
+    1
+   ],
+   "in": "resp",
+   "title": "HTTP/1.1 200 OK",
+   "sub": "le code de statut"
+  },
+  {
+   "id": "r2",
+   "kind": "node",
+   "at": [
+    0,
+    -0.5
+   ],
+   "tone": "g",
+   "size": [
+    13,
+    1.9,
+    1
+   ],
+   "in": "resp",
+   "title": "Content-Type: text/html",
+   "sub": "ce que contient le corps"
+  },
+  {
+   "id": "r3",
+   "kind": "node",
+   "at": [
+    0,
+    2.8
+   ],
+   "tone": "g",
+   "size": [
+    13,
+    1.9,
+    1
+   ],
+   "in": "resp",
+   "title": "<!DOCTYPE html> <html> …",
+   "sub": "le corps : la page, en texte"
+  },
+  {
+   "id": "tunnel",
+   "kind": "zone",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "g",
+   "size": [
+    35,
+    6.5
+   ],
+   "label": "connexion chiffrée"
+  },
+  {
+   "id": "h-nav",
+   "kind": "node",
+   "at": [
+    -13,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    7,
+    3.6,
+    1
+   ],
+   "title": "navigateur",
+   "sub": "le client"
+  },
+  {
+   "id": "h-wifi",
+   "kind": "node",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    9,
+    3.6,
+    1
+   ],
+   "title": "Wi-Fi du café",
+   "sub": "une machine sur le trajet"
+  },
+  {
+   "id": "h-srv",
+   "kind": "node",
+   "at": [
+    13,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    7,
+    3.6,
+    1
+   ],
+   "title": "serveur web",
+   "sub": "byte-layers.com"
+  },
+  {
+   "id": "h-vu",
+   "kind": "node",
+   "at": [
+    0,
+    -6.4
+   ],
+   "tone": "r",
+   "size": [
+    16,
+    2.6,
+    1
+   ],
+   "title": "GET /compte · mot de passe=…",
+   "sub": "ce que lit le trajet"
+  },
+  {
+   "id": "h-cert",
+   "kind": "node",
+   "at": [
+    13,
+    6.4
+   ],
+   "tone": "g",
+   "size": [
+    10,
+    2.6,
+    1
+   ],
+   "title": "certificat",
+   "sub": "byte-layers.com, signé"
+  }
+ ],
+ "steps": [
+  {
+   "id": "message",
+   "label": "Requête, réponse",
+   "title": "Une requête, une réponse : du texte",
+   "body": [
+    "Le navigateur envoie une requête écrite en texte ; le serveur répond en texte, et le corps de la réponse est la page en HTML."
+   ],
+   "hud": [
+    {
+     "label": "requête",
+     "value": "—"
+    },
+    {
+     "label": "statut",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "nav",
+    "srv"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "req",
+      "q1"
+     ],
+     "link": [
+      {
+       "from": "nav",
+       "to": "req"
+      }
+     ],
+     "hud": [
+      {
+       "label": "requête",
+       "value": "GET",
+       "tone": "b"
+      }
+     ],
+     "say": "Le navigateur écrit sa **requête**, en texte. Première ligne : la méthode `GET`, le chemin, la version de HTTP."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "q2",
+      "q3",
+      "q4"
+     ],
+     "say": "Puis des **en-têtes** : le serveur visé, le navigateur qui demande, le format qu'il préfère."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "req",
+       "to": "srv"
+      }
+     ],
+     "ms": 300
+    },
+    {
+     "do": "send",
+     "path": [
+      "nav",
+      "req",
+      "srv"
+     ],
+     "label": "requête",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "srv",
+       "label": "cherche la page"
+      }
+     ],
+     "say": "Le serveur lit la requête et cherche la ressource que désigne le chemin."
+    },
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "show": [
+      "resp",
+      "r1"
+     ],
+     "link": [
+      {
+       "from": "srv",
+       "to": "resp"
+      }
+     ],
+     "set": [
+      {
+       "id": "srv",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "statut",
+       "value": "200 OK",
+       "tone": "g"
+      }
+     ],
+     "say": "Il répond, lui aussi en texte. Première ligne : le **code de statut**, `200 OK` : la page existe."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "r2",
+      "r3"
+     ],
+     "say": "Un en-tête dit ce que contient la réponse ; après une ligne vide vient le **corps** : la page, écrite en HTML."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "resp",
+       "to": "nav"
+      }
+     ],
+     "ms": 300
+    },
+    {
+     "do": "send",
+     "path": [
+      "srv",
+      "resp",
+      "nav"
+     ],
+     "label": "réponse",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "show": [
+      "page"
+     ],
+     "set": [
+      {
+       "id": "nav",
+       "label": "lit le HTML"
+      }
+     ],
+     "say": "Le navigateur ne reçoit pas une image : il **lit ce texte** et dessine la page lui-même."
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  },
+  {
+   "id": "https",
+   "label": "HTTPS",
+   "title": "La même conversation, chiffrée",
+   "body": [
+    "HTTPS ne change pas les requêtes ni les réponses : il les fait passer dans une connexion chiffrée, après avoir vérifié le serveur."
+   ],
+   "hud": [
+    {
+     "label": "adresse",
+     "value": "http://"
+    },
+    {
+     "label": "le trajet lit",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "h-nav",
+    "h-wifi",
+    "h-srv"
+   ],
+   "links": [
+    {
+     "from": "h-nav",
+     "to": "h-wifi"
+    },
+    {
+     "from": "h-wifi",
+     "to": "h-srv"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "h-nav",
+      "h-wifi",
+      "h-srv"
+     ],
+     "label": "GET /compte",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "show": [
+      "h-vu"
+     ],
+     "link": [
+      {
+       "from": "h-wifi",
+       "to": "h-vu",
+       "dashed": true
+      }
+     ],
+     "hud": [
+      {
+       "label": "le trajet lit",
+       "value": "tout",
+       "tone": "r"
+      }
+     ],
+     "say": "Avec `http://`, la requête voyage **en clair** : chaque machine du trajet peut la lire."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "hide": [
+      "h-vu"
+     ],
+     "show": [
+      "h-cert"
+     ],
+     "link": [
+      {
+       "from": "h-srv",
+       "to": "h-cert"
+      }
+     ],
+     "hud": [
+      {
+       "label": "adresse",
+       "value": "https://",
+       "tone": "g"
+      },
+      {
+       "label": "le trajet lit",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "say": "Avec `https://`, le serveur commence par montrer son **certificat**, qui prouve qui il est."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "h-nav",
+       "label": "certificat vérifié : cadenas"
+      }
+     ],
+     "say": "Le navigateur le vérifie : c'est le **cadenas** à côté de l'adresse."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "show": [
+      "tunnel"
+     ],
+     "say": "Les deux établissent alors une **connexion chiffrée**."
+    },
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "send",
+     "path": [
+      "h-nav",
+      "h-wifi",
+      "h-srv"
+     ],
+     "label": "GET /compte",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "show": [
+      "h-vu"
+     ],
+     "link": [
+      {
+       "from": "h-wifi",
+       "to": "h-vu",
+       "dashed": true
+      }
+     ],
+     "ms": 200
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "h-vu",
+       "title": "x9#fQ2…L7%k",
+       "sub": "illisible",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "le trajet lit",
+       "value": "du bruit",
+       "tone": "g"
+      }
+     ],
+     "say": "La même requête passe : le trajet ne voit plus que du bruit. À l'intérieur, rien ne change."
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  }
+ ]
+}

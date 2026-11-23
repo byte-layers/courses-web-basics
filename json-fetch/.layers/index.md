@@ -7,13 +7,13 @@ tags:
   - json
   - web
 difficulty: beginner
-duration: 15
+duration: 25
 requires: "0.9.0"
 ---
 
 Les données d'une page ne sont pas forcément écrites dans son code : elles arrivent souvent d'un serveur, dans un format texte, le **JSON**. Vous saurez lire et écrire du JSON, passer du texte à l'objet avec `JSON.parse` et `JSON.stringify`, demander un fichier au serveur avec `fetch`, et éviter le piège central : `fetch` ne bloque pas, la donnée n'est pas encore là à la ligne suivante.
 
-**Prérequis** : [Fonctions et objets](https://byte-layers.com/fr/bits/js-functions-objects), pour les tableaux d'objets, et [Le DOM : la page vue par JavaScript](https://byte-layers.com/fr/bits/dom), pour construire une liste avec `createElement`.
+**Prérequis** : [Fonctions et objets](https://byte-layers.com/fr/bits/js-functions-objects), pour les tableaux d'objets et la forme fléchée, et [Le DOM : la page vue par JavaScript](https://byte-layers.com/fr/bits/dom), pour construire une liste avec `createElement`.
 
 # Données JSON et fetch
 
@@ -21,7 +21,14 @@ Le navigateur demande une page à un serveur et reçoit du texte : c'est ainsi q
 
 ## JSON : des données écrites en texte
 
-Le **JSON** (*JavaScript Object Notation*) écrit des objets et des tableaux sous forme de texte, avec presque la même syntaxe que JavaScript. C'est le format qu'utilisent la plupart des serveurs pour envoyer des données à une page.
+Le **JSON** (*JavaScript Object Notation*) écrit des objets et des tableaux sous forme de texte, avec presque la même syntaxe que JavaScript. C'est le format qu'utilisent la plupart des serveurs pour envoyer des données à une page. Voici un objet, et le même écrit en JSON :
+
+```scene
+lesson: assets/json.scene.json
+step: json
+```
+
+Une liste de projets, telle qu'un serveur l'enverrait :
 
 ```json
 [
@@ -30,21 +37,27 @@ Le **JSON** (*JavaScript Object Notation*) écrit des objets et des tableaux sou
 ]
 ```
 
-| Règle du JSON | Exemple | Différence avec un objet JavaScript |
-|---|---|---|
-| les clés sont entre **guillemets doubles** | `"titre": "Dune"` | en JavaScript, `titre: "Dune"` suffit |
-| les textes aussi, jamais de guillemets simples | `"Dune"` | `'Dune'` est refusé |
-| pas de virgule après le dernier élément | `[1, 2, 3]` | `[1, 2, 3,]` est refusé |
-| seulement des données | textes, nombres, `true`, `false`, `null`, objets, tableaux | pas de fonction, pas de méthode |
+Retenez les quatre règles de la scène : clés et textes entre guillemets doubles, pas de virgule après le dernier élément, seulement des données.
 
-Un JSON reçu est un **texte**, pas un objet : on ne peut pas y lire une clé avec un point. Deux fonctions font le passage :
+## Du texte à l'objet : `JSON.parse`
 
-| Fonction | Reçoit | Rend |
-|---|---|---|
-| `JSON.parse(texte)` | un texte JSON | l'objet ou le tableau qu'il décrit |
-| `JSON.stringify(valeur)` | un objet ou un tableau | son texte JSON, à envoyer ou à ranger |
+Un JSON reçu est un **texte**, pas un objet : on ne peut pas y lire une clé avec un point. Regardez ce que donne `texte.titre`, puis la même lecture après `JSON.parse` :
 
-La variable `texte` contient ce qu'un serveur a envoyé. La console affiche `Titre : undefined` : faites-lui afficher le vrai titre.
+```scene
+lesson: assets/fetch.scene.json
+step: parse
+```
+
+Deux fonctions font le passage, dans un sens et dans l'autre :
+
+| Fonction | Ce qu'elle fait |
+|---|---|
+| `JSON.parse(texte)` | reçoit un texte JSON, rend l'objet ou le tableau qu'il décrit |
+| `JSON.stringify(valeur)` | reçoit un objet ou un tableau, rend son texte JSON, à envoyer ou à ranger |
+
+## À toi : du texte JSON à l'objet
+
+La variable `texte` contient ce qu'un serveur a envoyé. La console affiche `Titre : undefined` : fais-lui afficher le vrai titre.
 
 ```playground
 runtime: web
@@ -86,7 +99,7 @@ solution: assets/parse.solution
 
 **`fetch(adresse)`** demande au serveur la ressource qui se trouve à cette adresse : un fichier `projets.json` à côté de la page, ou l'adresse d'une API. La réponse met du temps à venir, quelques millisecondes ou plusieurs secondes. Pendant ce temps, le navigateur ne bloque pas la page : `fetch` rend tout de suite une **promesse** (*Promise*), un objet qui dit « la réponse arrivera », et le code continue à la ligne suivante.
 
-On indique ce qu'il faudra faire de la réponse avec **`.then(…)`**, qui reçoit une fonction. Le navigateur l'appellera **plus tard**, quand la réponse sera là :
+On indique ce qu'il faudra faire de la réponse avec **`.then(…)`**, qui reçoit une fonction, écrite ici en **forme fléchée** (voir [Fonctions et objets](https://byte-layers.com/fr/bits/js-functions-objects)). Le navigateur l'appellera **plus tard**, quand la réponse sera là :
 
 ```javascript
 fetch("projets.json")
@@ -97,15 +110,24 @@ fetch("projets.json")
 console.log("Demande envoyée");
 ```
 
+Dans quel ordre ces lignes s'exécutent-elles ?
+
+```scene
+lesson: assets/fetch.scene.json
+step: fetch
+```
+
 | Morceau | Rôle |
 |---|---|
 | `fetch("projets.json")` | envoie la demande, rend une promesse de réponse |
-| `(reponse) => reponse.json()` | une fonction écrite en raccourci, une **fonction fléchée** : elle reçoit la réponse et rend la lecture de son corps en JSON, une seconde promesse |
+| `(reponse) => reponse.json()` | une fonction fléchée : elle reçoit la réponse et rend la lecture de son corps en JSON, une seconde promesse |
 | `.then((projets) => { … })` | quand le JSON est lu, reçoit le tableau d'objets : c'est ici, et seulement ici, qu'on s'en sert |
 
 La console affiche d'abord `Demande envoyée`, puis `3 projets reçus` : la dernière ligne du code s'exécute **avant** la fonction du `.then`. C'est tout le piège.
 
-La page doit afficher les projets de `projets.json`. Le code les demande, mais la liste reste vide et la console annonce 0 projet. Déplacez ce qu'il faut pour que la page se remplisse.
+## À toi : la liste qui reste vide
+
+La page doit afficher les projets de `projets.json`. Le code les demande, mais la liste reste vide et la console annonce 0 projet. Déplace ce qu'il faut pour que la page se remplisse.
 
 ```playground
 runtime: web
@@ -184,11 +206,87 @@ async function charger() {
 }
 
 charger();
+console.log("Chargement lancé");
+```
+
+Suivez la fonction `charger`, puis la même demande vers un fichier absent :
+
+```scene
+lesson: assets/fetch.scene.json
+step: await
 ```
 
 Deux `await` : le premier attend la réponse du serveur (son statut, `200` ou `404`), le second la lecture du JSON. Un fichier introuvable ne fait pas échouer `fetch` : la réponse arrive, avec le statut `404`, d'où le test de **`reponse.ok`**, qui vaut `true` pour un statut de succès.
 
-> ⚠️ **`fetch` a besoin d'un serveur.** Une page ouverte par un double-clic a une adresse en `file://` : le navigateur y refuse `fetch("projets.json")`. Il faut servir le dossier par un petit serveur local, en `http://` ; le lab vous montre comment.
+> ⚠️ **`fetch` a besoin d'un serveur.** Une page ouverte par un double-clic a une adresse en `file://` : le navigateur y refuse `fetch("projets.json")`. Il faut servir le dossier par un petit serveur local, en `http://`.
+
+## À toi : réécris le chargement avec `async` et `await`
+
+Ce code charge une liste de livres avec `.then`, et il fonctionne. Réécris le chargement dans une fonction `async`, avec deux `await` et sans aucun `.then` : la page doit afficher les mêmes trois livres.
+
+```playground
+runtime: web
+title: Le chargement, avec async et await
+files:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <title>Mes livres</title>
+      <script src="script.js" defer></script>
+    </head>
+    <body>
+      <h1>Mes livres</h1>
+      <ul id="livres"></ul>
+    </body>
+    </html>
+  livres.json: |
+    [
+      { "titre": "Dune", "auteur": "Frank Herbert" },
+      { "titre": "Fondation", "auteur": "Isaac Asimov" },
+      { "titre": "Hypérion", "auteur": "Dan Simmons" }
+    ]
+  script.js: |
+    const liste = document.querySelector("#livres");
+
+    function afficher(livres) {
+      for (const livre of livres) {
+        const li = document.createElement("li");
+        li.textContent = livre.titre + ", " + livre.auteur;
+        liste.append(li);
+      }
+    }
+
+    fetch("livres.json")
+      .then((reponse) => reponse.json())
+      .then((livres) => {
+        console.log("Livres chargés :", livres.length);
+        afficher(livres);
+      });
+open: [script.js, livres.json, index.html]
+lock: [index.html, livres.json]
+show: [editor, preview, console]
+check: ask
+verify:
+  - label: le chargement n'utilise plus `.then`
+    file: script.js
+    excludes: .then(
+    hint: "Écris une fonction `async function charger() { … }`, puis appelle-la : `charger();`."
+  - label: la réponse est attendue avec `await fetch`
+    file: script.js
+    includes: await fetch(
+    hint: "`const reponse = await fetch(\"livres.json\");`, puis `const livres = await reponse.json();`"
+  - label: la liste affiche les trois livres
+    selector: "#livres li"
+    count: 3
+    hint: "Sans le second `await`, `livres` est encore une promesse, pas un tableau."
+  - label: "la console affiche « Livres chargés : 3 »"
+    console: "/^Livres chargés : 3$/"
+  - label: aucune erreur JavaScript
+    errors: none
+solution: assets/await.solution
+```
 
 > 📖 [Utiliser fetch (MDN)](https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch) · [Manipuler du JSON (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Core/Scripting/JSON) · [Les promesses, async et await (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Extensions/Async_JS/Promises)
 
@@ -216,7 +314,7 @@ questions:
     explanation: "fetch rend tout de suite une promesse et le code continue. La fonction du .then s'exécute plus tard, à l'arrivée des données : c'est là qu'il faut s'en servir."
   - prompt: "Le serveur répond 404 à une demande `fetch`. Que se passe-t-il ?"
     answers:
-      - "fetch échoue et le .catch s'exécute"
+      - "fetch échoue avec une erreur"
       - "La réponse arrive normalement, avec reponse.ok à false : c'est au code de le tester"
       - "La page se recharge"
     correct: 2
@@ -231,7 +329,7 @@ questions:
 - `fetch` **ne bloque pas** : tout ce qui utilise les données va dans le `.then`, ou après un **`await`** dans une fonction `async`.
 - Un statut `404` ne fait pas échouer `fetch` : on teste **`reponse.ok`**. Et `fetch` vers un fichier local demande un serveur, pas une page ouverte en `file://`.
 
-Vous avez vu chaque notion de ce cours dans des exercices courts. Le lab les reprend une à une sur votre machine, avec la vraie console du navigateur, VS Code et des fichiers que vous créez vous-même : [Les bases de JavaScript, sur votre machine](https://byte-layers.com/fr/labs/js-basics-lab).
+Pour tout refaire sur votre machine, avec la vraie console du navigateur, un éditeur et des fichiers que vous créez vous-même : [Les bases de JavaScript, sur votre machine](https://byte-layers.com/fr/labs/js-basics-lab).
 
 ```ack
 J'ai compris

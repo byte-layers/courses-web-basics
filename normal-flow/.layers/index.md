@@ -6,13 +6,13 @@ tags:
   - css
   - html
 difficulty: beginner
-duration: 15
+duration: 20
 requires: "0.9.0"
 ---
 
 Sans aucune règle de disposition, le navigateur range déjà les éléments d'une page : c'est le **flux normal**. Vous saurez prédire où tombe chaque élément, pourquoi une marge verticale ne fait rien sur un lien ou un `span`, ce que change `display: inline-block`, et ce que le flux ne sait pas faire seul.
 
-**Prérequis** : le bit [Le modèle de boîte](https://byte-layers.com/fr/bits/box-model) (contenu, padding, bordure, marge) et le challenge [Mon portfolio v1](https://byte-layers.com/fr/challenges/portfolio-v1-challenge), une page HTML et sa feuille de style.
+**Prérequis** : le bit [Le modèle de boîte](https://byte-layers.com/fr/bits/box-model) (contenu, padding, bordure, marge), et savoir écrire une page HTML et sa feuille de style.
 
 # Bloc, inline : le flux normal d'une page
 
@@ -22,21 +22,24 @@ Dans le bit sur le modèle de boîte, chaque élément est une boîte. Ce conten
 
 Le navigateur lit le HTML dans l'ordre et pose les boîtes l'une après l'autre. Chaque élément a une valeur de **`display`** par défaut, qui décide de sa façon de se ranger.
 
+```scene
+lesson: assets/flow.scene.json
+step: flux
+```
+
 Un élément **bloc** (`display: block`) commence sur une nouvelle ligne et prend **toute la largeur** disponible, même si son contenu est court. Les blocs s'empilent donc **les uns sous les autres**.
 
 Un élément **inline** (`display: inline`) se place **dans la ligne de texte**, à la suite de ce qui précède, et ne prend que la largeur de son contenu. Quand la ligne est pleine, il passe à la suivante, comme un mot.
 
 | Bloc par défaut | Inline par défaut |
 |---|---|
-| `div`, `p`, `h1` à `h6`, `ul`, `li`, `header`, `nav`, `main`, `section`, `footer`, `form` | `span`, `a`, `strong`, `em`, `code`, `img`, `label`, `input`, `button` |
+| `div`, `p`, `h1` à `h6`, `ul`, `li`, `header`, `nav`, `main`, `section`, `footer`, `form` | `span`, `a`, `strong`, `em`, `code`, `img`, `label` |
 
-Ce rangement n'est pas un défaut à corriger : c'est ce qui rend une page lisible avant même la première ligne de CSS. Un paragraphe se lit sous le titre, un lien reste au milieu de sa phrase.
+> 💡 **Remarque.** `img` est inline, mais le navigateur pose une image à sa place, avec une largeur et une hauteur propres : on dit un élément *remplacé*. La règle qui suit sur les marges ne le concerne pas.
 
-> 💡 **Remarque.** `img`, `input` et `button` sont inline, mais ils ont une largeur et une hauteur propres, comme une image posée dans la ligne : on les dit *inline remplacés*. La règle qui suit sur les marges ne les concerne pas.
+## À toi : prédis où tombe chaque élément
 
-## Prédire où tombe chaque élément
-
-Voici le haut d'une page de portfolio, sans aucun CSS. Avant de lire la question, essayez de dessiner sur un papier ce que le navigateur affiche.
+Voici le haut d'une page de portfolio, sans aucun CSS. Avant de répondre, essaie de dessiner sur un papier ce que le navigateur affiche, puis réponds aux deux questions du plateau : chaque réponse dit pourquoi.
 
 ```html
 <header>
@@ -46,12 +49,11 @@ Voici le haut d'une page de portfolio, sans aucun CSS. Avant de lire la question
 </header>
 ```
 
-`header`, les deux `p` et `h1` sont des blocs : trois lignes, l'une sous l'autre, chacune sur toute la largeur. `strong` et `a` sont inline : ils restent dans la phrase du second paragraphe.
-
 ```quiz
 title: "Où tombe chaque élément ?"
 tracksProgress: false
 showNotice: false
+place: stage
 questions:
   - prompt: "Sur combien de lignes, au minimum, s'affiche ce `header` dans une fenêtre large ?"
     answers:
@@ -69,11 +71,31 @@ questions:
     explanation: "Un bloc prend toute la largeur disponible, quelle que soit la longueur de son contenu. On le voit en lui donnant un fond de couleur."
 ```
 
+## Ce que le navigateur affiche : trois blocs, trois lignes
+
+Le même `header`, ligne par ligne : à gauche le code, à droite ce que le navigateur en fait, sans aucun CSS.
+
+```scene
+lesson: assets/flow.scene.json
+step: reponse
+```
+
+Chaque **bloc** ouvre une ligne et prend toute la largeur, même `.logo` et ses deux lettres. Les deux **inline**, `strong` et `a`, ne créent pas de ligne : ils restent dans la phrase de leur paragraphe.
+
 ## Le piège : une marge verticale ignorée sur un inline
 
-Un élément inline vit dans la ligne de texte. Sa **marge à gauche et à droite** s'applique, mais sa **marge en haut et en bas ne déplace rien** : la hauteur de la ligne ne change pas pour lui. Son padding vertical se dessine, mais il déborde sur les lignes voisines au lieu de les repousser.
+Un élément inline vit dans la ligne de texte. Le piège se voit sur un lien habillé en bouton :
 
-Le piège se voit sur un lien habillé en bouton. **À toi** : le lien `.bouton` a une marge du haut de `24px`, et pourtant il colle au paragraphe du dessus, son fond le chevauche même. Regarde l'aperçu, puis fais-lui accepter sa marge en changeant sa valeur de `display`.
+```scene
+lesson: assets/flow.scene.json
+step: marge
+```
+
+Sa **marge à gauche et à droite** s'applique, mais sa **marge en haut et en bas ne déplace rien** : la hauteur de la ligne ne change pas pour lui. Son padding vertical se dessine, mais il déborde sur les lignes voisines au lieu de les repousser. Aucun message ne le signale.
+
+## À toi : un bouton qui refuse sa marge
+
+Le lien `.bouton` a une marge du haut de `24px`, et pourtant il colle au paragraphe du dessus, son fond le chevauche même. Regarde l'aperçu, puis fais-lui accepter sa marge en changeant sa valeur de `display` : le bit sur le modèle de boîte t'a montré celle qui garde un élément dans la ligne avec une vraie boîte.
 
 ```playground
 runtime: web
@@ -120,16 +142,20 @@ Avec `display: inline-block`, le bouton s'écarte du paragraphe : sa marge et so
 
 ## inline-block : dans la ligne, avec une vraie boîte
 
-**`inline-block`** combine les deux comportements : l'élément se place **dans la ligne** comme un inline, et il garde **une boîte complète** comme un bloc : `width`, `height`, marges et padding verticaux s'appliquent.
+**`inline-block`** combine les deux comportements : l'élément se place **dans la ligne** comme un inline, et il garde **une boîte complète** comme un bloc. Compare les trois valeurs sur la même phrase :
 
-| Valeur de `display` | Se place | `width` et `height` | Marges verticales |
-|---|---|---|---|
-| `block` | sur sa propre ligne, toute la largeur | appliquées | appliquées |
-| `inline` | dans la ligne, à la largeur du contenu | ignorées | ignorées |
-| `inline-block` | dans la ligne | appliquées | appliquées |
-| `none` | nulle part : l'élément n'est pas affiché | | |
+```scene
+lesson: assets/flow.scene.json
+step: display
+```
 
-Le cas le plus courant est le menu. Les éléments `li` d'une liste sont des blocs : ils s'empilent, avec une puce chacun. **À toi** : mets les quatre liens du menu côte à côte, sans puce et sans le retrait à gauche de la liste.
+La différence se voit à la **hauteur de la ligne** : un inline ne la change pas, sa marge passe sous la ligne voisine. Une boîte `inline-block` compte avec ses marges, et sa ligne s'agrandit pour lui faire de la place.
+
+Une dernière valeur, `display: none`, retire l'élément de la page : il n'est plus affiché du tout.
+
+## À toi : un menu sur une ligne
+
+Le cas le plus courant est le menu. Les éléments `li` d'une liste sont des blocs : ils s'empilent, avec une puce chacun. Mets les quatre liens du menu côte à côte, sans puce et sans le retrait à gauche de la liste.
 
 ```playground
 runtime: web
@@ -189,9 +215,14 @@ Les liens sont sur une ligne. Un petit espace apparaît entre eux : c'est le ret
 
 ## Ce que le flux normal ne sait pas faire
 
-Le menu est sur une ligne, mais le logo reste **au-dessus** : `.logo` et `nav` sont deux blocs, donc deux lignes. Mettre le logo à gauche et le menu à droite, sur la même ligne, centrer verticalement des éléments de hauteurs différentes, répartir l'espace entre eux : le flux normal ne le fait pas.
+Le menu est sur une ligne, mais le logo reste **au-dessus**. Compare avec ce qu'on veut obtenir :
 
-Pendant longtemps, on a contourné ces limites avec des tableaux invisibles, puis avec la propriété `float`, faite à l'origine pour habiller une image avec du texte. Ces techniques demandaient des astuces fragiles, et elles ne servent plus pour disposer une page.
+```scene
+lesson: assets/limites.scene.json
+step: limites
+```
+
+`.logo` et `nav` sont deux blocs, donc deux lignes. Mettre le logo à gauche et le menu à droite, centrer en hauteur des éléments de tailles différentes, répartir l'espace entre eux : le flux normal ne le fait pas. Il faut un **mode de disposition**, Flexbox ou Grid.
 
 > 💡 **Remarque.** Vous croiserez encore `float: left` dans du code ancien : il sort l'élément du flux et le colle à gauche, le texte qui suit l'entoure. Aujourd'hui, on le garde pour son usage d'origine, une image dans un article.
 
@@ -233,7 +264,7 @@ questions:
 - Le **flux normal** range les boîtes sans aucune règle : les **blocs** les uns sous les autres, sur toute la largeur ; les **inline** dans la ligne, à la largeur de leur contenu.
 - Sur un **inline**, `width`, `height` et les **marges verticales** ne font rien, sans aucun message d'erreur.
 - **`inline-block`** met un élément dans la ligne en lui gardant une boîte complète.
-- Le flux ne sait pas aligner deux blocs sur une ligne ni répartir l'espace entre eux : les tableaux de mise en page et `float` l'ont fait autrefois, en mal.
+- Le flux ne sait pas aligner deux blocs sur une ligne ni répartir l'espace entre eux : il faut un **mode de disposition**.
 
 Pour mettre le logo à gauche et le menu à droite, sur la même ligne, il faut prendre la main sur ce rangement : c'est l'objet du bit [Flexbox](https://byte-layers.com/fr/bits/flexbox).
 

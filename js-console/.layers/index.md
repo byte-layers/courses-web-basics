@@ -6,23 +6,28 @@ tags:
   - javascript
   - web
 difficulty: beginner
-duration: 15
+duration: 20
 requires: "0.9.0"
 ---
 
 Chaque navigateur contient un moteur JavaScript, et sa **console** permet de lui parler tout de suite, sans rien installer ni enregistrer. Vous saurez ouvrir une console, lui faire calculer et assembler du texte, lire ses trois sortes de réponses (une valeur, `undefined`, une erreur), ranger une valeur avec `let` ou `const`, et pourquoi `"5" + 3` donne `"53"`.
 
-**Prérequis** : le bit [sur les trois langages d'une page web](https://byte-layers.com/fr/bits/web-page-languages), pour le rôle de JavaScript à côté de HTML et CSS, et le challenge [portfolio v2](https://byte-layers.com/fr/challenges/portfolio-v2-challenge) : ce cours rend votre portfolio interactif.
+**Prérequis** : le bit [sur les trois langages d'une page web](https://byte-layers.com/fr/bits/web-page-languages), pour le rôle de JavaScript à côté de HTML et CSS.
 
 # La console JavaScript : premier contact
 
-Votre portfolio dit ce qu'il contient (HTML) et à quoi il ressemble (CSS). Il ne fait encore rien : c'est le rôle du troisième langage, **JavaScript**. Avant de l'écrire dans une page, on le découvre là où il répond aussitôt : la console.
+Une page écrite en HTML et CSS dit ce qu'elle contient et à quoi elle ressemble. Elle ne fait encore rien : c'est le rôle du troisième langage, **JavaScript**. Avant de l'écrire dans une page, on le découvre là où il répond aussitôt : la console.
 
 ## Un moteur JavaScript dans chaque navigateur
 
-Le navigateur ne fait pas que dessiner des pages : il contient un **moteur JavaScript**, un programme qui lit du code JavaScript et l'exécute. Chrome et Edge utilisent V8, Firefox SpiderMonkey, Safari JavaScriptCore. C'est un interpréteur : il lit une instruction et l'exécute tout de suite, sans étape de compilation à lancer soi-même.
+Le navigateur ne fait pas que dessiner des pages : il contient un **moteur JavaScript**, un programme qui lit du code JavaScript et l'exécute. Que se passe-t-il quand on lui parle ?
 
-La **console** fait partie des outils de développement du navigateur. On y tape une instruction, on appuie sur Entrée, et le moteur répond sur la ligne suivante. Rien n'est enregistré : un rechargement de la page efface tout.
+```scene
+lesson: assets/console.scene.json
+step: moteur
+```
+
+La **console** fait partie des outils de développement du navigateur. On y tape une instruction, on appuie sur Entrée, et le moteur répond sur la ligne suivante. C'est un **interpréteur** : il exécute l'instruction tout de suite, sans étape de compilation à lancer soi-même. Rien n'est enregistré : un rechargement de la page efface tout.
 
 | Navigateur | Ouvrir la console |
 |---|---|
@@ -30,25 +35,24 @@ La **console** fait partie des outils de développement du navigateur. On y tape
 | Firefox | F12, puis l'onglet **Console** ; ou Ctrl+Maj+K (Cmd+Option+K sous macOS) |
 | Safari | d'abord, dans **Réglages**, onglet **Avancés**, cochez « Afficher les fonctionnalités pour les développeurs web » ; puis Cmd+Option+C |
 
-Les exercices de ce bit se font dans la **console de l'aperçu**, sous la page : elle se comporte comme celle du navigateur, et vos réponses y sont vérifiées. Le lab du cours vous fera ouvrir la vraie.
+Les exercices de ce bit se font dans la **console de l'aperçu**, sous la page : elle se comporte comme celle du navigateur, et vos réponses y sont vérifiées.
 
 > 📖 [La console des outils de développement (MDN)](https://developer.mozilla.org/fr/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) · [L'objet console (MDN)](https://developer.mozilla.org/fr/docs/Web/API/console)
 
 ## Calculer et assembler du texte
 
-Le moteur sait d'abord **calculer**. Les opérateurs sont ceux de la calculatrice : `+`, `-`, `*` pour multiplier, `/` pour diviser, et `%` pour le reste d'une division (`10 % 3` vaut `1`). Les parenthèses fonctionnent comme en maths. Le séparateur décimal est le **point** : `2.5`, jamais `2,5`.
+Le moteur sait d'abord **calculer**, avec les opérateurs de la calculatrice, et manipuler du **texte**, écrit entre guillemets : `"Bonjour"` ou `'Bonjour'`. Voici quelques lignes tapées dans la console, et ses réponses.
 
-Il sait aussi manipuler du **texte**, qu'on écrit entre guillemets doubles ou simples : `"Bonjour"` ou `'Bonjour'`. Entre deux textes, le `+` ne calcule pas, il **assemble** : `"Bon" + "jour"` donne `"Bonjour"`. Pour les calculs plus riches, l'objet **`Math`** range des fonctions toutes faites :
+```scene
+lesson: assets/console-plan.scene.json
+step: calcul
+```
 
-| Instruction | Réponse | Ce qu'elle fait |
-|---|---|---|
-| `Math.round(249.67)` | `250` | arrondit à l'entier le plus proche |
-| `Math.max(312, 247, 190)` | `312` | rend le plus grand |
-| `Math.random()` | un nombre entre 0 et 1 | tire au hasard, différent à chaque fois |
+Le séparateur décimal est le **point** : `2.5`, jamais `2,5`. Entre deux textes, le `+` **assemble**. L'objet **`Math`** range des fonctions toutes faites. Et un programme, qui n'a personne pour lire les réponses, écrit avec **`console.log(…)`** : un message pour le développeur, que le visiteur de la page ne voit pas.
 
-Taper `7 * 8` dans la console affiche la réponse, `56`. Un programme, lui, n'a personne pour lire ses réponses : il écrit dans la console avec **`console.log(…)`**, qui affiche ce qu'on met entre les parenthèses. C'est un message pour le développeur, que le visiteur de la page ne voit pas.
+## À toi : calcule dans la console
 
-Dans la console sous l'aperçu, tapez d'abord `7 * 8` et Entrée, pour voir la réponse. Puis faites écrire les trois lignes demandées avec `console.log`.
+Dans la console sous l'aperçu, tape d'abord `7 * 8` et Entrée, pour voir la réponse. Puis fais écrire les trois lignes demandées avec `console.log`.
 
 ```playground
 runtime: web
@@ -85,30 +89,51 @@ verify:
 solution: assets/calcul.solution
 ```
 
-Les réponses de la console et les lignes de `console.log` ne se ressemblent pas tout à fait : une réponse est précédée d'une marque, une ligne de `console.log` non. Seules les secondes sont vérifiées ici, parce qu'un programme n'écrit que celles-là.
+Seules les lignes de `console.log`, sans marque, sont vérifiées ici : un programme n'écrit que celles-là.
 
 ## Trois sortes de réponses : une valeur, `undefined`, une erreur
 
 Chaque instruction tapée reçoit une réponse, et il n'en existe que trois sortes. Savoir les reconnaître, c'est savoir ce que le moteur a compris.
 
-| Vous tapez | La console répond | Ce que ça veut dire |
-|---|---|---|
-| `2 + 3` | `5` | une **valeur** : le résultat de l'instruction |
-| `console.log("Salut")` | `Salut`, puis `undefined` | la ligne écrite, puis la réponse : `console.log` écrit, mais ne rend aucune valeur, d'où **`undefined`** (« pas de valeur ») |
-| `Bonjour` | `ReferenceError: Bonjour is not defined` | une **erreur**, en rouge : sans guillemets, le moteur cherche une variable nommée `Bonjour`, et n'en trouve pas |
-| `"Bonjour` | une `SyntaxError` | une erreur de syntaxe : le texte n'est jamais refermé |
+```scene
+lesson: assets/console.scene.json
+step: reponses
+```
 
-Une erreur en rouge n'est pas le pire des cas. Tapez `3,5 + 1` : la console répond `6`, sans aucun message. La virgule n'est pas un séparateur décimal en JavaScript ; le moteur lit « 3, puis 5 + 1 » et garde le dernier. **Un résultat faux et silencieux** est plus dangereux qu'une erreur, parce que rien ne vous alerte.
+Une **valeur** est le résultat ; **`undefined`** veut dire « pas de valeur » (`console.log` écrit, mais ne rend rien) ; une **erreur**, en rouge, nomme en anglais ce qui manque : `is not defined`, « n'est pas défini ». La lire avant de relire son code fait gagner beaucoup de temps.
 
-> 💡 **Remarque.** Le message d'erreur est en anglais et nomme ce qui manque : `is not defined` (« n'est pas défini »). Lire ce message avant de relire son code fait gagner beaucoup de temps.
+Le dernier cas de la scène est le plus dangereux : `3,5 + 1` répond `6`, sans aucun message. Le moteur lit « 3, puis 5 + 1 » et garde le dernier. **Un résultat faux et silencieux** est pire qu'une erreur, parce que rien ne vous alerte.
+
+## À toi : le piège des guillemets
+
+Tu veux que la console écrive le mot Bonjour. Sans guillemets, le moteur cherche une variable `Bonjour` ; avec un seul, le texte n'est jamais refermé. Complète l'instruction.
+
+```fill
+place: stage
+text: "Pour écrire le mot Bonjour dans la console : `console.log(_____Bonjour_____)`."
+blanks:
+  - answers: ['"', "'"]
+    hint: "Un texte s'ouvre par un guillemet, double ou simple."
+  - answers: ['"', "'"]
+    hint: Et se referme par le même guillemet.
+```
 
 ## Le texte et les nombres : `"5" + 3`
 
 Toute valeur a un **type**, que donne `typeof` : `typeof 25` répond `"number"` (un nombre), `typeof "25"` répond `"string"` (une chaîne de caractères, du texte), `typeof true` répond `"boolean"` (vrai ou faux). Les guillemets décident : `25` est un nombre, `"25"` est un texte qui contient deux chiffres.
 
-Ce n'est pas un détail. Quand un `+` voit un texte d'un côté, il **assemble** au lieu d'additionner : `"5" + 3` donne `"53"`. Or tout ce qu'un visiteur saisit arrive sous forme de texte. La fonction **`prompt("Quel âge avez-vous ?")`** ouvre une boîte de dialogue avec un champ, et rend ce qu'on y a tapé : du texte, toujours, même s'il ne contient que des chiffres (ou `null` si l'on clique sur Annuler). Pour calculer, on convertit avec **`Number(…)`** : `Number("25")` vaut le nombre `25`.
+```scene
+lesson: assets/console.scene.json
+step: types
+```
 
-Les boîtes de dialogue (`alert` pour un message, `confirm` pour OK ou Annuler, `prompt` pour une saisie) attendent une réponse humaine, que les vérifications ne savent pas donner : vous les utiliserez dans le lab. Ici, `script.js` contient déjà une variable `ageSaisi`, avec la valeur que `prompt` aurait rendue pour quelqu'un qui tape 25. Tapez les trois instructions dans la console, et regardez ce que donne la première.
+Ce n'est pas un détail. Quand un `+` voit un texte d'un côté, il **assemble** au lieu d'additionner : `"5" + 3` donne `"53"`, sans erreur. Pour calculer, on convertit d'abord avec **`Number(…)`** : `Number("5")` vaut le nombre `5`, et `Number("5") + 3` donne `8`.
+
+## À toi : le piège du texte qui ressemble à un nombre
+
+Tout ce qu'un visiteur saisit arrive sous forme de texte. La fonction **`prompt("Quel âge avez-vous ?")`** ouvre une boîte de dialogue avec un champ, et rend ce qu'on y a tapé : du texte, toujours, même s'il ne contient que des chiffres (ou `null` si l'on clique sur Annuler).
+
+Les boîtes de dialogue (`alert`, `confirm`, `prompt`) attendent une réponse humaine, que les vérifications ne savent pas donner. Ici, `script.js` contient déjà une variable `ageSaisi`, avec la valeur que `prompt` aurait rendue pour quelqu'un qui tape 25. Tape les trois instructions dans la console, et regarde ce que donne la première.
 
 ```playground
 runtime: web
@@ -145,26 +170,27 @@ verify:
 solution: assets/texte.solution
 ```
 
-`ageSaisi + 1` donne `251` : le `+` a vu un texte, il a collé le `1` au bout. Pas d'erreur, juste un résultat faux. Après `Number(ageSaisi)`, le `+` voit deux nombres et additionne. Ce piège revient dans tout le cours, à chaque saisie.
+`ageSaisi + 1` donne `251` : le `+` a vu un texte, il a collé le `1` au bout. Pas d'erreur, juste un résultat faux. Après `Number(ageSaisi)`, le `+` voit deux nombres et additionne. Ce piège revient à chaque saisie d'un visiteur.
 
 ## Ranger une valeur : `let` et `const`
 
-Une **variable** est un nom qui désigne une valeur, pour la réutiliser plus loin. On la crée avec un mot-clé, puis le signe `=`, qui **range** la valeur à droite dans le nom à gauche (ce n'est pas une égalité au sens des maths) :
+Une **variable** est un nom qui désigne une valeur, pour la réutiliser plus loin. On la crée avec un mot-clé, puis le signe `=`, qui **range** la valeur de droite dans le nom de gauche : ce n'est pas une égalité au sens des maths.
 
-```javascript
-const PRIX_ABONNEMENT = 24; // une constante : sa valeur ne changera pas
-let nombreEmprunts = 3;     // une variable : sa valeur pourra changer
-nombreEmprunts = nombreEmprunts + 1; // on reprend la valeur actuelle, on ajoute 1, on range : 4
+```scene
+lesson: assets/console-plan.scene.json
+step: variables
 ```
 
-| Mot-clé | Ce qu'il crée | Changer la valeur ensuite |
-|---|---|---|
-| **`const`** | une constante | interdit : `TypeError: Assignment to constant variable.` |
-| **`let`** | une variable modifiable | permis, sans réécrire `let` |
+| Mot-clé | Ce qu'il crée |
+|---|---|
+| **`const`** | une constante : changer sa valeur est refusé, `TypeError: Assignment to constant variable.` |
+| **`let`** | une variable modifiable : on change sa valeur sans réécrire `let` |
 
-Le bon réflexe : `const` par défaut, `let` seulement quand la valeur doit changer. Le moteur vous protège alors d'un changement par erreur. Le `;` termine une instruction, et `//` commence un commentaire, que le moteur ignore.
+Le bon réflexe : `const` par défaut, `let` seulement quand la valeur doit changer. Le `;` termine une instruction, et `//` commence un commentaire, que le moteur ignore.
 
-Les deux lignes de départ sont dans `script.js`. Dans la console, ajoutez 1 à `nombreEmprunts`, affichez le résultat, puis essayez de changer `PRIX_ABONNEMENT`, pour lire l'erreur.
+## À toi : une variable qui change, une constante qui refuse
+
+Les deux lignes de départ sont dans `script.js` : `const PRIX_ABONNEMENT = 24;` et `let nombreEmprunts = 3;`. Dans la console, ajoute 1 à `nombreEmprunts`, affiche le résultat, puis essaie de changer `PRIX_ABONNEMENT`, pour lire l'erreur.
 
 ```playground
 runtime: web
@@ -195,7 +221,7 @@ verify:
 solution: assets/variables.solution
 ```
 
-Tapez ensuite `PRIX_ABONNEMENT = 30` : la console répond en rouge `TypeError: Assignment to constant variable.` C'est `const` qui fait son travail.
+Tape ensuite `PRIX_ABONNEMENT = 30` : la console répond en rouge. C'est `const` qui fait son travail.
 
 > 💡 **Remarque.** Dans la console de l'exercice, une variable créée avec `let` ou `const` sur une ligne n'est plus visible à la ligne suivante ; la console du navigateur, elle, la garde. C'est pourquoi les variables de ces exercices sont créées dans `script.js`.
 

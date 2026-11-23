@@ -1,0 +1,1050 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "box-model-plan",
+ "title": "Le modèle de boîte (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "y",
+   "label": "fond de l'élément"
+  },
+  {
+   "tone": "b",
+   "label": "bordure"
+  },
+  {
+   "tone": "r",
+   "label": "déborde, ignoré"
+  },
+  {
+   "tone": "g",
+   "label": "tient"
+  }
+ ],
+ "entities": [
+  {
+   "id": "parent",
+   "kind": "layer",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    21,
+    15.5,
+    1
+   ],
+   "title": "le parent"
+  },
+  {
+   "id": "margin",
+   "kind": "zone",
+   "at": [
+    0,
+    -1.4
+   ],
+   "size": [
+    17,
+    10.2
+   ],
+   "in": "parent",
+   "label": "margin"
+  },
+  {
+   "id": "border",
+   "kind": "layer",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "b",
+   "size": [
+    14,
+    7.8,
+    1
+   ],
+   "in": "margin",
+   "title": "border"
+  },
+  {
+   "id": "padding",
+   "kind": "layer",
+   "at": [
+    0,
+    0.85
+   ],
+   "tone": "y",
+   "size": [
+    12.8,
+    5.2,
+    1
+   ],
+   "in": "border",
+   "title": "padding"
+  },
+  {
+   "id": "content",
+   "kind": "node",
+   "at": [
+    0,
+    0.6
+   ],
+   "tone": "y",
+   "size": [
+    8,
+    2.0,
+    1
+   ],
+   "in": "padding",
+   "title": "contenu",
+   "sub": "width: 300px"
+  },
+  {
+   "id": "voisine",
+   "kind": "node",
+   "at": [
+    0,
+    4.6
+   ],
+   "tone": "v",
+   "size": [
+    12,
+    1.8,
+    1
+   ],
+   "in": "parent",
+   "title": "la carte voisine"
+  },
+  {
+   "id": "s-page",
+   "kind": "layer",
+   "at": [
+    0,
+    0.4
+   ],
+   "tone": "n",
+   "size": [
+    16,
+    16,
+    1
+   ],
+   "title": "la page affichée"
+  },
+  {
+   "id": "s-c1",
+   "kind": "layer",
+   "at": [
+    0,
+    -2.2
+   ],
+   "tone": "n",
+   "size": [
+    11.8,
+    4.0,
+    1
+   ],
+   "in": "s-page",
+   "title": "carte 1"
+  },
+  {
+   "id": "s-t1",
+   "kind": "node",
+   "at": [
+    0,
+    0.8
+   ],
+   "tone": "v",
+   "size": [
+    11.4,
+    2.2,
+    1
+   ],
+   "in": "s-c1",
+   "title": "Emprunter",
+   "sub": "le texte touche le bord"
+  },
+  {
+   "id": "s-c2",
+   "kind": "layer",
+   "at": [
+    0,
+    1.8
+   ],
+   "tone": "n",
+   "size": [
+    11.8,
+    4.0,
+    1
+   ],
+   "in": "s-page",
+   "title": "carte 2"
+  },
+  {
+   "id": "s-t2",
+   "kind": "node",
+   "at": [
+    0,
+    0.8
+   ],
+   "tone": "v",
+   "size": [
+    11.4,
+    2.2,
+    1
+   ],
+   "in": "s-c2",
+   "title": "Travailler sur place",
+   "sub": "le texte touche le bord"
+  },
+  {
+   "id": "s-gap",
+   "kind": "zone",
+   "at": [
+    0,
+    0.35
+   ],
+   "size": [
+    13.4,
+    1.3
+   ],
+   "in": "s-page",
+   "label": "margin-bottom : 24px"
+  },
+  {
+   "id": "col",
+   "kind": "zone",
+   "at": [
+    0,
+    0
+   ],
+   "size": [
+    10.0,
+    9
+   ],
+   "label": "la colonne : 300 px"
+  },
+  {
+   "id": "card",
+   "kind": "layer",
+   "at": [
+    0.833333333333333,
+    1.4
+   ],
+   "tone": "r",
+   "size": [
+    11.666666666666666,
+    4.6,
+    1
+   ],
+   "in": "col",
+   "title": "la carte",
+   "sub": "width: 300px; padding: 20px; border: 5px"
+  },
+  {
+   "id": "card-c",
+   "kind": "node",
+   "at": [
+    0,
+    0.7
+   ],
+   "tone": "y",
+   "size": [
+    10.0,
+    1.8,
+    1
+   ],
+   "in": "card",
+   "title": "contenu : 300 px"
+  },
+  {
+   "id": "i1",
+   "kind": "node",
+   "at": [
+    -9.0,
+    -4.0
+   ],
+   "tone": "n",
+   "size": [
+    13.0,
+    1.6,
+    1
+   ],
+   "title": "<div>Tarifs</div>"
+  },
+  {
+   "id": "i2",
+   "kind": "node",
+   "at": [
+    -9.0,
+    -2.0
+   ],
+   "tone": "n",
+   "size": [
+    13.0,
+    1.6,
+    1
+   ],
+   "title": "<p>Le pass :"
+  },
+  {
+   "id": "i3",
+   "kind": "node",
+   "at": [
+    -8.1,
+    0.0
+   ],
+   "tone": "n",
+   "size": [
+    11.2,
+    1.6,
+    1
+   ],
+   "title": "<span class=\"prix\">5 €</span>"
+  },
+  {
+   "id": "i4",
+   "kind": "node",
+   "at": [
+    -8.1,
+    2.0
+   ],
+   "tone": "n",
+   "size": [
+    11.2,
+    1.6,
+    1
+   ],
+   "title": "par mois.</p>"
+  },
+  {
+   "id": "i5",
+   "kind": "node",
+   "at": [
+    -9.0,
+    4.0
+   ],
+   "tone": "n",
+   "size": [
+    13.0,
+    1.6,
+    1
+   ],
+   "title": ".prix { width: 100px; }"
+  },
+  {
+   "id": "i-page",
+   "kind": "layer",
+   "at": [
+    9,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    15,
+    11,
+    1
+   ],
+   "title": "la page affichée"
+  },
+  {
+   "id": "i-div",
+   "kind": "node",
+   "at": [
+    0,
+    -2.6
+   ],
+   "tone": "v",
+   "size": [
+    13.4,
+    1.8,
+    1
+   ],
+   "in": "i-page",
+   "title": "Tarifs",
+   "sub": "toute la largeur"
+  },
+  {
+   "id": "i-p",
+   "kind": "layer",
+   "at": [
+    0,
+    2.0
+   ],
+   "tone": "n",
+   "size": [
+    13.4,
+    4.2,
+    1
+   ],
+   "in": "i-page",
+   "title": "<p>, une ligne de texte"
+  },
+  {
+   "id": "i-w1",
+   "kind": "node",
+   "at": [
+    -4.4,
+    0.6
+   ],
+   "tone": "v",
+   "size": [
+    3.8,
+    1.6,
+    1
+   ],
+   "in": "i-p",
+   "title": "Le pass :"
+  },
+  {
+   "id": "i-badge",
+   "kind": "node",
+   "at": [
+    -1.6,
+    0.6
+   ],
+   "tone": "y",
+   "size": [
+    1.6,
+    1.6,
+    1
+   ],
+   "in": "i-p",
+   "title": "5 €"
+  },
+  {
+   "id": "i-w2",
+   "kind": "node",
+   "at": [
+    1.6,
+    0.6
+   ],
+   "tone": "v",
+   "size": [
+    4.0,
+    1.6,
+    1
+   ],
+   "in": "i-p",
+   "title": "par mois."
+  }
+ ],
+ "steps": [
+  {
+   "id": "couches",
+   "label": "Quatre couches",
+   "title": "Une boîte en quatre couches",
+   "body": [
+    "Le contenu, le padding, la bordure, la marge : on lit la boîte de l'intérieur vers l'extérieur."
+   ],
+   "hud": [
+    {
+     "label": "largeur occupée",
+     "value": "300 px"
+    }
+   ],
+   "show": [
+    "parent",
+    {
+     "id": "margin",
+     "dim": true
+    },
+    {
+     "id": "border",
+     "dim": true
+    },
+    {
+     "id": "padding",
+     "dim": true
+    },
+    "content",
+    "voisine"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "content",
+       "label": "le texte, l'image"
+      }
+     ],
+     "say": "Au centre, le contenu : `width` et `height` règlent sa taille, ici 300 px de large."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "padding",
+       "dim": null,
+       "label": "20px · le fond s'y étend"
+      }
+     ],
+     "hud": [
+      {
+       "label": "largeur occupée",
+       "value": "340 px"
+      }
+     ],
+     "say": "Le padding éloigne le contenu du bord ; le fond de l'élément s'étend dedans."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "border",
+       "dim": null,
+       "label": "5px solid"
+      }
+     ],
+     "hud": [
+      {
+       "label": "largeur occupée",
+       "value": "350 px"
+      }
+     ],
+     "say": "La bordure entoure le padding : une épaisseur, un style, une couleur."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "margin",
+       "dim": null
+      },
+      {
+       "id": "voisine",
+       "at": [
+        0,
+        5.9
+       ]
+      }
+     ],
+     "hud": [
+      {
+       "label": "largeur occupée",
+       "value": "350 px + marges"
+      }
+     ],
+     "say": "La marge est dehors, transparente : elle écarte la voisine, et le fond du parent s'y voit.",
+     "ms": 1000
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "espaces",
+   "label": "Dedans, dehors",
+   "title": "Padding dedans, marge dehors",
+   "body": [
+    "La règle `.carte`, ligne par ligne, sur deux cartes collées. La question à se poser : le fond de la carte doit-il s'étendre dans cet espace ?"
+   ],
+   "hud": [
+    {
+     "label": "bordure",
+     "value": "invisible"
+    }
+   ],
+   "show": [
+    "s-page",
+    "s-c1",
+    "s-t1",
+    "s-c2",
+    "s-t2"
+   ],
+   "links": [],
+   "widgets": [
+    {
+     "kind": "editor",
+     "title": "style.css",
+     "lang": "text",
+     "lines": [
+      ".carte {",
+      "  background-color: rgb(255, 255, 255);",
+      "  border: 2px solid rgb(11, 107, 203);",
+      "  padding: 16px;",
+      "  margin-bottom: 24px;",
+      "}"
+     ]
+    }
+   ],
+   "script": [
+    {
+     "do": "line",
+     "n": 1
+    },
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "s-c1",
+       "label": "rien ne les sépare"
+      }
+     ],
+     "say": "Deux cartes collées : leur texte touche le bord, et rien ne les sépare."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "line",
+     "n": 3
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "s-c1",
+       "tone": "b",
+       "label": "2px solid"
+      },
+      {
+       "id": "s-c2",
+       "tone": "b",
+       "label": "2px solid"
+      }
+     ],
+     "hud": [
+      {
+       "label": "bordure",
+       "value": "2px solid",
+       "tone": "b"
+      }
+     ],
+     "say": "La bordure : une épaisseur, le style `solid` et une couleur. Sans le style, elle reste invisible."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "line",
+     "n": 4
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "s-c1",
+       "at": [
+        0,
+        -3.2
+       ],
+       "size": [
+        13.4,
+        5.6,
+        1
+       ],
+       "label": "padding : le fond s'étend"
+      },
+      {
+       "id": "s-c2",
+       "at": [
+        0,
+        2.4
+       ],
+       "size": [
+        13.4,
+        5.6,
+        1
+       ],
+       "label": null
+      },
+      {
+       "id": "s-t1",
+       "at": [
+        0,
+        0.6
+       ],
+       "sub": "loin du bord"
+      },
+      {
+       "id": "s-t2",
+       "at": [
+        0,
+        0.6
+       ],
+       "sub": "loin du bord"
+      }
+     ],
+     "hud": [
+      {
+       "label": "padding",
+       "value": "16px",
+       "tone": "y"
+      }
+     ],
+     "say": "Le **padding** éloigne le texte du bord. Le fond de la carte s'étend dans cet espace : c'est dedans.",
+     "ms": 1000
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "line",
+     "n": 5
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s-gap"
+     ],
+     "set": [
+      {
+       "id": "s-c2",
+       "at": [
+        0,
+        3.9
+       ]
+      }
+     ],
+     "hud": [
+      {
+       "label": "margin-bottom",
+       "value": "24px",
+       "tone": "n"
+      }
+     ],
+     "say": "La **marge** écarte la carte suivante. Le gris de la page apparaît entre les deux : c'est dehors.",
+     "ms": 1000
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "largeur",
+   "label": "La vraie largeur",
+   "title": "width ne règle que le contenu",
+   "body": [
+    "Par défaut, `width` ne règle que le contenu : padding et bordure s'ajoutent autour."
+   ],
+   "hud": [
+    {
+     "label": "width",
+     "value": "300px"
+    },
+    {
+     "label": "occupée",
+     "value": "?"
+    },
+    {
+     "label": "box-sizing",
+     "value": "content-box"
+    }
+   ],
+   "show": [
+    "col",
+    "card",
+    "card-c"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "card-c",
+       "label": "width = le contenu"
+      }
+     ],
+     "say": "Par défaut, `width: 300px` règle le contenu seul : il remplit déjà les 300 px de la colonne."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "card",
+       "label": "déborde de 50 px"
+      }
+     ],
+     "hud": [
+      {
+       "label": "occupée",
+       "value": "350 px",
+       "tone": "r"
+      }
+     ],
+     "say": "Le padding et la bordure s'ajoutent des deux côtés : 300 + 20 + 20 + 5 + 5 = 350 px."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "borderbox",
+   "label": "border-box",
+   "title": "box-sizing: border-box",
+   "body": [
+    "Avec `box-sizing: border-box`, `width` désigne toute la boîte, padding et bordure compris."
+   ],
+   "hud": [
+    {
+     "label": "width",
+     "value": "300px"
+    },
+    {
+     "label": "occupée",
+     "value": "350 px",
+     "tone": "r"
+    },
+    {
+     "label": "box-sizing",
+     "value": "content-box"
+    }
+   ],
+   "show": [
+    "col",
+    {
+     "id": "card",
+     "label": "déborde de 50 px"
+    },
+    "card-c"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "card",
+       "at": [
+        0,
+        1.4
+       ],
+       "size": [
+        10.0,
+        4.6,
+        1
+       ],
+       "tone": "g",
+       "label": null
+      },
+      {
+       "id": "card-c",
+       "size": [
+        8.333333333333334,
+        1.8,
+        1
+       ],
+       "title": "contenu : 250 px"
+      }
+     ],
+     "hud": [
+      {
+       "label": "box-sizing",
+       "value": "border-box",
+       "tone": "g"
+      },
+      {
+       "label": "occupée",
+       "value": "300 px",
+       "tone": "g"
+      }
+     ],
+     "say": "Avec `box-sizing: border-box`, `width` désigne toute la boîte : le contenu se réduit à 250 px.",
+     "ms": 1100
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "card",
+       "label": "tient dans les 300 px"
+      }
+     ],
+     "say": "La carte tient exactement dans sa colonne, padding et bordure compris."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "inline",
+   "label": "Bloc ou en ligne",
+   "title": "Un bloc, et une boîte en ligne",
+   "body": [
+    "Le code à gauche, ce que le navigateur affiche à droite. Un `<span>` ne se comporte pas comme un `<div>`."
+   ],
+   "hud": [
+    {
+     "label": "display du span",
+     "value": "inline"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "i1",
+    "i2",
+    "i3",
+    "i4",
+    "i5",
+    "i-page"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "i-div"
+     ],
+     "link": [
+      {
+       "from": "i1",
+       "to": "i-div"
+      }
+     ],
+     "say": "Un élément **bloc**, comme `<div>`, prend toute la largeur et commence sur une nouvelle ligne."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "show": [
+      "i-p",
+      "i-w1",
+      "i-badge",
+      "i-w2"
+     ],
+     "link": [
+      {
+       "from": "i3",
+       "to": "i-badge"
+      }
+     ],
+     "say": "Un élément **en ligne** (*inline*), comme `<span>`, se glisse dans le texte, à la suite des mots."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "i-badge",
+       "tone": "r"
+      }
+     ],
+     "link": [
+      {
+       "from": "i5",
+       "to": "i-badge"
+      }
+     ],
+     "hud": [
+      {
+       "label": "width",
+       "value": "ignorée",
+       "tone": "r"
+      }
+     ],
+     "say": "La règle demande 100 px. Le `<span>` l'ignore : il garde la largeur de son texte."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "i-badge",
+       "at": [
+        -0.4,
+        0.6
+       ],
+       "size": [
+        4.0,
+        1.6,
+        1
+       ],
+       "tone": "g",
+       "label": "100 px"
+      },
+      {
+       "id": "i-w2",
+       "at": [
+        4.1,
+        0.6
+       ]
+      }
+     ],
+     "hud": [
+      {
+       "label": "display du span",
+       "value": "inline-block",
+       "tone": "g"
+      },
+      {
+       "label": "width",
+       "value": "100px",
+       "tone": "g"
+      }
+     ],
+     "say": "Avec `display: inline-block`, il reste dans la ligne et accepte enfin sa largeur.",
+     "ms": 1000
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

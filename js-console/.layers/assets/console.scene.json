@@ -1,0 +1,621 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "js-console",
+ "title": "La console JavaScript",
+ "lang": "fr",
+ "kit": "feuillete",
+ "legend": [
+  {
+   "tone": "g",
+   "label": "une valeur"
+  },
+  {
+   "tone": "n",
+   "label": "pas de valeur"
+  },
+  {
+   "tone": "r",
+   "label": "une erreur"
+  },
+  {
+   "tone": "y",
+   "label": "texte"
+  },
+  {
+   "tone": "b",
+   "label": "nombre"
+  }
+ ],
+ "entities": [
+  {
+   "id": "nav",
+   "kind": "layer",
+   "at": [
+    0.0,
+    0.0
+   ],
+   "size": [
+    5.2,
+    5.2,
+    0.55
+   ],
+   "tone": "n",
+   "title": "navigateur",
+   "detail": "Le **navigateur** (Chrome, Firefox, Safari, Edge) dessine les pages, et il contient aussi un moteur JavaScript."
+  },
+  {
+   "id": "console",
+   "kind": "node",
+   "in": "nav",
+   "at": [
+    -0.45,
+    1.85,
+    0.55
+   ],
+   "tone": "i",
+   "title": "console",
+   "icon": ">_",
+   "detail": "La **console** fait partie des outils de développement du navigateur (F12). On y tape une instruction, le moteur répond sur la ligne suivante."
+  },
+  {
+   "id": "moteur",
+   "kind": "node",
+   "in": "nav",
+   "at": [
+    0.45,
+    -1.85,
+    0.55
+   ],
+   "tone": "v",
+   "title": "moteur JavaScript",
+   "icon": "JS",
+   "detail": "Le **moteur JavaScript** lit une instruction et l'exécute tout de suite : c'est un **interpréteur**."
+  },
+  {
+   "id": "vous",
+   "kind": "actor",
+   "at": [
+    0.5,
+    6.5
+   ],
+   "label": "vous"
+  },
+  {
+   "id": "v5",
+   "kind": "file",
+   "at": [
+    1.5,
+    6.5
+   ],
+   "tone": "y",
+   "title": "\"5\"",
+   "detail": "Entre guillemets, `\"5\"` est un **texte** (type `string`) qui contient un chiffre."
+  },
+  {
+   "id": "v3",
+   "kind": "file",
+   "at": [
+    6.5,
+    1.5
+   ],
+   "tone": "b",
+   "title": "3",
+   "detail": "Sans guillemets, `3` est un **nombre** (type `number`)."
+  },
+  {
+   "id": "plus",
+   "kind": "program",
+   "at": [
+    0.0,
+    0.0
+   ],
+   "tone": "v",
+   "title": "+",
+   "detail": "Le `+` regarde le type de ses deux valeurs : deux nombres, il additionne ; un texte d'un côté, il **assemble**."
+  },
+  {
+   "id": "res",
+   "kind": "file",
+   "at": [
+    -4.0,
+    -4.0
+   ],
+   "tone": "y",
+   "title": "\"53\""
+  }
+ ],
+ "steps": [
+  {
+   "id": "moteur",
+   "label": "Le moteur",
+   "title": "La console parle au moteur JavaScript",
+   "body": [
+    "Tu tapes une instruction dans la console : le moteur JavaScript du navigateur l'exécute et répond aussitôt."
+   ],
+   "labels": "left",
+   "show": [
+    "nav",
+    "console",
+    "moteur",
+    "vous"
+   ],
+   "links": [
+    {
+     "from": "vous",
+     "to": "console"
+    },
+    {
+     "from": "console",
+     "to": "moteur"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "vous",
+      "console",
+      "moteur"
+     ],
+     "label": "6 * 7",
+     "reply": "42",
+     "explain": [
+      "Tu tapes `6 * 7` dans la console et tu appuies sur Entrée.",
+      "La console passe l'instruction au **moteur JavaScript**, dans le navigateur.",
+      "Le moteur l'exécute tout de suite et répond : `42`."
+     ],
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "console",
+       "label": "42"
+      }
+     ],
+     "say": "La réponse s'affiche sur la ligne suivante : rien à installer, rien à compiler."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "send",
+     "path": [
+      "vous",
+      "console",
+      "moteur"
+     ],
+     "label": "\"Bon\" + \"jour\"",
+     "reply": "\"Bonjour\"",
+     "explain": [
+      "Tu tapes deux textes reliés par un `+`.",
+      "Le moteur reçoit l'instruction.",
+      "Entre deux textes, le `+` assemble : `\"Bonjour\"`."
+     ],
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "console",
+       "label": "\"Bonjour\""
+      }
+     ],
+     "say": "Entre deux textes, le `+` ne calcule pas : il assemble."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "console",
+       "label": null,
+       "note": "vide après rechargement"
+      }
+     ],
+     "say": "Tu recharges la page : la console repart vide, rien n'a été enregistré.",
+     "ms": 900
+    },
+    {
+     "do": "wait",
+     "ms": 2200
+    }
+   ]
+  },
+  {
+   "id": "reponses",
+   "label": "Trois réponses",
+   "title": "Une valeur, undefined ou une erreur",
+   "body": [
+    "Chaque instruction reçoit une réponse, et il n'en existe que trois sortes."
+   ],
+   "hud": [
+    {
+     "label": "réponse",
+     "value": "—"
+    },
+    {
+     "label": "message rouge",
+     "value": "—"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "nav",
+    "console",
+    "moteur",
+    "vous"
+   ],
+   "links": [
+    {
+     "from": "vous",
+     "to": "console"
+    },
+    {
+     "from": "console",
+     "to": "moteur"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 700
+    },
+    {
+     "do": "send",
+     "path": [
+      "vous",
+      "console",
+      "moteur"
+     ],
+     "label": "2 + 3",
+     "reply": "5",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "console",
+       "label": "5"
+      }
+     ],
+     "hud": [
+      {
+       "label": "réponse",
+       "value": "une valeur",
+       "tone": "g"
+      },
+      {
+       "label": "message rouge",
+       "value": "non",
+       "tone": null
+      }
+     ],
+     "say": "`2 + 3` : le moteur répond par une **valeur**, le résultat."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "send",
+     "path": [
+      "vous",
+      "console",
+      "moteur"
+     ],
+     "label": "console.log(\"Salut\")",
+     "reply": "undefined",
+     "tone": "n"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "console",
+       "label": "Salut, puis undefined"
+      }
+     ],
+     "hud": [
+      {
+       "label": "réponse",
+       "value": "undefined",
+       "tone": "n"
+      }
+     ],
+     "say": "`console.log` écrit `Salut`, mais ne rend rien : la réponse est `undefined`, « pas de valeur »."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "send",
+     "path": [
+      "vous",
+      "console",
+      "moteur"
+     ],
+     "label": "Bonjour",
+     "reply": "ReferenceError",
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "console",
+       "label": "Bonjour is not defined"
+      }
+     ],
+     "hud": [
+      {
+       "label": "réponse",
+       "value": "une erreur",
+       "tone": "r"
+      },
+      {
+       "label": "message rouge",
+       "value": "oui",
+       "tone": "r"
+      }
+     ],
+     "say": "`Bonjour` sans guillemets : le moteur cherche une variable de ce nom, et répond par une **erreur** en rouge."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "send",
+     "path": [
+      "vous",
+      "console",
+      "moteur"
+     ],
+     "label": "\"Bonjour",
+     "reply": "SyntaxError",
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "console",
+       "label": "SyntaxError"
+      }
+     ],
+     "say": "`\"Bonjour` : le texte n'est jamais refermé. Le moteur ne sait pas lire la ligne : une **erreur de syntaxe**."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "send",
+     "path": [
+      "vous",
+      "console",
+      "moteur"
+     ],
+     "label": "3,5 + 1",
+     "reply": "6",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "console",
+       "label": "6, sans message"
+      }
+     ],
+     "hud": [
+      {
+       "label": "réponse",
+       "value": "une valeur fausse",
+       "tone": "g"
+      },
+      {
+       "label": "message rouge",
+       "value": "non",
+       "tone": null
+      }
+     ],
+     "say": "Le pire : `3,5 + 1` répond `6`, sans message. La virgule n'est pas un séparateur décimal."
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "types",
+   "label": "\"5\" + 3",
+   "title": "Le + regarde le type des valeurs",
+   "body": [
+    "Un texte d'un côté, et le `+` assemble au lieu d'additionner."
+   ],
+   "hud": [
+    {
+     "label": "à gauche",
+     "value": "texte",
+     "tone": "y"
+    },
+    {
+     "label": "à droite",
+     "value": "nombre",
+     "tone": "b"
+    }
+   ],
+   "show": [
+    "v5",
+    "v3",
+    "plus"
+   ],
+   "links": [
+    {
+     "from": "v5",
+     "to": "plus"
+    },
+    {
+     "from": "v3",
+     "to": "plus"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "v5",
+       "label": "texte"
+      },
+      {
+       "id": "v3",
+       "label": "nombre"
+      }
+     ],
+     "say": "Deux valeurs : `\"5\"`, entre guillemets, est un **texte** ; `3` est un **nombre**."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "send",
+     "path": [
+      "v5",
+      "plus"
+     ],
+     "tone": "y"
+    },
+    {
+     "do": "send",
+     "path": [
+      "v3",
+      "plus"
+     ],
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "res",
+       "title": "\"53\"",
+       "tone": "y"
+      }
+     ],
+     "link": [
+      {
+       "from": "plus",
+       "to": "res"
+      }
+     ],
+     "set": [
+      {
+       "id": "plus",
+       "label": "assemble"
+      }
+     ],
+     "say": "Le `+` voit un texte d'un côté : il **assemble**, `\"5\" + 3` donne `\"53\"`."
+    },
+    {
+     "do": "wait",
+     "ms": 1800
+    },
+    {
+     "do": "scene",
+     "hide": [
+      "res"
+     ],
+     "set": [
+      {
+       "id": "v5",
+       "title": "5",
+       "tone": "b",
+       "label": "Number(\"5\")"
+      },
+      {
+       "id": "plus",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "à gauche",
+       "value": "nombre",
+       "tone": "b"
+      }
+     ],
+     "say": "`Number(\"5\")` convertit le texte en nombre : le `5` perd ses guillemets.",
+     "ms": 900
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "send",
+     "path": [
+      "v5",
+      "plus"
+     ],
+     "tone": "b"
+    },
+    {
+     "do": "send",
+     "path": [
+      "v3",
+      "plus"
+     ],
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "res",
+       "title": "8",
+       "tone": "b"
+      }
+     ],
+     "link": [
+      {
+       "from": "plus",
+       "to": "res"
+      }
+     ],
+     "set": [
+      {
+       "id": "plus",
+       "label": "additionne"
+      }
+     ],
+     "say": "Deux nombres : cette fois, le `+` **additionne**, `5 + 3` donne `8`."
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  }
+ ]
+}

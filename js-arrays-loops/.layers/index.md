@@ -6,7 +6,7 @@ tags:
   - javascript
   - web
 difficulty: beginner
-duration: 15
+duration: 20
 requires: "0.9.0"
 ---
 
@@ -29,23 +29,37 @@ console.log(fruits[2]);      // Cerise : la troisième case
 console.log(fruits.length);  // 5 : le nombre de cases
 ```
 
-| Écriture | Valeur | Pourquoi |
-|---|---|---|
-| `fruits[0]` | `"Pomme"` | la première case porte l'index 0 |
-| `fruits.length` | `5` | `length` donne le nombre de cases |
-| `fruits[fruits.length - 1]` | `"Poire"` | la dernière case porte l'index `length - 1`, ici 4 |
-| `fruits[5]` | `undefined` | la case n'existe pas : pas d'erreur, juste « pas de valeur » |
-| `fruits.push("Kiwi")` | ajoute `"Kiwi"` à la fin | `length` passe à 6, même avec `const` |
+Chaque case se lit par son index : la première porte le numéro 0, la dernière `length - 1`.
 
-Avec `const`, on ne peut pas remplacer le tableau par un autre, mais on peut changer ce qu'il contient : `push` est permis. Une case qui n'existe pas rend `undefined` sans prévenir, ce qui prépare le piège de la section suivante.
+```scene
+lesson: assets/loops.scene.json
+step: tableau
+```
+
+| Écriture | Valeur |
+|---|---|
+| `fruits[0]` | `"Pomme"` : la première case porte l'index 0 |
+| `fruits.length` | `5` : le nombre de cases |
+| `fruits[fruits.length - 1]` | `"Poire"` : la dernière case porte l'index `length - 1`, ici 4 |
+| `fruits[5]` | `undefined` : la case n'existe pas ; pas d'erreur, juste « pas de valeur » |
+| `fruits.push("Kiwi")` | ajoute `"Kiwi"` à la fin : `length` passe à 6, même avec `const` |
+
+Avec `const`, on ne peut pas remplacer le tableau par un autre, mais on peut changer ce qu'il contient : `push` est permis. Une case qui n'existe pas rend `undefined` sans prévenir, ce qui prépare le piège de la boucle `for`.
+
+## À toi : lis les cases
+
+Un autre tableau, les jours de la semaine : retrouve les index, en partant de 0.
 
 ```fill
-text: "Avec `const fruits = [\"Pomme\", \"Banane\", \"Cerise\", \"Mangue\", \"Poire\"];`, le troisième fruit s'écrit `fruits[_____]`, et le dernier `fruits[fruits.length - _____]`."
+place: stage
+text: "Avec `const jours = [\"lundi\", \"mardi\", \"mercredi\", \"jeudi\", \"vendredi\", \"samedi\", \"dimanche\"];`, le quatrième jour, jeudi, s'écrit `jours[_____]`, le dernier `jours[jours.length - _____]`, et `jours[7]` vaut `_____`."
 blanks:
-  - answers: [2]
-    hint: "L'index commence à 0 : la première case est fruits[0]."
+  - answers: [3]
+    hint: "L'index commence à 0 : lundi est jours[0]."
   - answers: [1]
-    hint: Cinq cases, numérotées de 0 à 4.
+    hint: Sept cases, numérotées de 0 à 6.
+  - answers: ["undefined"]
+    hint: "La case 7 n'existe pas : pas d'erreur, juste « pas de valeur »."
 ```
 
 ## La boucle `for` : répéter avec un compteur
@@ -58,6 +72,13 @@ for (let i = 0; i < fruits.length; i++) {
 }
 ```
 
+Voici cette boucle tour par tour : le compteur avance, le test se refait avant chaque tour.
+
+```scene
+lesson: assets/loops.scene.json
+step: for
+```
+
 Les parenthèses contiennent trois morceaux, séparés par des points-virgules :
 
 | Morceau | Rôle |
@@ -66,7 +87,9 @@ Les parenthèses contiennent trois morceaux, séparés par des points-virgules :
 | `i < fruits.length` | avant chaque tour : on continue tant que c'est vrai ; ici, jusqu'à la case 4 |
 | `i++` | après chaque tour : ajoute 1 au compteur (`i = i + 1`) |
 
-La boucle ci-dessous doit afficher les cinq fruits en majuscules, avec leur numéro de case. Elle en oublie un, puis s'arrête sur une erreur. Corrigez ses bornes : lisez d'abord la console.
+## À toi : la boucle qui saute une case
+
+La boucle ci-dessous doit afficher les cinq fruits en majuscules, avec leur numéro de case. Elle en oublie un, puis s'arrête sur une erreur. Corrige ses bornes : lis d'abord la console.
 
 ```playground
 runtime: web
@@ -127,7 +150,16 @@ for (const prix of [3, 5, 2]) {
 console.log(total); // 10
 ```
 
-Calculez la moyenne des notes du tableau `notes`, avec une boucle, sans écrire le total ni le nombre de notes à la main : le calcul doit rester juste si l'on ajoute une note.
+À chaque tour, la valeur suivante s'ajoute au total, qui garde la somme d'un tour à l'autre.
+
+```scene
+lesson: assets/loops.scene.json
+step: for-of
+```
+
+## À toi : la moyenne
+
+Calcule la moyenne des notes du tableau `notes`, avec une boucle, sans écrire le total ni le nombre de notes à la main : le calcul doit rester juste si l'on ajoute une note.
 
 ```playground
 runtime: web
@@ -180,11 +212,16 @@ while (compte > 0) {
 console.log("Décollage !");
 ```
 
-La console affiche `Décollage dans 3`, `2`, `1`, puis `Décollage !`. Tout repose sur la ligne `compte = compte - 1` : c'est elle qui finira par rendre la condition fausse. Sans elle, `compte` vaut toujours 3, et la boucle ne s'arrête **jamais**.
+Suivez-la tour par tour, puis la même sans sa dernière ligne :
 
-> ⚠️ **Une boucle sans fin fige l'onglet.** La page ne répond plus, parce que le moteur ne fait plus que tourner dans la boucle. Fermez l'onglet (Ctrl+W, Cmd+W sous macOS), corrigez le fichier, rouvrez la page : rien n'est cassé. Avant d'écrire un `while`, posez-vous la question : « qu'est-ce qui, dans le bloc, va rendre la condition fausse ? ». C'est aussi pourquoi aucun exercice de ce bit ne vous fait écrire de `while` : une boucle sans fin figerait l'aperçu. Le lab vous en fait écrire une, sur votre machine, avec le jeu de devinette qui redemande.
+```scene
+lesson: assets/loops.scene.json
+step: while
+```
 
-L'instruction **`break`** sort d'une boucle tout de suite, quelle que soit sa condition : utile quand le joueur clique sur Annuler.
+Tout repose sur la ligne `compte = compte - 1` : c'est elle qui finira par rendre la condition fausse.
+
+> ⚠️ **Une boucle sans fin fige l'onglet.** La page ne répond plus, parce que le moteur ne fait plus que tourner dans la boucle. Fermez l'onglet (Ctrl+W, Cmd+W sous macOS), corrigez le fichier, rouvrez la page : rien n'est cassé. Avant d'écrire un `while`, posez-vous la question : « qu'est-ce qui, dans le bloc, va rendre la condition fausse ? ». C'est aussi pourquoi aucun exercice de ce bit ne vous fait écrire de `while` : une boucle sans fin figerait l'aperçu. Écrivez votre première dans un fichier, sur votre machine.
 
 > 📖 [Les tableaux (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array) · [Boucles et itération (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Loops_and_iteration)
 

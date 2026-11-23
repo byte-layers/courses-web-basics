@@ -1,0 +1,1066 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "semantic-html-plan",
+ "title": "Le sens avant la forme (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "n",
+   "label": "sans sens"
+  },
+  {
+   "tone": "g",
+   "label": "à sa place"
+  },
+  {
+   "tone": "r",
+   "label": "mal placé"
+  },
+  {
+   "tone": "v",
+   "label": "lu ailleurs"
+  }
+ ],
+ "entities": [
+  {
+   "id": "page",
+   "kind": "layer",
+   "at": [
+    -7,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    13,
+    17,
+    1
+   ],
+   "title": "la page"
+  },
+  {
+   "id": "z-head",
+   "kind": "node",
+   "at": [
+    0,
+    -5.2
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    2.2,
+    1
+   ],
+   "in": "page",
+   "title": "div",
+   "sub": "Les Marcheurs du Dimanche"
+  },
+  {
+   "id": "z-nav",
+   "kind": "node",
+   "at": [
+    0,
+    -2.2
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    2.2,
+    1
+   ],
+   "in": "page",
+   "title": "div",
+   "sub": "Accueil · Sorties · Nous rejoindre"
+  },
+  {
+   "id": "z-main",
+   "kind": "node",
+   "at": [
+    0,
+    1.6
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    4.2,
+    1
+   ],
+   "in": "page",
+   "title": "div",
+   "sub": "Nos derniers récits"
+  },
+  {
+   "id": "z-foot",
+   "kind": "node",
+   "at": [
+    0,
+    5.6
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    2.2,
+    1
+   ],
+   "in": "page",
+   "title": "div",
+   "sub": "© 2026"
+  },
+  {
+   "id": "tree",
+   "kind": "layer",
+   "at": [
+    8,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    10,
+    17,
+    1
+   ],
+   "title": "arbre d'accessibilité",
+   "sub": "ce que lit un lecteur d'écran",
+   "detail": "Le navigateur tire de la page un **arbre d'accessibilité** : les zones et les titres, que les lecteurs d'écran annoncent et où ils permettent de sauter."
+  },
+  {
+   "id": "t-banner",
+   "kind": "node",
+   "at": [
+    0,
+    -5.2
+   ],
+   "tone": "v",
+   "size": [
+    8,
+    1.8,
+    1
+   ],
+   "in": "tree",
+   "title": "bannière",
+   "sub": "banner"
+  },
+  {
+   "id": "t-nav",
+   "kind": "node",
+   "at": [
+    0,
+    -2.2
+   ],
+   "tone": "v",
+   "size": [
+    8,
+    1.8,
+    1
+   ],
+   "in": "tree",
+   "title": "navigation"
+  },
+  {
+   "id": "t-main",
+   "kind": "node",
+   "at": [
+    0,
+    1.6
+   ],
+   "tone": "v",
+   "size": [
+    8,
+    1.8,
+    1
+   ],
+   "in": "tree",
+   "title": "principal",
+   "sub": "main"
+  },
+  {
+   "id": "t-foot",
+   "kind": "node",
+   "at": [
+    0,
+    5.6
+   ],
+   "tone": "v",
+   "size": [
+    8,
+    1.8,
+    1
+   ],
+   "in": "tree",
+   "title": "pied de page",
+   "sub": "contentinfo"
+  },
+  {
+   "id": "reader",
+   "kind": "actor",
+   "at": [
+    17,
+    1.6
+   ],
+   "label": "lecteur d'écran",
+   "detail": "Un **lecteur d'écran** lit la page à voix haute. Il propose de sauter de zone en zone, ou de titre en titre."
+  },
+  {
+   "id": "b-page",
+   "kind": "layer",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    25,
+    22,
+    1
+   ],
+   "title": "la page d'un récit"
+  },
+  {
+   "id": "b-header",
+   "kind": "layer",
+   "at": [
+    0,
+    -6.4
+   ],
+   "tone": "g",
+   "size": [
+    23,
+    4.2,
+    1
+   ],
+   "in": "b-page",
+   "title": "<header>",
+   "sub": "en-tête"
+  },
+  {
+   "id": "b-nav",
+   "kind": "node",
+   "at": [
+    0,
+    0.8
+   ],
+   "tone": "g",
+   "size": [
+    19,
+    1.6,
+    1
+   ],
+   "in": "b-header",
+   "title": "<nav>",
+   "sub": "navigation : le menu"
+  },
+  {
+   "id": "b-main",
+   "kind": "layer",
+   "at": [
+    -3.6,
+    1.8
+   ],
+   "tone": "g",
+   "size": [
+    15.4,
+    10.4,
+    1
+   ],
+   "in": "b-page",
+   "title": "<main>",
+   "sub": "principal"
+  },
+  {
+   "id": "b-article",
+   "kind": "layer",
+   "at": [
+    0,
+    0.9
+   ],
+   "tone": "g",
+   "size": [
+    13.4,
+    7.2,
+    1
+   ],
+   "in": "b-main",
+   "title": "<article>",
+   "sub": "Boucle des trois lacs"
+  },
+  {
+   "id": "b-sec1",
+   "kind": "node",
+   "at": [
+    0,
+    -0.4
+   ],
+   "tone": "g",
+   "size": [
+    11.4,
+    1.8,
+    1
+   ],
+   "in": "b-article",
+   "title": "<section>",
+   "sub": "Le parcours"
+  },
+  {
+   "id": "b-sec2",
+   "kind": "node",
+   "at": [
+    0,
+    2
+   ],
+   "tone": "g",
+   "size": [
+    11.4,
+    1.8,
+    1
+   ],
+   "in": "b-article",
+   "title": "<section>",
+   "sub": "Infos pratiques"
+  },
+  {
+   "id": "b-aside",
+   "kind": "node",
+   "at": [
+    8.4,
+    1.8
+   ],
+   "tone": "g",
+   "size": [
+    5.4,
+    4.4,
+    1
+   ],
+   "in": "b-page",
+   "title": "<aside>",
+   "sub": "à côté du sujet"
+  },
+  {
+   "id": "b-footer",
+   "kind": "node",
+   "at": [
+    0,
+    8.4
+   ],
+   "tone": "g",
+   "size": [
+    23,
+    1.8,
+    1
+   ],
+   "in": "b-page",
+   "title": "<footer>",
+   "sub": "pied de page"
+  },
+  {
+   "id": "a-article",
+   "kind": "layer",
+   "at": [
+    -8,
+    0
+   ],
+   "tone": "g",
+   "size": [
+    15,
+    13,
+    1
+   ],
+   "title": "<article>",
+   "sub": "Boucle des trois lacs"
+  },
+  {
+   "id": "a-div",
+   "kind": "layer",
+   "at": [
+    0,
+    1.4
+   ],
+   "tone": "n",
+   "size": [
+    13,
+    7.6,
+    1
+   ],
+   "in": "a-article",
+   "title": "<div>"
+  },
+  {
+   "id": "a-sec1",
+   "kind": "node",
+   "at": [
+    -3.1,
+    0.9
+   ],
+   "tone": "g",
+   "size": [
+    5.6,
+    3.6,
+    1
+   ],
+   "in": "a-div",
+   "title": "<section>",
+   "sub": "Le parcours"
+  },
+  {
+   "id": "a-sec2",
+   "kind": "node",
+   "at": [
+    3.1,
+    0.9
+   ],
+   "tone": "g",
+   "size": [
+    5.6,
+    3.6,
+    1
+   ],
+   "in": "a-div",
+   "title": "<section>",
+   "sub": "Infos pratiques"
+  },
+  {
+   "id": "a-mail",
+   "kind": "layer",
+   "at": [
+    10,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    11,
+    13,
+    1
+   ],
+   "title": "copié seul dans un e-mail"
+  },
+  {
+   "id": "a-copy1",
+   "kind": "node",
+   "at": [
+    0,
+    -2.2
+   ],
+   "tone": "g",
+   "size": [
+    9,
+    2.6,
+    1
+   ],
+   "in": "a-mail",
+   "title": "Boucle des trois lacs",
+   "sub": "le parcours, les infos"
+  },
+  {
+   "id": "a-copy2",
+   "kind": "node",
+   "at": [
+    0,
+    2.4
+   ],
+   "tone": "r",
+   "size": [
+    9,
+    2.6,
+    1
+   ],
+   "in": "a-mail",
+   "title": "Infos pratiques",
+   "sub": "… de quelle sortie ?"
+  },
+  {
+   "id": "recipe",
+   "kind": "layer",
+   "at": [
+    -9,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    13,
+    13,
+    1
+   ],
+   "title": "la page"
+  },
+  {
+   "id": "h-site",
+   "kind": "node",
+   "at": [
+    0,
+    -3.4
+   ],
+   "tone": "g",
+   "size": [
+    11,
+    1.9,
+    1
+   ],
+   "in": "recipe",
+   "title": "h1",
+   "sub": "Les Marcheurs du Dimanche"
+  },
+  {
+   "id": "h-part",
+   "kind": "node",
+   "at": [
+    0,
+    -0.4
+   ],
+   "tone": "r",
+   "size": [
+    11,
+    1.9,
+    1
+   ],
+   "in": "recipe",
+   "title": "h1",
+   "sub": "Nos derniers récits"
+  },
+  {
+   "id": "h-recit",
+   "kind": "node",
+   "at": [
+    0,
+    2.6
+   ],
+   "tone": "r",
+   "size": [
+    11,
+    1.9,
+    1
+   ],
+   "in": "recipe",
+   "title": "h4",
+   "sub": "Boucle des trois lacs"
+  },
+  {
+   "id": "outline",
+   "kind": "layer",
+   "at": [
+    8.5,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    17,
+    13,
+    1
+   ],
+   "title": "le plan de la page"
+  },
+  {
+   "id": "o-site",
+   "kind": "node",
+   "at": [
+    -3.6,
+    -3.4
+   ],
+   "tone": "g",
+   "size": [
+    8.6,
+    1.9,
+    1
+   ],
+   "in": "outline",
+   "title": "Les Marcheurs du Dimanche"
+  },
+  {
+   "id": "o-part",
+   "kind": "node",
+   "at": [
+    -3.6,
+    -0.4
+   ],
+   "tone": "r",
+   "size": [
+    8.6,
+    1.9,
+    1
+   ],
+   "in": "outline",
+   "title": "Nos derniers récits"
+  },
+  {
+   "id": "o-recit",
+   "kind": "node",
+   "at": [
+    3.6,
+    2.6
+   ],
+   "tone": "r",
+   "size": [
+    8.6,
+    1.9,
+    1
+   ],
+   "in": "outline",
+   "title": "Boucle des trois lacs"
+  }
+ ],
+ "steps": [
+  {
+   "id": "zones",
+   "label": "Des zones",
+   "title": "Le même écran, un plan en plus",
+   "body": [
+    "Une page en div s'affiche très bien, mais elle ne dit pas ce qu'est chaque bloc. Les balises sémantiques le disent, sans rien changer à l'écran."
+   ],
+   "show": [
+    "page",
+    "z-head",
+    "z-nav",
+    "z-main",
+    "z-foot",
+    "tree",
+    "reader"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "tree",
+       "label": "aucune zone"
+      }
+     ],
+     "say": "Une page faite de div s'affiche très bien, mais le navigateur n'y trouve aucune zone à annoncer."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "z-head",
+       "title": "header",
+       "tone": "g"
+      },
+      {
+       "id": "tree",
+       "label": null
+      }
+     ],
+     "show": [
+      "t-banner"
+     ],
+     "link": [
+      {
+       "from": "z-head",
+       "to": "t-banner"
+      }
+     ],
+     "say": "Le premier div devient un `<header>` : le navigateur annonce une bannière."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "z-nav",
+       "title": "nav",
+       "tone": "g"
+      },
+      {
+       "id": "z-main",
+       "title": "main",
+       "tone": "g"
+      },
+      {
+       "id": "z-foot",
+       "title": "footer",
+       "tone": "g"
+      }
+     ],
+     "show": [
+      "t-nav",
+      "t-main",
+      "t-foot"
+     ],
+     "link": [
+      {
+       "from": "z-nav",
+       "to": "t-nav"
+      },
+      {
+       "from": "z-main",
+       "to": "t-main"
+      },
+      {
+       "from": "z-foot",
+       "to": "t-foot"
+      }
+     ],
+     "say": "Avec `<nav>`, `<main>` et `<footer>`, chaque bloc dit ce qu'il est : la page a un plan."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "page",
+       "label": "rien n'a bougé à l'écran"
+      }
+     ],
+     "say": "À l'écran, pas un pixel n'a bougé : ces balises ajoutent du sens, pas d'apparence."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "reader",
+       "to": "t-main"
+      }
+     ]
+    },
+    {
+     "do": "send",
+     "path": [
+      "reader",
+      "t-main",
+      "z-main"
+     ],
+     "label": "aller au contenu"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "z-main",
+       "label": "on y arrive directement"
+      }
+     ],
+     "say": "Le lecteur d'écran propose la liste des zones : un choix, et la personne arrive au contenu, sans tout écouter."
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "balises",
+   "label": "Sept balises",
+   "title": "Sept balises pour nommer les zones",
+   "body": [
+    "La page d'un récit du club, rangée zone par zone. Chaque balise dit ce qu'est son bloc."
+   ],
+   "show": [
+    "b-page"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "b-header"
+     ],
+     "say": "`<header>`, l'**en-tête** : le nom du site, en haut de la page."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "b-nav"
+     ],
+     "say": "`<nav>` : le **menu**, un groupe de liens pour naviguer dans le site."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "b-main",
+       "label": "un seul par page"
+      }
+     ],
+     "say": "`<main>` : le **contenu principal**. Il n'y en a qu'un par page."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "show": [
+      "b-article"
+     ],
+     "set": [
+      {
+       "id": "b-main",
+       "label": null
+      }
+     ],
+     "say": "`<article>` : un contenu **complet**, ici le récit d'une sortie."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "b-sec1",
+      "b-sec2"
+     ],
+     "say": "`<section>` : une **partie** du récit, avec son titre."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "b-aside"
+     ],
+     "say": "`<aside>` : un encadré **à côté** du sujet, des liens vers d'autres récits."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "b-footer"
+     ],
+     "say": "`<footer>`, le **pied de page** : le contact, les mentions."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "article",
+   "label": "Article ou section",
+   "title": "Le test de la publication",
+   "body": [
+    "Copié seul ailleurs, un bloc garde-t-il son sens ? Oui : `<article>`. Non : `<section>`."
+   ],
+   "show": [
+    "a-article",
+    "a-div",
+    "a-sec1",
+    "a-sec2",
+    "a-mail"
+   ],
+   "links": [],
+   "labels": "left",
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "a-article",
+       "to": "a-mail"
+      }
+     ]
+    },
+    {
+     "do": "send",
+     "path": [
+      "a-article",
+      "a-mail"
+     ],
+     "label": "copier",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "a-copy1",
+       "label": "garde son sens"
+      }
+     ],
+     "say": "Le récit, copié seul dans un e-mail, se comprend en entier : c'est un `<article>`."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "a-sec2",
+       "to": "a-mail"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "a-article",
+       "to": "a-mail"
+      }
+     ]
+    },
+    {
+     "do": "send",
+     "path": [
+      "a-sec2",
+      "a-mail"
+     ],
+     "label": "copier",
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "a-copy2",
+       "label": "perd son sens"
+      }
+     ],
+     "say": "« Infos pratiques », copiée seule, ne dit plus de quelle sortie elle parle : c'est une `<section>` du récit."
+    },
+    {
+     "do": "wait",
+     "ms": 1800
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "a-div",
+       "label": "côte à côte, pour la mise en page"
+      }
+     ],
+     "say": "Le `<div>` ne fait que poser les deux parties côte à côte. Rien à annoncer : il reste un `<div>`."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "plan",
+   "label": "Un plan",
+   "title": "Les titres forment un plan",
+   "body": [
+    "Un seul h1, le sujet ; des h2 pour ses parties, des h3 pour leurs sous-parties, sans sauter de niveau. La taille, elle, se règle en CSS."
+   ],
+   "show": [
+    "recipe",
+    "h-site",
+    "h-part",
+    "h-recit",
+    "outline"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "show": [
+      "o-site",
+      "o-part",
+      "o-recit"
+     ],
+     "say": "Choisis à l'œil, ces titres donnent un plan faux : deux sujets, puis un saut jusqu'au niveau 4."
+    },
+    {
+     "do": "wait",
+     "ms": 1700
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "h-part",
+       "title": "h2",
+       "tone": "g"
+      },
+      {
+       "id": "o-part",
+       "at": [
+        -1.8,
+        -0.4
+       ],
+       "tone": "g"
+      }
+     ],
+     "say": "« Nos derniers récits » est une partie de la page : un `<h2>`, un cran sous le `<h1>`.",
+     "ms": 900
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "h-recit",
+       "title": "h3",
+       "tone": "g"
+      },
+      {
+       "id": "o-recit",
+       "at": [
+        0,
+        2.6
+       ],
+       "tone": "g"
+      }
+     ],
+     "say": "Un récit est une sous-partie des récits : un `<h3>`, un cran plus bas, sans sauter de niveau.",
+     "ms": 900
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "outline",
+       "label": "sans saut de niveau"
+      }
+     ],
+     "say": "Le lecteur d'écran suit ce plan de titre en titre. La taille du texte se règle en CSS."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

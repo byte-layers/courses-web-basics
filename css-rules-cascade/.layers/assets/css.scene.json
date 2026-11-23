@@ -1,0 +1,1337 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "css-rules-cascade-plan",
+ "title": "Règles, sélecteurs et cascade (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "b",
+   "label": "texte bleu"
+  },
+  {
+   "tone": "r",
+   "label": "texte rose"
+  },
+  {
+   "tone": "v",
+   "label": "fond pervenche"
+  },
+  {
+   "tone": "n",
+   "label": "gris, par défaut"
+  }
+ ],
+ "entities": [
+  {
+   "id": "sheet",
+   "kind": "layer",
+   "at": [
+    -8.5,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    14,
+    1
+   ],
+   "title": "style.css"
+  },
+  {
+   "id": "r-h2",
+   "kind": "node",
+   "at": [
+    0,
+    -1.2
+   ],
+   "tone": "b",
+   "size": [
+    10,
+    4.4,
+    1
+   ],
+   "in": "sheet",
+   "title": "h2 { … }",
+   "sub": "color: rgb(11, 107, 203);"
+  },
+  {
+   "id": "page",
+   "kind": "layer",
+   "at": [
+    8.5,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    14,
+    1
+   ],
+   "title": "la page"
+  },
+  {
+   "id": "p-h1",
+   "kind": "node",
+   "at": [
+    0,
+    -4.2
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    1.9,
+    1
+   ],
+   "in": "page",
+   "title": "h1",
+   "sub": "Médiathèque"
+  },
+  {
+   "id": "p-h2a",
+   "kind": "node",
+   "at": [
+    0,
+    -1.6
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    1.9,
+    1
+   ],
+   "in": "page",
+   "title": "h2",
+   "sub": "Bienvenue"
+  },
+  {
+   "id": "p-p",
+   "kind": "node",
+   "at": [
+    0,
+    1.0
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    1.9,
+    1
+   ],
+   "in": "page",
+   "title": "p",
+   "sub": "Plus de 40 000 ouvrages…"
+  },
+  {
+   "id": "p-h2b",
+   "kind": "node",
+   "at": [
+    0,
+    3.6
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    1.9,
+    1
+   ],
+   "in": "page",
+   "title": "h2",
+   "sub": "Nos nouveautés"
+  },
+  {
+   "id": "g-sheet",
+   "kind": "layer",
+   "at": [
+    0,
+    -5
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    5.6,
+    1
+   ],
+   "title": "style.css",
+   "sub": "une seule feuille"
+  },
+  {
+   "id": "g-rule",
+   "kind": "node",
+   "at": [
+    0,
+    0.7
+   ],
+   "tone": "b",
+   "size": [
+    10,
+    2.6,
+    1
+   ],
+   "in": "g-sheet",
+   "title": "h2 { … }",
+   "sub": "color: bleu;"
+  },
+  {
+   "id": "g-p1",
+   "kind": "layer",
+   "at": [
+    -12.5,
+    4.5
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    5,
+    1
+   ],
+   "title": "index.html",
+   "sub": "<link href=\"style.css\">"
+  },
+  {
+   "id": "g-h1",
+   "kind": "node",
+   "at": [
+    0,
+    0.7
+   ],
+   "tone": "n",
+   "size": [
+    9,
+    1.9,
+    1
+   ],
+   "in": "g-p1",
+   "title": "h2",
+   "sub": "Bienvenue"
+  },
+  {
+   "id": "g-p2",
+   "kind": "layer",
+   "at": [
+    0,
+    4.5
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    5,
+    1
+   ],
+   "title": "contact.html",
+   "sub": "<link href=\"style.css\">"
+  },
+  {
+   "id": "g-h2",
+   "kind": "node",
+   "at": [
+    0,
+    0.7
+   ],
+   "tone": "n",
+   "size": [
+    9,
+    1.9,
+    1
+   ],
+   "in": "g-p2",
+   "title": "h2",
+   "sub": "Nous écrire"
+  },
+  {
+   "id": "g-p3",
+   "kind": "layer",
+   "at": [
+    12.5,
+    4.5
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    5,
+    1
+   ],
+   "title": "tarifs.html",
+   "sub": "<link href=\"style.css\">"
+  },
+  {
+   "id": "g-h3",
+   "kind": "node",
+   "at": [
+    0,
+    0.7
+   ],
+   "tone": "b",
+   "size": [
+    9,
+    1.9,
+    1
+   ],
+   "in": "g-p3",
+   "title": "h2",
+   "sub": "Nos tarifs"
+  },
+  {
+   "id": "v-sheet",
+   "kind": "layer",
+   "at": [
+    -14.5,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    11.5,
+    12.5,
+    1
+   ],
+   "title": "style.css"
+  },
+  {
+   "id": "v-tag",
+   "kind": "node",
+   "at": [
+    0,
+    -2.8
+   ],
+   "tone": "b",
+   "size": [
+    10,
+    2.4,
+    1
+   ],
+   "in": "v-sheet",
+   "title": "h2 { … }",
+   "sub": "color: bleu;"
+  },
+  {
+   "id": "v-cls",
+   "kind": "node",
+   "at": [
+    0,
+    0.6
+   ],
+   "tone": "r",
+   "size": [
+    10,
+    2.4,
+    1
+   ],
+   "in": "v-sheet",
+   "title": ".intro { … }",
+   "sub": "color: rose;"
+  },
+  {
+   "id": "v-id",
+   "kind": "node",
+   "at": [
+    0,
+    4.0
+   ],
+   "tone": "v",
+   "size": [
+    10,
+    2.4,
+    1
+   ],
+   "in": "v-sheet",
+   "title": "#presentation { … }",
+   "sub": "background: pervenche;"
+  },
+  {
+   "id": "v-page",
+   "kind": "layer",
+   "at": [
+    6.5,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    26,
+    12.5,
+    1
+   ],
+   "title": "la page"
+  },
+  {
+   "id": "v-s1",
+   "kind": "layer",
+   "at": [
+    -6.3,
+    0.9
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    9.6,
+    1
+   ],
+   "in": "v-page",
+   "title": "section id=\"presentation\""
+  },
+  {
+   "id": "v-h2a",
+   "kind": "node",
+   "at": [
+    0,
+    -1.6
+   ],
+   "tone": "n",
+   "size": [
+    10.5,
+    1.8,
+    1
+   ],
+   "in": "v-s1",
+   "title": "h2",
+   "sub": "Bienvenue"
+  },
+  {
+   "id": "v-pa",
+   "kind": "node",
+   "at": [
+    0,
+    0.7
+   ],
+   "tone": "n",
+   "size": [
+    10.5,
+    1.8,
+    1
+   ],
+   "in": "v-s1",
+   "title": "p class=\"intro\""
+  },
+  {
+   "id": "v-p",
+   "kind": "node",
+   "at": [
+    0,
+    3.0
+   ],
+   "tone": "n",
+   "size": [
+    10.5,
+    1.8,
+    1
+   ],
+   "in": "v-s1",
+   "title": "p"
+  },
+  {
+   "id": "v-s2",
+   "kind": "layer",
+   "at": [
+    6.3,
+    0.9
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    9.6,
+    1
+   ],
+   "in": "v-page",
+   "title": "section id=\"nouveautes\""
+  },
+  {
+   "id": "v-h2b",
+   "kind": "node",
+   "at": [
+    0,
+    -1.6
+   ],
+   "tone": "n",
+   "size": [
+    10.5,
+    1.8,
+    1
+   ],
+   "in": "v-s2",
+   "title": "h2",
+   "sub": "Nos nouveautés"
+  },
+  {
+   "id": "v-pb",
+   "kind": "node",
+   "at": [
+    0,
+    0.7
+   ],
+   "tone": "n",
+   "size": [
+    10.5,
+    1.8,
+    1
+   ],
+   "in": "v-s2",
+   "title": "p class=\"intro\""
+  },
+  {
+   "id": "sheet2",
+   "kind": "layer",
+   "at": [
+    -8.5,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    15,
+    1
+   ],
+   "title": "style.css",
+   "sub": "lue de haut en bas"
+  },
+  {
+   "id": "c-prix",
+   "kind": "node",
+   "at": [
+    0,
+    -3.6
+   ],
+   "tone": "r",
+   "size": [
+    10,
+    2.4,
+    1
+   ],
+   "in": "sheet2",
+   "title": ".prix",
+   "sub": "color: rose;"
+  },
+  {
+   "id": "c-art",
+   "kind": "node",
+   "at": [
+    0,
+    -0.2
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    2.4,
+    1
+   ],
+   "in": "sheet2",
+   "title": "article p",
+   "sub": "color: gris;"
+  },
+  {
+   "id": "c-id",
+   "kind": "node",
+   "at": [
+    0,
+    3.2
+   ],
+   "tone": "b",
+   "size": [
+    10,
+    2.4,
+    1
+   ],
+   "in": "sheet2",
+   "title": "#offre p",
+   "sub": "color: bleu;"
+  },
+  {
+   "id": "page2",
+   "kind": "layer",
+   "at": [
+    8.5,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    15,
+    1
+   ],
+   "title": "article id=\"offre\""
+  },
+  {
+   "id": "el-title",
+   "kind": "node",
+   "at": [
+    0,
+    -2.2
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    1.9,
+    1
+   ],
+   "in": "page2",
+   "title": "h2",
+   "sub": "Carte annuelle"
+  },
+  {
+   "id": "el-prix",
+   "kind": "node",
+   "at": [
+    0,
+    1.2
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    1.9,
+    1
+   ],
+   "in": "page2",
+   "title": "p class=\"prix\"",
+   "sub": "12 €"
+  },
+  {
+   "id": "h-sheet",
+   "kind": "layer",
+   "at": [
+    -8.5,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    11,
+    1
+   ],
+   "title": "style.css"
+  },
+  {
+   "id": "h-body",
+   "kind": "node",
+   "at": [
+    0,
+    -2
+   ],
+   "tone": "b",
+   "size": [
+    10,
+    3,
+    1
+   ],
+   "in": "h-sheet",
+   "title": "body { … }",
+   "sub": "color: bleu; border: 2px solid;"
+  },
+  {
+   "id": "h-note",
+   "kind": "node",
+   "at": [
+    0,
+    2.6
+   ],
+   "tone": "r",
+   "size": [
+    10,
+    2.4,
+    1
+   ],
+   "in": "h-sheet",
+   "title": ".note { … }",
+   "sub": "color: rose;"
+  },
+  {
+   "id": "h-page",
+   "kind": "layer",
+   "at": [
+    8.5,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    12,
+    12,
+    1
+   ],
+   "title": "<body>"
+  },
+  {
+   "id": "h-h1",
+   "kind": "node",
+   "at": [
+    0,
+    -3
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    1.9,
+    1
+   ],
+   "in": "h-page",
+   "title": "h1",
+   "sub": "Le club de lecture"
+  },
+  {
+   "id": "h-p",
+   "kind": "node",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    1.9,
+    1
+   ],
+   "in": "h-page",
+   "title": "p",
+   "sub": "Rendez-vous jeudi"
+  },
+  {
+   "id": "h-pn",
+   "kind": "node",
+   "at": [
+    0,
+    3
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    1.9,
+    1
+   ],
+   "in": "h-page",
+   "title": "p class=\"note\"",
+   "sub": "Entrée libre"
+  }
+ ],
+ "steps": [
+  {
+   "id": "regle",
+   "label": "Une règle",
+   "title": "Un sélecteur, des déclarations",
+   "body": [
+    "Le sélecteur dit quels éléments la règle vise ; ses déclarations s'appliquent à chacun d'eux."
+   ],
+   "show": [
+    "sheet",
+    "r-h2",
+    "page",
+    "p-h1",
+    "p-h2a",
+    "p-p",
+    "p-h2b"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "r-h2",
+       "to": "p-h2a"
+      },
+      {
+       "from": "r-h2",
+       "to": "p-h2b"
+      }
+     ],
+     "set": [
+      {
+       "id": "r-h2",
+       "label": "vise tous les h2"
+      }
+     ],
+     "say": "Le sélecteur `h2` cherche dans la page tous les éléments `<h2>` : il en trouve deux."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "send",
+     "path": [
+      "r-h2",
+      "p-h2a"
+     ],
+     "label": "color",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "p-h2a",
+       "tone": "b"
+      },
+      {
+       "id": "p-h2b",
+       "tone": "b"
+      }
+     ],
+     "say": "La déclaration `color` s'applique à chacun : les deux titres deviennent bleus."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "p-h1",
+       "label": "pas visé"
+      },
+      {
+       "id": "p-p",
+       "label": "pas visé"
+      }
+     ],
+     "say": "Le `<h1>` et le paragraphe ne sont pas visés : ils gardent leur apparence."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "r-h2",
+       "sub": "color: … ; text-align: center;"
+      },
+      {
+       "id": "p-h2a",
+       "label": "bleu, centré"
+      },
+      {
+       "id": "p-h2b",
+       "label": "bleu, centré"
+      }
+     ],
+     "say": "Une deuxième déclaration dans le même bloc, et les deux titres sont aussi centrés."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "ranger",
+   "label": "Une feuille",
+   "title": "Une feuille de style, toutes les pages",
+   "body": [
+    "Chaque page relie la même feuille par `<link>` : ses règles s'appliquent partout."
+   ],
+   "hud": [
+    {
+     "label": "à modifier",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "g-sheet",
+    "g-rule",
+    "g-p1",
+    "g-h1",
+    "g-p2",
+    "g-h2"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "g-rule",
+       "to": "g-h1"
+      },
+      {
+       "from": "g-rule",
+       "to": "g-h2"
+      }
+     ],
+     "set": [
+      {
+       "id": "g-h1",
+       "tone": "b"
+      },
+      {
+       "id": "g-h2",
+       "tone": "b"
+      }
+     ],
+     "say": "Deux pages relient la même feuille par `<link>` : leurs titres `<h2>` sont bleus."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "g-p3",
+      "g-h3"
+     ],
+     "link": [
+      {
+       "from": "g-rule",
+       "to": "g-h3"
+      }
+     ],
+     "say": "Une troisième page la relie à son tour : elle est habillée pareil, sans rien réécrire."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "g-rule",
+       "tone": "r",
+       "sub": "color: rose;",
+       "label": "modifiée ici"
+      },
+      {
+       "id": "g-h1",
+       "tone": "r"
+      },
+      {
+       "id": "g-h2",
+       "tone": "r"
+      },
+      {
+       "id": "g-h3",
+       "tone": "r"
+      }
+     ],
+     "hud": [
+      {
+       "label": "à modifier",
+       "value": "un seul : style.css",
+       "tone": "r"
+      }
+     ],
+     "say": "On change la couleur **une fois**, dans `style.css` : les trois pages changent."
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  },
+  {
+   "id": "selecteurs",
+   "label": "Les sélecteurs",
+   "title": "Une balise, une classe, un id",
+   "body": [
+    "Le sélecteur choisit les éléments visés : tous ceux d'une balise, tous ceux d'une classe, ou un seul, par son id."
+   ],
+   "show": [
+    "v-sheet",
+    "v-tag",
+    "v-cls",
+    "v-id",
+    "v-page",
+    "v-s1",
+    "v-h2a",
+    "v-pa",
+    "v-p",
+    "v-s2",
+    "v-h2b",
+    "v-pb"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "v-tag",
+       "to": "v-h2a"
+      },
+      {
+       "from": "v-tag",
+       "to": "v-h2b"
+      }
+     ],
+     "set": [
+      {
+       "id": "v-h2a",
+       "tone": "b"
+      },
+      {
+       "id": "v-h2b",
+       "tone": "b"
+      }
+     ],
+     "say": "`h2`, une **balise** : la règle vise tous les `<h2>`, un dans chaque section."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "v-cls",
+       "to": "v-pa"
+      },
+      {
+       "from": "v-cls",
+       "to": "v-pb"
+      }
+     ],
+     "set": [
+      {
+       "id": "v-pa",
+       "tone": "r"
+      },
+      {
+       "id": "v-pb",
+       "tone": "r"
+      }
+     ],
+     "say": "`.intro`, avec un point, une **classe** : tous les éléments qui portent `class=\"intro\"`, où qu'ils soient."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "v-id",
+       "to": "v-s1"
+      }
+     ],
+     "set": [
+      {
+       "id": "v-s1",
+       "tone": "v"
+      }
+     ],
+     "say": "`#presentation`, avec un dièse, un **id** : le seul élément qui porte `id=\"presentation\"`."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "v-p",
+       "label": "pas visé"
+      },
+      {
+       "id": "v-s2",
+       "label": "pas visée"
+      }
+     ],
+     "say": "Le paragraphe sans classe et l'autre section ne sont visés par aucune règle : ils gardent leur apparence."
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  },
+  {
+   "id": "cascade",
+   "label": "Qui gagne ?",
+   "title": "La règle la plus spécifique gagne",
+   "body": [
+    "Quand deux règles donnent deux valeurs à la même propriété, le navigateur compare leur spécificité ; l'ordre ne départage que des égales."
+   ],
+   "hud": [
+    {
+     "label": ".prix",
+     "value": "0-1-0",
+     "tone": "r"
+    },
+    {
+     "label": "article p",
+     "value": "0-0-2"
+    }
+   ],
+   "show": [
+    "sheet2",
+    "c-prix",
+    "c-art",
+    "page2",
+    "el-title",
+    "el-prix"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "c-prix",
+       "to": "el-prix"
+      },
+      {
+       "from": "c-art",
+       "to": "el-prix"
+      }
+     ],
+     "say": "Deux règles visent le prix, avec deux couleurs : laquelle gagne ?"
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "c-art",
+       "label": "écrite après"
+      }
+     ],
+     "say": "`article p` est écrite après. Mais l'ordre ne compte qu'entre deux règles de même spécificité."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "unlink": [
+      {
+       "from": "c-art",
+       "to": "el-prix"
+      }
+     ],
+     "link": [
+      {
+       "from": "c-art",
+       "to": "el-prix",
+       "dashed": true
+      }
+     ],
+     "set": [
+      {
+       "id": "el-prix",
+       "tone": "r",
+       "label": "rose"
+      },
+      {
+       "id": "c-art",
+       "label": "perd"
+      }
+     ],
+     "hud": [
+      {
+       "label": ".prix",
+       "value": "0-1-0 : gagne",
+       "tone": "r"
+      }
+     ],
+     "say": "Une classe, 0-1-0, bat deux balises, 0-0-2 : le prix est rose."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "c-id"
+     ],
+     "link": [
+      {
+       "from": "c-id",
+       "to": "el-prix"
+      }
+     ],
+     "hud": [
+      {
+       "label": "#offre p",
+       "value": "1-0-1",
+       "tone": "b"
+      }
+     ],
+     "say": "Une troisième règle vise le prix avec un id : 1-0-1."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "unlink": [
+      {
+       "from": "c-prix",
+       "to": "el-prix"
+      }
+     ],
+     "link": [
+      {
+       "from": "c-prix",
+       "to": "el-prix",
+       "dashed": true
+      }
+     ],
+     "set": [
+      {
+       "id": "el-prix",
+       "tone": "b",
+       "label": "bleu"
+      },
+      {
+       "id": "c-prix",
+       "label": "perd"
+      }
+     ],
+     "hud": [
+      {
+       "label": ".prix",
+       "value": "0-1-0"
+      },
+      {
+       "label": "#offre p",
+       "value": "1-0-1 : gagne",
+       "tone": "b"
+      }
+     ],
+     "say": "On compare d'abord les id : le premier chiffre suffit, la règle bleue gagne."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "heritage",
+   "label": "L'héritage",
+   "title": "Du parent vers ses enfants",
+   "body": [
+    "Certaines propriétés, comme la couleur et la police du texte, descendent du parent vers ses enfants."
+   ],
+   "show": [
+    "h-sheet",
+    "h-body",
+    "h-page",
+    "h-h1",
+    "h-p",
+    "h-pn"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "h-body",
+       "to": "h-page"
+      }
+     ],
+     "set": [
+      {
+       "id": "h-page",
+       "tone": "b",
+       "label": "bleu, avec une bordure"
+      }
+     ],
+     "say": "La règle vise `<body>`, et lui seul : son texte devient bleu, et il reçoit une bordure."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "h-h1",
+       "tone": "b",
+       "label": "hérité"
+      },
+      {
+       "id": "h-p",
+       "tone": "b",
+       "label": "hérité"
+      },
+      {
+       "id": "h-pn",
+       "tone": "b",
+       "label": "hérité"
+      }
+     ],
+     "say": "Ses enfants n'ont aucune règle, et pourtant leur texte est bleu : la couleur **s'hérite**."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "h-h1",
+       "label": "bleu, sans bordure"
+      },
+      {
+       "id": "h-p",
+       "label": "bleu, sans bordure"
+      },
+      {
+       "id": "h-pn",
+       "label": "bleu, sans bordure"
+      }
+     ],
+     "say": "La bordure, elle, reste sur `<body>` : les bordures, les marges et les fonds **ne s'héritent pas**."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "h-note"
+     ],
+     "link": [
+      {
+       "from": "h-note",
+       "to": "h-pn"
+      }
+     ],
+     "set": [
+      {
+       "id": "h-pn",
+       "tone": "r",
+       "label": "sa propre règle gagne"
+      }
+     ],
+     "say": "Une règle qui vise l'élément lui-même passe **avant** ce qu'il hérite : la note est rose."
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  }
+ ]
+}

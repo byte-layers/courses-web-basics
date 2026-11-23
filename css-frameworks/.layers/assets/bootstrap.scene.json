@@ -1,0 +1,1193 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "css-frameworks",
+ "title": "Bootstrap : des classes CSS toutes faites",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "b",
+   "label": "Bootstrap"
+  },
+  {
+   "tone": "n",
+   "label": "sans style"
+  },
+  {
+   "tone": "g",
+   "label": "stylé, ou bien lu"
+  },
+  {
+   "tone": "r",
+   "label": "ce qui manque"
+  }
+ ],
+ "entities": [
+  {
+   "id": "cdn",
+   "kind": "store",
+   "at": [
+    -11.8,
+    0.0
+   ],
+   "size": [
+    4.4,
+    3.2,
+    1
+   ],
+   "tone": "n",
+   "title": "CDN",
+   "sub": "jsdelivr",
+   "detail": "Un **CDN** : un serveur public qui distribue des bibliothèques, dont Bootstrap, version par version."
+  },
+  {
+   "id": "nav",
+   "kind": "layer",
+   "at": [
+    3.0,
+    0.0
+   ],
+   "size": [
+    20.0,
+    10.0,
+    1
+   ],
+   "tone": "n",
+   "title": "navigateur"
+  },
+  {
+   "id": "bs",
+   "kind": "file",
+   "at": [
+    -2.1,
+    0.0
+   ],
+   "size": [
+    7.4,
+    2.0,
+    1
+   ],
+   "tone": "b",
+   "title": "bootstrap.min.css",
+   "detail": "Quelques milliers de règles CSS, toutes écrites par Bootstrap. Environ 230 Ko, 30 Ko une fois compressé pour le transfert."
+  },
+  {
+   "id": "btn",
+   "kind": "node",
+   "at": [
+    8.4,
+    -2.1
+   ],
+   "size": [
+    6.8,
+    1.8,
+    1
+   ],
+   "tone": "n",
+   "title": "a",
+   "sub": "lien sans style"
+  },
+  {
+   "id": "card",
+   "kind": "node",
+   "at": [
+    8.4,
+    2.1
+   ],
+   "size": [
+    6.8,
+    3.4,
+    1
+   ],
+   "tone": "n",
+   "title": "div",
+   "sub": "bloc sans style"
+  },
+  {
+   "id": "ctn",
+   "kind": "layer",
+   "at": [
+    0.0,
+    -1.75
+   ],
+   "size": [
+    20.0,
+    6.5,
+    1
+   ],
+   "tone": "n",
+   "title": ".container",
+   "note": "max-width selon l'écran",
+   "detail": "`container` centre le contenu, avec une largeur maximale (`max-width`) qui change à chaque point de rupture."
+  },
+  {
+   "id": "row",
+   "kind": "layer",
+   "at": [
+    0.0,
+    -1.25
+   ],
+   "size": [
+    18.8,
+    4.5,
+    1
+   ],
+   "tone": "n",
+   "title": ".row",
+   "note": "display: flex; flex-wrap: wrap",
+   "detail": "`row` : une rangée, en réalité `display: flex; flex-wrap: wrap;`."
+  },
+  {
+   "id": "z1",
+   "kind": "zone",
+   "at": [
+    -8.617,
+    -0.7
+   ],
+   "size": [
+    1.567,
+    2.8
+   ],
+   "tone": "b",
+   "detail": "La rangée est découpée en **12 parts** égales."
+  },
+  {
+   "id": "z2",
+   "kind": "zone",
+   "at": [
+    -7.05,
+    -0.7
+   ],
+   "size": [
+    1.567,
+    2.8
+   ],
+   "tone": "b"
+  },
+  {
+   "id": "z3",
+   "kind": "zone",
+   "at": [
+    -5.483,
+    -0.7
+   ],
+   "size": [
+    1.567,
+    2.8
+   ],
+   "tone": "b"
+  },
+  {
+   "id": "z4",
+   "kind": "zone",
+   "at": [
+    -3.917,
+    -0.7
+   ],
+   "size": [
+    1.567,
+    2.8
+   ],
+   "tone": "b"
+  },
+  {
+   "id": "z5",
+   "kind": "zone",
+   "at": [
+    -2.35,
+    -0.7
+   ],
+   "size": [
+    1.567,
+    2.8
+   ],
+   "tone": "b"
+  },
+  {
+   "id": "z6",
+   "kind": "zone",
+   "at": [
+    -0.783,
+    -0.7
+   ],
+   "size": [
+    1.567,
+    2.8
+   ],
+   "tone": "b"
+  },
+  {
+   "id": "z7",
+   "kind": "zone",
+   "at": [
+    0.783,
+    -0.7
+   ],
+   "size": [
+    1.567,
+    2.8
+   ],
+   "tone": "b"
+  },
+  {
+   "id": "z8",
+   "kind": "zone",
+   "at": [
+    2.35,
+    -0.7
+   ],
+   "size": [
+    1.567,
+    2.8
+   ],
+   "tone": "b"
+  },
+  {
+   "id": "z9",
+   "kind": "zone",
+   "at": [
+    3.917,
+    -0.7
+   ],
+   "size": [
+    1.567,
+    2.8
+   ],
+   "tone": "b"
+  },
+  {
+   "id": "z10",
+   "kind": "zone",
+   "at": [
+    5.483,
+    -0.7
+   ],
+   "size": [
+    1.567,
+    2.8
+   ],
+   "tone": "b"
+  },
+  {
+   "id": "z11",
+   "kind": "zone",
+   "at": [
+    7.05,
+    -0.7
+   ],
+   "size": [
+    1.567,
+    2.8
+   ],
+   "tone": "b"
+  },
+  {
+   "id": "z12",
+   "kind": "zone",
+   "at": [
+    8.617,
+    -0.7
+   ],
+   "size": [
+    1.567,
+    2.8
+   ],
+   "tone": "b"
+  },
+  {
+   "id": "p1",
+   "kind": "node",
+   "at": [
+    -6.267,
+    -0.7
+   ],
+   "size": [
+    5.967,
+    2.4,
+    1
+   ],
+   "tone": "g",
+   "title": "projet 1",
+   "sub": "col-md-4",
+   "note": "width: 33.33 % dès 768 px",
+   "detail": "`col-md-4` : 4 parts sur 12, à partir de l'écran `md` (768 px) : `width: 33.33%` dans une media query `min-width: 768px`."
+  },
+  {
+   "id": "p2",
+   "kind": "node",
+   "at": [
+    -0.0,
+    -0.7
+   ],
+   "size": [
+    5.967,
+    2.4,
+    1
+   ],
+   "tone": "g",
+   "title": "projet 2"
+  },
+  {
+   "id": "p3",
+   "kind": "node",
+   "at": [
+    6.267,
+    -0.7
+   ],
+   "size": [
+    5.967,
+    2.4,
+    1
+   ],
+   "tone": "g",
+   "title": "projet 3"
+  },
+  {
+   "id": "f-css",
+   "kind": "layer",
+   "at": [
+    -5.0,
+    0.0
+   ],
+   "size": [
+    14.0,
+    13.6,
+    1
+   ],
+   "tone": "b",
+   "title": "bootstrap.min.css",
+   "detail": "Le fichier de Bootstrap, découpé ici en quatre blocs de règles."
+  },
+  {
+   "id": "f-reset",
+   "kind": "node",
+   "in": "f-css",
+   "at": [
+    0.0,
+    -4.4
+   ],
+   "size": [
+    12.0,
+    2.4,
+    1
+   ],
+   "tone": "b",
+   "title": "remise à zéro",
+   "sub": "aucune classe : il s'applique seul",
+   "label": "sinon : marges qui varient"
+  },
+  {
+   "id": "f-grid",
+   "kind": "node",
+   "in": "f-css",
+   "at": [
+    0.0,
+    -1.4
+   ],
+   "size": [
+    12.0,
+    2.4,
+    1
+   ],
+   "tone": "b",
+   "title": "grille",
+   "sub": "container, row, col-md-4",
+   "label": "sinon : Flexbox, gap, media queries"
+  },
+  {
+   "id": "f-comp",
+   "kind": "node",
+   "in": "f-css",
+   "at": [
+    0.0,
+    1.6
+   ],
+   "size": [
+    12.0,
+    2.4,
+    1
+   ],
+   "tone": "b",
+   "title": "composants",
+   "sub": "btn, card, navbar, alert",
+   "label": "sinon : des dizaines de règles"
+  },
+  {
+   "id": "f-util",
+   "kind": "node",
+   "in": "f-css",
+   "at": [
+    0.0,
+    4.6
+   ],
+   "size": [
+    12.0,
+    2.4,
+    1
+   ],
+   "tone": "b",
+   "title": "utilitaires",
+   "sub": "mt-3, text-center, d-flex",
+   "label": "sinon : une petite règle chaque fois"
+  },
+  {
+   "id": "f-js",
+   "kind": "file",
+   "at": [
+    9.5,
+    -3.0
+   ],
+   "size": [
+    8.6,
+    1.8,
+    1
+   ],
+   "tone": "b",
+   "title": "bootstrap.bundle.min.js",
+   "label": "sinon : script et clavier",
+   "note": "menu repliable, modale",
+   "detail": "Le fichier JavaScript de Bootstrap, pour les composants qui réagissent (menu repliable, fenêtre modale), avec leur gestion du clavier."
+  },
+  {
+   "id": "f-own",
+   "kind": "file",
+   "at": [
+    9.5,
+    2.6
+   ],
+   "size": [
+    8.6,
+    1.8,
+    1
+   ],
+   "tone": "y",
+   "title": "style.css",
+   "label": "votre feuille, chargée après",
+   "note": "ce qui est propre au site",
+   "detail": "Votre propre feuille de style, chargée **après** celle de Bootstrap : à égalité de sélecteur, la dernière règle gagne."
+  },
+  {
+   "id": "seen",
+   "kind": "layer",
+   "at": [
+    -7.5,
+    0.0
+   ],
+   "size": [
+    13.0,
+    11.0,
+    1
+   ],
+   "tone": "n",
+   "title": "à l'écran"
+  },
+  {
+   "id": "heard",
+   "kind": "layer",
+   "at": [
+    7.5,
+    0.0
+   ],
+   "size": [
+    13.0,
+    11.0,
+    1
+   ],
+   "tone": "n",
+   "title": "au lecteur d'écran"
+  },
+  {
+   "id": "v-title",
+   "kind": "node",
+   "in": "seen",
+   "at": [
+    0.0,
+    -2.8
+   ],
+   "size": [
+    11.0,
+    2.2,
+    1
+   ],
+   "tone": "g",
+   "title": "Newsletter",
+   "sub": "div class=\"h4\"",
+   "detail": "Ce que la personne voit : un formulaire stylé par Bootstrap, net et cohérent."
+  },
+  {
+   "id": "v-field",
+   "kind": "node",
+   "in": "seen",
+   "at": [
+    0.0,
+    0.4
+   ],
+   "size": [
+    11.0,
+    2.2,
+    1
+   ],
+   "tone": "g",
+   "title": "E-mail  [__________]",
+   "sub": "label sans for, input.form-control"
+  },
+  {
+   "id": "v-btn",
+   "kind": "node",
+   "in": "seen",
+   "at": [
+    0.0,
+    3.6
+   ],
+   "size": [
+    11.0,
+    2.2,
+    1
+   ],
+   "tone": "g",
+   "title": "S'inscrire",
+   "sub": "button.btn.btn-primary"
+  },
+  {
+   "id": "h-title",
+   "kind": "node",
+   "in": "heard",
+   "at": [
+    0.0,
+    -2.8
+   ],
+   "size": [
+    11.0,
+    2.2,
+    1
+   ],
+   "tone": "r",
+   "title": "« Newsletter »",
+   "sub": "du texte, pas un titre",
+   "detail": "Ce qu'annonce un lecteur d'écran, élément par élément. Il lit le HTML, pas les classes."
+  },
+  {
+   "id": "h-field",
+   "kind": "node",
+   "in": "heard",
+   "at": [
+    0.0,
+    0.4
+   ],
+   "size": [
+    11.0,
+    2.2,
+    1
+   ],
+   "tone": "r",
+   "title": "« zone de saisie »",
+   "sub": "sans nom : que faut-il taper ?"
+  },
+  {
+   "id": "h-btn",
+   "kind": "node",
+   "in": "heard",
+   "at": [
+    0.0,
+    3.6
+   ],
+   "size": [
+    11.0,
+    2.2,
+    1
+   ],
+   "tone": "g",
+   "title": "« bouton, S'inscrire »",
+   "sub": "bien annoncé"
+  }
+ ],
+ "steps": [
+  {
+   "id": "classes",
+   "label": "Des classes",
+   "title": "Une feuille de style qu'on utilise par ses classes",
+   "body": [
+    "Une page avec un lien et un bloc, encore sans style. Elle charge Bootstrap depuis un CDN."
+   ],
+   "show": [
+    "cdn",
+    "nav",
+    "btn",
+    "card"
+   ],
+   "hud": [
+    {
+     "label": "téléchargé",
+     "value": "0 Ko"
+    }
+   ],
+   "links": [
+    {
+     "from": "cdn",
+     "to": "nav"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "cdn",
+      "nav"
+     ],
+     "label": "bootstrap.min.css"
+    },
+    {
+     "do": "scene",
+     "show": [
+      "bs"
+     ],
+     "hud": [
+      {
+       "label": "téléchargé",
+       "value": "230 Ko",
+       "tone": "b"
+      }
+     ],
+     "say": "La balise link fait télécharger bootstrap.min.css : tout le fichier, environ 230 Ko."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "bs",
+       "to": "btn"
+      }
+     ],
+     "set": [
+      {
+       "id": "btn",
+       "tone": "g",
+       "title": "a.btn.btn-primary",
+       "sub": null
+      }
+     ],
+     "say": "Vous ajoutez les classes btn btn-primary au lien : les règles du fichier s'appliquent."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "bs",
+       "to": "card"
+      }
+     ],
+     "set": [
+      {
+       "id": "card",
+       "tone": "g",
+       "title": "div.card",
+       "sub": null
+      }
+     ],
+     "say": "Même chose pour card : vous n'avez écrit aucune règle."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "bs",
+       "label": "3 classes utilisées"
+      }
+     ],
+     "say": "Le fichier entier reste téléchargé, même si la page n'utilise qu'une poignée de ses classes."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "grille",
+   "label": "12 parts",
+   "title": "Une rangée de 12 parts",
+   "body": [
+    "Trois projets dans un `container`, une `row` et trois colonnes `col-md-4`, sur un écran de 1000 px."
+   ],
+   "show": [
+    "ctn",
+    "row"
+   ],
+   "hud": [
+    {
+     "label": "largeur",
+     "value": "1000 px"
+    },
+    {
+     "label": "min-width: 768px",
+     "value": "oui",
+     "tone": "g"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "z1",
+      "z2",
+      "z3",
+      "z4",
+      "z5",
+      "z6",
+      "z7",
+      "z8",
+      "z9",
+      "z10",
+      "z11",
+      "z12"
+     ],
+     "say": "La rangée est découpée en 12 parts égales."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "show": [
+      "p1",
+      "p2",
+      "p3"
+     ],
+     "say": "Chaque col-md-4 en prend 4 : trois colonnes remplissent la rangée."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "largeur",
+       "value": "600 px"
+      },
+      {
+       "label": "min-width: 768px",
+       "value": "non",
+       "tone": "r"
+      }
+     ],
+     "set": [
+      {
+       "id": "ctn",
+       "at": [
+        0.0,
+        1.05
+       ],
+       "size": [
+        12.0,
+        12.1,
+        1
+       ]
+      },
+      {
+       "id": "z1",
+       "at": [
+        -4.95,
+        2.1
+       ],
+       "size": [
+        0.9,
+        8.4
+       ]
+      },
+      {
+       "id": "z2",
+       "at": [
+        -4.05,
+        2.1
+       ],
+       "size": [
+        0.9,
+        8.4
+       ]
+      },
+      {
+       "id": "z3",
+       "at": [
+        -3.15,
+        2.1
+       ],
+       "size": [
+        0.9,
+        8.4
+       ]
+      },
+      {
+       "id": "z4",
+       "at": [
+        -2.25,
+        2.1
+       ],
+       "size": [
+        0.9,
+        8.4
+       ]
+      },
+      {
+       "id": "z5",
+       "at": [
+        -1.35,
+        2.1
+       ],
+       "size": [
+        0.9,
+        8.4
+       ]
+      },
+      {
+       "id": "z6",
+       "at": [
+        -0.45,
+        2.1
+       ],
+       "size": [
+        0.9,
+        8.4
+       ]
+      },
+      {
+       "id": "z7",
+       "at": [
+        0.45,
+        2.1
+       ],
+       "size": [
+        0.9,
+        8.4
+       ]
+      },
+      {
+       "id": "z8",
+       "at": [
+        1.35,
+        2.1
+       ],
+       "size": [
+        0.9,
+        8.4
+       ]
+      },
+      {
+       "id": "z9",
+       "at": [
+        2.25,
+        2.1
+       ],
+       "size": [
+        0.9,
+        8.4
+       ]
+      },
+      {
+       "id": "z10",
+       "at": [
+        3.15,
+        2.1
+       ],
+       "size": [
+        0.9,
+        8.4
+       ]
+      },
+      {
+       "id": "z11",
+       "at": [
+        4.05,
+        2.1
+       ],
+       "size": [
+        0.9,
+        8.4
+       ]
+      },
+      {
+       "id": "z12",
+       "at": [
+        4.95,
+        2.1
+       ],
+       "size": [
+        0.9,
+        8.4
+       ]
+      },
+      {
+       "id": "p1",
+       "at": [
+        0.0,
+        -0.7
+       ],
+       "size": [
+        10.5,
+        2.4,
+        1
+       ]
+      },
+      {
+       "id": "p2",
+       "at": [
+        0.0,
+        2.1
+       ],
+       "size": [
+        10.5,
+        2.4,
+        1
+       ]
+      },
+      {
+       "id": "p3",
+       "at": [
+        0.0,
+        4.9
+       ],
+       "size": [
+        10.5,
+        2.4,
+        1
+       ]
+      },
+      {
+       "id": "row",
+       "at": [
+        0.0,
+        1.55
+       ],
+       "size": [
+        10.8,
+        10.1,
+        1
+       ]
+      }
+     ],
+     "say": "Sous 768 px, la media query de col-md-4 ne s'applique plus : chaque colonne prend les 12 parts, et elles s'empilent.",
+     "ms": 1100
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "fournit",
+   "label": "Ce qu'il fournit",
+   "title": "Ce que le fichier de Bootstrap écrit à votre place",
+   "body": [
+    "Le fichier de Bootstrap, ouvert et découpé en blocs. Chaque bloc dit ce que vous écririez sinon."
+   ],
+   "show": [
+    "f-css"
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "f-reset"
+     ],
+     "say": "Une remise à zéro : les navigateurs ne donnent plus chacun leurs marges et leurs polices."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "f-grid"
+     ],
+     "say": "La grille : Flexbox et une media query par point de rupture, déjà écrites."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "f-comp"
+     ],
+     "say": "Les composants : boutons, cartes, menus, avec leurs états :hover et :focus."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "f-util"
+     ],
+     "say": "Les utilitaires : une classe pour une marge, un alignement, un display."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "f-js"
+     ],
+     "say": "À part, un fichier JavaScript pour les composants qui réagissent : menu repliable, fenêtre modale."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "f-own"
+     ],
+     "say": "Et votre feuille de style, chargée après la sienne, pour ce qui est propre au site."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "lecteur",
+   "label": "Vu, puis entendu",
+   "title": "Un joli formulaire, lu par un lecteur d'écran",
+   "body": [
+    "Un formulaire d'inscription stylé par Bootstrap. À gauche ce qu'on voit, à droite ce qu'on entend."
+   ],
+   "show": [
+    "seen",
+    "v-title",
+    "v-field",
+    "v-btn",
+    "heard"
+   ],
+   "hud": [
+    {
+     "label": "titres",
+     "value": "1 à l'écran"
+    },
+    {
+     "label": "champs nommés",
+     "value": "—"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "show": [
+      "h-title"
+     ],
+     "link": [
+      {
+       "from": "v-title",
+       "to": "h-title"
+      }
+     ],
+     "hud": [
+      {
+       "label": "titres",
+       "value": "0 annoncé",
+       "tone": "r"
+      }
+     ],
+     "say": "« Newsletter » a l'air d'un titre : la classe h4 lui en donne la taille. Le lecteur d'écran, lui, lit une div."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "h-field"
+     ],
+     "link": [
+      {
+       "from": "v-field",
+       "to": "h-field"
+      }
+     ],
+     "hud": [
+      {
+       "label": "champs nommés",
+       "value": "0 sur 1",
+       "tone": "r"
+      }
+     ],
+     "say": "L'étiquette E-mail est bien affichée, mais rien ne la relie au champ : il est annoncé sans nom."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "h-btn"
+     ],
+     "link": [
+      {
+       "from": "v-btn",
+       "to": "h-btn"
+      }
+     ],
+     "say": "Le bouton, lui, est un vrai button : il est bien annoncé."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "heard",
+       "label": "le HTML, pas les classes"
+      }
+     ],
+     "say": "Les classes ont changé l'apparence, pas le sens : la balise et le lien label–champ restent à écrire."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1181 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "web-page-languages-page",
+ "title": "Une page construite pas à pas (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "r",
+   "label": "doctype, CSS"
+  },
+  {
+   "tone": "g",
+   "label": "<html>, JavaScript"
+  },
+  {
+   "tone": "b",
+   "label": "<head>"
+  },
+  {
+   "tone": "y",
+   "label": "<body>, HTML"
+  }
+ ],
+ "entities": [
+  {
+   "id": "s-doc",
+   "kind": "node",
+   "at": [
+    0,
+    -9
+   ],
+   "tone": "r",
+   "size": [
+    16,
+    2.2,
+    1
+   ],
+   "title": "<!DOCTYPE html>",
+   "sub": "déclaration"
+  },
+  {
+   "id": "s-html",
+   "kind": "layer",
+   "at": [
+    0,
+    2.2
+   ],
+   "tone": "g",
+   "size": [
+    16,
+    17.5,
+    1
+   ],
+   "title": "<html>",
+   "sub": "l'enveloppe"
+  },
+  {
+   "id": "s-head",
+   "kind": "layer",
+   "at": [
+    0,
+    -3.6
+   ],
+   "tone": "b",
+   "size": [
+    13.5,
+    6,
+    1
+   ],
+   "in": "s-html",
+   "title": "<head>",
+   "sub": "l'en-tête"
+  },
+  {
+   "id": "s-head-i",
+   "kind": "node",
+   "at": [
+    0,
+    0.9
+   ],
+   "tone": "b",
+   "size": [
+    11,
+    1.8,
+    1
+   ],
+   "in": "s-head",
+   "title": "infos pour le navigateur"
+  },
+  {
+   "id": "s-body",
+   "kind": "layer",
+   "at": [
+    0,
+    4.2
+   ],
+   "tone": "y",
+   "size": [
+    13.5,
+    6,
+    1
+   ],
+   "in": "s-html",
+   "title": "<body>",
+   "sub": "le corps"
+  },
+  {
+   "id": "s-body-i",
+   "kind": "node",
+   "at": [
+    0,
+    0.9
+   ],
+   "tone": "y",
+   "size": [
+    11,
+    1.8,
+    1
+   ],
+   "in": "s-body",
+   "title": "ce qui s'affiche"
+  },
+  {
+   "id": "b1",
+   "kind": "node",
+   "at": [
+    -6.0,
+    -9.450000000000001
+   ],
+   "tone": "r",
+   "size": [
+    12.5,
+    1.6,
+    1
+   ],
+   "title": "<!DOCTYPE html>"
+  },
+  {
+   "id": "b2",
+   "kind": "node",
+   "at": [
+    -6.0,
+    -7.350000000000001
+   ],
+   "tone": "g",
+   "size": [
+    12.5,
+    1.6,
+    1
+   ],
+   "title": "<html lang=\"fr\">"
+  },
+  {
+   "id": "b3",
+   "kind": "node",
+   "at": [
+    -5.1,
+    -5.250000000000001
+   ],
+   "tone": "b",
+   "size": [
+    10.7,
+    1.6,
+    1
+   ],
+   "title": "<head>"
+  },
+  {
+   "id": "b4",
+   "kind": "node",
+   "at": [
+    -4.2,
+    -3.1500000000000004
+   ],
+   "tone": "b",
+   "size": [
+    8.9,
+    1.6,
+    1
+   ],
+   "title": "<meta charset=\"utf-8\">"
+  },
+  {
+   "id": "b5",
+   "kind": "node",
+   "at": [
+    -4.2,
+    -1.0500000000000007
+   ],
+   "tone": "b",
+   "size": [
+    8.9,
+    1.6,
+    1
+   ],
+   "title": "<title>Titre de la page</title>"
+  },
+  {
+   "id": "b6",
+   "kind": "node",
+   "at": [
+    -5.1,
+    1.049999999999999
+   ],
+   "tone": "b",
+   "size": [
+    10.7,
+    1.6,
+    1
+   ],
+   "title": "</head>"
+  },
+  {
+   "id": "b7",
+   "kind": "node",
+   "at": [
+    -5.1,
+    3.1500000000000004
+   ],
+   "tone": "y",
+   "size": [
+    10.7,
+    1.6,
+    1
+   ],
+   "title": "<body>"
+  },
+  {
+   "id": "b8",
+   "kind": "node",
+   "at": [
+    -4.2,
+    5.25
+   ],
+   "tone": "y",
+   "size": [
+    8.9,
+    1.6,
+    1
+   ],
+   "title": "<p>Ceci est un paragraphe</p>"
+  },
+  {
+   "id": "b9",
+   "kind": "node",
+   "at": [
+    -5.1,
+    7.35
+   ],
+   "tone": "y",
+   "size": [
+    10.7,
+    1.6,
+    1
+   ],
+   "title": "</body>"
+  },
+  {
+   "id": "b10",
+   "kind": "node",
+   "at": [
+    -6.0,
+    9.450000000000001
+   ],
+   "tone": "g",
+   "size": [
+    12.5,
+    1.6,
+    1
+   ],
+   "title": "</html>"
+  },
+  {
+   "id": "z-html",
+   "kind": "zone",
+   "at": [
+    -5.8,
+    0.5499999999999998
+   ],
+   "tone": "g",
+   "size": [
+    15.4,
+    20.400000000000006
+   ],
+   "label": "enveloppe"
+  },
+  {
+   "id": "z-head",
+   "kind": "zone",
+   "at": [
+    -4.9,
+    -2.100000000000001
+   ],
+   "tone": "b",
+   "size": [
+    13.4,
+    8.5
+   ],
+   "label": "en-tête"
+  },
+  {
+   "id": "z-body",
+   "kind": "zone",
+   "at": [
+    -4.9,
+    5.25
+   ],
+   "tone": "y",
+   "size": [
+    13.4,
+    6.3999999999999995
+   ],
+   "label": "corps"
+  },
+  {
+   "id": "n-doc",
+   "kind": "node",
+   "at": [
+    9.5,
+    -9.450000000000001
+   ],
+   "tone": "r",
+   "size": [
+    12,
+    1.9,
+    1
+   ],
+   "title": "la page est en HTML actuel"
+  },
+  {
+   "id": "n-lang",
+   "kind": "node",
+   "at": [
+    9.5,
+    -7.350000000000001
+   ],
+   "tone": "g",
+   "size": [
+    12,
+    1.9,
+    1
+   ],
+   "title": "attribut lang : la langue",
+   "sub": "le contenu est en français"
+  },
+  {
+   "id": "n-meta",
+   "kind": "node",
+   "at": [
+    9.5,
+    -3.1500000000000004
+   ],
+   "tone": "b",
+   "size": [
+    12,
+    1.9,
+    1
+   ],
+   "title": "attribut charset : l'encodage",
+   "sub": "les accents s'affichent bien"
+  },
+  {
+   "id": "n-title",
+   "kind": "node",
+   "at": [
+    9.5,
+    -0.6500000000000007
+   ],
+   "tone": "b",
+   "size": [
+    12,
+    1.9,
+    1
+   ],
+   "title": "le nom de l'onglet"
+  },
+  {
+   "id": "n-p",
+   "kind": "node",
+   "at": [
+    9.5,
+    5.25
+   ],
+   "tone": "y",
+   "size": [
+    12,
+    1.9,
+    1
+   ],
+   "title": "ce qui s'affiche dans la page"
+  },
+  {
+   "id": "c-html",
+   "kind": "layer",
+   "at": [
+    -9,
+    -1
+   ],
+   "tone": "y",
+   "size": [
+    13,
+    12.5,
+    1
+   ],
+   "title": "index.html"
+  },
+  {
+   "id": "c-head",
+   "kind": "layer",
+   "at": [
+    0,
+    -2.6
+   ],
+   "tone": "y",
+   "size": [
+    11,
+    4.6,
+    1
+   ],
+   "in": "c-html",
+   "title": "<head>"
+  },
+  {
+   "id": "c-link",
+   "kind": "node",
+   "at": [
+    0,
+    0.7
+   ],
+   "tone": "r",
+   "size": [
+    10,
+    1.7,
+    1
+   ],
+   "in": "c-head",
+   "title": "<link rel=\"stylesheet\" href=\"style.css\">"
+  },
+  {
+   "id": "c-body",
+   "kind": "layer",
+   "at": [
+    0,
+    3.2
+   ],
+   "tone": "y",
+   "size": [
+    11,
+    4.6,
+    1
+   ],
+   "in": "c-html",
+   "title": "<body>"
+  },
+  {
+   "id": "c-body-i",
+   "kind": "node",
+   "at": [
+    0,
+    0.7
+   ],
+   "tone": "y",
+   "size": [
+    10,
+    1.7,
+    1
+   ],
+   "in": "c-body",
+   "title": "<h1> et <button>"
+  },
+  {
+   "id": "c-css",
+   "kind": "file",
+   "at": [
+    0.5,
+    -9.5
+   ],
+   "tone": "r",
+   "size": [
+    7,
+    2.4,
+    1
+   ],
+   "title": "style.css"
+  },
+  {
+   "id": "c-page",
+   "kind": "layer",
+   "at": [
+    9,
+    -1
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    10,
+    1
+   ],
+   "title": "la page affichée"
+  },
+  {
+   "id": "c-h1",
+   "kind": "node",
+   "at": [
+    0,
+    -1.8
+   ],
+   "tone": "y",
+   "size": [
+    8,
+    2,
+    1
+   ],
+   "in": "c-page",
+   "title": "Bonjour !"
+  },
+  {
+   "id": "c-btn",
+   "kind": "node",
+   "at": [
+    0,
+    2
+   ],
+   "tone": "n",
+   "size": [
+    6,
+    2,
+    1
+   ],
+   "in": "c-page",
+   "title": "Clique-moi"
+  },
+  {
+   "id": "j-html",
+   "kind": "layer",
+   "at": [
+    -9,
+    -1
+   ],
+   "tone": "y",
+   "size": [
+    13,
+    12.5,
+    1
+   ],
+   "title": "index.html"
+  },
+  {
+   "id": "j-head",
+   "kind": "layer",
+   "at": [
+    0,
+    -3.6
+   ],
+   "tone": "y",
+   "size": [
+    11,
+    2.8,
+    1
+   ],
+   "in": "j-html",
+   "title": "<head>"
+  },
+  {
+   "id": "j-body",
+   "kind": "layer",
+   "at": [
+    0,
+    2.2
+   ],
+   "tone": "y",
+   "size": [
+    11,
+    7.4,
+    1
+   ],
+   "in": "j-html",
+   "title": "<body>"
+  },
+  {
+   "id": "j-h1",
+   "kind": "node",
+   "at": [
+    0,
+    -1.4
+   ],
+   "tone": "y",
+   "size": [
+    10,
+    1.6,
+    1
+   ],
+   "in": "j-body",
+   "title": "<h1 id=\"titre\">"
+  },
+  {
+   "id": "j-btn",
+   "kind": "node",
+   "at": [
+    0,
+    0.5
+   ],
+   "tone": "y",
+   "size": [
+    10,
+    1.6,
+    1
+   ],
+   "in": "j-body",
+   "title": "<button id=\"bouton\">"
+  },
+  {
+   "id": "j-script",
+   "kind": "node",
+   "at": [
+    0,
+    2.4
+   ],
+   "tone": "g",
+   "size": [
+    10,
+    1.6,
+    1
+   ],
+   "in": "j-body",
+   "title": "<script src=\"script.js\"></script>"
+  },
+  {
+   "id": "j-js",
+   "kind": "file",
+   "at": [
+    -9,
+    8.5
+   ],
+   "tone": "g",
+   "size": [
+    8,
+    2.4,
+    1
+   ],
+   "title": "script.js"
+  },
+  {
+   "id": "j-page",
+   "kind": "layer",
+   "at": [
+    9,
+    -1
+   ],
+   "tone": "n",
+   "size": [
+    11,
+    10,
+    1
+   ],
+   "title": "la page affichée"
+  },
+  {
+   "id": "j-ph1",
+   "kind": "node",
+   "at": [
+    0,
+    -1.8
+   ],
+   "tone": "y",
+   "size": [
+    8,
+    2,
+    1
+   ],
+   "in": "j-page",
+   "title": "Bonjour !"
+  },
+  {
+   "id": "j-pbtn",
+   "kind": "node",
+   "at": [
+    0,
+    2
+   ],
+   "tone": "r",
+   "size": [
+    6,
+    2,
+    1
+   ],
+   "in": "j-page",
+   "title": "Clique-moi"
+  }
+ ],
+ "steps": [
+  {
+   "id": "structure",
+   "label": "La structure",
+   "title": "Une enveloppe, un en-tête, un corps",
+   "body": [
+    "Une page HTML est un bloc `<html>` qui porte deux parties : l'en-tête `<head>`, pour le navigateur, puis le corps `<body>`, pour ce qui s'affiche."
+   ],
+   "show": [
+    "s-doc"
+   ],
+   "links": [],
+   "widgets": [
+    {
+     "kind": "editor",
+     "title": "index.html",
+     "lang": "text",
+     "lines": [
+      "<!DOCTYPE html>",
+      "<html lang=\"fr\">",
+      "<head>",
+      "  <!-- les infos d'en-tête -->",
+      "</head>",
+      "<body>",
+      "  <!-- le corps : titre, contenu -->",
+      "</body>",
+      "</html>"
+     ]
+    }
+   ],
+   "script": [
+    {
+     "do": "line",
+     "n": 1
+    },
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "s-doc",
+       "label": "la page est en HTML d'aujourd'hui"
+      }
+     ],
+     "say": "`<!DOCTYPE html>` annonce une page en HTML d'aujourd'hui. C'est une déclaration, pas une balise."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "line",
+     "n": 2
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s-html"
+     ],
+     "say": "`<html>` est l'**enveloppe** : tout le reste est dedans, jusqu'à `</html>`."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "line",
+     "n": 3
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s-head",
+      "s-head-i"
+     ],
+     "say": "`<head>`, l'**en-tête** : des informations pour le navigateur, qui ne s'affichent pas dans la page."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "line",
+     "n": 6
+    },
+    {
+     "do": "scene",
+     "show": [
+      "s-body",
+      "s-body-i"
+     ],
+     "say": "`<body>`, le **corps** : tout ce qui s'affiche, nos titres, nos textes, nos boutons."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "line",
+     "n": 9
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "s-html",
+       "label": "fermée"
+      }
+     ],
+     "say": "`</html>` ferme l'enveloppe : une page, c'est toujours un en-tête puis un corps."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "base",
+   "label": "Ligne par ligne",
+   "title": "La structure de base, ligne par ligne",
+   "body": [
+    "Chaque ligne a un rôle. Les **attributs** précisent une balise : `nom=\"valeur\"`, dans la balise ouvrante."
+   ],
+   "labels": "left",
+   "show": [
+    "b1",
+    "b2",
+    "b3",
+    "b4",
+    "b5",
+    "b6",
+    "b7",
+    "b8",
+    "b9",
+    "b10"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "show": [
+      "n-doc"
+     ],
+     "link": [
+      {
+       "from": "b1",
+       "to": "n-doc"
+      }
+     ],
+     "say": "La première ligne annonce le HTML d'aujourd'hui."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "show": [
+      "z-html",
+      "n-lang"
+     ],
+     "link": [
+      {
+       "from": "b2",
+       "to": "n-lang"
+      }
+     ],
+     "say": "`lang=\"fr\"` est un **attribut** : il précise la balise `<html>`. Il dit la langue du contenu, utile aux lecteurs d'écran et aux traducteurs."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "z-head",
+      "n-meta"
+     ],
+     "link": [
+      {
+       "from": "b4",
+       "to": "n-meta"
+      }
+     ],
+     "say": "Dans l'en-tête, `charset=\"utf-8\"` dit comment les caractères sont codés : sans lui, les accents peuvent s'afficher en signes bizarres."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "n-title"
+     ],
+     "link": [
+      {
+       "from": "b5",
+       "to": "n-title"
+      }
+     ],
+     "say": "`<title>` donne le texte de l'**onglet**, pas un titre dans la page."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "z-body",
+      "n-p"
+     ],
+     "link": [
+      {
+       "from": "b8",
+       "to": "n-p"
+      }
+     ],
+     "say": "Dans le corps, nos balises : ici un paragraphe, `<p>`, ouvert puis **fermé** par `</p>`."
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  },
+  {
+   "id": "css",
+   "label": "Le CSS",
+   "title": "Le <head> cite la feuille de style",
+   "body": [
+    "`<link>` relie une feuille de style. Placée dans l'en-tête, elle est lue avant le corps : la page s'affiche stylée dès le début."
+   ],
+   "hud": [
+    {
+     "label": "feuille de style",
+     "value": "—"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "c-html",
+    "c-head",
+    "c-link",
+    "c-body",
+    "c-body-i"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "c-link",
+       "label": "lu en premier"
+      }
+     ],
+     "say": "Le navigateur lit la page de haut en bas. Dans l'en-tête, il trouve la balise `<link>`."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "show": [
+      "c-css"
+     ],
+     "link": [
+      {
+       "from": "c-link",
+       "to": "c-css"
+      }
+     ],
+     "set": [
+      {
+       "id": "c-link",
+       "label": null
+      }
+     ],
+     "say": "`href=\"style.css\"` est un chemin **relatif** : le fichier est à côté de la page, sur le même serveur."
+    },
+    {
+     "do": "send",
+     "path": [
+      "c-link",
+      "c-css"
+     ],
+     "label": "GET style.css",
+     "reply": "200",
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "feuille de style",
+       "value": "chargée",
+       "tone": "r"
+      }
+     ],
+     "ms": 300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "c-page",
+      "c-h1",
+      "c-btn"
+     ],
+     "link": [
+      {
+       "from": "c-body",
+       "to": "c-page"
+      }
+     ],
+     "say": "Puis il affiche le corps : les règles sont déjà là."
+    },
+    {
+     "do": "wait",
+     "ms": 600
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "c-btn",
+       "tone": "r",
+       "label": "rose dès le premier affichage"
+      }
+     ],
+     "say": "Le bouton est rose **dès le premier affichage** : c'est pour cela que le CSS se relie dans le `<head>`."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "js",
+   "label": "Le JavaScript",
+   "title": "Le <body> finit par le script",
+   "body": [
+    "`<script src>` relie un script. Placé juste avant `</body>`, il s'exécute quand le titre et le bouton existent déjà."
+   ],
+   "hud": [
+    {
+     "label": "script",
+     "value": "—"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "j-html",
+    "j-head",
+    "j-body",
+    "j-h1",
+    "j-btn",
+    "j-script",
+    "j-page",
+    "j-ph1",
+    "j-pbtn"
+   ],
+   "links": [
+    {
+     "from": "j-body",
+     "to": "j-page"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "j-script",
+       "label": "en dernier"
+      }
+     ],
+     "say": "Le navigateur a lu le titre et le bouton : ils sont affichés. La dernière ligne du corps relie le script."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "show": [
+      "j-js"
+     ],
+     "link": [
+      {
+       "from": "j-script",
+       "to": "j-js"
+      }
+     ],
+     "set": [
+      {
+       "id": "j-script",
+       "label": null
+      }
+     ]
+    },
+    {
+     "do": "send",
+     "path": [
+      "j-script",
+      "j-js"
+     ],
+     "label": "GET script.js",
+     "reply": "200",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "script",
+       "value": "exécuté",
+       "tone": "g"
+      }
+     ],
+     "link": [
+      {
+       "from": "j-js",
+       "to": "j-pbtn"
+      }
+     ],
+     "say": "Le script s'exécute : il trouve le bouton, qui existe déjà, et attend un clic."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "j-pbtn",
+       "label": "clic"
+      }
+     ],
+     "say": "Un clic sur le bouton…",
+     "ms": 400
+    },
+    {
+     "do": "wait",
+     "ms": 500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "j-ph1",
+       "title": "Merci !",
+       "tone": "g"
+      },
+      {
+       "id": "j-pbtn",
+       "label": null
+      }
+     ],
+     "say": "… et le script remplace le texte du titre. Le HTML n'a pas changé : c'est la page affichée qui change."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

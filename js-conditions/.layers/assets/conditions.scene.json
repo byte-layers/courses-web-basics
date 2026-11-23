@@ -1,0 +1,1494 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "js-conditions",
+ "title": "Les conditions en JavaScript",
+ "lang": "fr",
+ "kit": "feuillete",
+ "legend": [
+  {
+   "tone": "b",
+   "label": "nombre"
+  },
+  {
+   "tone": "y",
+   "label": "texte"
+  },
+  {
+   "tone": "v",
+   "label": "condition"
+  },
+  {
+   "tone": "g",
+   "label": "true"
+  },
+  {
+   "tone": "r",
+   "label": "false"
+  }
+ ],
+ "entities": [
+  {
+   "id": "age",
+   "kind": "file",
+   "at": [
+    1.5,
+    6.5
+   ],
+   "tone": "b",
+   "title": "age",
+   "label": "20",
+   "detail": "Une variable `age` qui contient un **nombre**."
+  },
+  {
+   "id": "dix8",
+   "kind": "file",
+   "at": [
+    6.5,
+    1.5
+   ],
+   "tone": "b",
+   "title": "18"
+  },
+  {
+   "id": "cmp",
+   "kind": "node",
+   "at": [
+    0.0,
+    0.0
+   ],
+   "size": [
+    2.0,
+    2.0,
+    1.0
+   ],
+   "tone": "v",
+   "title": "age >= 18",
+   "icon": ">=",
+   "detail": "Une **comparaison** pose une question au moteur ; il répond par un **booléen** : `true` ou `false`."
+  },
+  {
+   "id": "rep",
+   "kind": "file",
+   "at": [
+    -4.0,
+    -4.0
+   ],
+   "tone": "g",
+   "title": "true"
+  },
+  {
+   "id": "age2",
+   "kind": "file",
+   "at": [
+    4.5,
+    4.5
+   ],
+   "tone": "b",
+   "title": "age",
+   "label": "20"
+  },
+  {
+   "id": "cond",
+   "kind": "node",
+   "at": [
+    0.0,
+    0.0
+   ],
+   "size": [
+    2.0,
+    2.0,
+    1.0
+   ],
+   "tone": "v",
+   "title": "if (age >= 18)",
+   "icon": "?",
+   "detail": "Le `if` évalue la comparaison entre parenthèses : `true`, son bloc s'exécute ; `false`, c'est celui du `else`."
+  },
+  {
+   "id": "bif",
+   "kind": "program",
+   "at": [
+    -6.5,
+    -1.5
+   ],
+   "tone": "n",
+   "title": "bloc du if",
+   "detail": "Le bloc entre les accolades du `if` : `console.log(\"Majeur\")`."
+  },
+  {
+   "id": "belse",
+   "kind": "program",
+   "at": [
+    -1.5,
+    -6.5
+   ],
+   "tone": "n",
+   "title": "bloc du else",
+   "detail": "Le bloc entre les accolades du `else` : `console.log(\"Mineur\")`."
+  },
+  {
+   "id": "age3",
+   "kind": "file",
+   "at": [
+    -3.0,
+    10.0
+   ],
+   "tone": "b",
+   "title": "age",
+   "label": "70"
+  },
+  {
+   "id": "t1",
+   "kind": "node",
+   "at": [
+    -4.0,
+    4.0
+   ],
+   "size": [
+    1.8,
+    1.8,
+    0.9
+   ],
+   "tone": "v",
+   "title": "age < 12"
+  },
+  {
+   "id": "t2",
+   "kind": "node",
+   "at": [
+    -1.25,
+    1.25
+   ],
+   "size": [
+    1.8,
+    1.8,
+    0.9
+   ],
+   "tone": "v",
+   "title": "else if (age < 18)"
+  },
+  {
+   "id": "t3",
+   "kind": "node",
+   "at": [
+    1.5,
+    -1.5
+   ],
+   "size": [
+    1.8,
+    1.8,
+    0.9
+   ],
+   "tone": "v",
+   "title": "else if (age < 65)"
+  },
+  {
+   "id": "t4",
+   "kind": "node",
+   "at": [
+    4.25,
+    -4.25
+   ],
+   "size": [
+    1.8,
+    1.8,
+    0.9
+   ],
+   "tone": "n",
+   "title": "else"
+  },
+  {
+   "id": "b1",
+   "kind": "program",
+   "at": [
+    -8.0,
+    0.0
+   ],
+   "tone": "n",
+   "title": "\"enfant\""
+  },
+  {
+   "id": "b2",
+   "kind": "program",
+   "at": [
+    -5.25,
+    -2.75
+   ],
+   "tone": "n",
+   "title": "\"jeune\""
+  },
+  {
+   "id": "b3",
+   "kind": "program",
+   "at": [
+    -2.5,
+    -5.5
+   ],
+   "tone": "n",
+   "title": "\"adulte\""
+  },
+  {
+   "id": "b4",
+   "kind": "program",
+   "at": [
+    0.25,
+    -8.25
+   ],
+   "tone": "n",
+   "title": "\"senior\""
+  },
+  {
+   "id": "age4",
+   "kind": "file",
+   "at": [
+    4.5,
+    4.5
+   ],
+   "tone": "b",
+   "title": "age",
+   "label": "70",
+   "detail": "Un visiteur de 70 ans : il n'a **pas** entre 18 et 64 ans."
+  },
+  {
+   "id": "ca",
+   "kind": "node",
+   "at": [
+    -2.5,
+    2.5
+   ],
+   "size": [
+    1.9,
+    1.9,
+    0.9
+   ],
+   "tone": "v",
+   "title": "18 <= age",
+   "detail": "Le moteur lit `18 <= age < 65` de gauche à droite : d'abord cette comparaison."
+  },
+  {
+   "id": "cb",
+   "kind": "node",
+   "at": [
+    2.5,
+    -2.5
+   ],
+   "size": [
+    1.9,
+    1.9,
+    0.9
+   ],
+   "tone": "v",
+   "title": "(…) < 65",
+   "detail": "Puis il compare **la réponse** de la première, `true` ou `false`, à 65."
+  },
+  {
+   "id": "res4",
+   "kind": "file",
+   "at": [
+    -4.0,
+    -4.0
+   ],
+   "tone": "g",
+   "title": "true"
+  },
+  {
+   "id": "et",
+   "kind": "node",
+   "at": [
+    -4.0,
+    -4.0
+   ],
+   "size": [
+    1.9,
+    1.9,
+    0.9
+   ],
+   "tone": "v",
+   "title": "&&",
+   "icon": "&&",
+   "detail": "`&&` (et) vaut `true` seulement si **les deux** conditions sont vraies ; `||` (ou), si l'une au moins l'est ; `!` (non) inverse."
+  },
+  {
+   "id": "txt5",
+   "kind": "file",
+   "at": [
+    1.5,
+    6.5
+   ],
+   "tone": "y",
+   "title": "\"5\"",
+   "label": "texte",
+   "detail": "Un **texte** qui ressemble à un nombre, comme ce que rend `prompt()`."
+  },
+  {
+   "id": "num5",
+   "kind": "file",
+   "at": [
+    6.5,
+    1.5
+   ],
+   "tone": "b",
+   "title": "5",
+   "label": "nombre"
+  },
+  {
+   "id": "eq",
+   "kind": "node",
+   "at": [
+    0.0,
+    0.0
+   ],
+   "size": [
+    2.0,
+    2.0,
+    1.0
+   ],
+   "tone": "v",
+   "title": "\"5\" == 5",
+   "icon": "==",
+   "detail": "Deux égalités : `==` convertit les valeurs avant de comparer, `===` compare aussi le **type**."
+  },
+  {
+   "id": "res5",
+   "kind": "file",
+   "at": [
+    -4.0,
+    -4.0
+   ],
+   "tone": "g",
+   "title": "true"
+  }
+ ],
+ "steps": [
+  {
+   "id": "comparer",
+   "label": "Comparer",
+   "title": "Une comparaison répond true ou false",
+   "body": [
+    "Une comparaison pose une question au moteur, qui répond par un booléen. Un seul `=` ne pose aucune question."
+   ],
+   "hud": [
+    {
+     "label": "question posée",
+     "value": "—"
+    },
+    {
+     "label": "réponse",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "age",
+    "dix8",
+    "cmp"
+   ],
+   "links": [
+    {
+     "from": "age",
+     "to": "cmp"
+    },
+    {
+     "from": "dix8",
+     "to": "cmp"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "age",
+      "cmp"
+     ],
+     "label": "20",
+     "tone": "b"
+    },
+    {
+     "do": "send",
+     "path": [
+      "dix8",
+      "cmp"
+     ],
+     "label": "18",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "rep",
+       "title": "true",
+       "tone": "g"
+      }
+     ],
+     "link": [
+      {
+       "from": "cmp",
+       "to": "rep"
+      }
+     ],
+     "hud": [
+      {
+       "label": "question posée",
+       "value": "oui",
+       "tone": null
+      },
+      {
+       "label": "réponse",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "say": "`age >= 18` pose une question : 20 est-il plus grand ou égal à 18 ? Le moteur répond `true`."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "hide": [
+      "rep"
+     ],
+     "set": [
+      {
+       "id": "age",
+       "label": "15"
+      }
+     ],
+     "hud": [
+      {
+       "label": "réponse",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "say": "`age` vaut maintenant 15."
+    },
+    {
+     "do": "send",
+     "path": [
+      "age",
+      "cmp"
+     ],
+     "label": "15",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "rep",
+       "title": "false",
+       "tone": "r"
+      }
+     ],
+     "link": [
+      {
+       "from": "cmp",
+       "to": "rep"
+      }
+     ],
+     "hud": [
+      {
+       "label": "réponse",
+       "value": "false",
+       "tone": "r"
+      }
+     ],
+     "say": "La même question répond `false` : une comparaison rend toujours un **booléen**."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "hide": [
+      "rep"
+     ],
+     "set": [
+      {
+       "id": "cmp",
+       "title": "age = 18",
+       "icon": "="
+      }
+     ],
+     "hud": [
+      {
+       "label": "question posée",
+       "value": "non",
+       "tone": "r"
+      },
+      {
+       "label": "réponse",
+       "value": "aucune",
+       "tone": null
+      }
+     ],
+     "say": "Avec un seul `=`, `age = 18` ne compare rien…"
+    },
+    {
+     "do": "send",
+     "path": [
+      "dix8",
+      "cmp",
+      "age"
+     ],
+     "label": "18",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "age",
+       "label": "18 (rangé)"
+      }
+     ],
+     "say": "… il **range** 18 dans `age`. Pour comparer, il faut `===`, `>=`, `<`…"
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "if-else",
+   "label": "if / else",
+   "title": "Un seul des deux blocs s'exécute",
+   "body": [
+    "Le `if` évalue sa condition ; selon la réponse, il exécute son bloc ou celui du `else`, jamais les deux."
+   ],
+   "hud": [
+    {
+     "label": "condition",
+     "value": "—"
+    },
+    {
+     "label": "console",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "age2",
+    "cond",
+    "bif",
+    "belse"
+   ],
+   "links": [
+    {
+     "from": "age2",
+     "to": "cond"
+    },
+    {
+     "from": "cond",
+     "to": "bif",
+     "label": "true"
+    },
+    {
+     "from": "cond",
+     "to": "belse",
+     "label": "false"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "age2",
+      "cond"
+     ],
+     "label": "20",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "condition",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "say": "Le moteur évalue la condition : `20 >= 18` vaut `true`."
+    },
+    {
+     "do": "wait",
+     "ms": 700
+    },
+    {
+     "do": "send",
+     "path": [
+      "cond",
+      "bif"
+     ],
+     "label": "true",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "bif",
+       "label": "affiche Majeur"
+      },
+      {
+       "id": "belse",
+       "dim": true
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "Majeur",
+       "tone": null
+      }
+     ],
+     "say": "`true` : le bloc du `if` s'exécute, celui du `else` est sauté."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "age2",
+       "label": "15"
+      },
+      {
+       "id": "bif",
+       "label": null
+      },
+      {
+       "id": "belse",
+       "dim": false
+      }
+     ],
+     "hud": [
+      {
+       "label": "condition",
+       "value": "—",
+       "tone": null
+      },
+      {
+       "label": "console",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "say": "On rejoue avec `age` à 15."
+    },
+    {
+     "do": "send",
+     "path": [
+      "age2",
+      "cond"
+     ],
+     "label": "15",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "condition",
+       "value": "false",
+       "tone": "r"
+      }
+     ],
+     "say": "`15 >= 18` vaut `false`."
+    },
+    {
+     "do": "wait",
+     "ms": 600
+    },
+    {
+     "do": "send",
+     "path": [
+      "cond",
+      "belse"
+     ],
+     "label": "false",
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "belse",
+       "label": "affiche Mineur"
+      },
+      {
+       "id": "bif",
+       "dim": true
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "Mineur",
+       "tone": null
+      }
+     ],
+     "say": "Cette fois, seul le bloc du `else` s'exécute : un seul des deux, jamais les deux."
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "else-if",
+   "label": "else if",
+   "title": "Le premier cas vrai, puis on s'arrête",
+   "body": [
+    "Le moteur teste les conditions dans l'ordre et exécute le premier bloc dont la condition est vraie."
+   ],
+   "hud": [
+    {
+     "label": "age",
+     "value": 70,
+     "tone": "b"
+    },
+    {
+     "label": "console",
+     "value": "—"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "age3",
+    "t1",
+    "t2",
+    "t3",
+    "t4",
+    "b1",
+    "b2",
+    "b3",
+    "b4"
+   ],
+   "links": [
+    {
+     "from": "age3",
+     "to": "t1"
+    },
+    {
+     "from": "t1",
+     "to": "t2"
+    },
+    {
+     "from": "t2",
+     "to": "t3"
+    },
+    {
+     "from": "t3",
+     "to": "t4"
+    },
+    {
+     "from": "t1",
+     "to": "b1"
+    },
+    {
+     "from": "t2",
+     "to": "b2"
+    },
+    {
+     "from": "t3",
+     "to": "b3"
+    },
+    {
+     "from": "t4",
+     "to": "b4"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "age3",
+      "t1"
+     ],
+     "label": "70",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "t1",
+       "tone": "r",
+       "label": "false"
+      }
+     ],
+     "say": "Le moteur teste la première condition : `70 < 12` ? `false`."
+    },
+    {
+     "do": "wait",
+     "ms": 500
+    },
+    {
+     "do": "send",
+     "path": [
+      "t1",
+      "t2"
+     ],
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "t2",
+       "tone": "r",
+       "label": "false"
+      }
+     ],
+     "say": "Il passe à la suivante : `70 < 18` ? `false`."
+    },
+    {
+     "do": "wait",
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "t2",
+      "t3"
+     ],
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "t3",
+       "tone": "r",
+       "label": "false"
+      }
+     ],
+     "say": "`70 < 65` ? Toujours `false`."
+    },
+    {
+     "do": "send",
+     "path": [
+      "t3",
+      "t4"
+     ],
+     "tone": "r"
+    },
+    {
+     "do": "send",
+     "path": [
+      "t4",
+      "b4"
+     ],
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "b4",
+       "label": "affiche senior"
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "senior",
+       "tone": null
+      }
+     ],
+     "say": "Aucune n'est vraie : le bloc du `else` s'exécute."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "t1",
+       "tone": "v",
+       "label": null
+      },
+      {
+       "id": "t2",
+       "tone": "v",
+       "label": null
+      },
+      {
+       "id": "t3",
+       "tone": "v",
+       "label": null
+      },
+      {
+       "id": "b4",
+       "label": null
+      },
+      {
+       "id": "age3",
+       "label": "8"
+      }
+     ],
+     "hud": [
+      {
+       "label": "age",
+       "value": 8,
+       "tone": "b"
+      },
+      {
+       "label": "console",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "say": "Avec 8 ans, on rejoue."
+    },
+    {
+     "do": "send",
+     "path": [
+      "age3",
+      "t1"
+     ],
+     "label": "8",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "t1",
+       "tone": "g",
+       "label": "true"
+      }
+     ],
+     "say": "`8 < 12` vaut `true` : la première condition gagne."
+    },
+    {
+     "do": "send",
+     "path": [
+      "t1",
+      "b1"
+     ],
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "b1",
+       "label": "affiche enfant"
+      },
+      {
+       "id": "t2",
+       "dim": true
+      },
+      {
+       "id": "t3",
+       "dim": true
+      },
+      {
+       "id": "t4",
+       "dim": true
+      },
+      {
+       "id": "b2",
+       "dim": true
+      },
+      {
+       "id": "b3",
+       "dim": true
+      },
+      {
+       "id": "b4",
+       "dim": true
+      }
+     ],
+     "hud": [
+      {
+       "label": "console",
+       "value": "enfant",
+       "tone": null
+      }
+     ],
+     "say": "Son bloc s'exécute, et le moteur s'arrête là : les autres cas ne sont même pas testés."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "intervalle",
+   "label": "et, ou, non",
+   "title": "Un intervalle se lit en deux comparaisons",
+   "body": [
+    "`18 <= age < 65` ne pose pas la question des maths : le moteur compare `true` à 65. Avec `&&`, chaque comparaison répète `age`."
+   ],
+   "hud": [
+    {
+     "label": "attendu",
+     "value": "false",
+     "tone": "r"
+    },
+    {
+     "label": "réponse",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "age4",
+    "ca",
+    "cb"
+   ],
+   "links": [
+    {
+     "from": "age4",
+     "to": "ca"
+    },
+    {
+     "from": "ca",
+     "to": "cb"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "age4",
+      "ca"
+     ],
+     "label": "70",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "ca",
+       "tone": "g",
+       "label": "true"
+      }
+     ],
+     "say": "Le moteur lit `18 <= age < 65` de gauche à droite : d'abord `18 <= 70`, qui vaut `true`."
+    },
+    {
+     "do": "wait",
+     "ms": 600
+    },
+    {
+     "do": "send",
+     "path": [
+      "ca",
+      "cb"
+     ],
+     "label": "true",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "cb",
+       "title": "true < 65"
+      }
+     ],
+     "say": "Puis il compare **ce `true`** à 65. Dans un calcul, `true` vaut 1, et `1 < 65`…"
+    },
+    {
+     "do": "wait",
+     "ms": 500
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "res4",
+       "title": "true",
+       "tone": "g"
+      }
+     ],
+     "link": [
+      {
+       "from": "cb",
+       "to": "res4"
+      }
+     ],
+     "hud": [
+      {
+       "label": "réponse",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "say": "… vaut `true`. On attendait `false` : le visiteur de 70 ans passe, sans aucune erreur."
+    },
+    {
+     "do": "wait",
+     "ms": 1800
+    },
+    {
+     "do": "scene",
+     "hide": [
+      "res4"
+     ],
+     "unlink": [
+      {
+       "from": "ca",
+       "to": "cb"
+      }
+     ],
+     "set": [
+      {
+       "id": "ca",
+       "title": "age >= 18",
+       "tone": "v",
+       "label": null
+      },
+      {
+       "id": "cb",
+       "title": "age < 65",
+       "tone": "v",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "réponse",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "say": "La bonne écriture répète `age` dans chaque comparaison, et les relie par `&&` (et).",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "et"
+     ],
+     "link": [
+      {
+       "from": "age4",
+       "to": "cb"
+      },
+      {
+       "from": "ca",
+       "to": "et"
+      },
+      {
+       "from": "cb",
+       "to": "et"
+      }
+     ],
+     "ms": 500
+    },
+    {
+     "do": "send",
+     "path": [
+      "age4",
+      "ca"
+     ],
+     "label": "70",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "ca",
+       "tone": "g",
+       "label": "true"
+      }
+     ],
+     "say": "`70 >= 18` vaut `true`…"
+    },
+    {
+     "do": "send",
+     "path": [
+      "age4",
+      "cb"
+     ],
+     "label": "70",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "cb",
+       "tone": "r",
+       "label": "false"
+      }
+     ],
+     "say": "… et `70 < 65` vaut `false`."
+    },
+    {
+     "do": "send",
+     "path": [
+      "ca",
+      "et"
+     ],
+     "label": "true",
+     "tone": "g"
+    },
+    {
+     "do": "send",
+     "path": [
+      "cb",
+      "et"
+     ],
+     "label": "false",
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "et",
+       "tone": "r",
+       "label": "false"
+      }
+     ],
+     "hud": [
+      {
+       "label": "réponse",
+       "value": "false",
+       "tone": "r"
+      }
+     ],
+     "say": "`&&` ne vaut `true` que si **les deux** sont vraies : ici `false`, la bonne réponse."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "egalite",
+   "label": "== ou ===",
+   "title": "== convertit, === compare aussi le type",
+   "body": [
+    "`==` convertit le texte en nombre avant de comparer ; `===` compare la valeur **et** le type, sans rien convertir."
+   ],
+   "hud": [
+    {
+     "label": "types comparés",
+     "value": "—"
+    },
+    {
+     "label": "réponse",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "txt5",
+    "num5",
+    "eq"
+   ],
+   "links": [
+    {
+     "from": "txt5",
+     "to": "eq"
+    },
+    {
+     "from": "num5",
+     "to": "eq"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "txt5",
+      "eq"
+     ],
+     "label": "\"5\"",
+     "tone": "y"
+    },
+    {
+     "do": "send",
+     "path": [
+      "num5",
+      "eq"
+     ],
+     "label": "5",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "txt5",
+       "title": "5",
+       "tone": "b",
+       "label": "converti"
+      }
+     ],
+     "hud": [
+      {
+       "label": "types comparés",
+       "value": "non",
+       "tone": null
+      }
+     ],
+     "say": "`==` commence par **convertir** : le texte `\"5\"` devient le nombre 5."
+    },
+    {
+     "do": "wait",
+     "ms": 700
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "res5",
+       "title": "true",
+       "tone": "g"
+      }
+     ],
+     "link": [
+      {
+       "from": "eq",
+       "to": "res5"
+      }
+     ],
+     "hud": [
+      {
+       "label": "réponse",
+       "value": "true",
+       "tone": "g"
+      }
+     ],
+     "say": "Puis il compare 5 et 5 : `true`. La différence entre texte et nombre a disparu."
+    },
+    {
+     "do": "wait",
+     "ms": 1800
+    },
+    {
+     "do": "scene",
+     "hide": [
+      "res5"
+     ],
+     "set": [
+      {
+       "id": "txt5",
+       "title": "\"5\"",
+       "tone": "y",
+       "label": "texte"
+      },
+      {
+       "id": "eq",
+       "title": "\"5\" === 5",
+       "icon": "==="
+      }
+     ],
+     "hud": [
+      {
+       "label": "types comparés",
+       "value": "—",
+       "tone": null
+      },
+      {
+       "label": "réponse",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "say": "Même question avec `===`.",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "txt5",
+      "eq"
+     ],
+     "label": "\"5\"",
+     "tone": "y"
+    },
+    {
+     "do": "send",
+     "path": [
+      "num5",
+      "eq"
+     ],
+     "label": "5",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "types comparés",
+       "value": "oui",
+       "tone": null
+      }
+     ],
+     "say": "`===` compare aussi le **type** : un texte d'un côté, un nombre de l'autre."
+    },
+    {
+     "do": "wait",
+     "ms": 600
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "res5",
+       "title": "false",
+       "tone": "r"
+      }
+     ],
+     "link": [
+      {
+       "from": "eq",
+       "to": "res5"
+      }
+     ],
+     "hud": [
+      {
+       "label": "réponse",
+       "value": "false",
+       "tone": "r"
+      }
+     ],
+     "say": "Réponse : `false`, sans rien convertir. La différence reste visible."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

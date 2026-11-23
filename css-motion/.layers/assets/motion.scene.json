@@ -1,0 +1,563 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "css-motion",
+ "title": "Transitions et animations CSS",
+ "lang": "fr",
+ "kit": "plan",
+ "entities": [
+  {
+   "id": "bouton",
+   "kind": "node",
+   "at": [
+    -4.0,
+    -2.4
+   ],
+   "size": [
+    6.0,
+    1.7,
+    1
+   ],
+   "tone": "b",
+   "title": "a.bouton",
+   "detail": "Le bouton : `background-color` bleu à l'état normal, rose dans `.bouton:hover`."
+  },
+  {
+   "id": "piste",
+   "kind": "zone",
+   "at": [
+    -4.0,
+    1.4
+   ],
+   "size": [
+    11.2,
+    1.6
+   ],
+   "label": "fond : bleu → rose"
+  },
+  {
+   "id": "curseur",
+   "kind": "node",
+   "at": [
+    -8.6,
+    1.5
+   ],
+   "size": [
+    1.8,
+    1.0,
+    1
+   ],
+   "tone": "b",
+   "title": "fond",
+   "detail": "La couleur de fond du bouton, entre le bleu (à gauche) et le rose (à droite). Elle **glisse** quand une transition joue, elle **saute** sinon."
+  },
+  {
+   "id": "souris",
+   "kind": "actor",
+   "at": [
+    6.5,
+    -2.2
+   ],
+   "tone": "n",
+   "label": "souris"
+  },
+  {
+   "id": "place",
+   "kind": "zone",
+   "at": [
+    0.0,
+    -2.6
+   ],
+   "size": [
+    13.0,
+    2.8
+   ],
+   "label": "sa place (to)"
+  },
+  {
+   "id": "ban",
+   "kind": "node",
+   "at": [
+    0.0,
+    -1.2
+   ],
+   "size": [
+    11.0,
+    2.0,
+    1
+   ],
+   "tone": "y",
+   "title": "header.banniere",
+   "sub": "Camille Martin",
+   "detail": "La bannière de la page, avec `animation: apparition 0.6s ease-out`."
+  },
+  {
+   "id": "ligne",
+   "kind": "zone",
+   "at": [
+    0.0,
+    2.6
+   ],
+   "size": [
+    14.4,
+    1.6
+   ],
+   "label": "0 s → 0,6 s"
+  },
+  {
+   "id": "temps",
+   "kind": "node",
+   "at": [
+    -6.0,
+    2.7
+   ],
+   "size": [
+    2.2,
+    1.0,
+    1
+   ],
+   "tone": "n",
+   "title": "from",
+   "detail": "Le temps de l'animation, de `from` (0 s) à `to` (0,6 s). Le navigateur calcule chaque image entre les deux."
+  },
+  {
+   "id": "reglage",
+   "kind": "node",
+   "at": [
+    -12.0,
+    -2.6
+   ],
+   "size": [
+    7.0,
+    2.0,
+    1
+   ],
+   "tone": "n",
+   "title": "réglage du système",
+   "sub": "réduire les animations : non",
+   "detail": "macOS, Windows, Android et iOS ont un réglage pour **réduire les animations**. La page le lit avec `prefers-reduced-motion`."
+  }
+ ],
+ "steps": [
+  {
+   "id": "transition",
+   "label": "La transition",
+   "title": "Une transition posée dans :hover ne joue qu'à l'aller",
+   "body": [
+    "Un bouton bleu qui devient rose au survol. Sa transition est écrite dans `.bouton:hover`."
+   ],
+   "show": [
+    "bouton",
+    "piste",
+    "curseur",
+    "souris"
+   ],
+   "hud": [
+    {
+     "label": "état",
+     "value": "normal"
+    },
+    {
+     "label": "transition",
+     "value": "dans :hover",
+     "tone": "r"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "état",
+       "value": ":hover"
+      }
+     ],
+     "set": [
+      {
+       "id": "souris",
+       "at": [
+        0.0,
+        -2.2
+       ]
+      },
+      {
+       "id": "bouton",
+       "tone": "r"
+      },
+      {
+       "id": "curseur",
+       "at": [
+        0.6,
+        1.5
+       ],
+       "tone": "r"
+      }
+     ],
+     "say": "La souris survole : :hover s'applique, avec sa transition. Le fond passe au rose en douceur.",
+     "ms": 1100
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "état",
+       "value": "normal"
+      }
+     ],
+     "set": [
+      {
+       "id": "souris",
+       "at": [
+        6.5,
+        -2.2
+       ]
+      },
+      {
+       "id": "bouton",
+       "tone": "b"
+      },
+      {
+       "id": "curseur",
+       "at": [
+        -8.6,
+        1.5
+       ],
+       "tone": "b"
+      }
+     ],
+     "say": "La souris part : l'état normal revient, et il n'a pas de transition. Retour sec.",
+     "ms": 1
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "transition",
+       "value": "dans .bouton",
+       "tone": "g"
+      }
+     ],
+     "say": "On déplace la transition dans .bouton, l'état normal : elle vaut maintenant dans les deux sens."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "état",
+       "value": ":hover"
+      }
+     ],
+     "set": [
+      {
+       "id": "souris",
+       "at": [
+        0.0,
+        -2.2
+       ]
+      },
+      {
+       "id": "bouton",
+       "tone": "r"
+      },
+      {
+       "id": "curseur",
+       "at": [
+        0.6,
+        1.5
+       ],
+       "tone": "r"
+      }
+     ],
+     "say": "Le survol : aller en douceur…",
+     "ms": 1100
+    },
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "état",
+       "value": "normal"
+      }
+     ],
+     "set": [
+      {
+       "id": "souris",
+       "at": [
+        6.5,
+        -2.2
+       ]
+      },
+      {
+       "id": "bouton",
+       "tone": "b"
+      },
+      {
+       "id": "curseur",
+       "at": [
+        -8.6,
+        1.5
+       ],
+       "tone": "b"
+      }
+     ],
+     "say": "…et retour en douceur.",
+     "ms": 1100
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "animation",
+   "label": "@keyframes",
+   "title": "Une animation : de from à to, toute seule",
+   "body": [
+    "Au chargement de la page, la bannière joue l'animation `apparition` : deux étapes, `from` et `to`."
+   ],
+   "show": [
+    "place",
+    {
+     "id": "ban",
+     "dim": true
+    },
+    "ligne",
+    "temps"
+   ],
+   "hud": [
+    {
+     "label": "temps",
+     "value": "0 s"
+    },
+    {
+     "label": "opacity",
+     "value": "0"
+    },
+    {
+     "label": "transform",
+     "value": "translateY(20px)"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "ban",
+       "label": "from"
+      }
+     ],
+     "say": "La page se charge : la bannière part de from, invisible et 20 px plus bas."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "ban",
+       "at": [
+        0.0,
+        -2.6
+       ],
+       "dim": null,
+       "label": null
+      },
+      {
+       "id": "temps",
+       "at": [
+        6.0,
+        2.7
+       ],
+       "title": "to"
+      }
+     ],
+     "hud": [
+      {
+       "label": "temps",
+       "value": "0,6 s"
+      },
+      {
+       "label": "opacity",
+       "value": "1"
+      },
+      {
+       "label": "transform",
+       "value": "translateY(0)"
+      }
+     ],
+     "say": "En 0,6 s, le navigateur calcule chaque image entre from et to : elle monte et apparaît.",
+     "ms": 1400
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "ban",
+       "label": "to"
+      }
+     ],
+     "say": "Arrivée à to, l'animation s'arrête : la bannière garde son style, à sa place."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "reduit",
+   "label": "Moins de mouvement",
+   "title": "La même bannière, quand le système demande moins de mouvement",
+   "body": [
+    "La bannière de l'étape précédente. À gauche, le réglage du système de la personne qui visite la page."
+   ],
+   "show": [
+    "reglage",
+    "place",
+    {
+     "id": "ban",
+     "dim": true
+    }
+   ],
+   "hud": [
+    {
+     "label": "réglage",
+     "value": "no-preference"
+    },
+    {
+     "label": "animation",
+     "value": "apparition"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "ban",
+       "at": [
+        0.0,
+        -2.6
+       ],
+       "dim": null
+      }
+     ],
+     "say": "Réglage désactivé : au chargement, la bannière monte et apparaît.",
+     "ms": 1400
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "reglage",
+       "tone": "v",
+       "sub": "réduire les animations : oui"
+      }
+     ],
+     "hud": [
+      {
+       "label": "réglage",
+       "value": "reduce",
+       "tone": "v"
+      }
+     ],
+     "say": "La personne active « réduire les animations » dans son système : le mouvement lui donne des vertiges."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "ban",
+       "at": [
+        0.0,
+        -1.2000000000000002
+       ],
+       "dim": true
+      }
+     ],
+     "say": "Elle recharge la page.",
+     "ms": 1
+    },
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "reglage",
+       "to": "ban"
+      }
+     ],
+     "set": [
+      {
+       "id": "ban",
+       "at": [
+        0.0,
+        -2.6
+       ],
+       "dim": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "animation",
+       "value": "none",
+       "tone": "v"
+      }
+     ],
+     "say": "La media query s'applique, animation: none : la bannière s'affiche directement à sa place.",
+     "ms": 1
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

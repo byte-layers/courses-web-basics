@@ -20,7 +20,14 @@ Dans la console, chaque instruction s'exécute une fois et s'oublie. Une page we
 
 ## La balise `<script>` et le fichier `.js`
 
-Le navigateur lit le HTML de haut en bas. Quand il rencontre une balise **`<script>`**, il s'arrête, exécute le JavaScript qu'elle contient, puis reprend sa lecture. Le code peut s'écrire directement entre les balises :
+Le navigateur lit le HTML de haut en bas, et une balise `<script>` interrompt sa lecture.
+
+```scene
+lesson: assets/in-page.scene.json
+step: lecture
+```
+
+Quand il rencontre une balise **`<script>`**, il s'arrête, exécute le JavaScript, puis reprend sa lecture. Le code peut s'écrire directement entre les balises :
 
 ```html
 <script>
@@ -34,14 +41,16 @@ Le navigateur lit le HTML de haut en bas. Quand il rencontre une balise **`<scri
 <script src="script.js"></script>
 ```
 
-| Écriture | Où est le code | Quand l'utiliser |
-|---|---|---|
-| `<script>…</script>` | dans le HTML | un essai de deux lignes |
-| `<script src="script.js"></script>` | dans `script.js`, à côté de la page | tout le reste : un fichier pour le contenu, un pour la forme, un pour le comportement |
+| Écriture | Quand l'utiliser |
+|---|---|
+| `<script>…</script>`, le code dans le HTML | un essai de deux lignes |
+| `<script src="script.js"></script>`, le code dans `script.js`, à côté de la page | tout le reste : un fichier pour le contenu, un pour la forme, un pour le comportement |
 
 La balise s'écrit toujours avec sa fermeture `</script>`, même vide. Le nom dans `src` doit être **exactement** celui du fichier : `Script.js` ne trouve pas `script.js`. Un nom faux ne produit aucune erreur JavaScript, puisqu'aucun code n'est chargé : il ne se passe rien, simplement.
 
-Le fichier `script.js` contient déjà une ligne, mais la page ne le charge pas. Ajoutez la balise qui le branche, juste avant `</body>`.
+## À toi : branche script.js
+
+Le fichier `script.js` contient déjà une ligne, mais la page ne le charge pas. Ajoute la balise qui le branche, juste avant `</body>`.
 
 ```playground
 runtime: web
@@ -71,11 +80,16 @@ verify:
 solution: assets/brancher.solution
 ```
 
-Rechargez l'aperçu ou modifiez la page : la ligne revient à chaque fois. C'est la différence avec la console, où rien ne se rejoue.
+Recharge l'aperçu ou modifie la page : la ligne revient à chaque fois. C'est la différence avec la console, où rien ne se rejoue.
 
 ## Un script trop tôt : l'élément vaut `null`
 
 Un script sert le plus souvent à agir sur la page : changer un texte, réagir à un clic. Pour cela, il doit d'abord **trouver** l'élément. Prenez cette ligne comme une recette, que le bit sur le DOM détaillera : `document.querySelector("#compteur")` cherche dans la page l'élément d'identifiant `compteur`, avec le même sélecteur qu'en CSS, et le rend. S'il ne le trouve pas, il rend **`null`**, la valeur qui veut dire « aucun objet ».
+
+```scene
+lesson: assets/in-page.scene.json
+step: trop-tot
+```
 
 Or le navigateur exécute un script **au moment où il le lit**. Placé dans le `<head>`, le script tourne avant que le `<body>` existe : la recherche rend `null`. Chercher ne provoque pas d'erreur ; c'est en voulant écrire dans `null` que tout s'arrête, avec ce message :
 
@@ -85,7 +99,9 @@ TypeError: Cannot set properties of null (setting 'textContent')
 
 Le message dit qu'on ne peut pas modifier une propriété (*set properties*) de `null`. L'erreur pointe la ligne qui écrit, pas celle qui a cherché trop tôt : c'est ce qui rend ce piège difficile à trouver seul.
 
-La page ci-dessous est livrée cassée : son script est dans le `<head>`. Lisez d'abord l'erreur dans la console, puis réparez la page **sans toucher à `script.js`**.
+## À toi : répare le script placé trop tôt
+
+La page ci-dessous est livrée cassée : son script est dans le `<head>`. Lis d'abord l'erreur dans la console, puis répare la page **sans toucher à `script.js`** : la balise peut aller ailleurs.
 
 ```playground
 runtime: web
@@ -133,15 +149,24 @@ Placer le script en bas du `<body>` marche partout. L'autre solution garde la ba
 </head>
 ```
 
-| Placement | Le script s'exécute | L'élément est trouvé |
-|---|---|---|
-| `<script src>` dans le `<head>` | avant la lecture du `<body>` | non : `null` |
-| `<script src>` juste avant `</body>` | après la lecture du `<body>` | oui |
-| `<script src defer>` dans le `<head>` | après la lecture de toute la page | oui |
+La même page que dans la scène du script trop tôt, avec `defer` :
+
+```scene
+lesson: assets/in-page.scene.json
+step: defer
+```
+
+| Placement | Le script s'exécute… |
+|---|---|
+| `<script src>` dans le `<head>` | avant la lecture du `<body>` : `null` |
+| `<script src>` juste avant `</body>` | après la lecture du `<body>` : trouvé |
+| `<script src defer>` dans le `<head>` | après la lecture de toute la page : trouvé |
 
 Les deux solutions qui marchent se valent pour une page simple. `defer` a l'avantage de regrouper dans le `<head>` tout ce que la page charge, et de commencer le téléchargement plus tôt. `defer` ne fonctionne qu'avec un fichier externe (`src`), pas avec un script écrit entre les balises.
 
-Même page cassée, autre réparation : gardez la balise dans le `<head>`, et faites-la attendre.
+## À toi : garde le script dans le head, avec defer
+
+Même page cassée, autre réparation : garde la balise dans le `<head>`, et fais-la attendre.
 
 ```playground
 runtime: web

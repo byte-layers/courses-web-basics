@@ -1,0 +1,305 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "normal-flow-limits",
+ "title": "Les limites du flux normal (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "v",
+   "label": "bloc"
+  },
+  {
+   "tone": "y",
+   "label": "inline"
+  },
+  {
+   "tone": "g",
+   "label": "ce qu'on veut"
+  }
+ ],
+ "entities": [
+  {
+   "id": "f-head",
+   "kind": "layer",
+   "at": [
+    -9,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    15,
+    9,
+    1
+   ],
+   "title": "header, en flux normal"
+  },
+  {
+   "id": "f-logo",
+   "kind": "node",
+   "at": [
+    0,
+    -1.8
+   ],
+   "tone": "v",
+   "size": [
+    13,
+    2,
+    1
+   ],
+   "in": "f-head",
+   "title": ".logo : CM",
+   "sub": "bloc : toute la largeur"
+  },
+  {
+   "id": "f-nav",
+   "kind": "layer",
+   "at": [
+    0,
+    2.1
+   ],
+   "tone": "v",
+   "size": [
+    13,
+    3,
+    1
+   ],
+   "in": "f-head",
+   "title": "nav"
+  },
+  {
+   "id": "f-a0",
+   "kind": "file",
+   "at": [
+    -4,
+    0.4
+   ],
+   "tone": "y",
+   "size": [
+    3.4,
+    1.4,
+    1
+   ],
+   "in": "f-nav",
+   "title": "Accueil"
+  },
+  {
+   "id": "f-a1",
+   "kind": "file",
+   "at": [
+    0,
+    0.4
+   ],
+   "tone": "y",
+   "size": [
+    3.4,
+    1.4,
+    1
+   ],
+   "in": "f-nav",
+   "title": "Projets"
+  },
+  {
+   "id": "f-a2",
+   "kind": "file",
+   "at": [
+    4,
+    0.4
+   ],
+   "tone": "y",
+   "size": [
+    3.4,
+    1.4,
+    1
+   ],
+   "in": "f-nav",
+   "title": "Contact"
+  },
+  {
+   "id": "g-head",
+   "kind": "layer",
+   "at": [
+    9,
+    0
+   ],
+   "tone": "g",
+   "size": [
+    15,
+    9,
+    1
+   ],
+   "title": "ce qu'on veut"
+  },
+  {
+   "id": "g-logo",
+   "kind": "node",
+   "at": [
+    -5,
+    0.6
+   ],
+   "tone": "g",
+   "size": [
+    3,
+    3,
+    1
+   ],
+   "in": "g-head",
+   "title": "CM"
+  },
+  {
+   "id": "g-nav",
+   "kind": "layer",
+   "at": [
+    2,
+    0.6
+   ],
+   "tone": "g",
+   "size": [
+    9.6,
+    3,
+    1
+   ],
+   "in": "g-head",
+   "title": "nav"
+  },
+  {
+   "id": "g-a0",
+   "kind": "file",
+   "at": [
+    -3,
+    0.4
+   ],
+   "tone": "g",
+   "size": [
+    2.6,
+    1.4,
+    1
+   ],
+   "in": "g-nav",
+   "title": "Accueil"
+  },
+  {
+   "id": "g-a1",
+   "kind": "file",
+   "at": [
+    0,
+    0.4
+   ],
+   "tone": "g",
+   "size": [
+    2.6,
+    1.4,
+    1
+   ],
+   "in": "g-nav",
+   "title": "Projets"
+  },
+  {
+   "id": "g-a2",
+   "kind": "file",
+   "at": [
+    3,
+    0.4
+   ],
+   "tone": "g",
+   "size": [
+    2.6,
+    1.4,
+    1
+   ],
+   "in": "g-nav",
+   "title": "Contact"
+  }
+ ],
+ "steps": [
+  {
+   "id": "limites",
+   "label": "Les limites",
+   "title": "Une ligne que le flux normal ne fait pas",
+   "body": [
+    "À gauche, l'entête en flux normal ; à droite, ce qu'on veut obtenir."
+   ],
+   "hud": [
+    {
+     "label": "logo et menu",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "f-head",
+    "f-logo",
+    "f-nav",
+    "f-a0",
+    "f-a1",
+    "f-a2"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "logo et menu",
+       "value": "deux lignes",
+       "tone": "r"
+      }
+     ],
+     "say": "En flux normal, `.logo` et `nav` sont **deux blocs** : deux lignes, chacun sur toute la largeur."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "show": [
+      "g-head",
+      "g-logo",
+      "g-nav",
+      "g-a0",
+      "g-a1",
+      "g-a2"
+     ],
+     "say": "Ce qu'on veut : le logo **à gauche**, le menu **à droite**, sur la même ligne, centrés en hauteur."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "g-head",
+       "label": "pas en flux normal"
+      }
+     ],
+     "say": "`inline-block` les mettrait côte à côte, mais ne pousse pas le menu à droite et ne centre pas en hauteur."
+    },
+    {
+     "do": "wait",
+     "ms": 1700
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "logo et menu",
+       "value": "une ligne : Flexbox",
+       "tone": "g"
+      }
+     ],
+     "say": "Il faut un **autre mode de disposition** : c'est le rôle de Flexbox."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

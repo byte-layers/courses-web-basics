@@ -1,0 +1,330 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "web-standards-browsers-standards",
+ "title": "Qui écrit les standards du web (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "n",
+   "label": "un organisme"
+  },
+  {
+   "tone": "y",
+   "label": "HTML"
+  },
+  {
+   "tone": "r",
+   "label": "CSS"
+  },
+  {
+   "tone": "g",
+   "label": "JavaScript"
+  },
+  {
+   "tone": "v",
+   "label": "les navigateurs"
+  }
+ ],
+ "entities": [
+  {
+   "id": "o-html",
+   "kind": "node",
+   "at": [
+    -14,
+    -5
+   ],
+   "tone": "n",
+   "size": [
+    7.6,
+    2.8,
+    1
+   ],
+   "title": "WHATWG",
+   "sub": "éditeurs de navigateurs",
+   "detail": "Le **WHATWG** est un groupe fondé en 2004 par des éditeurs de navigateurs. Depuis 2019, le W3C reconnaît son texte comme **le seul standard HTML**."
+  },
+  {
+   "id": "o-css",
+   "kind": "node",
+   "at": [
+    -14,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    7.6,
+    2.8,
+    1
+   ],
+   "title": "W3C",
+   "sub": "groupe de travail CSS",
+   "detail": "Le **W3C** (*World Wide Web Consortium*) réunit éditeurs de navigateurs, entreprises et universités."
+  },
+  {
+   "id": "o-js",
+   "kind": "node",
+   "at": [
+    -14,
+    5
+   ],
+   "tone": "n",
+   "size": [
+    7.6,
+    2.8,
+    1
+   ],
+   "title": "Ecma International",
+   "sub": "comité TC39",
+   "detail": "Le comité **TC39** d'Ecma International publie une nouvelle édition d'ECMAScript chaque année depuis 2015."
+  },
+  {
+   "id": "d-html",
+   "kind": "file",
+   "at": [
+    -3.5,
+    -5
+   ],
+   "tone": "y",
+   "size": [
+    8.4,
+    2.6,
+    1
+   ],
+   "title": "HTML Living Standard",
+   "detail": "Mis à jour **en continu** : pas de version 5 ou 6, un seul texte vivant."
+  },
+  {
+   "id": "d-css",
+   "kind": "file",
+   "at": [
+    -3.5,
+    0
+   ],
+   "tone": "r",
+   "size": [
+    8.4,
+    2.6,
+    1
+   ],
+   "title": "les modules CSS",
+   "detail": "Le CSS est découpé en **modules** (couleurs, boîtes, polices…), chacun avec sa version."
+  },
+  {
+   "id": "d-js",
+   "kind": "file",
+   "at": [
+    -3.5,
+    5
+   ],
+   "tone": "g",
+   "size": [
+    8.4,
+    2.6,
+    1
+   ],
+   "title": "ECMAScript",
+   "detail": "Le standard de JavaScript s'appelle **ECMAScript** ; son texte porte le numéro ECMA-262."
+  },
+  {
+   "id": "navs",
+   "kind": "layer",
+   "at": [
+    11,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    9,
+    15,
+    1
+   ],
+   "title": "les navigateurs"
+  },
+  {
+   "id": "n-chrome",
+   "kind": "node",
+   "at": [
+    0,
+    -4.2
+   ],
+   "tone": "v",
+   "size": [
+    6.4,
+    2.2,
+    1
+   ],
+   "in": "navs",
+   "title": "Chrome, Edge"
+  },
+  {
+   "id": "n-firefox",
+   "kind": "node",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    6.4,
+    2.2,
+    1
+   ],
+   "in": "navs",
+   "title": "Firefox"
+  },
+  {
+   "id": "n-safari",
+   "kind": "node",
+   "at": [
+    0,
+    4.2
+   ],
+   "tone": "v",
+   "size": [
+    6.4,
+    2.2,
+    1
+   ],
+   "in": "navs",
+   "title": "Safari"
+  }
+ ],
+ "steps": [
+  {
+   "id": "standards",
+   "label": "Les standards",
+   "title": "Un texte public par langage",
+   "body": [
+    "Trois organismes écrivent les standards ; tous les navigateurs les appliquent."
+   ],
+   "hud": [
+    {
+     "label": "une même page",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "o-html",
+    "navs",
+    "n-chrome",
+    "n-firefox",
+    "n-safari"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "scene",
+     "show": [
+      "d-html"
+     ],
+     "link": [
+      {
+       "from": "o-html",
+       "to": "d-html",
+       "label": "écrit"
+      }
+     ],
+     "say": "Le **WHATWG** écrit le standard du HTML, mis à jour en continu."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "o-css",
+      "d-css"
+     ],
+     "link": [
+      {
+       "from": "o-css",
+       "to": "d-css",
+       "label": "écrit"
+      }
+     ],
+     "say": "Le **W3C** écrit celui du CSS, découpé en modules."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "o-js",
+      "d-js"
+     ],
+     "link": [
+      {
+       "from": "o-js",
+       "to": "d-js",
+       "label": "écrit"
+      }
+     ],
+     "say": "**Ecma International** écrit celui de JavaScript : ECMAScript, une édition par an."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "d-html",
+       "to": "navs"
+      },
+      {
+       "from": "d-css",
+       "to": "navs"
+      },
+      {
+       "from": "d-js",
+       "to": "navs"
+      }
+     ],
+     "say": "Ces textes sont **publics** : chaque navigateur les lit et les applique."
+    },
+    {
+     "do": "send",
+     "path": [
+      "d-html",
+      "navs"
+     ],
+     "label": "lu",
+     "tone": "y"
+    },
+    {
+     "do": "send",
+     "path": [
+      "d-js",
+      "navs"
+     ],
+     "label": "lu",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "une même page",
+       "value": "même sens partout",
+       "tone": "g"
+      }
+     ],
+     "say": "Une balise, une propriété, une instruction veulent donc dire la même chose dans tous les navigateurs."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

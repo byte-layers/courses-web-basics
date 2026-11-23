@@ -5,7 +5,7 @@ tags:
   - bit
   - css
 difficulty: beginner
-duration: 15
+duration: 20
 requires: "0.9.0"
 ---
 
@@ -21,6 +21,11 @@ Un entête en Flexbox, une grille qui passe de trois colonnes à une, des bouton
 
 Bootstrap est, pour l'essentiel, **un fichier CSS** de quelques milliers de règles, et un fichier JavaScript pour les composants qui réagissent (menus déroulants, fenêtres modales). Vous ne l'écrivez pas et vous ne le modifiez pas : vous ajoutez à vos balises les classes qu'il définit, `btn`, `card`, `row`, et ses règles s'appliquent.
 
+```scene
+lesson: assets/bootstrap.scene.json
+step: classes
+```
+
 Pour le charger, le plus simple est un **CDN** (*content delivery network*), un serveur public qui distribue des bibliothèques. Une balise `<link>` dans le `head` suffit, avec une **version précise** dans l'adresse, pour que la page ne change pas toute seule le jour où sort une version suivante :
 
 ```html
@@ -33,15 +38,22 @@ Ce fichier pèse environ `230 Ko`, `30 Ko` une fois compressé pour le transfert
 
 La grille de Bootstrap tient en trois classes, qu'on imbrique toujours dans cet ordre :
 
-| Classe | Rôle | Ce que c'est en CSS |
-|---|---|---|
-| `container` | centre le contenu, avec une largeur maximale | `max-width` qui change à chaque point de rupture |
-| `row` | une rangée | `display: flex; flex-wrap: wrap;` |
-| `col-md-4` | une colonne de 4 douzièmes, à partir de l'écran `md` | `width: 33.33%` dans une media query `min-width: 768px` |
+| Classe | Rôle |
+|---|---|
+| `container` | centre le contenu, avec une largeur maximale |
+| `row` | une rangée |
+| `col-md-4` | une colonne de 4 douzièmes, à partir de l'écran `md` |
 
-La rangée est découpée en **12 parts** : trois colonnes `col-md-4` la remplissent. Le préfixe `md` est un **point de rupture** : `sm` (576 px), `md` (768 px), `lg` (992 px), `xl` (1200 px). En dessous de `md`, la colonne prend toute la largeur : c'est du mobile-first, avec `min-width`, exactement comme dans le bit sur le responsive design.
+```scene
+lesson: assets/bootstrap.scene.json
+step: grille
+```
 
-**À toi** : charge Bootstrap dans la page avec la balise `<link>` ci-dessus, puis range les trois projets dans un `container`, une `row` et trois colonnes `col-md-4`.
+La rangée est découpée en **12 parts** : trois colonnes `col-md-4` la remplissent. Les notes de la scène disent ce que chaque classe est en CSS. Le préfixe `md` est un **point de rupture** : `sm` (576 px), `md` (768 px), `lg` (992 px), `xl` (1200 px). En dessous de `md`, la colonne prend toute la largeur : c'est du mobile-first, avec `min-width`, exactement comme dans le bit sur le responsive design.
+
+## À toi : la grille de Bootstrap
+
+Charge Bootstrap dans la page avec la balise `<link>` ci-dessus, puis range les trois projets dans un `container`, une `row` et trois colonnes `col-md-4`.
 
 ```playground
 runtime: web
@@ -94,23 +106,29 @@ Rétrécissez l'aperçu sous `768px` : les trois projets s'empilent. Vous n'avez
 
 ## Ce que le framework fait à votre place
 
-Bootstrap apporte d'un coup ce qui prend du temps à écrire et à tester :
+Bootstrap apporte d'un coup ce que vous auriez écrit vous-même. Ouvrons son fichier, bloc par bloc.
 
-| Il fournit | Ce que vous écririez sinon |
-|---|---|
-| une remise à zéro des styles des navigateurs | des marges et des polices qui changent d'un navigateur à l'autre |
-| la grille `container`, `row`, `col` | Flexbox, `gap` et une media query par point de rupture |
-| des composants : `btn`, `card`, `navbar`, `form-control`, `alert` | des dizaines de règles, leurs états `:hover` et `:focus` |
-| des utilitaires : `mt-3`, `text-center`, `d-flex` | une petite règle chaque fois |
-| des composants en JavaScript : menu repliable, fenêtre modale | le script et sa gestion du clavier |
+```scene
+lesson: assets/bootstrap.scene.json
+step: fournit
+```
 
-Il se personnalise par ses **variables CSS** (`--bs-primary`…) ou en recompilant ses sources Sass, et on ajoute toujours sa propre feuille de style, chargée **après** la sienne, pour ce qui est propre au site.
+Remise à zéro, grille, composants, utilitaires, et un script pour ce qui réagit : chaque bloc vous épargne **des règles à écrire et à tester** sur tous les navigateurs. Il se personnalise par ses **variables CSS** (`--bs-primary`…) ou en recompilant ses sources Sass, et on ajoute toujours sa propre feuille de style, chargée **après** la sienne, pour ce qui est propre au site.
 
 ## Ce qu'il ne fait pas : le sens, les alt, les étiquettes
 
-Une classe Bootstrap change l'**apparence**, jamais le **sens**. Une `div class="h3"` ressemble à un titre, mais ce n'est pas un titre pour un lecteur d'écran ; une image avec `img-fluid` ne déborde plus, mais elle n'a toujours pas de texte alternatif si vous n'en écrivez pas ; un `form-control` est joli, mais son étiquette n'est reliée que si `for` et `id` correspondent. Tout ce que le bit sur l'accessibilité vous a fait vérifier reste à votre charge.
+Une classe Bootstrap change l'**apparence**, jamais le **sens**. Voici un formulaire d'inscription, vu à l'écran, puis lu par un lecteur d'écran.
 
-**À toi** : cette carte a l'air parfaite. Pour un lecteur d'écran, elle n'a ni titre ni image décrite. Donne-lui un vrai titre `h3` à la place de la `div class="h5"` (garde la classe pour l'apparence), et décris l'image.
+```scene
+lesson: assets/bootstrap.scene.json
+step: lecteur
+```
+
+Une `div class="h4"` ressemble à un titre, mais ce n'est pas un titre pour un lecteur d'écran ; un `form-control` est joli, mais son étiquette n'est reliée que si `for` et `id` correspondent ; une image avec `img-fluid` ne déborde plus, mais elle n'a toujours pas de texte alternatif si vous n'en écrivez pas. Tout ce que le bit sur l'accessibilité vous a fait vérifier **reste à votre charge**.
+
+## À toi : une carte jolie, et lisible
+
+Cette carte a l'air parfaite. Pour un lecteur d'écran, elle n'a ni titre ni image décrite. Donne-lui un vrai titre `h3` à la place de la `div class="h5"` (garde la classe pour l'apparence), et décris l'image.
 
 ```playground
 runtime: web
@@ -155,7 +173,7 @@ verify:
 solution: assets/carte.solution
 ```
 
-> 💡 **Remarque.** Avec Bootstrap, toutes les pages finissent par se ressembler un peu, et le navigateur télécharge tout le framework pour quelques classes. Le bit suivant présente une autre approche, qui ne garde que les classes réellement utilisées.
+> 💡 **Remarque.** Avec Bootstrap, toutes les pages finissent par se ressembler un peu, et le navigateur télécharge tout le framework pour quelques classes. D'autres outils, Tailwind par exemple, prennent le chemin inverse et ne gardent que les classes réellement utilisées.
 
 > 📖 [Bootstrap, bien démarrer (en anglais)](https://getbootstrap.com/docs/5.3/getting-started/introduction/) · [La grille de Bootstrap (en anglais)](https://getbootstrap.com/docs/5.3/layout/grid/) · [L'accessibilité selon Bootstrap (en anglais)](https://getbootstrap.com/docs/5.3/getting-started/accessibility/)
 

@@ -1,17 +1,17 @@
 ---
 title: "Le DOM : la page vue par JavaScript"
-description: "Le navigateur transforme le HTML en un arbre d'objets, le DOM, que JavaScript lit et modifie : trouver des éléments avec querySelector et querySelectorAll, changer leur texte et leurs classes, créer et insérer de nouveaux éléments ; les pièges du premier élément seulement et de la NodeList qui n'est pas un tableau."
+description: "Le navigateur transforme le HTML en un arbre d'objets, le DOM, que JavaScript lit et modifie : trouver des éléments avec querySelector et querySelectorAll, changer leur texte et leurs classes, créer et insérer de nouveaux éléments ; les pièges du premier élément seulement et de la NodeList, une liste qui n'est pas un élément."
 tags:
   - bit
   - javascript
   - dom
   - web
 difficulty: beginner
-duration: 15
+duration: 20
 requires: "0.9.0"
 ---
 
-La page HTML que vous avez écrite, JavaScript la voit comme un arbre d'objets, le **DOM**, qu'il peut lire et changer. Vous saurez trouver des éléments avec `querySelector` et `querySelectorAll`, changer leur texte avec `textContent` et leurs classes avec `classList`, créer un élément et l'insérer dans la page, et éviter deux pièges : `querySelector` ne rend que le premier élément trouvé, et `querySelectorAll` ne rend pas un vrai tableau.
+La page HTML que vous avez écrite, JavaScript la voit comme un arbre d'objets, le **DOM**, qu'il peut lire et changer. Vous saurez trouver des éléments avec `querySelector` et `querySelectorAll`, changer leur texte avec `textContent` et leurs classes avec `classList`, créer un élément et l'insérer dans la page, et éviter deux pièges : `querySelector` ne rend que le premier élément trouvé, et `querySelectorAll` rend une liste, sur laquelle on ne change rien d'un coup.
 
 **Prérequis** : [Fonctions et objets](https://byte-layers.com/fr/bits/js-functions-objects), pour les objets et la notation à point, et [Où vit le JavaScript dans une page](https://byte-layers.com/fr/bits/js-in-page), pour `defer`.
 
@@ -23,18 +23,11 @@ Jusqu'ici, votre code parle à la console. À partir de maintenant, il parle à 
 
 En lisant le HTML, le navigateur construit en mémoire un **arbre d'objets** : un objet par élément, rangé dans son parent, comme les balises sont imbriquées. Cet arbre s'appelle le **DOM** (*Document Object Model*, le modèle objet du document). C'est lui que le navigateur dessine, et c'est lui que JavaScript modifie, à partir de l'objet **`document`**, la racine de l'arbre.
 
-Le schéma montre l'arbre construit pour une petite page : le `body` contient un titre et une liste, la liste contient deux éléments.
+La scène montre l'arbre construit pour une petite page, puis ce qui change quand JavaScript ajoute un élément.
 
-```mermaid
-flowchart TD
-  doc["document"] --> html["html"]
-  html --> head["head"]
-  html --> body["body"]
-  head --> title["title"]
-  body --> h1["h1 : Ada Lovelace"]
-  body --> ul["ul#projets"]
-  ul --> li1["li : Portfolio"]
-  ul --> li2["li : Météo"]
+```scene
+lesson: assets/dom.scene.json
+step: arbre
 ```
 
 Le fichier HTML, lui, ne change jamais. Quand JavaScript ajoute un élément, il l'ajoute au DOM : la page affichée le montre, mais le code source (clic droit, **Afficher le code source**) reste tel que vous l'avez écrit. L'onglet **Éléments** (*Elements*, ou *Inspecteur* dans Firefox) des outils de développement, lui, montre le DOM, modifications comprises.
@@ -43,14 +36,21 @@ Le fichier HTML, lui, ne change jamais. Quand JavaScript ajoute un élément, il
 
 Pour agir sur un élément, on commence par le trouver, avec un **sélecteur CSS**, exactement ceux de votre feuille de style : `"h1"`, `".projet"`, `"#compteur"`, `"nav a"`.
 
-| Méthode | Rend | S'il n'y a rien |
-|---|---|---|
-| `document.querySelector(sel)` | le **premier** élément qui correspond, et lui seul | `null` |
-| `document.querySelectorAll(sel)` | **tous** les éléments, dans une liste (une `NodeList`) | une liste vide, de `length` 0 |
+```scene
+lesson: assets/dom.scene.json
+step: chercher
+```
 
-Une `NodeList` ressemble à un tableau : elle a un `length`, des index, et `for…of` la parcourt. Mais ce n'est **pas un tableau** : les méthodes de tableau comme `map` n'y existent pas, et `document.querySelectorAll(".projet").map(…)` lève `TypeError: … .map is not a function`. Pour en faire un vrai tableau : `Array.from(liste)`.
+| Méthode | Rend |
+|---|---|
+| `document.querySelector(sel)` | le **premier** élément qui correspond, et lui seul ; `null` s'il n'y en a aucun |
+| `document.querySelectorAll(sel)` | **tous** les éléments, dans une liste (une `NodeList`) ; une liste vide, de `length` 0, s'il n'y en a aucun |
 
-La page contient trois projets, et le paragraphe `#compteur` doit dire combien. Le code affiche « undefined projets » : corrigez la recherche, sans écrire le nombre à la main.
+Une `NodeList` ressemble à un tableau : elle a un `length`, des index, et `for…of` la parcourt. Mais c'est une **liste**, pas un élément : elle n'a pas les propriétés d'un élément. `liste.classList` vaut `undefined` ; ce sont ses éléments, un par un, qui ont une `classList`.
+
+## À toi : compte les projets de la page
+
+La page contient trois projets, et le paragraphe `#compteur` doit dire combien. Le code affiche « undefined projets » : corrige la recherche, sans écrire le nombre à la main.
 
 ```playground
 runtime: web
@@ -96,18 +96,36 @@ solution: assets/compter.solution
 
 Un élément trouvé est un objet : on change ce qu'il affiche en modifiant ses propriétés.
 
-| Propriété | Exemple | Effet |
-|---|---|---|
-| `textContent` | `titre.textContent = "Bonjour"` | remplace le texte de l'élément |
-| `classList.add` | `carte.classList.add("en-avant")` | pose une classe |
-| `classList.remove` | `carte.classList.remove("en-avant")` | retire une classe |
-| `classList.toggle` | `carte.classList.toggle("en-avant")` | pose la classe si elle manque, la retire sinon |
-| `classList.contains` | `carte.classList.contains("en-avant")` | `true` ou `false` |
-| `style` | `carte.style.background = "yellow"` | écrit un style directement sur l'élément |
+```javascript
+const titre = document.querySelector("h1");
+const carte = document.querySelector(".projet");
+
+titre.textContent = "Bonjour !";     // remplace le texte du titre
+carte.classList.add("en-avant");     // pose la classe : le CSS colore la carte
+carte.classList.toggle("en-avant");  // la retire, puisqu'elle y est
+```
+
+La scène joue ces trois lignes : le code à gauche, la page affichée à droite.
+
+```scene
+lesson: assets/dom.scene.json
+step: changer
+```
+
+| Exemple | Effet |
+|---|---|
+| `titre.textContent = "Bonjour"` | remplace le texte de l'élément |
+| `carte.classList.add("en-avant")` | pose une classe |
+| `carte.classList.remove("en-avant")` | retire une classe |
+| `carte.classList.toggle("en-avant")` | pose la classe si elle manque, la retire sinon |
+| `carte.classList.contains("en-avant")` | `true` ou `false` |
+| `carte.style.background = "yellow"` | écrit un style directement sur l'élément |
 
 On préfère **`classList`** à `style` : la couleur reste dans le CSS, où elle se change en un seul endroit, et retirer la classe suffit à revenir en arrière. Un style écrit par `style` l'emporte sur les classes, et il faut penser à le vider.
 
-Le CSS de la page contient une classe `en-avant`, qui donne un fond jaune clair. Le code veut la poser sur les trois projets, mais s'arrête sur une erreur : lisez-la, puis corrigez.
+## À toi : mets en avant chaque projet
+
+Le CSS de la page contient une classe `en-avant`, qui donne un fond jaune clair. Le code veut la poser sur les trois projets, mais s'arrête sur une erreur : lis-la, puis corrige.
 
 ```playground
 runtime: web
@@ -167,9 +185,18 @@ li.textContent = "HTML";                  // le remplit
 liste.append(li);                         // l'insère à la fin de liste : il apparaît
 ```
 
+Voici les trois gestes l'un après l'autre : l'élément n'apparaît qu'au dernier.
+
+```scene
+lesson: assets/dom.scene.json
+step: inserer
+```
+
 Un élément fabriqué n'est pas dans la page tant qu'il n'est pas inséré : si le code tourne sans erreur et que rien ne s'affiche, c'est presque toujours un `append` oublié. Pour une liste, les trois gestes vont **dans** la boucle : un `createElement` placé avant la boucle fabrique un seul élément, que chaque `append` déplace, et la page n'affiche que le dernier.
 
-Remplissez la liste `#competences` avec une ligne par compétence du tableau.
+## À toi : construis la liste des compétences
+
+Remplis la liste `#competences` avec une ligne par compétence du tableau.
 
 ```playground
 runtime: web
@@ -236,19 +263,19 @@ questions:
       - "Une erreur rouge"
     correct: 2
     explanation: "querySelectorAll rend toujours une liste, vide s'il n'y a rien : une boucle dessus ne fait simplement aucun tour. C'est querySelector qui rend null."
-  - prompt: "Pourquoi `document.querySelectorAll(\".projet\").map(…)` lève-t-il une erreur ?"
+  - prompt: "Pourquoi `document.querySelectorAll(\".projet\").classList.add(\"en-avant\")` lève-t-il une erreur ?"
     answers:
       - "Parce que la page n'a pas de projet"
-      - "Parce que la NodeList n'est pas un tableau : elle n'a pas de méthode map"
-      - "Parce que map n'existe pas en JavaScript"
+      - "Parce que la NodeList est une liste : elle n'a pas de classList, ce sont ses éléments qui en ont une"
+      - "Parce que classList ne marche qu'avec querySelector"
     correct: 2
-    explanation: "Une NodeList a un length, des index, et for…of la parcourt, mais pas les méthodes des tableaux comme map. Array.from(liste) en fait un vrai tableau."
+    explanation: "Une NodeList a un length, des index, et for…of la parcourt, mais pas les propriétés d'un élément : sa classList vaut undefined. On pose la classe sur chaque élément, dans une boucle."
 ```
 
 ## Récap
 
 - Le **DOM** est l'arbre d'objets que le navigateur construit à partir du HTML ; JavaScript le modifie à partir de `document`, et le fichier HTML, lui, ne change pas.
-- **`querySelector`** rend le **premier** élément trouvé (ou `null`) ; **`querySelectorAll`** rend une `NodeList` de tous les éléments, vide s'il n'y a rien, qui **n'est pas un tableau**.
+- **`querySelector`** rend le **premier** élément trouvé (ou `null`) ; **`querySelectorAll`** rend une `NodeList` de tous les éléments, vide s'il n'y a rien : une **liste**, pas un élément, qu'on parcourt pour agir sur chacun.
 - **`textContent`** change le texte ; **`classList`** pose, retire, bascule des classes, et la couleur reste dans le CSS.
 - **`createElement`** fabrique un élément, **`append`** l'insère ; pour une liste, les deux gestes vont dans la boucle.
 

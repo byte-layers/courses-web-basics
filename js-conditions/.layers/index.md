@@ -6,7 +6,7 @@ tags:
   - javascript
   - web
 difficulty: beginner
-duration: 15
+duration: 20
 requires: "0.9.0"
 ---
 
@@ -22,14 +22,37 @@ Jusqu'ici, votre code s'exécute de haut en bas, toujours pareil. Une page de co
 
 Une **comparaison** pose une question au moteur, qui répond par un **booléen** : `true` (vrai) ou `false` (faux). Tapée dans la console, `20 >= 18` répond `true`.
 
-| Opérateur | Question | Exemple | Réponse |
-|---|---|---|---|
-| `===` | égal, en valeur **et** en type ? | `7 === 7` | `true` |
-| `!==` | différent ? | `7 !== 3` | `true` |
-| `<`, `>` | plus petit, plus grand ? | `3 < 7` | `true` |
-| `<=`, `>=` | plus petit ou égal, plus grand ou égal ? | `18 >= 18` | `true` |
+```scene
+lesson: assets/conditions.scene.json
+step: comparer
+```
 
-L'égalité s'écrit avec **trois** signes `=`. Un seul `=` ne compare rien : il **range** une valeur dans une variable, comme vous l'avez vu avec `let`. Cette confusion est le premier piège de la section suivante.
+| Opérateur | Question |
+|---|---|
+| `===` (`7 === 7` vaut `true`) | égal, en valeur **et** en type ? |
+| `!==` (`7 !== 3` vaut `true`) | différent ? |
+| `<`, `>` (`3 < 7` vaut `true`) | plus petit, plus grand ? |
+| `<=`, `>=` (`18 >= 18` vaut `true`) | plus petit ou égal, plus grand ou égal ? |
+
+L'égalité s'écrit avec **trois** signes `=`. Un seul `=` ne compare rien : il **range** une valeur dans une variable, comme vous l'avez vu avec `let`.
+
+## À toi : un signe `=` ou trois ?
+
+Range, puis compare : à chaque trou, choisis entre `=` (ranger), `===` (égal ?) et `>=` (au moins ?).
+
+```fill
+place: stage
+text: "Pour ranger la réponse du joueur : `let reponse _____ \"Paris\";`. Pour demander si c'est la bonne : `reponse _____ \"Paris\"`. Pour demander si un score atteint 10 : `score _____ 10`."
+blanks:
+  - answers: ["="]
+    hint: Ici, on range une valeur dans la variable, on ne pose pas de question.
+  - answers: ["==="]
+    hint: "Une question d'égalité : trois signes `=`."
+  - answers: [">="]
+    hint: Au moins 10, c'est « plus grand ou égal ».
+```
+
+Les trois s'écrivent sans erreur. Seul le sens change : un `=` de trop ou de moins ne se voit qu'au résultat.
 
 ## Si… sinon : `if` et `else`
 
@@ -44,9 +67,16 @@ if (age >= 18) {
 }
 ```
 
-Un seul des deux blocs s'exécute, jamais les deux. Ici, la console affiche `Majeur` ; avec `const age = 15;`, elle afficherait `Mineur`.
+Un seul des deux blocs s'exécute, jamais les deux. Suivez le moteur avec `age` à 20, puis à 15 :
 
-Le code ci-dessous contrôle un code d'accès. Le visiteur a tapé `"0000"`, le code secret est `"1234"`, et pourtant la console annonce « Accès autorisé ». Trouvez la faute et corrigez-la, sans changer les deux valeurs.
+```scene
+lesson: assets/conditions.scene.json
+step: if-else
+```
+
+## À toi : le code d'accès qui laisse tout passer
+
+Le code ci-dessous contrôle un code d'accès. Le visiteur a tapé `"0000"`, le code secret est `"1234"`, et pourtant la console annonce « Accès autorisé ». Trouve la faute et corrige-la, sans changer les deux valeurs.
 
 ```playground
 runtime: web
@@ -89,7 +119,7 @@ solution: assets/acces.solution
 
 Avec un seul `=`, la condition ne pose aucune question : elle range `"1234"` dans `saisie`, et un texte non vide compte comme vrai. Aucune erreur rouge ne le signale. Avec `===`, la question est posée, et la réponse est `false`.
 
-## Plusieurs cas : `else if`, et, ou, non
+## Plusieurs cas : `else if`
 
 Quand il y a plus de deux cas, on les enchaîne avec **`else if`** (« sinon si »). Le moteur teste les conditions dans l'ordre et exécute le **premier** bloc dont la condition vaut `true`, puis s'arrête :
 
@@ -106,20 +136,85 @@ if (age < 12) {
 }
 ```
 
-L'ordre compte : du plus restrictif au plus large. Si `age < 18` venait avant `age < 12`, un enfant de 8 ans serait classé « jeune », et le cas « enfant » ne serait jamais atteint, sans message.
+Suivez le moteur avec `age` à 70, puis à 8 :
 
-Pour combiner des conditions, trois opérateurs :
+```scene
+lesson: assets/conditions.scene.json
+step: else-if
+```
 
-| Opérateur | Se lit | Vaut `true` quand… |
-|---|---|---|
-| `&&` | et | les deux conditions sont vraies |
-| `\|\|` | ou | au moins l'une est vraie |
-| `!` | non | la condition est fausse |
+L'ordre compte : le premier cas vrai gagne, les suivants ne sont même pas testés.
 
-En maths, on écrit « 18 ≤ âge < 65 ». En JavaScript, `18 <= age < 65` ne pose pas cette question : le moteur compare d'abord `18 <= age`, obtient `true`, puis compare `true < 65`, et `true` vaut 1 dans un calcul. Pour un visiteur de 70 ans, la réponse est `true`, en silence. Il faut répéter la variable de chaque côté et relier les deux comparaisons.
+## À toi : le tarif du musée
+
+Ce musée est gratuit avant 4 ans, à tarif réduit avant 12 ans, à plein tarif ensuite. Pour un enfant de 3 ans, le code annonce pourtant « Tarif réduit ». Remets les cas dans le bon ordre, sans changer l'âge ni les textes.
+
+```playground
+runtime: web
+title: Le tarif qui oublie la gratuité
+files:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+      <meta charset="utf-8">
+      <title>Musée</title>
+      <script src="script.js" defer></script>
+    </head>
+    <body>
+      <h1>Billetterie</h1>
+    </body>
+    </html>
+  script.js: |
+    const age = 3;
+
+    if (age < 12) {
+      console.log("Tarif réduit");
+    } else if (age < 4) {
+      console.log("Gratuit");
+    } else {
+      console.log("Plein tarif");
+    }
+open: [script.js, index.html]
+lock: [index.html]
+show: [editor, preview, console]
+verify:
+  - label: la console affiche « Gratuit » pour un enfant de 3 ans
+    console: /^Gratuit$/
+    hint: "`3 < 12` est vrai : le premier cas gagne, et `age < 4` n'est jamais testé. Mets le cas le plus restrictif en premier."
+  - label: l'âge vaut toujours 3, et `age < 4` est testé avant `age < 12`
+    file: script.js
+    includes: /const age = 3;[\s\S]*age\s*<\s*4[\s\S]*else if\s*\(\s*age\s*<\s*12\s*\)/
+    hint: "Garde `const age = 3;` et écris `if (age < 4)`, puis `else if (age < 12)`, puis `else`."
+solution: assets/tarif.solution
+```
+
+Du plus restrictif au plus large : un cas plus large placé avant avale les plus petits, sans message.
+
+## Combiner : `&&`, `||`, `!`
+
+En maths, on écrit « 18 ≤ âge < 65 ». En JavaScript, `18 <= age < 65` ne pose pas cette question. Suivez le moteur avec un visiteur de 70 ans :
+
+```scene
+lesson: assets/conditions.scene.json
+step: intervalle
+```
+
+Il faut répéter la variable de chaque côté et relier les deux comparaisons par l'un de ces trois opérateurs :
+
+| Opérateur | Vaut `true` quand… |
+|---|---|
+| `&&` (et) | les deux conditions sont vraies |
+| `\|\|` (ou) | au moins l'une est vraie |
+| `!` (non) | la condition est fausse |
+
+## À toi : et, ou
+
+Un intervalle, puis l'un ou l'autre : choisis l'opérateur qui relie les deux comparaisons.
 
 ```fill
-text: "Pour savoir si un visiteur a entre 18 et 64 ans : `age >= 18 _____ age < 65`. Pour savoir s'il a droit à la gratuité, avant 12 ans ou à partir de 65 ans : `age < 12 _____ age >= 65`."
+place: stage
+text: "Pour savoir si un enfant a entre 6 et 17 ans : `age >= 6 _____ age <= 17`. Pour savoir s'il a droit à la gratuité, avant 12 ans ou à partir de 65 ans : `age < 12 _____ age >= 65`."
 blanks:
   - answers: ["&&"]
     hint: Les deux conditions doivent être vraies en même temps.
@@ -129,9 +224,18 @@ blanks:
 
 ## Un texte n'est pas un nombre : `===` contre `==`
 
-Il existe aussi une égalité à **deux** signes, `==`. Elle convertit les valeurs avant de comparer : `"5" == 5` répond `true`, alors que `"5" === 5` répond `false`, parce que l'une est un texte et l'autre un nombre. `==` paraît plus arrangeant ; il cache en réalité la confusion entre texte et nombre, qui ressortira ailleurs. On utilise toujours **`===`**, et l'on convertit soi-même avec `Number()`.
+Il existe aussi une égalité à **deux** signes, `==`. Comparez-la à `===` sur un texte qui ressemble à un nombre :
 
-C'est exactement ce qui arrive avec `prompt()`, qui rend toujours du texte. Dans ce jeu de devinette, le nombre secret est `7`. Les trois lignes du bas appellent `verdict` avec trois saisies, comme si un joueur les avait tapées : les lignes entre les accolades de `verdict` se rejouent pour chacune (le bit sur les fonctions détaillera cette écriture). Écrivez la condition qui affiche le verdict.
+```scene
+lesson: assets/conditions.scene.json
+step: egalite
+```
+
+`==` paraît plus arrangeant ; il cache en réalité la confusion entre texte et nombre, qui ressortira ailleurs. On utilise toujours **`===`**, et l'on convertit soi-même avec `Number()`.
+
+## À toi : le jeu de devinette
+
+`prompt()` rend toujours du texte, même quand on tape un nombre. Dans ce jeu de devinette, le nombre secret est `7`, et le joueur a tapé `"7"` : du texte, comme ce que rend `prompt()`. Écris la condition qui affiche le verdict : « Gagné ! », « Trop petit. » ou « Trop grand. ».
 
 ```playground
 runtime: web
@@ -151,17 +255,11 @@ files:
     </html>
   script.js: |
     const secret = 7;
+    const saisie = "7"; // ce que le joueur a tapé : du texte, comme ce que rend prompt()
+    const proposition = saisie;
 
-    function verdict(saisie) {
-      const proposition = saisie;
-      // À toi : affiche proposition suivi de "Gagné !", "Trop petit." ou "Trop grand."
-      // par exemple console.log(proposition, "Gagné !");
-    }
-
-    // Trois saisies, du texte comme ce que rend prompt()
-    verdict("7");
-    verdict("3");
-    verdict("9");
+    // À toi : affiche proposition suivi de "Gagné !", "Trop petit." ou "Trop grand."
+    // par exemple console.log(proposition, "Gagné !");
 open: [script.js, index.html]
 lock: [index.html]
 show: [editor, preview, console]
@@ -170,10 +268,14 @@ verify:
   - label: la saisie "7" affiche « 7 Gagné ! »
     console: /^7 Gagné !$/
     hint: "Si tu obtiens « 7 Trop grand. », c'est que `\"7\" === 7` vaut `false` : un texte n'est pas un nombre. Convertis : `const proposition = Number(saisie);`"
-  - label: la saisie "3" affiche « 3 Trop petit. »
-    console: /^3 Trop petit\.$/
-  - label: la saisie "9" affiche « 9 Trop grand. »
-    console: /^9 Trop grand\.$/
+  - label: le verdict est choisi par `if`, `else if` et `else`
+    file: script.js
+    includes: /if\s*\([\s\S]*else\s+if\s*\([\s\S]*else\s*\{/
+    hint: "Trois cas : `if (proposition === secret) { … } else if (proposition < secret) { … } else { … }`."
+  - label: la saisie est convertie avec `Number()`
+    file: script.js
+    includes: /Number\(\s*saisie\s*\)/
+    hint: "La saisie reste du texte tant que tu ne la convertis pas : `Number(saisie)`."
   - label: les comparaisons utilisent `===`, jamais `==`
     file: script.js
     excludes: /[^=!<>]==[^=]/
@@ -181,7 +283,7 @@ verify:
 solution: assets/devinette.solution
 ```
 
-Sans conversion, `"7" === 7` vaut `false`, `"7" < 7` aussi, et le joueur qui trouve le bon nombre lit « Trop grand. », sans aucune erreur. Avec `Number(saisie)`, les trois comparaisons portent sur des nombres.
+Sans conversion, `"7" === 7` vaut `false`, `"7" < 7` aussi, et le joueur qui trouve le bon nombre lit « Trop grand. », sans aucune erreur. Avec `Number(saisie)`, les comparaisons portent sur des nombres. Change la saisie en `"3"`, puis en `"9"`, pour voir les deux autres verdicts.
 
 > 📖 [Les instructions if...else (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/if...else) · [L'égalité stricte === (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Strict_equality) · [Les opérateurs logiques (MDN)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Expressions_and_operators#opérateurs_logiques)
 

@@ -1,0 +1,660 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "js-console-plan",
+ "title": "La console, ligne par ligne (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "i",
+   "label": "ce que tu tapes"
+  },
+  {
+   "tone": "g",
+   "label": "réponse, acceptée"
+  },
+  {
+   "tone": "n",
+   "label": "ligne de console.log"
+  },
+  {
+   "tone": "b",
+   "label": "un nombre rangé"
+  },
+  {
+   "tone": "r",
+   "label": "une erreur"
+  }
+ ],
+ "entities": [
+  {
+   "id": "c1",
+   "kind": "node",
+   "at": [
+    -8,
+    -7.800000000000001
+   ],
+   "tone": "i",
+   "size": [
+    12,
+    1.8,
+    1
+   ],
+   "title": "12 * 4"
+  },
+  {
+   "id": "rc1",
+   "kind": "node",
+   "at": [
+    8,
+    -7.800000000000001
+   ],
+   "tone": "g",
+   "size": [
+    13,
+    2,
+    1
+   ],
+   "title": "← 48",
+   "sub": "multiplier : *"
+  },
+  {
+   "id": "c2",
+   "kind": "node",
+   "at": [
+    -8,
+    -5.200000000000001
+   ],
+   "tone": "i",
+   "size": [
+    12,
+    1.8,
+    1
+   ],
+   "title": "10 % 3"
+  },
+  {
+   "id": "rc2",
+   "kind": "node",
+   "at": [
+    8,
+    -5.200000000000001
+   ],
+   "tone": "g",
+   "size": [
+    13,
+    2,
+    1
+   ],
+   "title": "← 1",
+   "sub": "% : le reste de 10 divisé par 3"
+  },
+  {
+   "id": "c3",
+   "kind": "node",
+   "at": [
+    -8,
+    -2.6000000000000005
+   ],
+   "tone": "i",
+   "size": [
+    12,
+    1.8,
+    1
+   ],
+   "title": "\"Ada\" + \" Lovelace\""
+  },
+  {
+   "id": "rc3",
+   "kind": "node",
+   "at": [
+    8,
+    -2.6000000000000005
+   ],
+   "tone": "g",
+   "size": [
+    13,
+    2,
+    1
+   ],
+   "title": "← \"Ada Lovelace\"",
+   "sub": "deux textes : + les assemble"
+  },
+  {
+   "id": "c4",
+   "kind": "node",
+   "at": [
+    -8,
+    0.0
+   ],
+   "tone": "i",
+   "size": [
+    12,
+    1.8,
+    1
+   ],
+   "title": "Math.round(249.67)"
+  },
+  {
+   "id": "rc4",
+   "kind": "node",
+   "at": [
+    8,
+    0.0
+   ],
+   "tone": "g",
+   "size": [
+    13,
+    2,
+    1
+   ],
+   "title": "← 250",
+   "sub": "arrondit à l'entier le plus proche"
+  },
+  {
+   "id": "c5",
+   "kind": "node",
+   "at": [
+    -8,
+    2.5999999999999996
+   ],
+   "tone": "i",
+   "size": [
+    12,
+    1.8,
+    1
+   ],
+   "title": "Math.max(4, 9, 2)"
+  },
+  {
+   "id": "rc5",
+   "kind": "node",
+   "at": [
+    8,
+    2.5999999999999996
+   ],
+   "tone": "g",
+   "size": [
+    13,
+    2,
+    1
+   ],
+   "title": "← 9",
+   "sub": "rend le plus grand"
+  },
+  {
+   "id": "c6",
+   "kind": "node",
+   "at": [
+    -8,
+    5.199999999999999
+   ],
+   "tone": "i",
+   "size": [
+    12,
+    1.8,
+    1
+   ],
+   "title": "Math.random()"
+  },
+  {
+   "id": "rc6",
+   "kind": "node",
+   "at": [
+    8,
+    5.199999999999999
+   ],
+   "tone": "g",
+   "size": [
+    13,
+    2,
+    1
+   ],
+   "title": "← 0.7302…",
+   "sub": "tire au hasard entre 0 et 1"
+  },
+  {
+   "id": "c7",
+   "kind": "node",
+   "at": [
+    -8,
+    7.800000000000001
+   ],
+   "tone": "i",
+   "size": [
+    12,
+    1.8,
+    1
+   ],
+   "title": "console.log(12 * 4)"
+  },
+  {
+   "id": "rc7",
+   "kind": "node",
+   "at": [
+    8,
+    7.800000000000001
+   ],
+   "tone": "n",
+   "size": [
+    13,
+    2,
+    1
+   ],
+   "title": "48",
+   "sub": "sans marque : une ligne écrite",
+   "detail": "Une **réponse** de la console est précédée d'une marque. Une ligne écrite par **`console.log`** n'en a pas : c'est la seule sorte qu'un programme écrit, quand personne ne tape dans la console."
+  },
+  {
+   "id": "v1",
+   "kind": "node",
+   "at": [
+    -9,
+    -6
+   ],
+   "tone": "i",
+   "size": [
+    14,
+    1.8,
+    1
+   ],
+   "title": "let score = 10;"
+  },
+  {
+   "id": "v2",
+   "kind": "node",
+   "at": [
+    -9,
+    -2.6
+   ],
+   "tone": "i",
+   "size": [
+    14,
+    1.8,
+    1
+   ],
+   "title": "score = score + 5;"
+  },
+  {
+   "id": "v3",
+   "kind": "node",
+   "at": [
+    -9,
+    2.6
+   ],
+   "tone": "i",
+   "size": [
+    14,
+    1.8,
+    1
+   ],
+   "title": "const JOURS_PAR_SEMAINE = 7;"
+  },
+  {
+   "id": "v4",
+   "kind": "node",
+   "at": [
+    -9,
+    6
+   ],
+   "tone": "i",
+   "size": [
+    14,
+    1.8,
+    1
+   ],
+   "title": "JOURS_PAR_SEMAINE = 8;"
+  },
+  {
+   "id": "n-score",
+   "kind": "layer",
+   "at": [
+    9,
+    -4.3
+   ],
+   "tone": "v",
+   "size": [
+    11,
+    6,
+    1
+   ],
+   "title": "score",
+   "sub": "let : peut changer",
+   "detail": "`let` crée une **variable** : un nom dont la valeur peut changer, sans réécrire `let`."
+  },
+  {
+   "id": "n-score-v",
+   "kind": "node",
+   "at": [
+    0,
+    0.8
+   ],
+   "tone": "b",
+   "size": [
+    4,
+    2.2,
+    1
+   ],
+   "in": "n-score",
+   "title": "10"
+  },
+  {
+   "id": "n-jours",
+   "kind": "layer",
+   "at": [
+    9,
+    4.3
+   ],
+   "tone": "v",
+   "size": [
+    11,
+    6,
+    1
+   ],
+   "title": "JOURS_PAR_SEMAINE",
+   "sub": "const : ne change pas",
+   "detail": "`const` crée une **constante** : toute nouvelle valeur est refusée. Le bon réflexe : `const` par défaut, `let` seulement quand la valeur doit changer."
+  },
+  {
+   "id": "n-jours-v",
+   "kind": "node",
+   "at": [
+    0,
+    0.8
+   ],
+   "tone": "b",
+   "size": [
+    4,
+    2.2,
+    1
+   ],
+   "in": "n-jours",
+   "title": "7"
+  }
+ ],
+ "steps": [
+  {
+   "id": "calcul",
+   "label": "Calculer",
+   "title": "Une ligne tapée, une réponse",
+   "body": [
+    "À gauche, ce que tu tapes dans la console ; à droite, ce qu'elle répond."
+   ],
+   "hud": [
+    {
+     "label": "+ entre textes",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "c1",
+    "c2",
+    "c3",
+    "c4",
+    "c5",
+    "c6"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "rc1"
+     ],
+     "link": [
+      {
+       "from": "c1",
+       "to": "rc1"
+      }
+     ],
+     "say": "Les opérateurs de la calculatrice : `*` multiplie, `/` divise. Le séparateur décimal est le **point**."
+    },
+    {
+     "do": "scene",
+     "show": [
+      "rc2"
+     ],
+     "link": [
+      {
+       "from": "c2",
+       "to": "rc2"
+      }
+     ],
+     "say": "`%` rend le **reste** d'une division : 10 divisé par 3 fait 3, reste 1."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "rc3"
+     ],
+     "link": [
+      {
+       "from": "c3",
+       "to": "rc3"
+      }
+     ],
+     "say": "Entre deux textes, le `+` ne calcule pas : il **assemble**. L'espace fait partie du second texte."
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "+ entre textes",
+       "value": "assemble",
+       "tone": "g"
+      }
+     ]
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "rc4",
+      "rc5",
+      "rc6"
+     ],
+     "link": [
+      {
+       "from": "c4",
+       "to": "rc4"
+      },
+      {
+       "from": "c5",
+       "to": "rc5"
+      },
+      {
+       "from": "c6",
+       "to": "rc6"
+      }
+     ],
+     "say": "L'objet **`Math`** range des fonctions toutes faites : arrondir, prendre le plus grand, tirer au hasard."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "c7"
+     ],
+     "say": "Un programme, lui, n'a personne pour lire les réponses : il écrit avec `console.log(…)`."
+    },
+    {
+     "do": "scene",
+     "show": [
+      "rc7"
+     ],
+     "link": [
+      {
+       "from": "c7",
+       "to": "rc7"
+      }
+     ],
+     "say": "La ligne écrite n'a **pas de marque** : elle vient du programme, pas d'une réponse de la console."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "variables",
+   "label": "let et const",
+   "title": "Un nom qui reçoit une valeur",
+   "body": [
+    "Le `=` range la valeur de droite dans le nom de gauche."
+   ],
+   "hud": [
+    {
+     "label": "let score",
+     "value": "—"
+    },
+    {
+     "label": "const JOURS",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "n-score",
+      "n-score-v"
+     ],
+     "link": [
+      {
+       "from": "v1",
+       "to": "n-score"
+      }
+     ],
+     "hud": [
+      {
+       "label": "let score",
+       "value": "10",
+       "tone": "b"
+      }
+     ],
+     "say": "`let score = 10` crée un nom, `score`, et y **range** 10. Le `=` range, il ne compare pas."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "v2",
+       "to": "n-score"
+      }
+     ],
+     "set": [
+      {
+       "id": "n-score-v",
+       "title": "15",
+       "tone": "g"
+      },
+      {
+       "id": "n-score",
+       "label": "nouvelle valeur"
+      }
+     ],
+     "hud": [
+      {
+       "label": "let score",
+       "value": "15",
+       "tone": "g"
+      }
+     ],
+     "say": "`score = score + 5` lit la valeur actuelle, 10, ajoute 5, et range 15 à la place. `let` l'accepte."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "n-jours",
+      "n-jours-v"
+     ],
+     "link": [
+      {
+       "from": "v3",
+       "to": "n-jours"
+      }
+     ],
+     "hud": [
+      {
+       "label": "const JOURS",
+       "value": "7",
+       "tone": "b"
+      }
+     ],
+     "say": "`const JOURS_PAR_SEMAINE = 7` crée une **constante** : sa valeur ne changera pas."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "v4",
+       "to": "n-jours",
+       "dashed": true
+      }
+     ],
+     "set": [
+      {
+       "id": "v4",
+       "tone": "r",
+       "label": "TypeError"
+      },
+      {
+       "id": "n-jours",
+       "label": "refuse"
+      }
+     ],
+     "hud": [
+      {
+       "label": "const JOURS",
+       "value": "7, refuse 8",
+       "tone": "r"
+      }
+     ],
+     "say": "`JOURS_PAR_SEMAINE = 8` est **refusé** : la console répond en rouge `TypeError: Assignment to constant variable.`"
+    },
+    {
+     "do": "wait",
+     "ms": 2800
+    }
+   ]
+  }
+ ]
+}

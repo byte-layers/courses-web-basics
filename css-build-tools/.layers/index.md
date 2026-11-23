@@ -6,7 +6,7 @@ tags:
   - css
   - tooling
 difficulty: beginner
-duration: 12
+duration: 15
 requires: "0.9.0"
 ---
 
@@ -22,6 +22,13 @@ Avec Bootstrap, le navigateur télécharge un fichier de `230 Ko`, que la page u
 
 Une **classe utilitaire** applique une seule chose, presque toujours une seule propriété CSS. On compose l'apparence d'un élément en les accumulant dans son attribut `class`, au lieu d'écrire une règle dans une feuille de style.
 
+```scene
+lesson: assets/tailwind.scene.json
+step: utilitaires
+```
+
+Chaque classe a ajouté **une seule chose** au lien, et aucune feuille de style n'a été écrite. Voici le lien complet, et ce qu'écrit chacune de ses classes :
+
 ```html
 <a class="px-4 py-2 rounded-lg bg-blue-700 text-white" href="#contact">Me contacter</a>
 ```
@@ -33,40 +40,43 @@ Une **classe utilitaire** applique une seule chose, presque toujours une seule p
 | `rounded-lg` | `border-radius: 0.5rem` |
 | `bg-blue-700` | une couleur de fond, la nuance 700 de la palette bleue |
 | `text-white` | `color: #fff` |
-| `md:flex` | `display: flex`, dans une media query à partir de 768 px |
 
 Bootstrap donne des **composants** (`btn`, `card`) ; Tailwind donne des **briques**, et le style naît de leur assemblage dans le HTML. Le HTML devient plus chargé, la feuille de style disparaît presque, et chaque choix se voit là où il s'applique.
 
 ## Le CSS produit : seulement les classes que vous utilisez
 
-Tailwind ne se charge pas depuis un CDN dans un vrai projet : il **tourne sur votre machine**, comme un programme, et il écrit un fichier CSS. Le schéma suivant montre le trajet, de ce que vous écrivez au fichier que charge la page.
+Tailwind ne se charge pas depuis un CDN dans un vrai projet : il **tourne sur votre machine**, comme un programme, et il écrit un fichier CSS. La scène suivante montre le trajet, de ce que vous écrivez au fichier que charge la page.
 
-```mermaid
-flowchart LR
-  A["index.html<br>(vos classes)"] --> T["Tailwind<br>lit, cherche les classes"]
-  B["input.css<br>(une ligne : l'import de Tailwind)"] --> T
-  T --> O["output.css<br>(seulement ces classes)"]
-  O --> N["le navigateur<br>charge output.css"]
+```scene
+lesson: assets/tailwind.scene.json
+step: build
 ```
 
-Le fichier d'entrée, `input.css`, tient en une ligne : `@import "tailwindcss";`. La commande lit ce fichier, parcourt les fichiers du dossier à la recherche de noms de classes, et écrit `output.css`. C'est **`output.css`**, et non `input.css`, que la page charge avec son `<link>`. Complète la commande qui lance le traitement.
+Le fichier d'entrée, `input.css`, tient en une ligne : `@import "tailwindcss";`. La commande `npx @tailwindcss/cli -i input.css -o output.css` lit ce fichier, parcourt les fichiers du dossier à la recherche de noms de classes, et écrit le fichier produit. Reste à le relier à la page : complète sa balise `<link>`.
 
 ```fill
-text: "npx @tailwindcss/cli -i _____ -o _____"
+text: '<link rel="stylesheet" href="_____">'
 blanks:
-  - answers: [input.css, ./input.css]
-    hint: "`-i` pour *input* : le fichier d'entrée, celui qui contient `@import \"tailwindcss\";`."
   - answers: [output.css, ./output.css]
-    hint: "`-o` pour *output* : le fichier produit, que la page charge."
+    hint: "Le navigateur ne sait pas quoi faire de `@import \"tailwindcss\";` : la page charge le fichier **produit** par le traitement, celui de l'option `-o`."
 ```
 
 C'est la même idée que la compilation vue dans le bit [Compilé ou interprété](https://byte-layers.com/fr/bits/compiled-or-interpreted) : un programme traduit vos fichiers **avant** que le navigateur ne les lise, et ce que reçoit le navigateur n'est pas ce que vous avez écrit. Le résultat reste du CSS ordinaire, lisible, que vous pouvez ouvrir.
 
 ## Le piège : une classe absente du CSS produit
 
-Le fichier produit est une photographie : il contient les classes trouvées **au moment du traitement**, pas une de plus. Une classe ajoutée au HTML **après** le traitement, ou mal orthographiée, n'a aucune règle dans `output.css` : elle ne fait rien, et rien ne le signale. C'est pourquoi on lance le traitement en mode surveillance pendant qu'on travaille (option `--watch`) : il réécrit `output.css` à chaque enregistrement.
+Le fichier produit est une photographie : il contient les classes trouvées **au moment du traitement**, pas une de plus. Une classe ajoutée au HTML **après** le traitement, ou mal orthographiée, n'a aucune règle dans `output.css` : elle ne fait rien, et rien ne le signale.
 
-**À toi** : `output.css` est le fichier produit par Tailwind la dernière fois que le traitement a tourné ; il est en lecture seule, comme si personne ne l'avait relancé depuis. Le bouton a été modifié ensuite, avec `bg-pink-600` et `px-6`, et il n'a plus ni fond ni marge intérieure. Lis `output.css`, puis donne au bouton un fond et un padding horizontal avec des classes **qui y figurent** : le fond bleu et `16px` à gauche et à droite.
+```scene
+lesson: assets/tailwind.scene.json
+step: photo
+```
+
+C'est pourquoi on lance le traitement en mode surveillance pendant qu'on travaille (option `--watch`) : il réécrit `output.css` à chaque enregistrement.
+
+## À toi : une classe qui ne fait rien
+
+`output.css` est le fichier produit par Tailwind la dernière fois que le traitement a tourné ; il est en lecture seule, comme si personne ne l'avait relancé depuis. Le bouton a été modifié ensuite, avec `bg-pink-600` et `px-6`, et il n'a plus ni fond ni marge intérieure. Lis `output.css`, puis donne au bouton un fond et un padding horizontal avec des classes **qui y figurent** : le fond bleu et `16px` à gauche et à droite.
 
 ```playground
 runtime: web
@@ -161,7 +171,7 @@ verify:
 solution: assets/classe.solution
 ```
 
-Dans un vrai projet, la bonne correction aurait été de **relancer le traitement** : `bg-pink-600` et `px-6` existent dans Tailwind, ils manquaient seulement à `output.css`. Le lab de ce cours vous le fait constater sur votre machine.
+Dans un vrai projet, la bonne correction aurait été de **relancer le traitement** : `bg-pink-600` et `px-6` existent dans Tailwind, ils manquaient seulement à `output.css`. Sur votre machine, l'option `--watch` le fait à chaque enregistrement.
 
 ## Une famille d'outils : PostCSS, Webpack, Parcel, Vite
 
@@ -174,7 +184,12 @@ Tailwind n'est qu'un exemple d'une idée générale : dans un projet web, ce que
 | **Parcel** | fait le même travail que Webpack, avec presque aucune configuration |
 | **Vite** | sert le projet pendant le développement et recharge la page à chaque enregistrement, puis produit les fichiers finaux |
 
-Le schéma de la page d'accueil de [webpack](https://webpack.js.org) résume l'idée : à gauche, des modules qui s'importent les uns les autres ; à droite, les fichiers statiques (*static assets*) que reçoit le navigateur.
+L'idée commune, sur un petit projet : des modules qui s'importent les uns les autres, et le *bundle* que reçoit le navigateur.
+
+```scene
+lesson: assets/tailwind.scene.json
+step: bundle
+```
 
 > 📖 [Tailwind CSS, installation avec la CLI (en anglais)](https://tailwindcss.com/docs/installation/tailwind-cli) · [Les classes utilitaires de Tailwind (en anglais)](https://tailwindcss.com/docs/styling-with-utility-classes) · [PostCSS (en anglais)](https://postcss.org/) · [webpack, concepts (en anglais)](https://webpack.js.org/concepts/) · [Vite, pourquoi Vite (en anglais)](https://vite.dev/guide/why)
 
@@ -216,7 +231,7 @@ questions:
 - Une classe ajoutée **après** le traitement n'est pas dans le CSS produit et ne fait rien : relancez le traitement, ou gardez `--watch`.
 - **PostCSS**, **Webpack**, **Parcel**, **Vite** sont des **outils de build** : ils traitent ce que vous écrivez avant que le navigateur ne le lise.
 
-Les neuf notions de ce cours se pratiquent maintenant sur votre machine, dans un même dossier, avec le vrai Tailwind en dernière étape : c'est le lab [HTML et CSS avancé, sur votre machine](https://byte-layers.com/fr/labs/html-css-advanced-lab).
+Pour pratiquer sur votre machine, avec le vrai Tailwind et son `--watch` : le lab [HTML et CSS avancé, sur votre machine](https://byte-layers.com/fr/labs/html-css-advanced-lab).
 
 ```ack
 J'ai compris

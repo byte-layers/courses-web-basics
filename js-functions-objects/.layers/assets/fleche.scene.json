@@ -1,0 +1,626 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "js-arrow-functions",
+ "title": "Fonction sans nom et forme fléchée (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "v",
+   "label": "code"
+  },
+  {
+   "tone": "y",
+   "label": "ce qui change"
+  },
+  {
+   "tone": "i",
+   "label": "l'appel"
+  },
+  {
+   "tone": "b",
+   "label": "valeur rendue"
+  }
+ ],
+ "entities": [
+  {
+   "id": "a-tete",
+   "kind": "node",
+   "at": [
+    -8.5,
+    -4.5
+   ],
+   "tone": "v",
+   "size": [
+    14.0,
+    2,
+    1
+   ],
+   "title": "function double(n)"
+  },
+  {
+   "id": "a-corps",
+   "kind": "node",
+   "at": [
+    2.5,
+    -4.5
+   ],
+   "tone": "v",
+   "size": [
+    7.5,
+    2,
+    1
+   ],
+   "title": "{ return n * 2; }"
+  },
+  {
+   "id": "a-note",
+   "kind": "node",
+   "at": [
+    12.5,
+    -4.5
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    2,
+    1
+   ],
+   "title": "un nom, un bloc",
+   "sub": "déjà connue"
+  },
+  {
+   "id": "b-var",
+   "kind": "node",
+   "at": [
+    -12,
+    -1.5
+   ],
+   "tone": "v",
+   "size": [
+    6.5,
+    2,
+    1
+   ],
+   "title": "const double ="
+  },
+  {
+   "id": "b-tete",
+   "kind": "node",
+   "at": [
+    -5,
+    -1.5
+   ],
+   "tone": "v",
+   "size": [
+    6.5,
+    2,
+    1
+   ],
+   "title": "function (n)"
+  },
+  {
+   "id": "b-corps",
+   "kind": "node",
+   "at": [
+    2.5,
+    -1.5
+   ],
+   "tone": "v",
+   "size": [
+    7.5,
+    2,
+    1
+   ],
+   "title": "{ return n * 2; }"
+  },
+  {
+   "id": "b-note",
+   "kind": "node",
+   "at": [
+    12.5,
+    -1.5
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    2,
+    1
+   ],
+   "title": "pas de nom",
+   "sub": "une valeur",
+   "detail": "Une fonction **sans nom** (on dit aussi *anonyme*) est une valeur, comme un nombre ou un texte : on la range dans une variable, ou on la donne à une autre fonction."
+  },
+  {
+   "id": "c-var",
+   "kind": "node",
+   "at": [
+    -12,
+    1.5
+   ],
+   "tone": "v",
+   "size": [
+    6.5,
+    2,
+    1
+   ],
+   "title": "const double ="
+  },
+  {
+   "id": "c-tete",
+   "kind": "node",
+   "at": [
+    -5,
+    1.5
+   ],
+   "tone": "v",
+   "size": [
+    6.5,
+    2,
+    1
+   ],
+   "title": "(n) =>"
+  },
+  {
+   "id": "c-corps",
+   "kind": "node",
+   "at": [
+    2.5,
+    1.5
+   ],
+   "tone": "v",
+   "size": [
+    7.5,
+    2,
+    1
+   ],
+   "title": "{ return n * 2; }"
+  },
+  {
+   "id": "c-note",
+   "kind": "node",
+   "at": [
+    12.5,
+    1.5
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    2,
+    1
+   ],
+   "title": "=> remplace function",
+   "detail": "La **forme fléchée** (*arrow function*) : on retire le mot `function`, et une flèche `=>` suit les paramètres."
+  },
+  {
+   "id": "d-var",
+   "kind": "node",
+   "at": [
+    -12,
+    4.5
+   ],
+   "tone": "v",
+   "size": [
+    6.5,
+    2,
+    1
+   ],
+   "title": "const double ="
+  },
+  {
+   "id": "d-tete",
+   "kind": "node",
+   "at": [
+    -5,
+    4.5
+   ],
+   "tone": "v",
+   "size": [
+    6.5,
+    2,
+    1
+   ],
+   "title": "(n) =>"
+  },
+  {
+   "id": "d-corps",
+   "kind": "node",
+   "at": [
+    2.5,
+    4.5
+   ],
+   "tone": "v",
+   "size": [
+    7.5,
+    2,
+    1
+   ],
+   "title": "n * 2"
+  },
+  {
+   "id": "d-note",
+   "kind": "node",
+   "at": [
+    12.5,
+    4.5
+   ],
+   "tone": "n",
+   "size": [
+    10,
+    2,
+    1
+   ],
+   "title": "ni { } ni return",
+   "sub": "un seul calcul"
+  },
+  {
+   "id": "appel",
+   "kind": "node",
+   "at": [
+    -12,
+    8.5
+   ],
+   "tone": "i",
+   "size": [
+    6.5,
+    2,
+    1
+   ],
+   "title": "double(5)",
+   "detail": "L'**appel** s'écrit de la même façon, quelle que soit l'écriture de la fonction."
+  }
+ ],
+ "steps": [
+  {
+   "id": "fleche",
+   "label": "Sans nom, en flèche",
+   "title": "Une fonction sans nom, puis en flèche",
+   "body": [
+    "La même fonction, écrite quatre fois : seule l'écriture change, l'appel rend toujours 10."
+   ],
+   "hud": [
+    {
+     "label": "double(5) vaut",
+     "value": "—"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "a-tete",
+    "a-corps",
+    "a-note",
+    "appel"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "appel",
+       "to": "a-tete",
+       "dashed": true
+      }
+     ],
+     "unlink": [],
+     "set": [
+      {
+       "id": "appel",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "double(5) vaut",
+       "value": "…",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "wait",
+     "ms": 500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "appel",
+       "label": "10"
+      }
+     ],
+     "hud": [
+      {
+       "label": "double(5) vaut",
+       "value": 10,
+       "tone": "b"
+      }
+     ],
+     "say": "La fonction que tu connais : un **nom**, ses paramètres, son bloc. `double(5)` rend 10."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "show": [
+      "b-var",
+      "b-tete",
+      "b-corps"
+     ],
+     "ms": 600
+    },
+    {
+     "do": "scene",
+     "show": [
+      "b-note"
+     ],
+     "link": [
+      {
+       "from": "b-tete",
+       "to": "b-note"
+      }
+     ],
+     "set": [
+      {
+       "id": "b-tete",
+       "tone": "y"
+      }
+     ],
+     "say": "Sans nom : `function (n) { … }` est une **valeur**, rangée dans `double` comme un nombre."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "appel",
+       "to": "b-var",
+       "dashed": true
+      }
+     ],
+     "unlink": [
+      {
+       "from": "appel",
+       "to": "a-tete"
+      }
+     ],
+     "set": [
+      {
+       "id": "appel",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "double(5) vaut",
+       "value": "…",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "wait",
+     "ms": 500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "appel",
+       "label": "10"
+      }
+     ],
+     "hud": [
+      {
+       "label": "double(5) vaut",
+       "value": 10,
+       "tone": "b"
+      }
+     ],
+     "say": "On l'appelle par le nom de la variable : `double(5)` rend toujours 10."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "show": [
+      "c-var",
+      "c-tete",
+      "c-corps"
+     ],
+     "set": [
+      {
+       "id": "b-tete",
+       "tone": "v"
+      }
+     ],
+     "ms": 600
+    },
+    {
+     "do": "scene",
+     "show": [
+      "c-note"
+     ],
+     "link": [
+      {
+       "from": "c-tete",
+       "to": "c-note"
+      }
+     ],
+     "set": [
+      {
+       "id": "c-tete",
+       "tone": "y"
+      }
+     ],
+     "say": "La **forme fléchée** : le mot `function` disparaît, une flèche `=>` suit les paramètres."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "appel",
+       "to": "c-var",
+       "dashed": true
+      }
+     ],
+     "unlink": [
+      {
+       "from": "appel",
+       "to": "b-var"
+      }
+     ],
+     "set": [
+      {
+       "id": "appel",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "double(5) vaut",
+       "value": "…",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "wait",
+     "ms": 500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "appel",
+       "label": "10"
+      }
+     ],
+     "hud": [
+      {
+       "label": "double(5) vaut",
+       "value": 10,
+       "tone": "b"
+      }
+     ],
+     "say": "Même geste, plus court à écrire : 10."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "show": [
+      "d-var",
+      "d-tete",
+      "d-corps"
+     ],
+     "set": [
+      {
+       "id": "c-tete",
+       "tone": "v"
+      }
+     ],
+     "ms": 600
+    },
+    {
+     "do": "scene",
+     "show": [
+      "d-note"
+     ],
+     "link": [
+      {
+       "from": "d-corps",
+       "to": "d-note"
+      }
+     ],
+     "set": [
+      {
+       "id": "d-corps",
+       "tone": "y"
+      }
+     ],
+     "say": "Un seul calcul à rendre : on retire les accolades **et** `return`, le résultat est rendu quand même."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "appel",
+       "to": "d-var",
+       "dashed": true
+      }
+     ],
+     "unlink": [
+      {
+       "from": "appel",
+       "to": "c-var"
+      }
+     ],
+     "set": [
+      {
+       "id": "appel",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "double(5) vaut",
+       "value": "…",
+       "tone": null
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "wait",
+     "ms": 500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "appel",
+       "label": "10"
+      }
+     ],
+     "hud": [
+      {
+       "label": "double(5) vaut",
+       "value": 10,
+       "tone": "b"
+      }
+     ],
+     "say": "Quatre écritures, une même fonction : `double(5)` vaut 10 à chaque fois."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

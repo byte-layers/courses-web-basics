@@ -1,0 +1,901 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "web-html-texte",
+ "title": "Encodage, texte et liens (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "y",
+   "label": "code HTML"
+  },
+  {
+   "tone": "v",
+   "label": "le navigateur"
+  },
+  {
+   "tone": "g",
+   "label": "ça marche"
+  },
+  {
+   "tone": "r",
+   "label": "ça casse"
+  }
+ ],
+ "entities": [
+  {
+   "id": "e-file",
+   "kind": "file",
+   "at": [
+    -11.5,
+    0
+   ],
+   "tone": "y",
+   "size": [
+    6.4,
+    2.6,
+    1
+   ],
+   "title": "index.html : créé",
+   "detail": "Dans l'éditeur, tu vois le mot **créé**. Sur le disque, le fichier ne contient que des nombres : des **octets**."
+  },
+  {
+   "id": "e-bytes",
+   "kind": "layer",
+   "at": [
+    -2,
+    0
+   ],
+   "tone": "n",
+   "size": [
+    7,
+    12,
+    1
+   ],
+   "title": "les octets, en UTF-8"
+  },
+  {
+   "id": "e-b1",
+   "kind": "node",
+   "at": [
+    0,
+    -3.6
+   ],
+   "tone": "n",
+   "size": [
+    5.4,
+    2,
+    1
+   ],
+   "in": "e-bytes",
+   "title": "63",
+   "sub": "c"
+  },
+  {
+   "id": "e-b2",
+   "kind": "node",
+   "at": [
+    0,
+    -1.2
+   ],
+   "tone": "n",
+   "size": [
+    5.4,
+    2,
+    1
+   ],
+   "in": "e-bytes",
+   "title": "72",
+   "sub": "r"
+  },
+  {
+   "id": "e-b3",
+   "kind": "node",
+   "at": [
+    0,
+    1.2
+   ],
+   "tone": "n",
+   "size": [
+    5.4,
+    2,
+    1
+   ],
+   "in": "e-bytes",
+   "title": "C3 A9",
+   "sub": "é : deux octets"
+  },
+  {
+   "id": "e-b4",
+   "kind": "node",
+   "at": [
+    0,
+    3.6
+   ],
+   "tone": "n",
+   "size": [
+    5.4,
+    2,
+    1
+   ],
+   "in": "e-bytes",
+   "title": "C3 A9",
+   "sub": "é : deux octets"
+  },
+  {
+   "id": "e-nav",
+   "kind": "layer",
+   "at": [
+    8.5,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    10.5,
+    12,
+    1
+   ],
+   "title": "le navigateur"
+  },
+  {
+   "id": "e-meta",
+   "kind": "node",
+   "at": [
+    0,
+    -3
+   ],
+   "tone": "g",
+   "size": [
+    9,
+    2.2,
+    1
+   ],
+   "in": "e-nav",
+   "title": "<meta charset=\"utf-8\">",
+   "detail": "Placée au début du `<head>`, elle dit au navigateur **quelle table** utiliser pour lire les octets."
+  },
+  {
+   "id": "e-view",
+   "kind": "node",
+   "at": [
+    0,
+    2
+   ],
+   "tone": "v",
+   "size": [
+    9,
+    3,
+    1
+   ],
+   "in": "e-nav",
+   "title": "…"
+  },
+  {
+   "id": "c1",
+   "kind": "node",
+   "at": [
+    -8.0,
+    -9.0
+   ],
+   "tone": "y",
+   "size": [
+    15.0,
+    1.6,
+    1
+   ],
+   "title": "<h1>Ma recette</h1>"
+  },
+  {
+   "id": "c2",
+   "kind": "node",
+   "at": [
+    -8.0,
+    -7.0
+   ],
+   "tone": "y",
+   "size": [
+    15.0,
+    1.6,
+    1
+   ],
+   "title": "<p>Une <strong>bonne</strong> crêpe.</p>"
+  },
+  {
+   "id": "c3",
+   "kind": "node",
+   "at": [
+    -8.0,
+    -5.0
+   ],
+   "tone": "y",
+   "size": [
+    15.0,
+    1.6,
+    1
+   ],
+   "title": "<ul>"
+  },
+  {
+   "id": "c4",
+   "kind": "node",
+   "at": [
+    -7.1,
+    -3.0
+   ],
+   "tone": "y",
+   "size": [
+    13.2,
+    1.6,
+    1
+   ],
+   "title": "<li>farine de sarrasin</li>"
+  },
+  {
+   "id": "c5",
+   "kind": "node",
+   "at": [
+    -7.1,
+    -1.0
+   ],
+   "tone": "y",
+   "size": [
+    13.2,
+    1.6,
+    1
+   ],
+   "title": "<li>œufs</li>"
+  },
+  {
+   "id": "c6",
+   "kind": "node",
+   "at": [
+    -8.0,
+    1.0
+   ],
+   "tone": "y",
+   "size": [
+    15.0,
+    1.6,
+    1
+   ],
+   "title": "</ul>"
+  },
+  {
+   "id": "c7",
+   "kind": "node",
+   "at": [
+    -8.0,
+    3.0
+   ],
+   "tone": "y",
+   "size": [
+    15.0,
+    1.6,
+    1
+   ],
+   "title": "<ol>"
+  },
+  {
+   "id": "c8",
+   "kind": "node",
+   "at": [
+    -7.1,
+    5.0
+   ],
+   "tone": "y",
+   "size": [
+    13.2,
+    1.6,
+    1
+   ],
+   "title": "<li>mélanger</li>"
+  },
+  {
+   "id": "c9",
+   "kind": "node",
+   "at": [
+    -7.1,
+    7.0
+   ],
+   "tone": "y",
+   "size": [
+    13.2,
+    1.6,
+    1
+   ],
+   "title": "<li>cuire</li>"
+  },
+  {
+   "id": "c10",
+   "kind": "node",
+   "at": [
+    -8.0,
+    9.0
+   ],
+   "tone": "y",
+   "size": [
+    15.0,
+    1.6,
+    1
+   ],
+   "title": "</ol>"
+  },
+  {
+   "id": "t-page",
+   "kind": "layer",
+   "at": [
+    10,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    13,
+    21,
+    1
+   ],
+   "title": "la page affichée"
+  },
+  {
+   "id": "t-h1",
+   "kind": "node",
+   "at": [
+    0,
+    -7.2
+   ],
+   "tone": "v",
+   "size": [
+    11,
+    2.8,
+    1
+   ],
+   "in": "t-page",
+   "title": "Ma recette",
+   "sub": "titre de niveau 1",
+   "detail": "`<h1>` : le titre principal, un seul par page. `<h2>` à `<h6>` pour les sous-titres."
+  },
+  {
+   "id": "t-p",
+   "kind": "node",
+   "at": [
+    0,
+    -3.6
+   ],
+   "tone": "v",
+   "size": [
+    11,
+    2.2,
+    1
+   ],
+   "in": "t-page",
+   "title": "Une bonne crêpe.",
+   "sub": "« bonne » en gras",
+   "detail": "`<p>` fait un paragraphe ; `<strong>` marque un passage important, affiché en gras."
+  },
+  {
+   "id": "t-ul",
+   "kind": "node",
+   "at": [
+    0,
+    0.6
+   ],
+   "tone": "v",
+   "size": [
+    11,
+    3.4,
+    1
+   ],
+   "in": "t-page",
+   "title": "• farine de sarrasin   • œufs",
+   "sub": "liste à puces",
+   "detail": "`<ul>` (*unordered list*) : une liste à puces, un `<li>` par élément."
+  },
+  {
+   "id": "t-ol",
+   "kind": "node",
+   "at": [
+    0,
+    5.4
+   ],
+   "tone": "v",
+   "size": [
+    11,
+    3.4,
+    1
+   ],
+   "in": "t-page",
+   "title": "1. mélanger   2. cuire",
+   "sub": "liste numérotée",
+   "detail": "`<ol>` (*ordered list*) : le navigateur calcule les numéros."
+  },
+  {
+   "id": "k-page",
+   "kind": "layer",
+   "at": [
+    -5,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    15,
+    17,
+    1
+   ],
+   "title": "index.html, affichée"
+  },
+  {
+   "id": "k-wiki",
+   "kind": "node",
+   "at": [
+    0,
+    -5.6
+   ],
+   "tone": "v",
+   "size": [
+    12,
+    2.2,
+    1
+   ],
+   "in": "k-page",
+   "title": "la page Wikipédia",
+   "sub": "href=\"https://fr.wikipedia.org/…\""
+  },
+  {
+   "id": "k-contact",
+   "kind": "node",
+   "at": [
+    0,
+    -2.6
+   ],
+   "tone": "v",
+   "size": [
+    12,
+    2.2,
+    1
+   ],
+   "in": "k-page",
+   "title": "nous écrire",
+   "sub": "href=\"contact.html\""
+  },
+  {
+   "id": "k-ancre",
+   "kind": "node",
+   "at": [
+    0,
+    0.4
+   ],
+   "tone": "v",
+   "size": [
+    12,
+    2.2,
+    1
+   ],
+   "in": "k-page",
+   "title": "les horaires",
+   "sub": "href=\"#horaires\""
+  },
+  {
+   "id": "k-h2",
+   "kind": "node",
+   "at": [
+    0,
+    5.6
+   ],
+   "tone": "y",
+   "size": [
+    12,
+    2.2,
+    1
+   ],
+   "in": "k-page",
+   "title": "<h2>Horaires</h2>",
+   "sub": "plus bas dans la page"
+  },
+  {
+   "id": "k-site",
+   "kind": "node",
+   "at": [
+    12,
+    -6
+   ],
+   "tone": "n",
+   "size": [
+    8,
+    2.6,
+    1
+   ],
+   "title": "fr.wikipedia.org",
+   "sub": "un autre site"
+  },
+  {
+   "id": "k-file",
+   "kind": "file",
+   "at": [
+    12,
+    0
+   ],
+   "tone": "y",
+   "size": [
+    8,
+    2.6,
+    1
+   ],
+   "title": "contact.html",
+   "detail": "Un **chemin relatif** : le navigateur cherche `contact.html` dans le même dossier que la page."
+  }
+ ],
+ "steps": [
+  {
+   "id": "encodage",
+   "label": "L'encodage",
+   "title": "Des octets, et une table pour les lire",
+   "body": [
+    "Un fichier est une suite d'octets. L'encodage est la table qui dit quel octet donne quel caractère."
+   ],
+   "hud": [
+    {
+     "label": "table de lecture",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "e-file",
+    "e-nav",
+    "e-view"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "e-bytes",
+      "e-b1",
+      "e-b2",
+      "e-b3",
+      "e-b4"
+     ],
+     "link": [
+      {
+       "from": "e-file",
+       "to": "e-bytes"
+      }
+     ],
+     "say": "Ton éditeur enregistre le mot en **UTF-8** : une suite d'octets. Le **é** en prend deux, C3 et A9."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "e-bytes",
+       "to": "e-nav"
+      }
+     ]
+    },
+    {
+     "do": "send",
+     "path": [
+      "e-bytes",
+      "e-nav"
+     ],
+     "label": "octets"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "e-view",
+       "title": "crÃ©Ã©",
+       "tone": "r"
+      }
+     ],
+     "hud": [
+      {
+       "label": "table de lecture",
+       "value": "devinée : Windows-1252",
+       "tone": "r"
+      }
+     ],
+     "say": "Sans `charset`, le navigateur **devine** la table. Ici il se trompe : chaque octet du é devient un caractère."
+    },
+    {
+     "do": "wait",
+     "ms": 1800
+    },
+    {
+     "do": "scene",
+     "show": [
+      "e-meta"
+     ],
+     "set": [
+      {
+       "id": "e-view",
+       "title": "créé",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "table de lecture",
+       "value": "UTF-8, déclarée",
+       "tone": "g"
+      }
+     ],
+     "say": "Avec `<meta charset=\"utf-8\">`, il lit avec la bonne table : deux octets, un seul é."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "texte",
+   "label": "Le texte",
+   "title": "Chaque balise donne sa forme au texte",
+   "body": [
+    "Le code à gauche, ce que le navigateur affiche à droite."
+   ],
+   "show": [
+    "c1",
+    "c2",
+    "c3",
+    "c4",
+    "c5",
+    "c6",
+    "c7",
+    "c8",
+    "c9",
+    "c10",
+    "t-page"
+   ],
+   "links": [],
+   "labels": "left",
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "t-h1"
+     ],
+     "link": [
+      {
+       "from": "c1",
+       "to": "t-h1"
+      }
+     ],
+     "say": "`<h1>` : le **titre** principal, en grand."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "t-p"
+     ],
+     "link": [
+      {
+       "from": "c2",
+       "to": "t-p"
+      }
+     ],
+     "say": "`<p>` : un **paragraphe**. Dedans, `<strong>` met « bonne » en gras."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "t-ul"
+     ],
+     "link": [
+      {
+       "from": "c3",
+       "to": "t-ul"
+      }
+     ],
+     "say": "`<ul>` et ses `<li>` : une **liste à puces**, une puce par élément."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "t-ol"
+     ],
+     "link": [
+      {
+       "from": "c7",
+       "to": "t-ol"
+      }
+     ],
+     "say": "`<ol>` : une **liste numérotée**. Tu n'écris pas les numéros, le navigateur les calcule."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "liens",
+   "label": "Les liens",
+   "title": "Trois liens, trois destinations",
+   "body": [
+    "L'attribut href dit où mène le lien : un autre site, une autre page du site, un endroit de la page."
+   ],
+   "hud": [
+    {
+     "label": "le clic",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "k-page",
+    "k-wiki",
+    "k-contact",
+    "k-ancre",
+    "k-h2",
+    "k-site",
+    "k-file"
+   ],
+   "links": [
+    {
+     "from": "k-wiki",
+     "to": "k-site"
+    },
+    {
+     "from": "k-contact",
+     "to": "k-file"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "pulse",
+     "at": "k-wiki"
+    },
+    {
+     "do": "send",
+     "path": [
+      "k-wiki",
+      "k-site"
+     ],
+     "label": "clic",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "le clic",
+       "value": "un autre site",
+       "tone": "g"
+      }
+     ],
+     "say": "Une **adresse complète**, protocole compris : le clic quitte ton site."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "pulse",
+     "at": "k-contact"
+    },
+    {
+     "do": "send",
+     "path": [
+      "k-contact",
+      "k-file"
+     ],
+     "label": "clic",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "le clic",
+       "value": "une autre page du site",
+       "tone": "g"
+      }
+     ],
+     "say": "Un **chemin relatif** : `contact.html`, cherché à côté de la page."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "pulse",
+     "at": "k-ancre"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "k-ancre",
+       "tone": "r"
+      }
+     ],
+     "hud": [
+      {
+       "label": "le clic",
+       "value": "ne mène nulle part",
+       "tone": "r"
+      }
+     ],
+     "say": "`#horaires` vise l'élément qui porte `id=\"horaires\"`. Il n'y en a pas : le clic ne fait rien, sans message."
+    },
+    {
+     "do": "wait",
+     "ms": 1700
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "k-h2",
+       "title": "<h2 id=\"horaires\">Horaires</h2>",
+       "tone": "g"
+      },
+      {
+       "id": "k-ancre",
+       "tone": "v"
+      }
+     ],
+     "link": [
+      {
+       "from": "k-ancre",
+       "to": "k-h2"
+      }
+     ],
+     "say": "Deuxième geste : on donne l'`id` au titre visé."
+    },
+    {
+     "do": "send",
+     "path": [
+      "k-ancre",
+      "k-h2"
+     ],
+     "label": "clic",
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "le clic",
+       "value": "descend aux horaires",
+       "tone": "g"
+      }
+     ],
+     "say": "Maintenant, le clic fait **descendre** la page jusqu'aux horaires."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,681 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "js-in-page",
+ "title": "Le JavaScript dans une page",
+ "lang": "fr",
+ "kit": "feuillete",
+ "legend": [
+  {
+   "tone": "b",
+   "label": "page affichée"
+  },
+  {
+   "tone": "y",
+   "label": "fichier JavaScript"
+  },
+  {
+   "tone": "r",
+   "label": "null, erreur"
+  },
+  {
+   "tone": "g",
+   "label": "trouvé"
+  }
+ ],
+ "entities": [
+  {
+   "id": "page",
+   "kind": "layer",
+   "at": [
+    -0.8,
+    2.4
+   ],
+   "size": [
+    3.4,
+    3.4,
+    0.35
+   ],
+   "tone": "b",
+   "title": "page affichée",
+   "detail": "La **page affichée** se remplit au fur et à mesure de la lecture du HTML, de haut en bas."
+  },
+  {
+   "id": "h1",
+   "kind": "file",
+   "in": "page",
+   "at": [
+    -0.65,
+    -0.65,
+    0.35
+   ],
+   "size": [
+    1.4,
+    1.4,
+    0.35
+   ],
+   "tone": "b",
+   "title": "<h1>"
+  },
+  {
+   "id": "p",
+   "kind": "file",
+   "in": "page",
+   "at": [
+    0.65,
+    0.65,
+    0.35
+   ],
+   "size": [
+    1.4,
+    1.4,
+    0.35
+   ],
+   "tone": "b",
+   "title": "<p>"
+  },
+  {
+   "id": "moteur",
+   "kind": "node",
+   "at": [
+    0.3,
+    -2.5
+   ],
+   "tone": "v",
+   "title": "moteur JavaScript",
+   "icon": "JS",
+   "detail": "Le **moteur JavaScript** exécute le script au moment où le navigateur le lui confie."
+  },
+  {
+   "id": "console",
+   "kind": "node",
+   "at": [
+    4.1,
+    -0.1
+   ],
+   "size": [
+    1.8,
+    1.8,
+    0.9
+   ],
+   "tone": "i",
+   "title": "console",
+   "icon": ">_",
+   "detail": "La **console** des outils de développement : `console.log` et les erreurs y écrivent."
+  },
+  {
+   "id": "js",
+   "kind": "file",
+   "at": [
+    0.0,
+    -8.0
+   ],
+   "tone": "y",
+   "title": "script.js",
+   "detail": "Le fichier JavaScript, à côté de la page. La balise `<script src=\"script.js\">` le désigne."
+  }
+ ],
+ "steps": [
+  {
+   "id": "lecture",
+   "label": "De haut en bas",
+   "title": "Le navigateur lit la page de haut en bas",
+   "body": [
+    "La ligne surlignée est celle que le navigateur lit. Une balise `<script>` l'arrête le temps d'exécuter le fichier."
+   ],
+   "hud": [
+    {
+     "label": "lecture du HTML",
+     "value": "en cours"
+    }
+   ],
+   "show": [
+    "page",
+    "moteur",
+    "console",
+    {
+     "id": "js",
+     "dim": true
+    }
+   ],
+   "links": [
+    {
+     "from": "js",
+     "to": "moteur"
+    },
+    {
+     "from": "moteur",
+     "to": "console"
+    }
+   ],
+   "widgets": [
+    {
+     "kind": "editor",
+     "title": "index.html",
+     "lang": "text",
+     "lines": [
+      "<!DOCTYPE html>",
+      "<html lang=\"fr\">",
+      "<head>",
+      "  <title>Mon portfolio</title>",
+      "</head>",
+      "<body>",
+      "  <h1>Ada Lovelace</h1>",
+      "  <p>Développeuse web</p>",
+      "  <script src=\"script.js\"></script>",
+      "</body>",
+      "</html>"
+     ]
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 700
+    },
+    {
+     "do": "line",
+     "n": 6
+    },
+    {
+     "do": "wait",
+     "ms": 500
+    },
+    {
+     "do": "line",
+     "n": 7
+    },
+    {
+     "do": "scene",
+     "show": [
+      "h1"
+     ],
+     "say": "Le navigateur lit le HTML de haut en bas : le titre entre dans la page."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "line",
+     "n": 8
+    },
+    {
+     "do": "scene",
+     "show": [
+      "p"
+     ],
+     "say": "Puis le paragraphe."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "line",
+     "n": 9
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "js",
+       "dim": false
+      }
+     ],
+     "hud": [
+      {
+       "label": "lecture du HTML",
+       "value": "en pause",
+       "tone": "r"
+      }
+     ],
+     "say": "Une balise `<script>` : il s'arrête de lire et charge `script.js`."
+    },
+    {
+     "do": "send",
+     "path": [
+      "js",
+      "moteur"
+     ],
+     "label": "script.js",
+     "kind": "read",
+     "explain": [
+      "Il confie le fichier au **moteur JavaScript**, qui l'exécute tout de suite."
+     ],
+     "tone": "y"
+    },
+    {
+     "do": "send",
+     "path": [
+      "moteur",
+      "console"
+     ],
+     "label": "console.log"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "console",
+       "label": "Bonjour depuis la page"
+      }
+     ],
+     "say": "Le moteur exécute le fichier : sa ligne s'écrit dans la console."
+    },
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "line",
+     "n": 10
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "lecture du HTML",
+       "value": "reprise",
+       "tone": null
+      }
+     ],
+     "say": "Puis la lecture reprend, jusqu'à `</html>`."
+    },
+    {
+     "do": "wait",
+     "ms": 500
+    },
+    {
+     "do": "line",
+     "n": 11
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "lecture du HTML",
+       "value": "terminée",
+       "tone": "g"
+      }
+     ],
+     "say": "À chaque chargement de la page, tout recommence, et le script se rejoue."
+    },
+    {
+     "do": "line",
+     "n": 0
+    },
+    {
+     "do": "wait",
+     "ms": 2200
+    }
+   ]
+  },
+  {
+   "id": "trop-tot",
+   "label": "Trop tôt",
+   "title": "Un script dans le head : la page est encore vide",
+   "body": [
+    "Le script s'exécute au moment où le navigateur le lit : dans le `<head>`, le `<body>` n'existe pas encore."
+   ],
+   "hud": [
+    {
+     "label": "body lu",
+     "value": "non",
+     "tone": "r"
+    }
+   ],
+   "show": [
+    "page",
+    "moteur",
+    "console",
+    "js"
+   ],
+   "links": [
+    {
+     "from": "js",
+     "to": "moteur"
+    },
+    {
+     "from": "moteur",
+     "to": "console"
+    },
+    {
+     "from": "moteur",
+     "to": "page"
+    }
+   ],
+   "widgets": [
+    {
+     "kind": "editor",
+     "title": "index.html",
+     "lang": "text",
+     "lines": [
+      "<head>",
+      "  <script src=\"script.js\"></script>",
+      "</head>",
+      "<body>",
+      "  <h1>Médiathèque</h1>",
+      "  <p id=\"compteur\">En attente…</p>",
+      "</body>"
+     ]
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 700
+    },
+    {
+     "do": "line",
+     "n": 2
+    },
+    {
+     "do": "send",
+     "path": [
+      "js",
+      "moteur"
+     ],
+     "label": "script.js",
+     "kind": "read",
+     "explain": [
+      "Le `<script>` est dans le `<head>` : le moteur l'exécute avant que le `<body>` soit lu."
+     ],
+     "tone": "y"
+    },
+    {
+     "do": "send",
+     "path": [
+      "moteur",
+      "page"
+     ],
+     "label": "#compteur",
+     "reply": "null",
+     "explain": [
+      "Il cherche `#compteur` dans la page…",
+      "… encore vide : la recherche rend `null`."
+     ],
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "moteur",
+       "label": "compteur = null"
+      }
+     ],
+     "say": "La recherche ne trouve rien : `compteur` vaut `null`, sans erreur pour l'instant."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "moteur",
+      "console"
+     ],
+     "label": "TypeError",
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "console",
+       "label": "TypeError … of null"
+      }
+     ],
+     "say": "Écrire dans `null` arrête le script, avec une TypeError, à la ligne qui écrit."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "line",
+     "n": 5
+    },
+    {
+     "do": "scene",
+     "show": [
+      "h1"
+     ],
+     "hud": [
+      {
+       "label": "body lu",
+       "value": "en cours",
+       "tone": null
+      }
+     ],
+     "say": "Le `<body>` arrive ensuite : le titre…"
+    },
+    {
+     "do": "line",
+     "n": 6
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "p",
+       "label": "En attente…"
+      }
+     ],
+     "hud": [
+      {
+       "label": "body lu",
+       "value": "oui",
+       "tone": "g"
+      }
+     ],
+     "say": "… et le paragraphe, trop tard : il garde son texte de départ."
+    },
+    {
+     "do": "line",
+     "n": 0
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "defer",
+   "label": "defer",
+   "title": "defer : télécharger tout de suite, exécuter après",
+   "body": [
+    "Avec `defer`, la balise reste dans le `<head>`, mais le script attend que toute la page soit lue."
+   ],
+   "hud": [
+    {
+     "label": "body lu",
+     "value": "non",
+     "tone": "r"
+    },
+    {
+     "label": "script",
+     "value": "—"
+    }
+   ],
+   "show": [
+    "page",
+    "moteur",
+    "console",
+    {
+     "id": "js",
+     "dim": true
+    }
+   ],
+   "links": [
+    {
+     "from": "js",
+     "to": "moteur"
+    },
+    {
+     "from": "moteur",
+     "to": "console"
+    },
+    {
+     "from": "moteur",
+     "to": "page"
+    }
+   ],
+   "widgets": [
+    {
+     "kind": "editor",
+     "title": "index.html",
+     "lang": "text",
+     "lines": [
+      "<head>",
+      "  <script src=\"script.js\" defer></script>",
+      "</head>",
+      "<body>",
+      "  <h1>Médiathèque</h1>",
+      "  <p id=\"compteur\">En attente…</p>",
+      "</body>"
+     ]
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 700
+    },
+    {
+     "do": "line",
+     "n": 2
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "js",
+       "dim": false,
+       "label": "téléchargé, attend"
+      }
+     ],
+     "hud": [
+      {
+       "label": "script",
+       "value": "en attente",
+       "tone": "y"
+      }
+     ],
+     "say": "Avec `defer`, le navigateur télécharge `script.js` tout de suite, mais ne l'exécute pas encore."
+    },
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "line",
+     "n": 5
+    },
+    {
+     "do": "scene",
+     "show": [
+      "h1"
+     ],
+     "hud": [
+      {
+       "label": "body lu",
+       "value": "en cours",
+       "tone": null
+      }
+     ],
+     "say": "Il continue sa lecture : le titre…"
+    },
+    {
+     "do": "line",
+     "n": 6
+    },
+    {
+     "do": "scene",
+     "show": [
+      {
+       "id": "p",
+       "label": "En attente…"
+      }
+     ],
+     "say": "… puis le paragraphe entrent dans la page."
+    },
+    {
+     "do": "wait",
+     "ms": 600
+    },
+    {
+     "do": "line",
+     "n": 7
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "body lu",
+       "value": "oui",
+       "tone": "g"
+      },
+      {
+       "label": "script",
+       "value": "exécuté",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "js",
+       "label": null
+      }
+     ],
+     "say": "Toute la page est lue : c'est le moment d'exécuter le script."
+    },
+    {
+     "do": "send",
+     "path": [
+      "js",
+      "moteur"
+     ],
+     "label": "script.js",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "send",
+     "path": [
+      "moteur",
+      "p"
+     ],
+     "label": "#compteur",
+     "reply": "trouvé",
+     "explain": [
+      "Le moteur cherche `#compteur`…",
+      "… il existe : la recherche le trouve."
+     ],
+     "tone": "g"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "p",
+       "label": "47 emprunts aujourd'hui",
+       "tone": "g"
+      }
+     ],
+     "say": "L'élément est trouvé : son texte change, sans erreur."
+    },
+    {
+     "do": "line",
+     "n": 0
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  }
+ ]
+}

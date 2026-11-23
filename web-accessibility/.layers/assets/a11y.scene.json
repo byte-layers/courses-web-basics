@@ -1,0 +1,1235 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "web-accessibility",
+ "title": "L'accessibilité web",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "v",
+   "label": "élément"
+  },
+  {
+   "tone": "r",
+   "label": "erreur"
+  },
+  {
+   "tone": "b",
+   "label": "focus"
+  },
+  {
+   "tone": "g",
+   "label": "corrigé"
+  }
+ ],
+ "entities": [
+  {
+   "id": "page",
+   "kind": "layer",
+   "at": [
+    -3.2,
+    0.3
+   ],
+   "size": [
+    11.6,
+    11.4,
+    1
+   ],
+   "tone": "n",
+   "title": "page",
+   "detail": "La même page : à l'écran, elle se regarde ; avec un lecteur d'écran, elle s'écoute."
+  },
+  {
+   "id": "h1",
+   "kind": "node",
+   "at": [
+    -3.2,
+    -3.15
+   ],
+   "size": [
+    10.4,
+    1.3,
+    1
+   ],
+   "tone": "v",
+   "title": "h1 · Camille Martin"
+  },
+  {
+   "id": "img",
+   "kind": "node",
+   "at": [
+    -3.2,
+    -0.3
+   ],
+   "size": [
+    10.4,
+    3.4,
+    1
+   ],
+   "tone": "v",
+   "title": "img",
+   "sub": "IMG_2043.jpg",
+   "detail": "Une image : sans attribut `alt`, rien ne la décrit à qui ne la voit pas."
+  },
+  {
+   "id": "txt",
+   "kind": "node",
+   "at": [
+    -3.2,
+    2.55
+   ],
+   "size": [
+    10.4,
+    1.3,
+    1
+   ],
+   "tone": "v",
+   "title": "p · Développeuse web à Toulouse"
+  },
+  {
+   "id": "lnk",
+   "kind": "node",
+   "at": [
+    -3.2,
+    4.45
+   ],
+   "size": [
+    10.4,
+    1.3,
+    1
+   ],
+   "tone": "v",
+   "title": "a · Mes projets"
+  },
+  {
+   "id": "reader",
+   "kind": "actor",
+   "at": [
+    11.0,
+    -0.6
+   ],
+   "tone": "n",
+   "label": "lecteur d'écran",
+   "detail": "Un **lecteur d'écran** (NVDA, JAWS, VoiceOver, TalkBack) lit la page à voix haute, dans l'ordre du HTML."
+  },
+  {
+   "id": "page2",
+   "kind": "layer",
+   "at": [
+    0.0,
+    -0.2
+   ],
+   "size": [
+    15.6,
+    6.4,
+    1
+   ],
+   "tone": "n",
+   "title": "page"
+  },
+  {
+   "id": "kbd",
+   "kind": "actor",
+   "at": [
+    -12.0,
+    0.0
+   ],
+   "tone": "n",
+   "label": "au clavier",
+   "detail": "Une personne qui ne peut pas tenir une souris navigue au clavier : Tab pour passer d'un lien au suivant, Entrée pour l'activer."
+  },
+  {
+   "id": "k-1",
+   "kind": "node",
+   "at": [
+    -4.9,
+    -0.7
+   ],
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "tone": "v",
+   "title": "Accueil",
+   "detail": "Le **focus** est l'élément qui reçoit les touches du clavier ; le navigateur l'entoure d'un contour, l'`outline`."
+  },
+  {
+   "id": "k-2",
+   "kind": "node",
+   "at": [
+    -0.1,
+    -0.7
+   ],
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "tone": "v",
+   "title": "Projets"
+  },
+  {
+   "id": "k-3",
+   "kind": "node",
+   "at": [
+    4.7,
+    -0.7
+   ],
+   "size": [
+    4.2,
+    1.4,
+    1
+   ],
+   "tone": "v",
+   "title": "Contact"
+  },
+  {
+   "id": "k-btn",
+   "kind": "node",
+   "at": [
+    -4.0,
+    1.5
+   ],
+   "size": [
+    6.0,
+    1.4,
+    1
+   ],
+   "tone": "v",
+   "title": "button · Me contacter"
+  },
+  {
+   "id": "e-alt",
+   "kind": "node",
+   "at": [
+    -7.0,
+    -5.85
+   ],
+   "size": [
+    11.0,
+    2.3,
+    1
+   ],
+   "tone": "r",
+   "title": "image sans alt",
+   "sub": "lue : « IMG_2043.jpg »",
+   "detail": "Une erreur fréquente, et ce qu'elle donne pour qui lit la page autrement."
+  },
+  {
+   "id": "c-alt",
+   "kind": "node",
+   "at": [
+    7.0,
+    -5.85
+   ],
+   "size": [
+    11.0,
+    2.3,
+    1
+   ],
+   "tone": "g",
+   "title": "alt=\"Le sommet du pic du Midi\"",
+   "sub": "alt=\"\" si décorative · RGAA 1.1",
+   "detail": "La correction, et le critère du RGAA qui détecte l'erreur."
+  },
+  {
+   "id": "e-ctr",
+   "kind": "node",
+   "at": [
+    -7.0,
+    -2.95
+   ],
+   "size": [
+    11.0,
+    2.3,
+    1
+   ],
+   "tone": "r",
+   "title": "texte gris clair sur blanc",
+   "sub": "illisible : vue faible, soleil"
+  },
+  {
+   "id": "c-ctr",
+   "kind": "node",
+   "at": [
+    7.0,
+    -2.95
+   ],
+   "size": [
+    11.0,
+    2.3,
+    1
+   ],
+   "tone": "g",
+   "title": "contraste d'au moins 4,5:1",
+   "sub": "RGAA 3.2"
+  },
+  {
+   "id": "e-lng",
+   "kind": "node",
+   "at": [
+    -7.0,
+    -0.05
+   ],
+   "size": [
+    11.0,
+    2.3,
+    1
+   ],
+   "tone": "r",
+   "title": "<html> sans lang",
+   "sub": "lu avec un accent anglais"
+  },
+  {
+   "id": "c-lng",
+   "kind": "node",
+   "at": [
+    7.0,
+    -0.05
+   ],
+   "size": [
+    11.0,
+    2.3,
+    1
+   ],
+   "tone": "g",
+   "title": "<html lang=\"fr\">",
+   "sub": "RGAA 8.3"
+  },
+  {
+   "id": "e-hx",
+   "kind": "node",
+   "at": [
+    -7.0,
+    2.85
+   ],
+   "size": [
+    11.0,
+    2.3,
+    1
+   ],
+   "tone": "r",
+   "title": "h1, puis h4",
+   "sub": "le plan des titres a des trous"
+  },
+  {
+   "id": "c-hx",
+   "kind": "node",
+   "at": [
+    7.0,
+    2.85
+   ],
+   "size": [
+    11.0,
+    2.3,
+    1
+   ],
+   "tone": "g",
+   "title": "h1, h2, h3, sans sauter",
+   "sub": "RGAA 9.1"
+  },
+  {
+   "id": "e-out",
+   "kind": "node",
+   "at": [
+    -7.0,
+    5.75
+   ],
+   "size": [
+    11.0,
+    2.3,
+    1
+   ],
+   "tone": "r",
+   "title": "outline: none sur le focus",
+   "sub": "au clavier, on ne sait où l'on est"
+  },
+  {
+   "id": "c-out",
+   "kind": "node",
+   "at": [
+    7.0,
+    5.75
+   ],
+   "size": [
+    11.0,
+    2.3,
+    1
+   ],
+   "tone": "g",
+   "title": "garder un contour visible",
+   "sub": "RGAA 10.7"
+  },
+  {
+   "id": "bg",
+   "kind": "layer",
+   "at": [
+    -2.0,
+    0.0
+   ],
+   "size": [
+    14.0,
+    8.0,
+    1
+   ],
+   "tone": "n",
+   "title": "fond blanc",
+   "detail": "Le **contraste** : le rapport de luminosité entre le texte et son fond, de `1:1` (blanc sur blanc) à `21:1` (noir sur blanc)."
+  },
+  {
+   "id": "txt-c",
+   "kind": "node",
+   "at": [
+    -2.0,
+    0.1
+   ],
+   "size": [
+    12.0,
+    2.6,
+    1
+   ],
+   "tone": "n",
+   "title": "Mis à jour en mars",
+   "sub": "color: rgb(170, 170, 170)"
+  },
+  {
+   "id": "seuil",
+   "kind": "node",
+   "at": [
+    12.5,
+    0.1
+   ],
+   "size": [
+    9.0,
+    2.6,
+    1
+   ],
+   "tone": "v",
+   "title": "seuil du RGAA : 4,5:1",
+   "sub": "pour le texte courant"
+  },
+  {
+   "id": "pg-l",
+   "kind": "layer",
+   "at": [
+    -3.5,
+    0.8
+   ],
+   "size": [
+    13.0,
+    15.6,
+    1
+   ],
+   "tone": "n",
+   "title": "page"
+  },
+  {
+   "id": "lh-alt",
+   "kind": "node",
+   "at": [
+    -3.5,
+    -4.5
+   ],
+   "size": [
+    11.4,
+    1.8,
+    1
+   ],
+   "tone": "v",
+   "title": "img sans alt"
+  },
+  {
+   "id": "lh-ctr",
+   "kind": "node",
+   "at": [
+    -3.5,
+    -2.1
+   ],
+   "size": [
+    11.4,
+    1.8,
+    1
+   ],
+   "tone": "v",
+   "title": "texte à 2,3:1"
+  },
+  {
+   "id": "lh-lng",
+   "kind": "node",
+   "at": [
+    -3.5,
+    0.3
+   ],
+   "size": [
+    11.4,
+    1.8,
+    1
+   ],
+   "tone": "v",
+   "title": "<html> sans lang"
+  },
+  {
+   "id": "lh-pert",
+   "kind": "node",
+   "at": [
+    -3.5,
+    2.8
+   ],
+   "size": [
+    11.4,
+    1.8,
+    1
+   ],
+   "tone": "v",
+   "title": "alt=\"photo\""
+  },
+  {
+   "id": "lh-ord",
+   "kind": "node",
+   "at": [
+    -3.5,
+    5.2
+   ],
+   "size": [
+    11.4,
+    1.8,
+    1
+   ],
+   "tone": "v",
+   "title": "h2 « Divers », h2 « Suite »"
+  },
+  {
+   "id": "lh-kbd",
+   "kind": "node",
+   "at": [
+    -3.5,
+    7.6
+   ],
+   "size": [
+    11.4,
+    1.8,
+    1
+   ],
+   "tone": "v",
+   "title": "menu qu'on ne quitte pas"
+  },
+  {
+   "id": "lh",
+   "kind": "actor",
+   "at": [
+    12.0,
+    -3.4
+   ],
+   "tone": "n",
+   "label": "Lighthouse",
+   "detail": "**Lighthouse**, dans les outils de développement de Chrome et d'Edge, analyse la page et donne un score sur 100."
+  },
+  {
+   "id": "hand",
+   "kind": "actor",
+   "at": [
+    12.0,
+    4.6
+   ],
+   "tone": "n",
+   "label": "à la main",
+   "detail": "Tab sur toute la page, un zoom à 200 %, la liste des titres."
+  }
+ ],
+ "steps": [
+  {
+   "id": "lecteur",
+   "label": "Le lecteur d'écran",
+   "title": "Un lecteur d'écran lit le HTML, dans l'ordre",
+   "body": [
+    "Le haut d'une page de portfolio, écouté avec un lecteur d'écran."
+   ],
+   "show": [
+    "page",
+    "h1",
+    "img",
+    "txt",
+    "lnk",
+    "reader"
+   ],
+   "links": [
+    {
+     "from": "page",
+     "to": "reader"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "pulse",
+     "at": "h1"
+    },
+    {
+     "do": "send",
+     "path": [
+      "page",
+      "reader"
+     ],
+     "label": "titre 1, Camille Martin",
+     "explain": [
+      "Le lecteur d'écran lit la page dans l'ordre du HTML et dit ce qu'est chaque élément : « titre de niveau 1 »."
+     ]
+    },
+    {
+     "do": "pulse",
+     "at": "img"
+    },
+    {
+     "do": "send",
+     "path": [
+      "page",
+      "reader"
+     ],
+     "label": "IMG_2043.jpg",
+     "explain": [
+      "Une image sans `alt` : il ne peut lire que le nom du fichier."
+     ],
+     "tone": "r"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "img",
+       "tone": "g",
+       "sub": "alt=\"Le sommet du pic du Midi\""
+      }
+     ],
+     "say": "On écrit dans l'attribut alt ce que montre l'image…"
+    },
+    {
+     "do": "pulse",
+     "at": "img"
+    },
+    {
+     "do": "send",
+     "path": [
+      "page",
+      "reader"
+     ],
+     "label": "image, Le sommet du pic…",
+     "explain": [
+      "…et il la décrit à qui ne la voit pas."
+     ],
+     "tone": "g"
+    },
+    {
+     "do": "pulse",
+     "at": "txt"
+    },
+    {
+     "do": "send",
+     "path": [
+      "page",
+      "reader"
+     ],
+     "label": "Développeuse web…",
+     "explain": [
+      "Le texte est lu tel quel."
+     ]
+    },
+    {
+     "do": "pulse",
+     "at": "lnk"
+    },
+    {
+     "do": "send",
+     "path": [
+      "page",
+      "reader"
+     ],
+     "label": "lien, Mes projets",
+     "explain": [
+      "Un lien est annoncé comme un lien, avec son texte : c'est ce qui permet de le choisir."
+     ]
+    },
+    {
+     "do": "wait",
+     "ms": 2200
+    }
+   ]
+  },
+  {
+   "id": "erreurs",
+   "label": "Cinq erreurs",
+   "title": "Cinq erreurs, cinq corrections d'une ligne",
+   "body": [
+    "À gauche, l'erreur et ce qu'elle donne ; à droite, sa correction et le critère RGAA qui la détecte."
+   ],
+   "show": [
+    "e-alt",
+    "e-ctr",
+    "e-lng",
+    "e-hx",
+    "e-out"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "show": [
+      "c-alt"
+     ],
+     "link": [
+      {
+       "from": "e-alt",
+       "to": "c-alt"
+      }
+     ],
+     "say": "Une image sans alt : le lecteur d'écran lit le nom du fichier. On la décrit dans alt, ou alt=\"\" si elle ne fait que décorer."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "c-ctr"
+     ],
+     "link": [
+      {
+       "from": "e-ctr",
+       "to": "c-ctr"
+      }
+     ],
+     "say": "Un texte trop pâle ne se lit pas avec une vue faible, ni au soleil : il faut un contraste d'au moins 4,5:1."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "c-lng"
+     ],
+     "link": [
+      {
+       "from": "e-lng",
+       "to": "c-lng"
+      }
+     ],
+     "say": "Sans lang, le lecteur d'écran choisit sa voix au hasard, souvent l'anglais : lang=\"fr\" la règle."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "c-hx"
+     ],
+     "link": [
+      {
+       "from": "e-hx",
+       "to": "c-hx"
+      }
+     ],
+     "say": "Un niveau de titre sauté laisse un trou dans le plan qu'on parcourt au lecteur d'écran."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "c-out"
+     ],
+     "link": [
+      {
+       "from": "e-out",
+       "to": "c-out"
+      }
+     ],
+     "say": "Sans contour, la personne qui navigue au clavier ne sait plus où elle est."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    }
+   ]
+  },
+  {
+   "id": "contraste",
+   "label": "Le contraste",
+   "title": "Un rapport d'au moins 4,5:1",
+   "body": [
+    "Une petite ligne de texte gris clair, sur un fond blanc."
+   ],
+   "show": [
+    "bg",
+    {
+     "id": "txt-c",
+     "dim": true
+    }
+   ],
+   "links": [],
+   "hud": [
+    {
+     "label": "contraste",
+     "value": "—"
+    },
+    {
+     "label": "critère 3.2",
+     "value": "—"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "contraste",
+       "value": "2,3:1",
+       "tone": "r"
+      },
+      {
+       "label": "critère 3.2",
+       "value": "refusé",
+       "tone": "r"
+      }
+     ],
+     "set": [
+      {
+       "id": "txt-c",
+       "tone": "r"
+      }
+     ],
+     "say": "Gris clair sur blanc : le rapport est de 2,3:1. Le texte se devine plus qu'il ne se lit."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "seuil"
+     ],
+     "link": [
+      {
+       "from": "txt-c",
+       "to": "seuil",
+       "dashed": true
+      }
+     ],
+     "say": "Pour le texte courant, le RGAA demande au moins 4,5:1."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "contraste",
+       "value": "5,9:1",
+       "tone": "g"
+      },
+      {
+       "label": "critère 3.2",
+       "value": "accepté",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "txt-c",
+       "tone": "g",
+       "dim": false,
+       "sub": "color: rgb(100, 100, 100)"
+      }
+     ],
+     "say": "Un gris plus foncé : le rapport monte au-dessus du seuil, le texte se lit."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "contraste",
+       "value": "14,6:1",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "txt-c",
+       "sub": "color: rgb(30, 41, 59)"
+      }
+     ],
+     "say": "Le texte principal de la page, presque noir, va bien au-delà."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "focus",
+   "label": "Le focus",
+   "title": "Le focus : où l'on est, au clavier",
+   "body": [
+    "Un menu de trois liens et un bouton, parcourus sans souris."
+   ],
+   "show": [
+    "page2",
+    "kbd",
+    "k-1",
+    "k-2",
+    "k-3",
+    "k-btn"
+   ],
+   "links": [
+    {
+     "from": "kbd",
+     "to": "page2"
+    }
+   ],
+   "hud": [
+    {
+     "label": "outline",
+     "value": "par défaut"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "kbd",
+      "page2"
+     ],
+     "label": "Tab"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "k-1",
+       "tone": "b",
+       "label": "focus"
+      }
+     ],
+     "say": "Tab donne le focus au premier lien : son contour montre où l'on est."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "kbd",
+      "page2"
+     ],
+     "label": "Tab"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "k-1",
+       "tone": "v",
+       "label": null
+      },
+      {
+       "id": "k-2",
+       "tone": "b",
+       "label": "focus"
+      }
+     ],
+     "say": "Tab encore : le focus passe au lien suivant."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "outline",
+       "value": "none",
+       "tone": "r"
+      }
+     ],
+     "set": [
+      {
+       "id": "k-2",
+       "tone": "v",
+       "label": null
+      }
+     ],
+     "say": "Avec outline: none, le contour disparaît pour tout le monde…"
+    },
+    {
+     "do": "wait",
+     "ms": 700
+    },
+    {
+     "do": "send",
+     "path": [
+      "kbd",
+      "page2"
+     ],
+     "label": "Tab"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "k-3",
+       "note": "focus, invisible"
+      }
+     ],
+     "say": "…le focus avance toujours, mais plus rien ne dit où il est."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "outline",
+       "value": ":focus-visible",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "k-3",
+       "tone": "b",
+       "note": null,
+       "label": "focus"
+      }
+     ],
+     "say": "Avec :focus-visible, un contour visible revient pour qui navigue au clavier."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "lighthouse",
+   "label": "Vérifier",
+   "title": "Ce que Lighthouse voit, et ce qu'il ne voit pas",
+   "body": [
+    "Une page avec six défauts, analysée d'abord par un outil automatique."
+   ],
+   "show": [
+    "pg-l",
+    "lh-alt",
+    "lh-ctr",
+    "lh-lng",
+    "lh-pert",
+    "lh-ord",
+    "lh-kbd",
+    "lh"
+   ],
+   "links": [
+    {
+     "from": "lh",
+     "to": "pg-l"
+    }
+   ],
+   "hud": [
+    {
+     "label": "score",
+     "value": "—"
+    },
+    {
+     "label": "non vus",
+     "value": "—"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "lh",
+      "pg-l"
+     ],
+     "label": "analyse",
+     "explain": [
+      "Lighthouse parcourt le code de la page."
+     ]
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "score",
+       "value": "moins de 100",
+       "tone": "r"
+      }
+     ],
+     "set": [
+      {
+       "id": "lh-alt",
+       "tone": "r",
+       "label": "trouvé"
+      },
+      {
+       "id": "lh-ctr",
+       "tone": "r",
+       "label": "trouvé"
+      },
+      {
+       "id": "lh-lng",
+       "tone": "r",
+       "label": "trouvé"
+      }
+     ],
+     "say": "Il trouve ce qui se mesure : une image sans alt, un contraste trop faible, une langue absente."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "score",
+       "value": "100",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "lh-alt",
+       "tone": "g",
+       "label": null
+      },
+      {
+       "id": "lh-ctr",
+       "tone": "g",
+       "label": null
+      },
+      {
+       "id": "lh-lng",
+       "tone": "g",
+       "label": null
+      }
+     ],
+     "say": "On corrige ces trois-là : le score passe à 100."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "non vus",
+       "value": "3",
+       "tone": "r"
+      }
+     ],
+     "set": [
+      {
+       "id": "lh-pert",
+       "tone": "r",
+       "sub": "un alt qui ne dit rien"
+      },
+      {
+       "id": "lh-ord",
+       "tone": "r",
+       "sub": "des titres qui ne disent rien"
+      },
+      {
+       "id": "lh-kbd",
+       "tone": "r",
+       "sub": "un piège au clavier"
+      }
+     ],
+     "say": "Mais trois défauts restent, que l'outil ne sait pas juger : un alt qui ne décrit rien, des titres qui ne disent rien, un piège au clavier."
+    },
+    {
+     "do": "wait",
+     "ms": 1800
+    },
+    {
+     "do": "scene",
+     "show": [
+      "hand"
+     ],
+     "link": [
+      {
+       "from": "hand",
+       "to": "pg-l"
+      }
+     ],
+     "hud": [
+      {
+       "label": "non vus",
+       "value": "0",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "lh-pert",
+       "label": "trouvé à la main"
+      },
+      {
+       "id": "lh-ord",
+       "label": "trouvé à la main"
+      },
+      {
+       "id": "lh-kbd",
+       "label": "trouvé à la main"
+      }
+     ],
+     "say": "Tab sur toute la page, le zoom à 200 % et la liste des titres les trouvent : ce sont des vérifications à la main."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

@@ -26,14 +26,21 @@ Le HTML entoure chaque morceau de contenu de **balises**, qui disent au navigate
 <p class="intro">Bonjour, je m'appelle Ada.</p>
 ```
 
-| Morceau | Nom | Rôle |
-|---|---|---|
-| `<p>` | la **balise ouvrante** | « ici commence un paragraphe » |
-| `</p>` | la **balise fermante**, avec une barre oblique | « ici finit le paragraphe » |
-| `class="intro"` | un **attribut**, un nom et une valeur entre guillemets | une information de plus sur l'élément ; il s'écrit dans la balise ouvrante |
-| tout l'ensemble | un **élément** | le paragraphe, avec son contenu |
+| Morceau | Ce que c'est |
+|---|---|
+| `<p>` | la **balise ouvrante** : « ici commence un paragraphe » |
+| `</p>` | la **balise fermante**, avec une barre oblique : « ici finit le paragraphe » |
+| `class="intro"` | un **attribut**, un nom et une valeur entre guillemets : une information de plus, écrite dans la balise ouvrante |
+| tout l'ensemble | un **élément** : le paragraphe, avec son contenu |
 
-Les éléments s'emboîtent les uns dans les autres, comme des boîtes : on ferme toujours le dernier ouvert en premier. Quelques éléments n'ont pas de contenu, donc pas de balise fermante : `<meta>`, `<img>`, `<br>`. Enfin, ce qui est écrit entre `<!--` et `-->` est un **commentaire** : le navigateur ne l'affiche jamais.
+Les éléments s'emboîtent les uns dans les autres, comme des boîtes. Suivez le navigateur qui lit ces cinq lignes.
+
+```scene
+lesson: assets/html.scene.json
+step: emboiter
+```
+
+Chaque balise ouvrante ouvre une boîte dans celle qui est ouverte, et l'on ferme toujours **le dernier ouvert en premier**. Quelques éléments n'ont pas de contenu, donc pas de balise fermante : `<meta>`, `<img>`, `<br>`. Enfin, ce qui est écrit entre `<!--` et `-->` est un **commentaire** : le navigateur ne l'affiche jamais.
 
 ## Le squelette : doctype, html, head, body
 
@@ -56,19 +63,28 @@ Toute page commence par le même squelette. Le voici, complet :
 
 Chaque ligne a sa raison d'être :
 
-| Ligne | Ce qu'elle dit | Sans elle |
-|---|---|---|
-| `<!DOCTYPE html>` | « ceci est du HTML actuel » ; toujours en toute première ligne | le navigateur passe en mode quirks et imite les anciens navigateurs |
-| `<html lang="fr">` | l'élément qui contient tout, et la langue de la page | un lecteur d'écran lit le français avec la prononciation d'une autre langue ; la traduction automatique se trompe de langue |
-| `<head>` … `</head>` | les informations sur la page, que le visiteur ne voit pas dans la page | |
-| `<meta charset="utf-8">` | l'**encodage** des caractères : comment lire les octets du fichier | les accents peuvent s'afficher en caractères bizarres |
-| `<meta name="viewport" …>` | sur un téléphone, afficher la page à la largeur de l'écran | le téléphone affiche une version de bureau réduite, illisible ; le cours sur le responsive y revient |
-| `<title>` | le titre de l'**onglet** du navigateur, des favoris et des résultats de recherche | l'onglet affiche l'adresse du fichier |
-| `<body>` … `</body>` | tout ce que le visiteur voit dans la page | |
+| Ligne | Ce qu'elle dit, et ce qui se passe sans elle |
+|---|---|
+| `<!DOCTYPE html>` | « ceci est du HTML actuel », en toute première ligne. Sans elle, le navigateur imite les anciens navigateurs (le mode quirks) |
+| `<html lang="fr">` | l'élément qui contient tout, et la langue de la page. Sans `lang`, un lecteur d'écran prononce mal, la traduction automatique se trompe |
+| `<head>` … `</head>` | les informations sur la page, que le visiteur ne voit pas dans la page |
+| `<meta charset="utf-8">` | l'**encodage** : comment lire les octets du fichier. Sans elle, les accents peuvent casser |
+| `<meta name="viewport" …>` | sur un téléphone, afficher la page à la largeur de l'écran. Sans elle, une version de bureau réduite, illisible |
+| `<title>` | le titre de l'**onglet**, des favoris et des résultats de recherche. Sans elle, l'onglet affiche l'adresse du fichier |
+| `<body>` … `</body>` | tout ce que le visiteur voit dans la page |
+
+Voici où va chaque partie quand le navigateur lit le fichier.
+
+```scene
+lesson: assets/html.scene.json
+step: squelette
+```
 
 Le point qui surprend le plus : `<title>` et `<h1>` ne s'affichent pas au même endroit. `<title>` va dans l'onglet, jamais dans la page ; `<h1>` est le grand titre en haut de la page. Dans le squelette ci-dessus, ils ont volontairement deux textes différents.
 
-Complète le squelette de mémoire : cinq trous, un mot chacun.
+## À toi : complète le squelette
+
+Sans regarder plus haut, complète le squelette : cinq trous, un mot chacun.
 
 ```fill
 file: assets/squelette.fill.html
@@ -89,15 +105,27 @@ blanks:
 
 ## L'encodage : pourquoi les accents cassent sans `charset`
 
-Un fichier est une suite d'octets, des nombres. L'**encodage** est la table qui dit quel nombre correspond à quel caractère. Votre éditeur enregistre en **UTF-8**, l'encodage du web, qui couvre les accents, les emojis et presque toutes les écritures du monde. Dans UTF-8, le `é` s'écrit avec deux octets. Un navigateur qui lit ces deux octets avec une autre table affiche deux caractères à la place d'un : `créé` devient `crÃ©Ã©`.
+Un fichier est une suite d'octets, des nombres. L'**encodage** est la table qui dit quel nombre correspond à quel caractère. Votre éditeur enregistre en **UTF-8**, l'encodage du web, qui couvre les accents, les emojis et presque toutes les écritures du monde. Dans UTF-8, le `é` s'écrit avec deux octets. Regarde ce qui arrive quand le navigateur les lit avec une autre table.
 
-La ligne `<meta charset="utf-8">` lève le doute. Elle se place au début du `<head>`, parce que le navigateur ne la cherche que dans les premiers octets du fichier. Sans elle, le navigateur devine : parfois juste, parfois non, selon le navigateur et la façon dont la page est servie. On l'écrit donc toujours.
+```scene
+lesson: assets/texte.scene.json
+step: encodage
+```
 
-> 💡 **Remarque.** Les exercices de ce contenu se jouent dans un aperçu qui reçoit le texte déjà décodé : l'oubli du `charset` n'y casse rien. Le lab de ce cours vous fait voir la vraie panne, sur un fichier ouvert depuis votre disque.
+Deux octets lus comme deux caractères : `créé` devient `crÃ©Ã©`. La ligne `<meta charset="utf-8">` lève le doute. Elle se place au début du `<head>`, parce que le navigateur ne la cherche que dans les premiers octets du fichier. Sans elle, le navigateur devine : parfois juste, parfois non, selon le navigateur et la façon dont la page est servie. On l'écrit donc toujours.
+
+> 💡 **Remarque.** Les exercices de ce contenu se jouent dans un aperçu qui reçoit le texte déjà décodé : l'oubli du `charset` n'y casse rien. La vraie panne se voit sur un fichier ouvert depuis votre disque.
 
 ## Titres, paragraphes et listes
 
-Dans le `<body>`, le texte se range en éléments qui disent ce qu'il est :
+Dans le `<body>`, le texte se range en éléments qui disent ce qu'il est. Chacun lui donne sa forme à l'écran :
+
+```scene
+lesson: assets/texte.scene.json
+step: texte
+```
+
+L'essentiel, à garder sous la main :
 
 | Élément | Ce que c'est |
 |---|---|
@@ -114,16 +142,23 @@ Le navigateur ne tient pas compte des retours à la ligne ni des espaces en trop
 
 Un lien s'écrit avec l'élément `<a>` (*anchor*, ancre), et son attribut `href` dit où il mène :
 
-| Lien vers | Exemple de `href` | Remarque |
-|---|---|---|
-| un autre site | `https://fr.wikipedia.org/` | une adresse complète, protocole compris |
-| une page du même site | `contact.html` | un **chemin relatif**, à partir du dossier de la page courante |
-| un endroit de la même page | `#horaires` | vise l'élément qui porte `id="horaires"` |
-| une adresse e-mail | `mailto:contact@exemple.fr` | ouvre la messagerie du visiteur, s'il en a une |
+```scene
+lesson: assets/texte.scene.json
+step: liens
+```
+
+| Lien vers | Le `href`, et ce qu'il faut savoir |
+|---|---|
+| un autre site | `https://fr.wikipedia.org/` : une adresse complète, protocole compris |
+| une page du même site | `contact.html` : un **chemin relatif**, à partir du dossier de la page |
+| un endroit de la page | `#horaires` : vise l'élément qui porte `id="horaires"` |
+| une adresse e-mail | `mailto:contact@exemple.fr` : ouvre la messagerie du visiteur, s'il en a une |
 
 Pour ouvrir un lien dans un nouvel onglet, on ajoute `target="_blank"`, et avec lui `rel="noopener"`, qui empêche la page ouverte d'agir sur la vôtre.
 
 Le lien vers un endroit de la page demande **deux gestes** : donner un `id` à l'élément visé, puis écrire le lien avec un dièse. Le lien seul ne fait rien, et rien ne vous le signale : le clic ne mène nulle part.
+
+## À toi : des liens qui mènent quelque part
 
 Dans la page ci-dessous, le premier lien devrait faire descendre jusqu'aux horaires, et le lien vers Wikipédia devrait s'ouvrir dans un nouvel onglet. Corrige `index.html`.
 
@@ -180,15 +215,24 @@ Une image s'affiche avec l'élément `<img>`, qui n'a pas de balise fermante :
 
 L'attribut `src` donne le **chemin** du fichier image. Un chemin relatif part du dossier de la page, comme pour un lien :
 
-| La page est dans | L'image est dans | On écrit |
-|---|---|---|
-| `site/` | `site/capitole.svg`, le même dossier | `src="capitole.svg"` |
-| `site/` | `site/images/capitole.svg`, un sous-dossier | `src="images/capitole.svg"` |
-| `site/pages/` | `site/images/capitole.svg`, un dossier voisin | `src="../images/capitole.svg"` : `..` remonte d'un dossier |
+| L'image est… | On écrit |
+|---|---|
+| dans le même dossier que la page | `src="capitole.svg"` |
+| dans un sous-dossier `images/` | `src="images/capitole.svg"` |
+| dans un dossier voisin (la page est dans `site/pages/`, l'image dans `site/images/`) | `src="../images/capitole.svg"` : `..` remonte d'un dossier |
+
+Suivez le troisième cas, morceau par morceau.
+
+```scene
+lesson: assets/chemin.scene.json
+step: chemin
+```
 
 Sur la plupart des serveurs, les **majuscules comptent** : `Images/capitole.svg` et `images/capitole.svg` sont deux chemins différents. Sous Windows et macOS, le disque les confond par défaut : la page marche chez vous, puis l'image disparaît une fois en ligne.
 
 L'attribut `alt` donne le **texte alternatif** : ce qui s'affiche quand l'image ne charge pas, ce que lit un lecteur d'écran à une personne aveugle, et ce que « voit » un moteur de recherche. On y décrit ce que l'image montre, sans commencer par « image de ».
+
+## À toi : une image qui s'affiche, et qui se décrit
 
 Dans la page ci-dessous, l'image ne s'affiche pas, et elle n'a pas de texte alternatif. Le fichier image est fourni, en lecture seule, dans le dossier `images/`. Corrige `index.html`.
 

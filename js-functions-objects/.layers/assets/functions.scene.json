@@ -1,0 +1,1338 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "js-functions-objects",
+ "title": "Fonctions et objets",
+ "lang": "fr",
+ "kit": "feuillete",
+ "legend": [
+  {
+   "tone": "b",
+   "label": "nombre"
+  },
+  {
+   "tone": "y",
+   "label": "texte"
+  },
+  {
+   "tone": "n",
+   "label": "undefined"
+  },
+  {
+   "tone": "r",
+   "label": "NaN"
+  },
+  {
+   "tone": "v",
+   "label": "fonction, appel"
+  }
+ ],
+ "entities": [
+  {
+   "id": "appel",
+   "kind": "node",
+   "at": [
+    3.0,
+    6.0
+   ],
+   "size": [
+    2.0,
+    2.0,
+    0.9
+   ],
+   "tone": "v",
+   "title": "addition(5, 3)",
+   "detail": "L'**appel** : le nom de la fonction, puis les **arguments** entre parenthèses."
+  },
+  {
+   "id": "fadd",
+   "kind": "layer",
+   "at": [
+    0.5,
+    -3.5
+   ],
+   "size": [
+    5.0,
+    5.0,
+    0.55
+   ],
+   "tone": "v",
+   "title": "function addition(a, b)",
+   "detail": "La **fonction** déclarée une fois : ses **paramètres** `a` et `b`, et son bloc de code."
+  },
+  {
+   "id": "pa",
+   "kind": "file",
+   "in": "fadd",
+   "at": [
+    -1.7,
+    0.3,
+    0.55
+   ],
+   "size": [
+    1.4,
+    1.4,
+    0.4
+   ],
+   "tone": "b",
+   "title": "a",
+   "detail": "Un **paramètre** : un nom qui reçoit la valeur donnée à l'appel."
+  },
+  {
+   "id": "pb",
+   "kind": "file",
+   "in": "fadd",
+   "at": [
+    0.3,
+    -1.7,
+    0.55
+   ],
+   "size": [
+    1.4,
+    1.4,
+    0.4
+   ],
+   "tone": "b",
+   "title": "b"
+  },
+  {
+   "id": "ret",
+   "kind": "program",
+   "in": "fadd",
+   "at": [
+    0.9,
+    0.9,
+    0.55
+   ],
+   "size": [
+    1.6,
+    1.6,
+    0.7
+   ],
+   "tone": "n",
+   "title": "return a + b"
+  },
+  {
+   "id": "cons",
+   "kind": "node",
+   "at": [
+    -1.0,
+    8.0
+   ],
+   "size": [
+    1.8,
+    1.8,
+    0.9
+   ],
+   "tone": "i",
+   "title": "console",
+   "icon": ">_"
+  },
+  {
+   "id": "appel2",
+   "kind": "node",
+   "at": [
+    3.0,
+    6.0
+   ],
+   "size": [
+    2.0,
+    2.0,
+    0.9
+   ],
+   "tone": "v",
+   "title": "prixTTC(25) * 2",
+   "detail": "Le code qui appelle `prixTTC(25)` et veut **se servir** du résultat : le multiplier par 2."
+  },
+  {
+   "id": "fttc",
+   "kind": "layer",
+   "at": [
+    0.5,
+    -3.5
+   ],
+   "size": [
+    4.4,
+    4.4,
+    0.55
+   ],
+   "tone": "v",
+   "title": "function prixTTC(prix)"
+  },
+  {
+   "id": "corps",
+   "kind": "program",
+   "in": "fttc",
+   "at": [
+    0.0,
+    0.0,
+    0.55
+   ],
+   "size": [
+    1.8,
+    1.8,
+    0.7
+   ],
+   "tone": "n",
+   "title": "console.log(prix * 1.2)"
+  },
+  {
+   "id": "livre",
+   "kind": "layer",
+   "at": [
+    -1.5,
+    -1.5
+   ],
+   "size": [
+    6.2,
+    6.2,
+    0.55
+   ],
+   "tone": "n",
+   "title": "livre",
+   "detail": "Un **objet** : des paires **clé : valeur** qui décrivent une même chose."
+  },
+  {
+   "id": "k-titre",
+   "kind": "file",
+   "in": "livre",
+   "at": [
+    -1.7,
+    1.7,
+    0.55
+   ],
+   "size": [
+    1.4,
+    1.4,
+    0.4
+   ],
+   "tone": "y",
+   "title": "titre",
+   "label": "\"Dune\"",
+   "detail": "Une **clé** et sa valeur. Une case par clé."
+  },
+  {
+   "id": "k-auteur",
+   "kind": "file",
+   "in": "livre",
+   "at": [
+    -0.9,
+    -0.9,
+    0.55
+   ],
+   "size": [
+    1.4,
+    1.4,
+    0.4
+   ],
+   "tone": "y",
+   "title": "auteur",
+   "label": "\"Frank Herbert\""
+  },
+  {
+   "id": "k-pages",
+   "kind": "file",
+   "in": "livre",
+   "at": [
+    1.7,
+    -1.7,
+    0.55
+   ],
+   "size": [
+    1.4,
+    1.4,
+    0.4
+   ],
+   "tone": "b",
+   "title": "pages",
+   "label": "900"
+  },
+  {
+   "id": "k-editeur",
+   "kind": "file",
+   "in": "livre",
+   "at": [
+    1.0,
+    1.0,
+    0.55
+   ],
+   "size": [
+    1.4,
+    1.4,
+    0.4
+   ],
+   "tone": "y",
+   "title": "editeur",
+   "label": "\"Pocket\""
+  },
+  {
+   "id": "lire",
+   "kind": "program",
+   "at": [
+    1.5,
+    7.5
+   ],
+   "tone": "v",
+   "title": "livre.titre",
+   "detail": "Une **expression** qui lit l'objet : son nom, un point, la clé."
+  },
+  {
+   "id": "o0",
+   "kind": "layer",
+   "at": [
+    -6.0,
+    4.0
+   ],
+   "size": [
+    3.4,
+    3.4,
+    0.5
+   ],
+   "tone": "n",
+   "title": "livres[0]",
+   "detail": "Une **case** du tableau `livres` : elle contient un objet entier, avec ses deux clés."
+  },
+  {
+   "id": "o0t",
+   "kind": "file",
+   "in": "o0",
+   "at": [
+    -0.75,
+    0.75,
+    0.55
+   ],
+   "size": [
+    1.1,
+    1.1,
+    0.4
+   ],
+   "tone": "y",
+   "title": "titre",
+   "label": "\"Dune\""
+  },
+  {
+   "id": "o0p",
+   "kind": "file",
+   "in": "o0",
+   "at": [
+    0.75,
+    -0.75,
+    0.55
+   ],
+   "size": [
+    1.1,
+    1.1,
+    0.4
+   ],
+   "tone": "b",
+   "title": "pages",
+   "label": "900"
+  },
+  {
+   "id": "o1",
+   "kind": "layer",
+   "at": [
+    -1.0,
+    -1.0
+   ],
+   "size": [
+    3.4,
+    3.4,
+    0.5
+   ],
+   "tone": "n",
+   "title": "livres[1]"
+  },
+  {
+   "id": "o1t",
+   "kind": "file",
+   "in": "o1",
+   "at": [
+    -0.75,
+    0.75,
+    0.55
+   ],
+   "size": [
+    1.1,
+    1.1,
+    0.4
+   ],
+   "tone": "y",
+   "title": "titre",
+   "label": "\"Le Hobbit\""
+  },
+  {
+   "id": "o1p",
+   "kind": "file",
+   "in": "o1",
+   "at": [
+    0.75,
+    -0.75,
+    0.55
+   ],
+   "size": [
+    1.1,
+    1.1,
+    0.4
+   ],
+   "tone": "b",
+   "title": "pages",
+   "label": "320"
+  },
+  {
+   "id": "o2",
+   "kind": "layer",
+   "at": [
+    4.0,
+    -6.0
+   ],
+   "size": [
+    3.4,
+    3.4,
+    0.5
+   ],
+   "tone": "n",
+   "title": "livres[2]"
+  },
+  {
+   "id": "o2t",
+   "kind": "file",
+   "in": "o2",
+   "at": [
+    -0.75,
+    0.75,
+    0.55
+   ],
+   "size": [
+    1.1,
+    1.1,
+    0.4
+   ],
+   "tone": "y",
+   "title": "titre",
+   "label": "\"Fondation\""
+  },
+  {
+   "id": "o2p",
+   "kind": "file",
+   "in": "o2",
+   "at": [
+    0.75,
+    -0.75,
+    0.55
+   ],
+   "size": [
+    1.1,
+    1.1,
+    0.4
+   ],
+   "tone": "b",
+   "title": "pages",
+   "label": "280"
+  },
+  {
+   "id": "boucle",
+   "kind": "node",
+   "at": [
+    4.5,
+    4.5
+   ],
+   "size": [
+    2.2,
+    2.2,
+    0.9
+   ],
+   "tone": "v",
+   "title": "for (const livre of livres)",
+   "detail": "À chaque tour, la variable **`livre`** reçoit l'objet suivant du tableau, toutes ses clés comprises."
+  },
+  {
+   "id": "cons4",
+   "kind": "node",
+   "at": [
+    -1.0,
+    9.0
+   ],
+   "size": [
+    1.8,
+    1.8,
+    0.9
+   ],
+   "tone": "i",
+   "title": "console",
+   "icon": ">_"
+  }
+ ],
+ "steps": [
+  {
+   "id": "appel",
+   "label": "L'appel",
+   "title": "Un appel donne des valeurs, return rend le résultat",
+   "body": [
+    "Les arguments de l'appel vont dans les paramètres ; `return` rend la valeur calculée à celui qui a appelé."
+   ],
+   "hud": [
+    {
+     "label": "l'appel vaut",
+     "value": "—"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "appel",
+    "fadd",
+    "pa",
+    "pb",
+    "ret",
+    "cons"
+   ],
+   "links": [
+    {
+     "from": "appel",
+     "to": "pa"
+    },
+    {
+     "from": "appel",
+     "to": "pb"
+    },
+    {
+     "from": "ret",
+     "to": "appel",
+     "dashed": true
+    },
+    {
+     "from": "appel",
+     "to": "cons"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "appel",
+      "pa"
+     ],
+     "label": "5",
+     "tone": "b"
+    },
+    {
+     "do": "send",
+     "path": [
+      "appel",
+      "pb"
+     ],
+     "label": "3",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "pa",
+       "label": "5"
+      },
+      {
+       "id": "pb",
+       "label": "3"
+      }
+     ],
+     "say": "L'appel `addition(5, 3)` donne ses **arguments** : 5 va dans `a`, 3 dans `b`."
+    },
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "ret",
+       "label": "8"
+      }
+     ],
+     "say": "La fonction exécute son bloc : `a + b` vaut 8."
+    },
+    {
+     "do": "wait",
+     "ms": 700
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "ret",
+       "to": "appel"
+      }
+     ],
+     "ms": 300
+    },
+    {
+     "do": "send",
+     "path": [
+      "ret",
+      "appel"
+     ],
+     "label": "8",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "l'appel vaut",
+       "value": 8,
+       "tone": "b"
+      }
+     ],
+     "say": "`return` **rend** 8 à celui qui a appelé : l'appel vaut 8."
+    },
+    {
+     "do": "send",
+     "path": [
+      "appel",
+      "cons"
+     ],
+     "label": "8",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "cons",
+       "label": "8"
+      }
+     ],
+     "say": "`console.log` reçoit cette valeur et l'affiche."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "appel",
+       "title": "addition(2, 2)"
+      },
+      {
+       "id": "pa",
+       "label": null
+      },
+      {
+       "id": "pb",
+       "label": null
+      },
+      {
+       "id": "ret",
+       "label": null
+      }
+     ],
+     "link": [
+      {
+       "from": "ret",
+       "to": "appel",
+       "dashed": true
+      }
+     ],
+     "hud": [
+      {
+       "label": "l'appel vaut",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "say": "Le même geste resert avec d'autres valeurs : `addition(2, 2)`."
+    },
+    {
+     "do": "send",
+     "path": [
+      "appel",
+      "pa"
+     ],
+     "label": "2",
+     "tone": "b"
+    },
+    {
+     "do": "send",
+     "path": [
+      "appel",
+      "pb"
+     ],
+     "label": "2",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "pa",
+       "label": "2"
+      },
+      {
+       "id": "pb",
+       "label": "2"
+      },
+      {
+       "id": "ret",
+       "label": "4"
+      }
+     ],
+     "link": [
+      {
+       "from": "ret",
+       "to": "appel"
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "ret",
+      "appel"
+     ],
+     "label": "4",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "l'appel vaut",
+       "value": 4,
+       "tone": "b"
+      }
+     ],
+     "set": [
+      {
+       "id": "cons",
+       "label": "8, puis 4"
+      }
+     ],
+     "say": "Elle rend 4 : la formule est écrite une seule fois."
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "return",
+   "label": "return",
+   "title": "Afficher n'est pas rendre",
+   "body": [
+    "`console.log` écrit le résultat pour toi ; seul `return` le donne au code qui a appelé."
+   ],
+   "hud": [
+    {
+     "label": "l'appel vaut",
+     "value": "—"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "appel2",
+    "fttc",
+    "corps",
+    "cons"
+   ],
+   "links": [
+    {
+     "from": "appel2",
+     "to": "corps"
+    },
+    {
+     "from": "corps",
+     "to": "cons"
+    },
+    {
+     "from": "corps",
+     "to": "appel2",
+     "dashed": true
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "appel2",
+      "corps"
+     ],
+     "label": "25",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "corps",
+       "label": "30"
+      }
+     ],
+     "say": "`prixTTC(25)` donne 25 à la fonction, qui calcule 30."
+    },
+    {
+     "do": "wait",
+     "ms": 600
+    },
+    {
+     "do": "send",
+     "path": [
+      "corps",
+      "cons"
+     ],
+     "label": "30",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "cons",
+       "label": "30"
+      }
+     ],
+     "say": "Elle l'**affiche** avec `console.log` : la console montre 30, pour toi."
+    },
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "corps",
+       "to": "appel2"
+      }
+     ],
+     "ms": 300
+    },
+    {
+     "do": "send",
+     "path": [
+      "corps",
+      "appel2"
+     ],
+     "label": "undefined",
+     "tone": "n"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "appel2",
+       "label": "NaN",
+       "tone": "r"
+      }
+     ],
+     "hud": [
+      {
+       "label": "l'appel vaut",
+       "value": "undefined",
+       "tone": "n"
+      }
+     ],
+     "say": "Mais elle ne rend rien : l'appel vaut `undefined`, et `undefined * 2` donne `NaN`."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "l'appel vaut",
+       "value": "rien reçu",
+       "tone": "r"
+      }
+     ],
+     "say": "La console montre 30, mais le code qui appelle n'a rien reçu : à toi de trouver ce qui manque.",
+     "ms": 300
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "objet",
+   "label": "Un objet",
+   "title": "Un objet range des valeurs sous des clés",
+   "body": [
+    "On lit une valeur par sa clé ; une clé absente rend `undefined`, une clé nouvelle s'ajoute."
+   ],
+   "labels": "left",
+   "show": [
+    "livre",
+    "k-titre",
+    "k-auteur",
+    "k-pages",
+    "lire"
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "title": "livre.titre",
+       "label": null,
+       "tone": "v"
+      }
+     ],
+     "link": [
+      {
+       "from": "lire",
+       "to": "k-titre"
+      }
+     ],
+     "unlink": [],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "lire",
+      "k-titre"
+     ],
+     "reply": "\"Dune\"",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "label": "\"Dune\""
+      }
+     ],
+     "say": "`livre.titre` : le point va chercher la valeur de la clé `titre`."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "title": "livre[\"auteur\"]",
+       "label": null,
+       "tone": "v"
+      }
+     ],
+     "link": [
+      {
+       "from": "lire",
+       "to": "k-auteur"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "lire",
+       "to": "k-titre"
+      }
+     ],
+     "ms": 400
+    },
+    {
+     "do": "send",
+     "path": [
+      "lire",
+      "k-auteur"
+     ],
+     "reply": "\"Frank Herbert\"",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "label": "\"Frank Herbert\""
+      }
+     ],
+     "say": "`livre[\"auteur\"]` fait la même chose, la clé écrite comme un texte."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "title": "livre.editeur",
+       "label": "undefined",
+       "tone": "n"
+      }
+     ],
+     "unlink": [
+      {
+       "from": "lire",
+       "to": "k-auteur"
+      }
+     ],
+     "say": "`livre.editeur` : aucune clé de ce nom, la réponse est `undefined`, sans erreur."
+    },
+    {
+     "do": "wait",
+     "ms": 1400
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "lire",
+       "title": "livre.editeur = \"Pocket\"",
+       "label": null,
+       "tone": "v"
+      }
+     ],
+     "show": [
+      "k-editeur"
+     ],
+     "link": [
+      {
+       "from": "lire",
+       "to": "k-editeur"
+      }
+     ],
+     "say": "`livre.editeur = \"Pocket\"` range une valeur sous une clé nouvelle : elle s'ajoute à l'objet."
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "liste",
+   "label": "Tableau d'objets",
+   "title": "À chaque tour, un objet entier",
+   "body": [
+    "`for…of` donne à `livre` l'objet suivant du tableau ; `livre.titre` lit la clé de l'objet du tour."
+   ],
+   "hud": [
+    {
+     "label": "tour",
+     "value": "—"
+    },
+    {
+     "label": "livre",
+     "value": "—"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "o0",
+    "o1",
+    "o2",
+    "o0t",
+    "o0p",
+    "o1t",
+    "o1p",
+    "o2t",
+    "o2p",
+    "boucle",
+    "cons4"
+   ],
+   "links": [
+    {
+     "from": "o0",
+     "to": "boucle"
+    },
+    {
+     "from": "o1",
+     "to": "boucle"
+    },
+    {
+     "from": "o2",
+     "to": "boucle"
+    },
+    {
+     "from": "boucle",
+     "to": "cons4"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "o0",
+      "boucle"
+     ],
+     "label": "{ titre, pages }",
+     "tone": "n"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "boucle",
+       "label": "livre = livres[0]"
+      }
+     ],
+     "hud": [
+      {
+       "label": "tour",
+       "value": 1,
+       "tone": "v"
+      },
+      {
+       "label": "livre",
+       "value": "livres[0], entier",
+       "tone": "v"
+      }
+     ],
+     "say": "Premier tour : `livre` reçoit l'objet **entier** de la case 0, ses deux clés comprises."
+    },
+    {
+     "do": "wait",
+     "ms": 700
+    },
+    {
+     "do": "send",
+     "path": [
+      "boucle",
+      "o0t"
+     ],
+     "reply": "\"Dune\"",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "send",
+     "path": [
+      "boucle",
+      "cons4"
+     ],
+     "label": "Dune",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "cons4",
+       "label": "Dune"
+      }
+     ],
+     "say": "`livre.titre` lit la clé `titre` de cet objet : la console affiche Dune."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "o1",
+      "boucle"
+     ],
+     "label": "{ titre, pages }",
+     "tone": "n"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "o0",
+       "dim": true
+      },
+      {
+       "id": "boucle",
+       "label": "livre = livres[1]"
+      }
+     ],
+     "hud": [
+      {
+       "label": "tour",
+       "value": 2,
+       "tone": "v"
+      },
+      {
+       "label": "livre",
+       "value": "livres[1], entier",
+       "tone": "v"
+      }
+     ],
+     "say": "Deuxième tour : `livre` reçoit l'objet suivant."
+    },
+    {
+     "do": "wait",
+     "ms": 700
+    },
+    {
+     "do": "send",
+     "path": [
+      "boucle",
+      "o1t"
+     ],
+     "reply": "\"Le Hobbit\"",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "send",
+     "path": [
+      "boucle",
+      "cons4"
+     ],
+     "label": "Le Hobbit",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "cons4",
+       "label": "Dune, Le Hobbit"
+      }
+     ],
+     "say": "Même ligne, autre objet : Le Hobbit."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "o2",
+      "boucle"
+     ],
+     "label": "{ titre, pages }",
+     "tone": "n"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "o1",
+       "dim": true
+      },
+      {
+       "id": "boucle",
+       "label": "livre = livres[2]"
+      }
+     ],
+     "hud": [
+      {
+       "label": "tour",
+       "value": 3,
+       "tone": "v"
+      },
+      {
+       "label": "livre",
+       "value": "livres[2], entier",
+       "tone": "v"
+      }
+     ],
+     "say": "Dernier tour : le troisième objet."
+    },
+    {
+     "do": "wait",
+     "ms": 700
+    },
+    {
+     "do": "send",
+     "path": [
+      "boucle",
+      "o2t"
+     ],
+     "reply": "\"Fondation\"",
+     "kind": "read",
+     "tone": "y"
+    },
+    {
+     "do": "send",
+     "path": [
+      "boucle",
+      "cons4"
+     ],
+     "label": "Fondation",
+     "tone": "y"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "cons4",
+       "label": "Dune, Le Hobbit, Fondation"
+      }
+     ],
+     "say": "Fondation. Plus d'objet, la boucle s'arrête."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "o0",
+       "dim": false
+      },
+      {
+       "id": "o1",
+       "dim": false
+      },
+      {
+       "id": "o2",
+       "dim": false
+      },
+      {
+       "id": "boucle",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "tour",
+       "value": "fini",
+       "tone": null
+      },
+      {
+       "label": "livre",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "say": "Trois tours, un par objet : la ligne `console.log(livre.titre)` est écrite une fois, pour toute la liste."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

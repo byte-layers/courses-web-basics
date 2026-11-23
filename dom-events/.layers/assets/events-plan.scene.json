@@ -1,0 +1,778 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "js-dom-events-plan",
+ "title": "Onglets et champs (2D)",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "b",
+   "label": "page affichée"
+  },
+  {
+   "tone": "v",
+   "label": "JavaScript"
+  },
+  {
+   "tone": "g",
+   "label": "allumé, accepté"
+  },
+  {
+   "tone": "r",
+   "label": "refusé"
+  }
+ ],
+ "entities": [
+  {
+   "id": "o-page",
+   "kind": "layer",
+   "at": [
+    0,
+    0
+   ],
+   "tone": "b",
+   "size": [
+    30,
+    15,
+    1
+   ],
+   "title": "la page affichée"
+  },
+  {
+   "id": "o-b1",
+   "kind": "node",
+   "at": [
+    -9.5,
+    -4.2
+   ],
+   "tone": "b",
+   "size": [
+    8.4,
+    2.4,
+    1
+   ],
+   "in": "o-page",
+   "title": "Projets",
+   "sub": "data-content-id=\"content1\"",
+   "detail": "Un attribut **`data-`** est un attribut qu'on invente soi-même. Ici, il dit quel panneau ce bouton ouvre ; `getAttribute(\"data-content-id\")` le lit."
+  },
+  {
+   "id": "o-p1",
+   "kind": "node",
+   "at": [
+    -9.5,
+    2.6
+   ],
+   "tone": "b",
+   "size": [
+    8.4,
+    3.6,
+    1
+   ],
+   "in": "o-page",
+   "title": "#content1",
+   "sub": "un panneau"
+  },
+  {
+   "id": "o-b2",
+   "kind": "node",
+   "at": [
+    0,
+    -4.2
+   ],
+   "tone": "b",
+   "size": [
+    8.4,
+    2.4,
+    1
+   ],
+   "in": "o-page",
+   "title": "Compétences",
+   "sub": "data-content-id=\"content2\""
+  },
+  {
+   "id": "o-p2",
+   "kind": "node",
+   "at": [
+    0,
+    2.6
+   ],
+   "tone": "b",
+   "size": [
+    8.4,
+    3.6,
+    1
+   ],
+   "in": "o-page",
+   "title": "#content2",
+   "sub": "un panneau"
+  },
+  {
+   "id": "o-b3",
+   "kind": "node",
+   "at": [
+    9.5,
+    -4.2
+   ],
+   "tone": "b",
+   "size": [
+    8.4,
+    2.4,
+    1
+   ],
+   "in": "o-page",
+   "title": "Contact",
+   "sub": "data-content-id=\"content3\""
+  },
+  {
+   "id": "o-p3",
+   "kind": "node",
+   "at": [
+    9.5,
+    2.6
+   ],
+   "tone": "b",
+   "size": [
+    8.4,
+    3.6,
+    1
+   ],
+   "in": "o-page",
+   "title": "#content3",
+   "sub": "un panneau"
+  },
+  {
+   "id": "t-field",
+   "kind": "node",
+   "at": [
+    -15,
+    0
+   ],
+   "tone": "b",
+   "size": [
+    8.6,
+    3.0,
+    1
+   ],
+   "title": "<input id=\"ville\">",
+   "sub": "le visiteur a tapé 3 espaces",
+   "detail": "Ce que le visiteur a tapé se lit dans la propriété **`value`** du champ."
+  },
+  {
+   "id": "t-value",
+   "kind": "node",
+   "at": [
+    -5,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    8.6,
+    3.0,
+    1
+   ],
+   "title": "champ.value",
+   "sub": "toujours un texte",
+   "detail": "`value` rend **toujours un texte**, même quand le visiteur tape un nombre."
+  },
+  {
+   "id": "t-trim",
+   "kind": "node",
+   "at": [
+    5,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    8.6,
+    3.0,
+    1
+   ],
+   "title": ".trim()",
+   "sub": "retire les espaces des bords",
+   "detail": "`trim` (*rogner*) retire les espaces du **début** et de la **fin** du texte, pas ceux du milieu."
+  },
+  {
+   "id": "t-test",
+   "kind": "node",
+   "at": [
+    15,
+    0
+   ],
+   "tone": "v",
+   "size": [
+    8.6,
+    3.0,
+    1
+   ],
+   "title": "=== \"\"",
+   "sub": "le texte est-il vide ?"
+  },
+  {
+   "id": "t-msg",
+   "kind": "node",
+   "at": [
+    15,
+    5.6
+   ],
+   "tone": "r",
+   "size": [
+    8.6,
+    3.0,
+    1
+   ],
+   "title": "Remplissez le champ.",
+   "sub": "le message affiché"
+  }
+ ],
+ "steps": [
+  {
+   "id": "onglets",
+   "label": "Les onglets",
+   "title": "Tout éteindre, puis rallumer un seul",
+   "body": [
+    "Chaque bouton nomme son panneau dans un attribut data- ; au clic, tout s'éteint, puis un seul se rallume."
+   ],
+   "hud": [
+    {
+     "label": "clic sur",
+     "value": "—"
+    },
+    {
+     "label": "data-content-id",
+     "value": "—"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "o-page",
+    {
+     "id": "o-b1",
+     "tone": "g",
+     "dim": false,
+     "label": "tab-active"
+    },
+    {
+     "id": "o-p1",
+     "tone": "g",
+     "dim": false,
+     "label": "visible"
+    },
+    {
+     "id": "o-b2",
+     "tone": "n",
+     "dim": true,
+     "label": null
+    },
+    {
+     "id": "o-p2",
+     "tone": "n",
+     "dim": true,
+     "label": null
+    },
+    {
+     "id": "o-b3",
+     "tone": "n",
+     "dim": true,
+     "label": null
+    },
+    {
+     "id": "o-p3",
+     "tone": "n",
+     "dim": true,
+     "label": null
+    }
+   ],
+   "links": [],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "link": [
+      {
+       "from": "o-b1",
+       "to": "o-p1",
+       "dashed": true
+      },
+      {
+       "from": "o-b2",
+       "to": "o-p2",
+       "dashed": true
+      },
+      {
+       "from": "o-b3",
+       "to": "o-p3",
+       "dashed": true
+      }
+     ],
+     "say": "Chaque bouton porte un **attribut** `data-content-id` : le nom du panneau qu'il ouvre."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "pulse",
+     "at": "o-b2"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "clic sur",
+       "value": "Compétences",
+       "tone": "v"
+      }
+     ],
+     "say": "Le visiteur clique sur « Compétences »."
+    },
+    {
+     "do": "wait",
+     "ms": 500
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "o-b1",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-p1",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-b2",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-p2",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-b3",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-p3",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      }
+     ],
+     "say": "D'abord, **tout éteindre** : aucun onglet souligné, aucun panneau visible.",
+     "ms": 600
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "data-content-id",
+       "value": "content2",
+       "tone": "v"
+      }
+     ],
+     "say": "Puis lire le `data-content-id` du bouton cliqué : `content2`."
+    },
+    {
+     "do": "send",
+     "path": [
+      "o-b2",
+      "o-p2"
+     ],
+     "label": "content2",
+     "tone": "v"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "o-b1",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-p1",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-b2",
+       "tone": "g",
+       "dim": false,
+       "label": "tab-active"
+      },
+      {
+       "id": "o-p2",
+       "tone": "g",
+       "dim": false,
+       "label": "visible"
+      },
+      {
+       "id": "o-b3",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-p3",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      }
+     ],
+     "say": "Et **rallumer un seul** : ce bouton, et le panneau qu'il nomme."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "pulse",
+     "at": "o-b3"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "o-b1",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-p1",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-b2",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-p2",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-b3",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-p3",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "clic sur",
+       "value": "Contact",
+       "tone": "v"
+      },
+      {
+       "label": "data-content-id",
+       "value": "—",
+       "tone": null
+      }
+     ],
+     "say": "Un clic sur « Contact » : tout s'éteint de nouveau…",
+     "ms": 600
+    },
+    {
+     "do": "send",
+     "path": [
+      "o-b3",
+      "o-p3"
+     ],
+     "label": "content3",
+     "tone": "v"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "o-b1",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-p1",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-b2",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-p2",
+       "tone": "n",
+       "dim": true,
+       "label": null
+      },
+      {
+       "id": "o-b3",
+       "tone": "g",
+       "dim": false,
+       "label": "tab-active"
+      },
+      {
+       "id": "o-p3",
+       "tone": "g",
+       "dim": false,
+       "label": "visible"
+      }
+     ],
+     "hud": [
+      {
+       "label": "data-content-id",
+       "value": "content3",
+       "tone": "v"
+      }
+     ],
+     "say": "… et seul « Contact » se rallume. Il n'y a jamais deux panneaux visibles à la fois."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "trim",
+   "label": "value et trim",
+   "title": "Trois espaces, ce n'est pas un champ rempli",
+   "body": [
+    "value lit le champ, toujours en texte ; trim retire les espaces des bords avant de valider."
+   ],
+   "hud": [
+    {
+     "label": "longueur",
+     "value": "—"
+    }
+   ],
+   "labels": "left",
+   "show": [
+    "t-field",
+    "t-value",
+    "t-trim",
+    "t-test"
+   ],
+   "links": [
+    {
+     "from": "t-field",
+     "to": "t-value"
+    },
+    {
+     "from": "t-value",
+     "to": "t-trim"
+    },
+    {
+     "from": "t-trim",
+     "to": "t-test"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "t-field",
+      "t-value"
+     ],
+     "label": "lecture",
+     "tone": "b"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "t-value",
+       "label": "\"   \""
+      }
+     ],
+     "hud": [
+      {
+       "label": "longueur",
+       "value": 3,
+       "tone": "r"
+      }
+     ],
+     "say": "`champ.value` lit ce qui est tapé : trois espaces, un texte de **3 caractères**. Pour un test `=== \"\"`, le champ est rempli."
+    },
+    {
+     "do": "wait",
+     "ms": 1700
+    },
+    {
+     "do": "send",
+     "path": [
+      "t-value",
+      "t-trim"
+     ],
+     "tone": "v"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "t-trim",
+       "label": "\"\""
+      }
+     ],
+     "hud": [
+      {
+       "label": "longueur",
+       "value": 0,
+       "tone": "v"
+      }
+     ],
+     "say": "`.trim()` retire les espaces du début et de la fin : il ne reste **rien**, un texte vide."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "send",
+     "path": [
+      "t-trim",
+      "t-test"
+     ],
+     "tone": "v"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "t-test",
+       "label": "true",
+       "tone": "r"
+      }
+     ],
+     "show": [
+      "t-msg"
+     ],
+     "link": [
+      {
+       "from": "t-test",
+       "to": "t-msg"
+      }
+     ],
+     "say": "Le texte vide est refusé : la validation affiche son message."
+    },
+    {
+     "do": "wait",
+     "ms": 1900
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "t-field",
+       "sub": "tapé : « Lyon » et des espaces"
+      },
+      {
+       "id": "t-value",
+       "label": "\"  Lyon  \""
+      },
+      {
+       "id": "t-trim",
+       "label": null
+      },
+      {
+       "id": "t-test",
+       "label": null,
+       "tone": "v"
+      }
+     ],
+     "hide": [
+      "t-msg"
+     ],
+     "hud": [
+      {
+       "label": "longueur",
+       "value": 8,
+       "tone": null
+      }
+     ],
+     "say": "Même chemin avec « Lyon », entouré d'espaces : `value` rend 8 caractères.",
+     "ms": 800
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "send",
+     "path": [
+      "t-value",
+      "t-trim",
+      "t-test"
+     ],
+     "tone": "v"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "t-trim",
+       "label": "\"Lyon\""
+      },
+      {
+       "id": "t-test",
+       "label": "false",
+       "tone": "g"
+      }
+     ],
+     "hud": [
+      {
+       "label": "longueur",
+       "value": 4,
+       "tone": "g"
+      }
+     ],
+     "say": "`trim` garde le mot et retire les bords : `\"Lyon\"`, accepté, et propre à enregistrer."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

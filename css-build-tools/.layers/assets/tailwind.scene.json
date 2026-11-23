@@ -1,0 +1,866 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "css-build-tools",
+ "title": "Tailwind, et pourquoi le CSS se compile",
+ "lang": "fr",
+ "kit": "plan",
+ "legend": [
+  {
+   "tone": "y",
+   "label": "ce que vous écrivez"
+  },
+  {
+   "tone": "v",
+   "label": "l'outil (Tailwind…)"
+  },
+  {
+   "tone": "g",
+   "label": "fichier produit"
+  }
+ ],
+ "entities": [
+  {
+   "id": "lien",
+   "kind": "node",
+   "at": [
+    0,
+    0
+   ],
+   "size": [
+    4.6,
+    0.9,
+    1
+   ],
+   "tone": "n",
+   "title": "Me contacter",
+   "detail": "Un lien `a`, qu'on habille en bouton avec des classes utilitaires, sans écrire de feuille de style."
+  },
+  {
+   "id": "attr",
+   "kind": "file",
+   "at": [
+    0,
+    2.6
+   ],
+   "size": [
+    13.0,
+    1.1,
+    1
+   ],
+   "tone": "y",
+   "title": "class=\"\"",
+   "detail": "L'attribut `class` du lien, dans le HTML : c'est là que s'écrit tout le style."
+  },
+  {
+   "id": "html",
+   "kind": "file",
+   "at": [
+    -12.0,
+    -2.2
+   ],
+   "size": [
+    6.4,
+    1.8,
+    1
+   ],
+   "tone": "y",
+   "title": "index.html",
+   "note": "vos classes",
+   "detail": "Le HTML, avec les classes utilitaires dans ses attributs `class`."
+  },
+  {
+   "id": "input",
+   "kind": "file",
+   "at": [
+    -12.0,
+    2.2
+   ],
+   "size": [
+    6.4,
+    1.8,
+    1
+   ],
+   "tone": "y",
+   "title": "input.css",
+   "note": "@import \"tailwindcss\";",
+   "detail": "Le fichier d'entrée tient en une ligne : l'import de Tailwind."
+  },
+  {
+   "id": "tw",
+   "kind": "node",
+   "at": [
+    -2.6,
+    0
+   ],
+   "size": [
+    6.0,
+    2.4,
+    1
+   ],
+   "tone": "v",
+   "title": "Tailwind",
+   "sub": "npx @tailwindcss/cli",
+   "detail": "Tailwind **tourne sur votre machine**, comme un programme : il lit vos fichiers et écrit un fichier CSS."
+  },
+  {
+   "id": "output",
+   "kind": "file",
+   "at": [
+    6.4,
+    0
+   ],
+   "size": [
+    6.4,
+    1.8,
+    1
+   ],
+   "tone": "g",
+   "title": "output.css",
+   "detail": "Le fichier produit : du CSS ordinaire, lisible, avec seulement les règles des classes trouvées."
+  },
+  {
+   "id": "nav",
+   "kind": "layer",
+   "at": [
+    15.6,
+    0
+   ],
+   "size": [
+    7.6,
+    6.0,
+    1
+   ],
+   "tone": "n",
+   "title": "navigateur"
+  },
+  {
+   "id": "bouton",
+   "kind": "node",
+   "at": [
+    15.6,
+    0.6
+   ],
+   "size": [
+    5.2,
+    1.5,
+    1
+   ],
+   "tone": "b",
+   "title": "Me contacter"
+  },
+  {
+   "id": "m-main",
+   "kind": "file",
+   "at": [
+    -18.0,
+    0
+   ],
+   "size": [
+    5.4,
+    1.6,
+    1
+   ],
+   "tone": "y",
+   "title": "main.js",
+   "note": "le point de départ",
+   "detail": "Le fichier de départ du projet. Il **importe** les autres, qui peuvent en importer d'autres à leur tour."
+  },
+  {
+   "id": "m-menu",
+   "kind": "file",
+   "at": [
+    -10.0,
+    -3.6
+   ],
+   "size": [
+    5.4,
+    1.6,
+    1
+   ],
+   "tone": "y",
+   "title": "menu.js"
+  },
+  {
+   "id": "m-api",
+   "kind": "file",
+   "at": [
+    -10.0,
+    0.0
+   ],
+   "size": [
+    5.4,
+    1.6,
+    1
+   ],
+   "tone": "y",
+   "title": "api.js"
+  },
+  {
+   "id": "m-css",
+   "kind": "file",
+   "at": [
+    -10.0,
+    3.6
+   ],
+   "size": [
+    5.4,
+    1.6,
+    1
+   ],
+   "tone": "y",
+   "title": "style.css"
+  },
+  {
+   "id": "b-tool",
+   "kind": "node",
+   "at": [
+    -1.0,
+    0
+   ],
+   "size": [
+    6.4,
+    2.4,
+    1
+   ],
+   "tone": "v",
+   "title": "outil de build",
+   "sub": "Webpack, Vite, Parcel…",
+   "detail": "Un **outil de build** part du fichier de départ, suit chaque import, et rassemble tout en quelques fichiers prêts pour le navigateur."
+  },
+  {
+   "id": "b-js",
+   "kind": "file",
+   "at": [
+    8.0,
+    -1.6
+   ],
+   "size": [
+    6.0,
+    1.6,
+    1
+   ],
+   "tone": "g",
+   "title": "main.3f9a.js",
+   "detail": "Le *bundle* : tous les scripts réunis en un seul fichier, compressé. Le code dans le nom change à chaque version, pour que le navigateur ne garde pas l'ancienne en cache."
+  },
+  {
+   "id": "b-css",
+   "kind": "file",
+   "at": [
+    8.0,
+    1.6
+   ],
+   "size": [
+    6.0,
+    1.6,
+    1
+   ],
+   "tone": "g",
+   "title": "main.8c1d.css"
+  },
+  {
+   "id": "b-nav",
+   "kind": "layer",
+   "at": [
+    17.0,
+    0
+   ],
+   "size": [
+    6.4,
+    6.0,
+    1
+   ],
+   "tone": "n",
+   "title": "navigateur"
+  }
+ ],
+ "steps": [
+  {
+   "id": "utilitaires",
+   "label": "Une classe",
+   "title": "Une classe, une propriété",
+   "body": [
+    "Un lien sans style. On lui ajoute des classes utilitaires, une à une."
+   ],
+   "show": [
+    "lien",
+    "attr"
+   ],
+   "hud": [
+    {
+     "label": "classe",
+     "value": "—"
+    },
+    {
+     "label": "CSS écrit",
+     "value": "—"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "classe",
+       "value": "px-4",
+       "tone": "g"
+      },
+      {
+       "label": "CSS écrit",
+       "value": "padding-inline: 1rem",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "lien",
+       "size": [
+        6.4,
+        0.9,
+        1
+       ]
+      },
+      {
+       "id": "attr",
+       "title": "class=\"px-4\""
+      }
+     ],
+     "say": "px-4 écrit une seule propriété : 16 px de padding à gauche et à droite.",
+     "ms": 800
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "classe",
+       "value": "py-2",
+       "tone": "g"
+      },
+      {
+       "label": "CSS écrit",
+       "value": "padding-block: 0.5rem",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "lien",
+       "size": [
+        6.4,
+        1.6,
+        1
+       ]
+      },
+      {
+       "id": "attr",
+       "title": "class=\"px-4 py-2\""
+      }
+     ],
+     "say": "py-2 : 8 px de padding en haut et en bas.",
+     "ms": 800
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "classe",
+       "value": "bg-blue-700",
+       "tone": "g"
+      },
+      {
+       "label": "CSS écrit",
+       "value": "background: bleu 700",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "lien",
+       "tone": "b"
+      },
+      {
+       "id": "attr",
+       "title": "class=\"px-4 py-2 bg-blue-700\""
+      }
+     ],
+     "say": "bg-blue-700 : un fond, la nuance 700 de la palette bleue.",
+     "ms": 800
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "classe",
+       "value": "text-white",
+       "tone": "g"
+      },
+      {
+       "label": "CSS écrit",
+       "value": "color: #fff",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "lien"
+      },
+      {
+       "id": "attr",
+       "title": "class=\"px-4 py-2 bg-blue-700 text-white\""
+      }
+     ],
+     "say": "text-white : le texte en blanc. Le style naît de l'assemblage, écrit dans le HTML.",
+     "ms": 800
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "build",
+   "label": "Le traitement",
+   "title": "Du HTML et d'une ligne de CSS au fichier que charge la page",
+   "body": [
+    "Le HTML contient les classes du bouton ; `input.css`, l'import de Tailwind. On lance la commande."
+   ],
+   "show": [
+    "html",
+    "input",
+    "tw",
+    {
+     "id": "output",
+     "dim": true,
+     "note": "pas encore écrit"
+    },
+    "nav"
+   ],
+   "links": [
+    {
+     "from": "html",
+     "to": "tw"
+    },
+    {
+     "from": "input",
+     "to": "tw"
+    },
+    {
+     "from": "tw",
+     "to": "output"
+    },
+    {
+     "from": "output",
+     "to": "nav"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "input",
+      "tw"
+     ],
+     "label": "@import",
+     "kind": "read",
+     "explain": [
+      "La commande lit `input.css` : une seule ligne, l'import de Tailwind."
+     ]
+    },
+    {
+     "do": "send",
+     "path": [
+      "html",
+      "tw"
+     ],
+     "label": "les classes",
+     "kind": "read",
+     "explain": [
+      "Puis elle parcourt les fichiers du dossier à la recherche de noms de classes."
+     ]
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "tw",
+       "label": "4 classes trouvées"
+      }
+     ],
+     "say": "Elle trouve quatre classes : px-4, py-2, bg-blue-700, text-white."
+    },
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "output",
+       "dim": false,
+       "note": "4 règles"
+      }
+     ],
+     "say": "Elle écrit output.css : les règles de ces quatre classes, et aucune autre."
+    },
+    {
+     "do": "wait",
+     "ms": 800
+    },
+    {
+     "do": "send",
+     "path": [
+      "output",
+      "nav"
+     ],
+     "label": "<link>",
+     "explain": [
+      "La page charge `output.css` avec son `link` : c'est lui que lit le navigateur, pas `input.css`."
+     ]
+    },
+    {
+     "do": "scene",
+     "show": [
+      "bouton"
+     ],
+     "say": "Le bouton s'affiche avec son style."
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "photo",
+   "label": "Une photographie",
+   "title": "output.css, une photographie du moment du traitement",
+   "body": [
+    "Le traitement a tourné une fois : `output.css` contient les quatre classes du bouton."
+   ],
+   "show": [
+    "html",
+    "input",
+    "tw",
+    {
+     "id": "output",
+     "note": "4 règles"
+    },
+    "nav",
+    "bouton"
+   ],
+   "links": [
+    {
+     "from": "html",
+     "to": "tw"
+    },
+    {
+     "from": "input",
+     "to": "tw"
+    },
+    {
+     "from": "tw",
+     "to": "output"
+    },
+    {
+     "from": "output",
+     "to": "nav"
+    }
+   ],
+   "hud": [
+    {
+     "label": "output.css",
+     "value": "à jour",
+     "tone": "g"
+    },
+    {
+     "label": "bouton",
+     "value": "fond bleu"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 1000
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "html",
+       "note": "+ bg-pink-600 px-6"
+      }
+     ],
+     "hud": [
+      {
+       "label": "output.css",
+       "value": "périmé",
+       "tone": "r"
+      }
+     ],
+     "say": "Après le traitement, on change le bouton : bg-pink-600 et px-6 remplacent bg-blue-700 et px-4."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "output",
+      "nav"
+     ],
+     "label": "<link>"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "bouton",
+       "value": "ni fond ni padding",
+       "tone": "r"
+      }
+     ],
+     "set": [
+      {
+       "id": "bouton",
+       "tone": "n",
+       "size": [
+        4.6,
+        0.9,
+        1
+       ]
+      }
+     ],
+     "say": "output.css n'a aucune règle pour ces classes : le bouton perd son fond et son padding, sans message."
+    },
+    {
+     "do": "wait",
+     "ms": 1600
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "tw",
+       "label": "--watch"
+      }
+     ],
+     "say": "En mode surveillance, avec --watch, Tailwind refait le traitement à chaque enregistrement."
+    },
+    {
+     "do": "send",
+     "path": [
+      "html",
+      "tw"
+     ],
+     "label": "les classes",
+     "kind": "read"
+    },
+    {
+     "do": "send",
+     "path": [
+      "tw",
+      "output"
+     ],
+     "label": "+ 2 règles"
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "output.css",
+       "value": "à jour",
+       "tone": "g"
+      },
+      {
+       "label": "bouton",
+       "value": "fond rose",
+       "tone": "g"
+      }
+     ],
+     "set": [
+      {
+       "id": "output",
+       "note": "règles à jour"
+      },
+      {
+       "id": "bouton",
+       "tone": "r",
+       "size": [
+        6.0,
+        1.5,
+        1
+       ]
+      }
+     ],
+     "say": "output.css contient maintenant les nouvelles classes : le bouton retrouve un fond, rose cette fois."
+    },
+    {
+     "do": "wait",
+     "ms": 2400
+    }
+   ]
+  },
+  {
+   "id": "bundle",
+   "label": "Le bundle",
+   "title": "Des modules qui s'importent, un bundle pour le navigateur",
+   "body": [
+    "Un petit projet : `main.js` importe un menu, un appel au serveur et une feuille de style."
+   ],
+   "show": [
+    "m-main"
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "show": [
+      "m-menu",
+      "m-api",
+      "m-css"
+     ],
+     "link": [
+      {
+       "from": "m-main",
+       "to": "m-menu",
+       "label": "import"
+      },
+      {
+       "from": "m-main",
+       "to": "m-api",
+       "label": "import"
+      },
+      {
+       "from": "m-main",
+       "to": "m-css",
+       "label": "import"
+      }
+     ],
+     "say": "Vos fichiers s'importent les uns les autres : main.js a besoin de menu.js, d'api.js et de style.css."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "b-tool"
+     ],
+     "link": [
+      {
+       "from": "m-menu",
+       "to": "b-tool"
+      },
+      {
+       "from": "m-api",
+       "to": "b-tool"
+      },
+      {
+       "from": "m-css",
+       "to": "b-tool"
+      }
+     ],
+     "say": "L'outil de build part de main.js et suit chaque import."
+    },
+    {
+     "do": "send",
+     "path": [
+      "m-main",
+      "m-api",
+      "b-tool"
+     ],
+     "label": "import",
+     "kind": "read"
+    },
+    {
+     "do": "scene",
+     "show": [
+      "b-js",
+      "b-css"
+     ],
+     "link": [
+      {
+       "from": "b-tool",
+       "to": "b-js"
+      },
+      {
+       "from": "b-tool",
+       "to": "b-css"
+      }
+     ],
+     "say": "Il rassemble tout en deux fichiers, compressés : le bundle."
+    },
+    {
+     "do": "wait",
+     "ms": 1100
+    },
+    {
+     "do": "scene",
+     "show": [
+      "b-nav"
+     ],
+     "link": [
+      {
+       "from": "b-js",
+       "to": "b-nav"
+      },
+      {
+       "from": "b-css",
+       "to": "b-nav"
+      }
+     ],
+     "say": "La page charge ces deux fichiers, pas les quatre que vous avez écrits."
+    },
+    {
+     "do": "send",
+     "path": [
+      "b-js",
+      "b-nav"
+     ],
+     "label": "<script>"
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "b-nav",
+       "label": "2 fichiers prêts"
+      }
+     ],
+     "say": "Comme avec Tailwind, ce que reçoit le navigateur n'est pas ce que vous avez écrit."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}

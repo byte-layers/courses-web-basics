@@ -1,0 +1,565 @@
+{
+ "format": "bl-scenes/0.3",
+ "id": "web-request-response",
+ "title": "Une adresse, une requête, une page",
+ "lang": "fr",
+ "kit": "feuillete",
+ "legend": [
+  {
+   "tone": "v",
+   "label": "chez toi"
+  },
+  {
+   "tone": "b",
+   "label": "sur Internet"
+  },
+  {
+   "kind": "req",
+   "label": "requête"
+  },
+  {
+   "kind": "res",
+   "label": "réponse"
+  }
+ ],
+ "entities": [
+  {
+   "id": "you",
+   "kind": "actor",
+   "at": [
+    2.75,
+    9.25
+   ],
+   "label": "toi"
+  },
+  {
+   "id": "nav",
+   "kind": "node",
+   "at": [
+    4.0,
+    4.0
+   ],
+   "tone": "v",
+   "title": "navigateur",
+   "icon": "◧",
+   "detail": "Le **navigateur** (Chrome, Firefox, Safari…) est le **client** : il envoie les requêtes et dessine la page qu'il reçoit."
+  },
+  {
+   "id": "dns",
+   "kind": "node",
+   "at": [
+    -6.0,
+    2.0
+   ],
+   "tone": "b",
+   "title": "annuaire des noms",
+   "sub": "DNS",
+   "detail": "Le **DNS** (*Domain Name System*) est l'annuaire d'Internet : on lui donne un nom de domaine, il répond l'adresse de la machine qui le sert."
+  },
+  {
+   "id": "srv",
+   "kind": "node",
+   "at": [
+    0.0,
+    -4.0
+   ],
+   "tone": "b",
+   "icon": "⇄",
+   "title": "serveur web",
+   "sub": "byte-layers.com",
+   "detail": "Le **serveur web** est un programme qui attend les requêtes HTTP sur une machine, et renvoie les fichiers demandés."
+  },
+  {
+   "id": "f-html",
+   "kind": "file",
+   "at": [
+    -7.5,
+    -7.0
+   ],
+   "tone": "y",
+   "title": "la page",
+   "detail": "Le **HTML** de la page : du texte."
+  },
+  {
+   "id": "f-css",
+   "kind": "file",
+   "at": [
+    -5.25,
+    -9.25
+   ],
+   "tone": "y",
+   "title": "style.css",
+   "detail": "La **feuille de style** de la page, citée dans son HTML."
+  },
+  {
+   "id": "f-logo",
+   "kind": "file",
+   "at": [
+    -3.0,
+    -11.5
+   ],
+   "tone": "y",
+   "title": "logo.svg",
+   "detail": "Une **image**, citée elle aussi dans le HTML."
+  },
+  {
+   "id": "disk",
+   "kind": "store",
+   "at": [
+    -4.5,
+    -1.5
+   ],
+   "tone": "v",
+   "title": "ton disque",
+   "sub": "index.html",
+   "detail": "Le **disque** de ta machine. Avec `file://`, le navigateur y lit le fichier lui-même : aucun programme ne lui répond."
+  },
+  {
+   "id": "live",
+   "kind": "node",
+   "at": [
+    3.0,
+    -2.0
+   ],
+   "tone": "v",
+   "title": "petit serveur local",
+   "sub": "Live Preview",
+   "detail": "Une extension comme **Live Preview** lance un serveur web sur ta machine, à l'adresse `127.0.0.1`. Il lit les fichiers sur ton disque et les sert en HTTP."
+  }
+ ],
+ "steps": [
+  {
+   "id": "url",
+   "label": "Une URL",
+   "title": "Ce que le navigateur fait d'une URL",
+   "body": [
+    "Le navigateur découpe l'adresse : le nom de domaine lui dit quelle machine joindre, le chemin quelle ressource demander."
+   ],
+   "hud": [
+    {
+     "label": "protocole",
+     "value": "https"
+    },
+    {
+     "label": "domaine",
+     "value": "byte-layers.com"
+    },
+    {
+     "label": "chemin",
+     "value": "/fr/bits/…"
+    },
+    {
+     "label": "ancre #",
+     "value": "#section1"
+    }
+   ],
+   "show": [
+    "you",
+    "nav"
+   ],
+   "links": [
+    {
+     "from": "you",
+     "to": "nav"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "nav",
+       "label": "https://byte-layers.com/…#section1"
+      }
+     ],
+     "say": "Tu tapes une adresse. Le navigateur la découpe : protocole, nom de domaine, chemin, et une **ancre** `#section1` à la fin."
+    },
+    {
+     "do": "wait",
+     "ms": 1300
+    },
+    {
+     "do": "scene",
+     "show": [
+      "dns"
+     ],
+     "link": [
+      {
+       "from": "nav",
+       "to": "dns"
+      }
+     ],
+     "hud": [
+      {
+       "label": "domaine",
+       "value": "byte-layers.com"
+      }
+     ],
+     "say": "Un nom ne suffit pas pour se connecter : il demande d'abord à l'annuaire l'adresse de la machine."
+    },
+    {
+     "do": "send",
+     "path": [
+      "nav",
+      "dns"
+     ],
+     "label": "byte-layers.com ?",
+     "reply": "203.0.113.10"
+    },
+    {
+     "do": "scene",
+     "show": [
+      "srv",
+      "f-html"
+     ],
+     "link": [
+      {
+       "from": "nav",
+       "to": "srv"
+      },
+      {
+       "from": "srv",
+       "to": "f-html"
+      }
+     ],
+     "hud": [
+      {
+       "label": "protocole",
+       "value": "https, chiffré"
+      }
+     ],
+     "say": "Avec cette adresse, il se connecte au serveur web. `https` : la connexion est chiffrée."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "nav",
+      "srv"
+     ],
+     "label": "GET /fr/bits/…",
+     "reply": "200, la page",
+     "explain": [
+      "Seul le **chemin** part dans la requête : il dit quelle ressource donner.",
+      "Le serveur répond par le texte de la page."
+     ]
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "nav",
+       "label": "descend à #section1"
+      }
+     ],
+     "hud": [
+      {
+       "label": "ancre #",
+       "value": "repère dans la page"
+      }
+     ],
+     "say": "L'ancre `#section1` n'est jamais partie : c'est un **repère** dans la page reçue, et le navigateur y descend."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "plusieurs",
+   "label": "Une par fichier",
+   "title": "Une page, une requête par fichier",
+   "body": [
+    "Le HTML arrive seul. Le navigateur y trouve les adresses des autres fichiers, et les demande un par un."
+   ],
+   "hud": [
+    {
+     "label": "requêtes",
+     "value": 0
+    }
+   ],
+   "show": [
+    "you",
+    "nav",
+    "srv",
+    "f-html",
+    "f-css",
+    "f-logo"
+   ],
+   "links": [
+    {
+     "from": "you",
+     "to": "nav"
+    },
+    {
+     "from": "nav",
+     "to": "srv"
+    },
+    {
+     "from": "srv",
+     "to": "f-html"
+    },
+    {
+     "from": "srv",
+     "to": "f-css"
+    },
+    {
+     "from": "srv",
+     "to": "f-logo"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "nav",
+      "srv"
+     ],
+     "label": "GET la page",
+     "reply": "200, le HTML",
+     "explain": [
+      "Le navigateur demande la page.",
+      "Il reçoit son HTML, et rien d'autre."
+     ]
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "requêtes",
+       "value": 1
+      }
+     ],
+     "ms": 300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "nav",
+       "label": "cite style.css, logo.svg"
+      }
+     ],
+     "say": "Il lit le HTML et y trouve deux adresses : `style.css` et `logo.svg`."
+    },
+    {
+     "do": "wait",
+     "ms": 1200
+    },
+    {
+     "do": "send",
+     "path": [
+      "nav",
+      "srv"
+     ],
+     "label": "GET /style.css",
+     "reply": "200",
+     "explain": [
+      "Une deuxième requête, pour la feuille de style.",
+      "Le serveur la renvoie."
+     ]
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "requêtes",
+       "value": 2
+      }
+     ],
+     "ms": 300
+    },
+    {
+     "do": "send",
+     "path": [
+      "nav",
+      "srv"
+     ],
+     "label": "GET /logo.svg",
+     "reply": "200",
+     "explain": [
+      "Une troisième, pour l'image.",
+      "Le serveur la renvoie aussi."
+     ]
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "requêtes",
+       "value": 3
+      }
+     ],
+     "ms": 300
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "nav",
+       "label": "dessine la page"
+      }
+     ],
+     "say": "Trois fichiers, trois requêtes : le navigateur peut dessiner la page."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  },
+  {
+   "id": "disque",
+   "label": "Depuis le disque",
+   "title": "file:// : pas de serveur",
+   "body": [
+    "Par un double-clic, le navigateur lit le fichier sur ton disque. Personne ne lui répond, donc pas de code de statut."
+   ],
+   "hud": [
+    {
+     "label": "adresse",
+     "value": "file:///…/index.html"
+    },
+    {
+     "label": "serveur",
+     "value": "aucun"
+    },
+    {
+     "label": "code de statut",
+     "value": "aucun"
+    }
+   ],
+   "show": [
+    "you",
+    "nav",
+    "disk"
+   ],
+   "links": [
+    {
+     "from": "you",
+     "to": "nav"
+    },
+    {
+     "from": "nav",
+     "to": "disk"
+    }
+   ],
+   "script": [
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "nav",
+      "disk"
+     ],
+     "label": "lit index.html",
+     "kind": "read",
+     "explain": [
+      "Avec `file://`, le navigateur lit le fichier lui-même, sur ton disque."
+     ]
+    },
+    {
+     "do": "scene",
+     "set": [
+      {
+       "id": "nav",
+       "label": "le fichier existe, ou non"
+      }
+     ],
+     "say": "Aucun serveur entre les deux : pas de requête HTTP, pas de code de statut."
+    },
+    {
+     "do": "wait",
+     "ms": 1500
+    },
+    {
+     "do": "scene",
+     "show": [
+      "live"
+     ],
+     "unlink": [
+      {
+       "from": "nav",
+       "to": "disk"
+      }
+     ],
+     "link": [
+      {
+       "from": "nav",
+       "to": "live"
+      },
+      {
+       "from": "live",
+       "to": "disk"
+      }
+     ],
+     "set": [
+      {
+       "id": "nav",
+       "label": null
+      }
+     ],
+     "hud": [
+      {
+       "label": "adresse",
+       "value": "http://127.0.0.1:3000/"
+      },
+      {
+       "label": "serveur",
+       "value": "sur ta machine"
+      }
+     ],
+     "say": "Une extension comme Live Preview lance un petit serveur web sur ta machine."
+    },
+    {
+     "do": "wait",
+     "ms": 900
+    },
+    {
+     "do": "send",
+     "path": [
+      "nav",
+      "live",
+      "disk"
+     ],
+     "label": "GET /index.html",
+     "reply": "200",
+     "explain": [
+      "Le navigateur envoie une vraie requête HTTP au petit serveur.",
+      "Le serveur lit le fichier sur ton disque.",
+      "Il répond avec un code de statut, comme un serveur en ligne."
+     ]
+    },
+    {
+     "do": "scene",
+     "hud": [
+      {
+       "label": "code de statut",
+       "value": "200"
+      }
+     ],
+     "say": "La page est maintenant servie : tu vois de vrais codes de statut, comme en ligne."
+    },
+    {
+     "do": "wait",
+     "ms": 2600
+    }
+   ]
+  }
+ ]
+}
