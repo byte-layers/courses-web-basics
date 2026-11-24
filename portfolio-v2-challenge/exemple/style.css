@@ -1,0 +1,185 @@
+:root {
+  --dominante: #2f6f6a;
+  --accent: #b9472f;
+  --fond: #fff4ec;
+  --texte: #24312f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+  background-color: var(--fond);
+  color: var(--texte);
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+}
+
+/* L'en-tête : le nom à gauche, le menu à droite */
+.entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: var(--dominante);
+}
+
+.entete a {
+  color: #ffffff;
+}
+
+.logo {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  gap: 16px;
+}
+
+/* Téléphone d'abord : une seule colonne */
+.page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+.profil {
+  text-align: center;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border: 4px solid var(--dominante);
+  border-radius: 50%;
+}
+
+h1,
+h2 {
+  color: var(--dominante);
+}
+
+h1 {
+  margin: 8px 0 4px;
+}
+
+h2 {
+  margin: 32px 0 12px;
+  font-size: 1.25rem;
+}
+
+.liens {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lien {
+  display: block;
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background-color: var(--dominante);
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.lien:hover {
+  background-color: var(--accent);
+}
+
+.projets {
+  display: grid;
+  gap: 16px;
+}
+
+.projet {
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #ffffff;
+}
+
+.projet img {
+  border-radius: 8px;
+}
+
+.projet h3 {
+  margin: 8px 0 4px;
+}
+
+.projet p {
+  margin: 0;
+}
+
+.formulaire {
+  display: grid;
+  gap: 6px;
+  max-width: 480px;
+}
+
+.formulaire input,
+.formulaire textarea {
+  padding: 10px;
+  border: 2px solid var(--dominante);
+  border-radius: 8px;
+  font: inherit;
+}
+
+.bouton {
+  justify-self: start;
+  margin-top: 10px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--accent);
+  color: #ffffff;
+  font: inherit;
+  font-weight: bold;
+}
+
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.pied {
+  padding: 16px 20px;
+  border-top: 1px solid var(--accent);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Grand écran : le profil à gauche, les projets en grille */
+@media (min-width: 700px) {
+  .page {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 48px;
+  }
+
+  .projets {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lien {
+    transition: none;
+  }
+}

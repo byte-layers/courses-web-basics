@@ -39,7 +39,7 @@ Stack `web-layout` : « Mettre en page pour tous les écrans ».
 | `css-frameworks/` | Bootstrap : des classes CSS toutes faites | bit |
 | `css-build-tools/` | Tailwind, et pourquoi le CSS se compile | bit |
 | `html-css-advanced-lab/` | HTML et CSS avancé, sur votre machine | lab |
-| `portfolio-v2-challenge/` | Mon portfolio v2 : adaptatif, accessible, avec un formulaire | challenge |
+| `portfolio-v2-challenge/` | Mon portfolio, version 2 : adaptatif, accessible, avec un formulaire | challenge |
 
 ## Les bases de JavaScript
 

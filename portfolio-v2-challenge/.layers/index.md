@@ -1,6 +1,6 @@
 ---
-title: "Mon portfolio v2 : adaptatif, accessible, avec un formulaire"
-description: "Reprendre son portfolio et le rendre prêt à être montré : les 17 points de la checklist (structure, mise en forme, adaptation), un formulaire de contact relié, des couleurs en variables, puis un audit d'accessibilité avec Lighthouse et une grille RGAA. Sans corrigé : chaque point est vérifié dans vos fichiers."
+title: "Mon portfolio, version 2 : adaptatif, accessible, avec un formulaire"
+description: "Reprendre sa page de liens et la rendre prête à être montrée : des projets en grille, les 17 points de la checklist (structure, mise en forme, adaptation), un formulaire de contact relié, des couleurs en variables, puis un audit d'accessibilité avec Lighthouse et une grille RGAA. Sans corrigé : chaque point est vérifié dans vos fichiers."
 tags:
   - challenge
   - html
@@ -14,7 +14,19 @@ options:
   autoCompleteOnNext: unverifiable
 ---
 
-Ce challenge prouve que vous savez faire une page **adaptative**, **accessible** et dotée d'un **formulaire de contact**, sans guide pas à pas. Vous reprenez votre portfolio, celui du challenge [Mon portfolio v1](https://byte-layers.com/fr/challenges/portfolio-v1-challenge), et vous le menez jusqu'aux 17 points de la checklist, puis vous l'auditez.
+Ce challenge prouve que vous savez faire une page **adaptative**, **accessible** et dotée d'un **formulaire de contact**, sans guide pas à pas. Vous reprenez votre page de liens, celle du challenge [Mon portfolio, version 1](https://byte-layers.com/fr/challenges/portfolio-v1-challenge), et vous la menez jusqu'aux 17 points de la checklist, puis vous l'auditez.
+
+La page grandit. Elle garde votre photo, votre nom et vos liens, et elle gagne trois choses : un en-tête avec un menu, une section **Projets** en cartes, et un **formulaire de contact**. Sur un téléphone, tout reste dans une colonne, comme en version 1. Sur un grand écran, une media query range la page en deux zones : le profil et les liens à gauche, les projets en grille et le formulaire à droite.
+
+Voici à quoi ressemble une page réussie, sur les deux écrans. Ce n'est pas un modèle à copier : gardez vos couleurs, vos textes, et disposez vos zones comme vous l'entendez.
+
+![Exemple de page de liens en version 2, sur téléphone et sur grand écran. Sur téléphone, une seule colonne : l'en-tête vert avec le nom et le menu, la photo ronde, le nom, trois boutons de liens, puis la première carte de projet. Sur grand écran, le profil et les liens à gauche, trois cartes de projets côte à côte à droite, et le formulaire de contact en dessous](assets/exemple-portfolio-v2.png)
+
+## Ce qu'on attend, et ce qu'on n'attend pas
+
+On attend une page qui **s'adapte** : une colonne sur le téléphone, une mise en page plus large au-delà de 700 pixels, et jamais de défilement horizontal. Flexbox pour une ligne (le menu), Grid pour une grille (les projets, les deux zones), une seule media query `min-width` : c'est suffisant. On attend aussi une page **utilisable par tous** : des contrastes suffisants, un contour visible au clavier, des champs reliés à leur étiquette.
+
+On n'attend **pas** d'effets : ni animation élaborée, ni carrousel, ni menu qui se replie (il demande du JavaScript, qui arrive au cours suivant). Bootstrap et Tailwind sont permis, pas demandés. Trois projets inventés valent mieux qu'une section vide : si vous n'avez rien réalisé encore, décrivez les pages que vous aimeriez faire.
 
 Il n'y a **pas de corrigé** : c'est votre page, votre sujet, vos couleurs, et il n'existe pas une bonne réponse. Chaque point a un bouton qui vérifie ce qui se vérifie dans vos fichiers, et des **indices** qui se dévoilent un par un. Les utiliser ne coûte rien.
 
@@ -274,6 +286,10 @@ echo "La feuille règle des padding et des margin."
 
 ```hint
 Un entête avec le nom à gauche et le menu à droite (Flexbox), ou une grille de projets (Grid), comme aux étapes 2 et 3 du lab.
+```
+
+```hint
+Les deux zones du grand écran, c'est une grille de deux colonnes sur le conteneur de la page : `grid-template-columns: 300px 1fr;`, dans la media query. Pour les cartes, `grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));` en met autant qu'il en tient sur une ligne, sans media query.
 ```
 
 ```verify
