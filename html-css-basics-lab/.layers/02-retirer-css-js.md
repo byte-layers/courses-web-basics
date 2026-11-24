@@ -1,26 +1,35 @@
 ---
-title: "02 - Retirer le CSS, puis le JavaScript, d'une page"
-description: "Bloquer la feuille de style et désactiver le JavaScript d'un vrai site dans les outils de développement, puis créer une page en trois fichiers sur sa machine, l'ouvrir depuis le disque et retirer à la main son link et son script"
+title: "02 - Modifier une page dans l'inspecteur, puis lui retirer son CSS et son JavaScript"
+description: "Retoucher un vrai site dans les outils de développement (texte du titre, attribut style, volet Styles, console), voir que tout disparaît au rechargement, puis créer une page en trois fichiers sur sa machine, l'ouvrir depuis le disque et retirer à la main son link et son script"
 ---
 
-Le bit [Une page web : HTML, CSS et JavaScript](https://byte-layers.com/fr/bits/web-page-languages) partageait une page entre trois langages. Pour voir ce que fait chacun, le plus parlant est de les retirer un par un : d'abord sur un vrai site, avec les outils de développement, puis sur une page que vous créez.
+Le bit [Une page web : HTML, CSS et JavaScript](https://byte-layers.com/fr/bits/web-page-languages) partageait une page entre trois langages. Pour voir ce que fait chacun, on y touche : d'abord sur un vrai site, en retouchant une page avec les outils de développement, une retouche par langage ; puis sur une page que vous créez, en retirant le CSS, puis le JavaScript.
 
-## 02.1 - Retirer le CSS et le JavaScript d'un vrai site
+## 02.1 - Retoucher une page de MDN dans l'inspecteur
 
-Ouvrez un site que vous aimez bien, un site d'information par exemple, et ouvrez les outils de développement (F12). Les menus diffèrent selon le navigateur :
+Ouvrez la page de MDN sur le HTML : `https://developer.mozilla.org/fr/docs/Web/HTML`. Son titre, en haut, est « HTML : HyperText Markup Language ».
 
-| Pour retirer | Chrome et Edge | Firefox |
-|---|---|---|
-| le CSS | onglet **Réseau**, rechargez, filtre **CSS** ; clic droit sur une ligne, **Bloquer l'URL de la requête** (*Block request URL*), pour chaque feuille de style, puis rechargez | menu **Affichage**, **Style de la page**, **Aucun style** (sous Windows, appuyez sur Alt pour voir la barre de menus) |
-| le JavaScript | dans les outils, Cmd+Maj+P ou Ctrl+Maj+P, tapez `JavaScript`, choisissez **Désactiver JavaScript** (*Disable JavaScript*), puis rechargez | pas de bouton simple : faites la section suivante, sur votre propre page |
+**Trouver le titre dans le HTML.** Faites un clic droit sur le titre, puis **Inspecter**. Les outils de développement s'ouvrent sur l'onglet **Éléments** (*Elements* ; **Inspecteur** dans Firefox), qui montre le HTML de la page sous forme d'arbre. La ligne du titre est surlignée : c'est une balise `<h1>`. L'icône en forme de flèche, en haut à gauche des outils, fait la même chose : cliquez-la, puis cliquez sur un élément de la page.
 
-Sans le CSS, la page devient une longue colonne de texte noir sur fond blanc, avec des liens bleus soulignés et des images à leur taille d'origine : il ne reste que le HTML, avec l'apparence par défaut du navigateur. Tout le contenu est là, dans l'ordre où le HTML l'écrit. Sans le JavaScript, la page s'affiche souvent presque normalement, mais les menus déroulants, les carrousels ou les boutons « voir plus » ne réagissent plus ; certains sites, construits entièrement en JavaScript, n'affichent plus rien du tout.
+**Changer son texte (HTML).** Dans l'arbre, double-cliquez sur le texte du titre, entre `<h1>` et `</h1>` : il devient modifiable. Tapez un autre titre, puis Entrée. La page change aussitôt.
 
-Remettez tout en place : dans Chrome et Edge, la case **Activer le blocage des requêtes** (*Enable request blocking*) de l'onglet du même nom se décoche, et le JavaScript se réactive avec la même commande, **Activer JavaScript**. Il se réactive aussi tout seul à la fermeture des outils de développement.
+**Changer sa couleur avec l'attribut `style` (CSS).** Faites un clic droit sur la balise `<h1>`, dans l'arbre, puis **Ajouter un attribut** (*Add attribute* ; dans Firefox, sous-menu **Attributs**). Tapez `style="color: deeppink"`, puis Entrée. Le titre devient rose : l'attribut `style` porte du CSS, écrit directement dans la balise.
+
+**Changer sa taille dans le volet Styles (CSS).** Sous l'arbre, ou à côté, le volet **Styles** (**Règles** dans Firefox) liste le CSS qui s'applique à l'élément sélectionné. Son premier bloc, `element.style` (`élément` dans Firefox), est votre attribut `style` : `color: deeppink` y est déjà. Cliquez juste avant son accolade fermante, tapez `font-size`, Tab, `80px`, puis Entrée. Le titre grossit. Plus bas, la règle de MDN pour ce titre a sa propre `font-size`, maintenant **barrée** : elle ne s'applique plus, celle de l'attribut passe avant.
+
+**Changer le texte avec JavaScript.** Ouvrez l'onglet **Console** : il exécute du JavaScript dans la page. Tapez la ligne suivante, puis Entrée :
+
+```javascript
+document.querySelector('h1').textContent = 'Modifié par JavaScript'
+```
+
+Le titre change encore. Si Chrome refuse de **coller** du code dans la console, c'est une protection : tapez la ligne à la main, ou tapez `allow pasting` comme il l'indique.
+
+**Recharger.** Rechargez la page : le titre retrouve son texte, sa couleur et sa taille. Vos retouches n'ont vécu que dans votre navigateur, sur sa copie de la page ; le serveur de MDN n'a rien reçu. L'inspecteur sert à **essayer**, pas à enregistrer : on y teste une idée, puis on l'écrit dans ses propres fichiers.
 
 ## 02.2 - Créer une page en trois fichiers
 
-On refait l'expérience sur une page à vous, pour voir les balises qui relient les fichiers. Cette section est un support : elle crée la page, que vous n'avez pas à écrire vous-même. Dans VS Code, créez trois fichiers dans `BASICS`, et collez dans chacun le contenu ci-dessous. Le premier, `trois-langages.html`, contient la page :
+Passons à une page à vous, en trois fichiers, pour voir les balises qui les relient, et ce que la page perd quand on en retire un. Cette section est un support : elle crée la page, que vous n'avez pas à écrire vous-même. Dans VS Code, créez trois fichiers dans `BASICS`, et collez dans chacun le contenu ci-dessous. Le premier, `trois-langages.html`, contient la page :
 
 ```html
 <!DOCTYPE html>
@@ -111,4 +120,4 @@ fi
 echo "Le link et le script sont rétablis : la page a retrouvé son style et son comportement."
 ```
 
-> 📖 [Bloquer des requêtes dans Chrome (en anglais)](https://developer.chrome.com/docs/devtools/network/reference#block) · [Désactiver JavaScript dans Chrome (en anglais)](https://developer.chrome.com/docs/devtools/javascript/disable) · [Live Preview (en anglais)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server)
+> 📖 [Modifier le DOM dans Chrome (en anglais)](https://developer.chrome.com/docs/devtools/dom) · [Modifier le CSS dans Chrome (en anglais)](https://developer.chrome.com/docs/devtools/css) · [L'inspecteur de Firefox (en anglais)](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/) · [Live Preview (en anglais)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.live-server)

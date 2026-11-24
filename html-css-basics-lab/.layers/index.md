@@ -1,6 +1,6 @@
 ---
 title: "Les bases HTML et CSS, sur votre machine"
-description: "Lab débutant : lire les requêtes d'une page dans l'onglet Réseau, retirer le CSS puis le JavaScript d'une page, écrire un squelette HTML, une fiche avec liens et image, ranger une page en balises sémantiques, l'habiller en CSS avec ses propres classes, et déjouer le piège de la largeur."
+description: "Lab débutant : lire les requêtes d'une page dans l'onglet Réseau, retoucher une page dans l'inspecteur puis lui retirer son CSS et son JavaScript, écrire un squelette HTML, une fiche avec liens et image, ranger une page en balises sémantiques, l'habiller en CSS avec ses propres classes, et déjouer le piège de la largeur."
 tags:
   - lab
   - web
@@ -30,7 +30,7 @@ Les bits de ce cours ont fait jouer chaque notion dans un aperçu, dans la page.
 
 ## Comment ça se passe
 
-Sept étapes, une par notion du cours, environ 1 h 40 en tout. Les deux premières observent des pages qui existent déjà ; les cinq suivantes vous font écrire du HTML et du CSS, avec de moins en moins de guidage.
+Sept étapes, une par notion du cours, environ 1 h 40 en tout. Les deux premières manipulent des pages qui existent déjà ; les cinq suivantes vous font écrire du HTML et du CSS, avec de moins en moins de guidage.
 
 Tous vos fichiers vivent dans un seul dossier, `~/byte-layers/web/basics`, que la première étape crée. Chaque étape y ajoute un ou deux fichiers, et le lab ne supprime rien : à la fin, supprimez le dossier si vous n'en avez plus besoin.
 
