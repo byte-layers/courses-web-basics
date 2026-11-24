@@ -29,7 +29,11 @@ Le titre change encore. Si Chrome refuse de **coller** du code dans la console, 
 
 ## 02.2 - Créer une page en trois fichiers
 
-Passons à une page à vous, en trois fichiers, pour voir les balises qui les relient, et ce que la page perd quand on en retire un. Cette section est un support : elle crée la page, que vous n'avez pas à écrire vous-même. Dans VS Code, créez trois fichiers dans `BASICS`, et collez dans chacun le contenu ci-dessous. Le premier, `trois-langages.html`, contient la page :
+Passons à une page à vous, en trois fichiers, pour voir les balises qui les relient, et ce que la page perd quand on en retire un. Cette section est un support : elle crée la page, que vous n'avez pas à écrire vous-même.
+
+Les fichiers vont dans le dossier du lab, `~/byte-layers/web/basics`, créé à l'étape 01. Il doit exister **avant** d'être ouvert dans VS Code : s'il manque, créez-le d'abord, dans un terminal (`mkdir -p ~/byte-layers/web/basics`) ou dans l'explorateur de fichiers, puis ouvrez-le dans VS Code (**File (Fichier)**, **Open Folder… (Ouvrir le dossier…)**).
+
+Dans VS Code, créez trois fichiers dans `BASICS`, et collez dans chacun le contenu ci-dessous. Le premier, `trois-langages.html`, contient la page :
 
 ```html
 <!DOCTYPE html>
@@ -99,6 +103,8 @@ Regardez la barre d'adresse : elle commence par `file://`, suivi du chemin du fi
 Dans `trois-langages.html`, transformez la ligne du `<link>` en commentaire, pour que le navigateur l'ignore : placez le curseur sur la ligne et tapez Cmd+/ sous macOS, Ctrl+/ ailleurs. VS Code l'entoure de `<!--` et `-->`. Enregistrez, rechargez : le bouton redevient gris, le bouton par défaut du navigateur. Cliquez dessus : le titre change quand même, le JavaScript ne dépend pas du CSS.
 
 Refaites le même raccourci sur la ligne du `<link>` pour la rétablir, puis faites de même avec la ligne du `<script>`. Enregistrez, rechargez : le bouton est rose, mais le clic ne fait plus rien. Rétablissez enfin la ligne du `<script>`, enregistrez, et vérifiez que tout remarche.
+
+![À gauche, la page sans le link : le titre « Merci ! » après un clic, et un bouton gris, celui du navigateur. À droite, la page sans le script : le titre reste « Bonjour ! » malgré le clic, et le bouton est rose.](assets/retirer-link-script.png)
 
 Aucune erreur ne s'est affichée dans la page, ni sans le CSS ni sans le JavaScript : une page qui perd un fichier ne vous prévient pas.
 

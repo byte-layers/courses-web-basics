@@ -7,7 +7,7 @@ Le bit [Le web : une adresse, une requête, une page](https://byte-layers.com/fr
 
 ## 01.1 - Créer le dossier du lab
 
-Cette étape est un support : elle prépare le dossier où vivront tous vos fichiers. La commande `mkdir -p` crée le dossier `basics`, et avec lui les dossiers `byte-layers` et `web` s'ils n'existent pas encore.
+Cette étape est un support : elle prépare le dossier où vivront tous vos fichiers. La commande `mkdir -p` crée le dossier `basics`, et avec lui les dossiers `byte-layers` et `web` s'ils n'existent pas encore. Si vous préférez, créez ces trois dossiers à la main dans l'explorateur de fichiers (le Finder sous macOS) : `byte-layers` dans votre dossier personnel, `web` dedans, puis `basics` dans `web`. Le résultat est le même.
 
 ```exec "Créer le dossier du lab"
 mkdir -p ~/byte-layers/web/basics
