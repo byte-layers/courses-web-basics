@@ -19,7 +19,7 @@ Stack `html-css` : « Créer ses premières pages web ».
 | `css-rules-cascade/` | CSS : règles, sélecteurs et cascade | bit |
 | `box-model/` | Le modèle de boîte : contenu, padding, bordure, marge | bit |
 | `html-css-basics-lab/` | Les bases HTML et CSS, sur votre machine | lab |
-| `portfolio-v1-challenge/` | Mon portfolio, version 1 | challenge |
+| `portfolio-v1-challenge/` | Mon portfolio, version 1 : une page de liens | challenge |
 
 ## HTML CSS avancé
 

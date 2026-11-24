@@ -1,6 +1,6 @@
 ---
-title: "Mon portfolio, version 1"
-description: "Une page à vous, sans guide : votre portfolio statique en HTML et CSS, avec un squelette valide, des zones sémantiques, un plan de titres, une liste, une image décrite, des liens, une feuille de style externe, vos propres classes, deux couleurs, une police et des espacements maîtrisés. Onze points vérifiés dans vos fichiers."
+title: "Mon portfolio, version 1 : une page de liens"
+description: "Une page à vous, sans guide : votre page de liens, façon LinkTree, en HTML et en CSS. Une photo ronde, votre nom, une phrase, vos liens en boutons. Squelette valide, zones sémantiques, plan de titres, liste, image décrite, liens, feuille de style externe, vos propres classes, deux couleurs, une police et des espacements maîtrisés : onze points vérifiés dans vos fichiers."
 tags:
   - challenge
   - web
@@ -15,11 +15,21 @@ options:
   autoCompleteOnNext: unverifiable
 ---
 
-Ce challenge prouve que vous savez construire une page web complète, seul, à partir d'une page vide : la vôtre. Le sujet est un **portfolio**, une page qui vous présente : votre parcours, ce que vous savez faire, ce que vous avez réalisé, ou une passion si vous n'avez encore rien à montrer. Vous décidez du contenu, des couleurs, de la disposition. Il n'y a ni fichier à compléter ni corrigé : il n'existe pas une bonne réponse.
+Ce challenge prouve que vous savez écrire une page web complète, seul, à partir d'un dossier vide. La page, c'est la vôtre : une **page de liens**, comme celles de LinkTree, que l'on met dans une bio Instagram ou en signature de mail. Votre photo, votre nom, une phrase qui vous présente, puis vos liens les uns sous les autres, en gros boutons : vos projets, vos réseaux, un moyen de vous écrire. Si vous n'avez encore rien à montrer, faites la page d'une passion, d'un club, d'un projet imaginaire.
 
-Ce portfolio vous suit dans les cours suivants : le cours sur le HTML et le CSS avancés le rendra adaptatif et accessible et lui ajoutera un formulaire, le cours de JavaScript le fera réagir. Cette première version est **statique** : du HTML et du CSS.
+Voici à quoi ressemble une page réussie. Ce n'est pas un modèle à copier : choisissez vos couleurs, vos textes, vos liens.
 
-Chaque tâche donne des critères, et un bouton vérifie vos fichiers pour chacun. Si vous êtes bloqué, les **indices** se dévoilent un par un et renvoient au contenu qui enseigne le point. Les utiliser ne coûte rien : seule la vérification compte.
+![Exemple de page de liens : une photo ronde cerclée de vert, le nom Inès Morel, une phrase de présentation, deux liens de menu, quatre boutons verts aux coins arrondis dont un en corail, un paragraphe À propos et un pied de page](assets/exemple-portfolio-v1.png)
+
+## Ce qu'on attend, et ce qu'on n'attend pas
+
+On attend une page **propre et simple** : une colonne centrée, des blocs bien espacés, des formes de base. Un cercle (`border-radius: 50%`), des coins arrondis, une bordure, une couleur de fond : c'est tout ce qu'il faut, et c'est déjà une vraie page.
+
+On n'attend **pas** de CSS avancé : ni mise en page en colonnes, ni Flexbox, ni Grid, ni dégradés élaborés, ni formes dessinées en CSS, ni animations. Ces outils arrivent au cours suivant. Une page simple et soignée vaut mieux qu'une page ambitieuse qui déborde.
+
+Cette page vous suit dans les cours suivants : le cours sur le HTML et le CSS avancés la rendra adaptative et accessible et lui ajoutera un formulaire de contact, le cours de JavaScript la fera réagir. Cette première version est **statique** : du HTML et du CSS.
+
+Il n'y a ni fichier à compléter ni corrigé. Chaque tâche donne des critères, et un bouton vérifie vos fichiers pour chacun. Si vous êtes bloqué, les **indices** se dévoilent un par un et renvoient au contenu qui enseigne le point. Les utiliser ne coûte rien : seule la vérification compte.
 
 ## Avant de commencer
 
@@ -28,11 +38,9 @@ Chaque tâche donne des critères, et un bouton vérifie vos fichiers pour chacu
 - **Vos fichiers** : tout vit dans `~/byte-layers/web/portfolio`, avec `index.html`, `style.css` et un dossier `images/`. La première tâche crée le dossier. Il reste sur votre poste à la fin : c'est votre portfolio, que les cours suivants reprennent.
 
 - **Un conseil de méthode** : écrivez d'abord tout le contenu en HTML, sans aucun style. Vous verrez mieux la structure, et le CSS ira ensuite plus vite. Le fond, puis la forme.
-- **Des images** : prenez les vôtres, ou des images libres de droits, sur Unsplash, Pexels ou unDraw ; la plupart des images trouvées sur le web sont protégées par le droit d'auteur. Réduisez une photo à moins de 1 500 pixels de large avant de l'utiliser : une photo de 5 000 pixels ralentit la page pour rien.
+- **Une photo** : la vôtre, un dessin, ou une image libre de droits, sur Unsplash, Pexels ou unDraw ; la plupart des images trouvées sur le web sont protégées par le droit d'auteur. Recadrez-la en carré et réduisez-la à moins de 500 pixels de large : elle s'affiche petite, une photo de 5 000 pixels ralentirait la page pour rien.
 
 Les vérifications lisent vos fichiers sur le disque. Elles contrôlent ce qui se contrôle dans un fichier : la présence d'une balise, d'un attribut, d'une règle. Elles ne jugent pas si votre texte alternatif décrit vraiment l'image, ni si vos couleurs vont bien ensemble : ça, c'est à vous de le regarder, dans le navigateur.
-
-Le formulaire de contact ou le tableau de données de la checklist d'origine viendront avec la version 2, quand le cours suivant les aura enseignés.
 
 # Tâche 1 : une page valide, découpée en zones
 
@@ -50,6 +58,8 @@ Ouvrez le dossier `~/byte-layers/web/portfolio` dans VS Code, créez-y `index.ht
 
 1. Un squelette valide : le doctype en première ligne, la langue sur `<html>`, l'encodage UTF-8, la ligne `meta viewport` et un `<title>` qui vous nomme.
 2. Les zones de la page dans leurs balises sémantiques : un `<header>` avec un `<nav>`, un seul `<main>`, un `<footer>`, et dans le `<main>` au moins une `<section>` ou un `<article>`, selon ce que vous présentez.
+
+Sur une page de liens, le `<header>` porte la photo, le nom et la phrase de présentation ; son `<nav>` est un petit menu de deux liens vers les parties de la page, « Mes liens » et « À propos » par exemple. Le `<main>` porte une `<section>` par partie.
 
 ```hint
 Le squelette complet, ligne par ligne, est dans le bit [Le squelette d'une page HTML](https://byte-layers.com/fr/bits/html-document), section « Le squelette ».
@@ -88,7 +98,7 @@ echo "Critère 2 : la page est découpée en zones sémantiques."
 
 ## Titres, liste, image et liens
 
-Remplissez la page : qui vous êtes, ce que vous faites, ce que vous avez réalisé.
+Remplissez la page : votre photo, votre nom, une phrase qui vous présente, vos liens, et quelques lignes sur vous. Des liens qui mènent quelque part : votre GitHub, un réseau, un projet en ligne, une adresse e-mail (`href="mailto:…"`).
 
 **Critères :**
 
@@ -98,7 +108,11 @@ Remplissez la page : qui vous êtes, ce que vous faites, ce que vous avez réali
 6. Au moins trois liens, dont un vers un autre site, qui s'ouvre dans un nouvel onglet avec `rel="noopener"`.
 
 ```hint
-Écrivez vos titres comme une table des matières : le `<h1>`, c'est vous ; les `<h2>`, les grandes parties de la page ; les `<h3>`, les éléments d'une partie, comme chaque projet.
+Écrivez vos titres comme une table des matières : le `<h1>`, c'est votre nom ; les `<h2>`, les parties de la page, comme « Mes liens » et « À propos ».
+```
+
+```hint
+Vos liens sont une liste : un `<ul>`, et dans chaque `<li>` un lien `<a>`. Une liste de liens, c'est exactement ce qu'est un menu ou une page de liens.
 ```
 
 ```hint
@@ -172,6 +186,8 @@ echo "Critère 6 : la page a ses liens, dont un externe dans un nouvel onglet."
 
 Habillez la page avec une feuille de style externe. Prenez le temps de choisir vos couleurs : une couleur **dominante**, celle qu'on retient de la page, et une couleur d'**accent**, pour ce qui doit attirer l'œil.
 
+Trois gestes suffisent à donner l'allure d'une page de liens : une colonne étroite et centrée, une photo ronde, des liens en boutons. Restez sur ces formes simples : un bouton, c'est un bloc avec du padding, une couleur de fond et des coins arrondis.
+
 **Critères :**
 
 7. Une feuille de style externe, `style.css` ou un autre nom, reliée par `<link>`, et le fichier existe sous ce nom exact.
@@ -186,6 +202,14 @@ La balise `<link>`, la liste de repli d'une police et le nommage des classes son
 
 ```hint
 Une couleur est grise quand ses trois composantes, rouge, vert et bleu, sont égales : `#333`, `rgb(200, 200, 200)`. Pour une dominante et un accent, prenez deux vraies teintes, un bleu et un rose par exemple.
+```
+
+```hint
+Une colonne centrée : une largeur maximale et des marges automatiques à gauche et à droite, `max-width: 440px; margin: 0 auto;`. Une photo ronde : une largeur et une hauteur égales, puis `border-radius: 50%`.
+```
+
+```hint
+Un lien est un élément **en ligne** : son padding vertical déborde sans pousser ses voisins. Pour en faire un bouton, passez-le en bloc, `display: block;`, comme dans le bit [Le modèle de boîte](https://byte-layers.com/fr/bits/box-model). Et `list-style: none;` sur la liste retire les puces.
 ```
 
 ```hint
@@ -295,7 +319,7 @@ C=$D/${CSS#./}
 S=$(perl -0pe 's{/\*.*?\*/}{}gs; s/[\r\n]/ /g' "$C")
 echo "$S" | grep -qE 'padding(-[a-z]+)?:[^;}]*[1-9]' || { echo "Critère 11 : il faut au moins un padding non nul, l'espace intérieur d'un bloc."; exit 1; }
 echo "$S" | grep -qE 'margin(-[a-z]+)?:[^;}]*([1-9]|auto)' || { echo "Critère 11 : il faut au moins une marge non nulle, l'espace entre deux blocs."; exit 1; }
-echo "Critère 11 : padding dedans, marges dehors. Votre portfolio, version 1, est prêt : ouvrez-le dans le navigateur et regardez-le comme un visiteur."
+echo "Critère 11 : padding dedans, marges dehors. Votre page de liens est prête : ouvrez-la dans le navigateur et regardez-le comme un visiteur."
 ```
 
 Une dernière vérification, que les boutons ne font pas : déposez `index.html` sur le [validateur HTML du W3C](https://validator.w3.org/#validate_by_upload) et `style.css` sur le [validateur CSS](https://jigsaw.w3.org/css-validator/#validate_by_upload). Ils repèrent ce que le navigateur répare en silence : une balise mal fermée, un point-virgule oublié.
