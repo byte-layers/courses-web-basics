@@ -5,6 +5,8 @@ description: "Remplacer les div d'une page de blog par header, nav, main, articl
 
 Le bit [Le HTML sémantique](https://byte-layers.com/fr/bits/semantic-html) annonçait que les balises sémantiques ne changent rien à l'écran, et changent ce qu'entend un lecteur d'écran. Dans un aperçu en ligne, on ne pouvait que le croire. Ici, les outils de développement vous montrent le plan que le navigateur construit, avant et après.
 
+![Live coding : remplacer les div par des balises sémantiques, et voir l'arbre d'accessibilité changer](https://media.byte-layers.com/v/a9a067ddfeb086d405a1a38266ef82297b8ac9b63d1c6d1c0883e95d5521937a.mp4)
+
 ## 05.1 - Créer la page faite de div
 
 Cette section est un support : elle vous donne la page à transformer. Créez `club.html` dans `BASICS` et collez-y le blog d'un club de randonnée, construit entièrement en `<div>` :

@@ -7,6 +7,8 @@ Le bit [Une page web : HTML, CSS et JavaScript](https://byte-layers.com/fr/bits/
 
 ## 02.1 - Retoucher une page de MDN dans l'inspecteur
 
+![Live coding : retoucher une page de MDN dans l'inspecteur](https://media.byte-layers.com/v/caeced02ad11d8861ac05f1c4ab60e5973ffb2f8be933f3b6d4c7b2f5bf65c24.mp4)
+
 Ouvrez la page de MDN sur le HTML : `https://developer.mozilla.org/fr/docs/Web/HTML`. Son titre, en haut, est « HTML : HyperText Markup Language ».
 
 **Trouver le titre dans le HTML.** Faites un clic droit sur le titre, puis **Inspecter**. Les outils de développement s'ouvrent sur l'onglet **Éléments** (*Elements* ; **Inspecteur** dans Firefox), qui montre le HTML de la page sous forme d'arbre. La ligne du titre est surlignée : c'est une balise `<h1>`. L'icône en forme de flèche, en haut à gauche des outils, fait la même chose : cliquez-la, puis cliquez sur un élément de la page.
@@ -30,6 +32,8 @@ Le titre change encore. Si Chrome refuse de **coller** du code dans la console, 
 ## 02.2 - Créer une page en trois fichiers
 
 Passons à une page à vous, en trois fichiers, pour voir les balises qui les relient, et ce que la page perd quand on en retire un. Cette section est un support : elle crée la page, que vous n'avez pas à écrire vous-même.
+
+![Live coding : ouvrir le dossier dans VS Code et créer les trois fichiers](https://media.byte-layers.com/v/8e6690e277dea908fca6ce59788d2a57c4d040e5bdcacee595e58495e09350b1.mp4)
 
 Les fichiers vont dans le dossier du lab, `~/byte-layers/web/basics`, créé à l'étape 01. Il doit exister **avant** d'être ouvert dans VS Code : s'il manque, créez-le d'abord, dans un terminal (`mkdir -p ~/byte-layers/web/basics`) ou dans l'explorateur de fichiers, puis ouvrez-le dans VS Code (**File (Fichier)**, **Open Folder… (Ouvrir le dossier…)**).
 

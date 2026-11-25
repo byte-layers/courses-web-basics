@@ -5,6 +5,8 @@ description: "Écrire une feuille de style externe pour la page d'une médiathè
 
 Le bit [CSS : règles, sélecteurs et cascade](https://byte-layers.com/fr/bits/css-rules-cascade) a fait écrire des règles dans une page dont le HTML était figé. Ici, vous habillez d'abord une page fournie, puis vous faites ce que fait tout développeur quand le HTML n'offre pas la prise dont il a besoin : vous la créez.
 
+![Live coding : habiller la médiathèque en CSS, lire les règles dans l'inspecteur, puis créer la classe banniere](https://media.byte-layers.com/v/4108f6e6727ea227e868531db3b181070b9218a402314d57b8f64a50500aea4d.mp4)
+
 ## 06.1 - Créer la page et sa feuille de style
 
 Cette section est un support. Créez `mediatheque.html` dans `BASICS` et collez-y la page d'une médiathèque :

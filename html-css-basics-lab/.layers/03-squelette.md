@@ -5,6 +5,8 @@ description: "Écrire à la main une page minimale valide (doctype, lang, charse
 
 Le bit [Le squelette d'une page HTML](https://byte-layers.com/fr/bits/html-document) faisait compléter un squelette à trous. Cette fois, vous l'écrivez en entier, dans un vrai fichier, et vous voyez ce que la ligne `charset` change sur une page ouverte depuis votre disque.
 
+![Live coding : écrire le squelette d'une page, puis retirer son charset](https://media.byte-layers.com/v/94555c1e3dd3587bdfba03df0b003b76e306144f512933f08a73982b1ee8eccd.mp4)
+
 ## 03.1 - Écrire le squelette
 
 Créez `premiere-page.html` dans `BASICS`. Écrivez-y une page qui contient, dans l'ordre :

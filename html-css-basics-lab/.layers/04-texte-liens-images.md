@@ -5,6 +5,8 @@ description: "Écrire la fiche d'une ville avec titres, mise en valeur et deux l
 
 Le bit [Le squelette d'une page HTML, son texte, ses liens et ses images](https://byte-layers.com/fr/bits/html-document) présentait les éléments du texte, les liens et les images. Vous les réunissez ici dans une page : la fiche d'une ville de votre choix. Le squelette, vous savez l'écrire ; cette étape porte sur ce qu'on met dans le `<body>`.
 
+![Live coding : la fiche d'une ville, avec ses listes, ses liens et son image](https://media.byte-layers.com/v/02795412cd117ea1e47629bbb56489ee864bf2864cdd6d9c09e186b2a314b692.mp4)
+
 ## 04.1 - Le texte et les listes
 
 Créez `ville.html` dans `BASICS`, écrivez-y le squelette de l'étape précédente, avec un `<title>` à votre goût, puis remplissez le `<body>` :

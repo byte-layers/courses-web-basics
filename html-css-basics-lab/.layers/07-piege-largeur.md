@@ -5,6 +5,8 @@ description: "Transformer trois blocs collés en cartes avec padding, bordure et
 
 Le bit [Le modèle de boîte](https://byte-layers.com/fr/bits/box-model) a fait calculer la largeur réelle d'une boîte. Dans cette dernière étape, vous écrivez seul la feuille de style d'une page de cartes, puis l'inspecteur vous montre chaque couche de la boîte, en pixels, et le piège de la largeur sur votre propre page.
 
+![Live coding : des cartes aérées, le modèle de boîte dans l'inspecteur, et les 40 px de trop sans box-sizing](https://media.byte-layers.com/v/d60d3766c5fefdb62c65d9e5196fb63c6ad01143b778ec9e610bc76b0ea289cd.mp4)
+
 ## 07.1 - Créer la page des cartes
 
 Cette section est un support. Créez `cartes.html` dans `BASICS`, collez-y la page ci-dessous, puis créez à côté un fichier vide `cartes.css` :
