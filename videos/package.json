@@ -1,0 +1,11 @@
+{
+  "name": "courses-web-basics-videos",
+  "private": true,
+  "description": "Live coding videos of the course: browser + DevTools driven by Playwright, narrated by TTS, assembled by ffmpeg",
+  "scripts": {
+    "video": "bash make-video.sh"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}
