@@ -5,6 +5,8 @@ description: "Créer le dossier du lab, ouvrir les outils de développement, voi
 
 Le bit [Le web : une adresse, une requête, une page](https://byte-layers.com/fr/bits/web-request-response) décrivait la requête et la réponse HTTP. Votre navigateur les montre, toutes, dans ses **outils de développement** : vous allez les lire sur un vrai site, et noter ce que vous voyez dans un fichier.
 
+![Live coding : lire les requêtes d'une page dans l'onglet Réseau](https://media.byte-layers.com/v/a8363bea7689e276684c51b507ba2f57769bead37564eeabfad790021234093b.mp4)
+
 ## 01.1 - Créer le dossier du lab
 
 Cette étape est un support : elle prépare le dossier où vivront tous vos fichiers. La commande `mkdir -p` crée le dossier `basics`, et avec lui les dossiers `byte-layers` et `web` s'ils n'existent pas encore. Si vous préférez, créez ces trois dossiers à la main dans l'explorateur de fichiers (le Finder sous macOS) : `byte-layers` dans votre dossier personnel, `web` dedans, puis `basics` dans `web`. Le résultat est le même.
@@ -27,7 +29,9 @@ L'explorateur de VS Code affiche `BASICS`, vide pour l'instant.
 
 Dans votre navigateur, ouvrez la page d'accueil de MDN, la documentation du web que citent tous les bits de ce cours : `https://developer.mozilla.org/fr/`.
 
-Ouvrez ensuite les outils de développement : **F12**, ou Cmd+Option+I sous macOS, Ctrl+Maj+I ailleurs. Un panneau s'ouvre, en bas ou à droite de la page. Cliquez sur son onglet **Réseau** (*Network* si votre navigateur est en anglais). Il est vide : il n'enregistre les requêtes qu'une fois ouvert. Rechargez la page.
+Ouvrez ensuite les outils de développement : **F12**, ou Cmd+Option+I sous macOS, Ctrl+Maj+I ailleurs. Un panneau s'ouvre, en bas ou à droite de la page. Cliquez sur son onglet **Réseau** (*Network* si votre navigateur est en anglais). Il est vide : il n'enregistre les requêtes qu'une fois ouvert. Rechargez la page en forçant le navigateur à tout redemander au serveur : Cmd+Maj+R sous macOS, Ctrl+Maj+R ailleurs.
+
+> 💡 **Remarque.** Un rechargement simple (Cmd+R ou Ctrl+R) garde la copie de la page que le navigateur vient de recevoir : il demande seulement au serveur si elle a changé. La première ligne porte alors le code **304** (*Not Modified*, « pas modifiée ») au lieu de 200. C'est une vraie réponse, mais ici on veut la page envoyée en entier : rechargez en forçant.
 
 Des lignes apparaissent, une par requête. Chaque colonne répond à une question :
 
@@ -46,7 +50,11 @@ Cliquez sur la première ligne : un volet affiche les **en-têtes** (*Headers*) 
 
 Gardez les outils de développement ouverts sur l'onglet Réseau, et tapez dans la barre d'adresse une page qui n'existe pas : `https://developer.mozilla.org/fr/page-qui-n-existe-pas`. MDN affiche sa page « introuvable », et la première ligne de l'onglet Réseau porte le code **404**.
 
-Tapez maintenant `http://wikipedia.org`, avec `http` et non `https`. L'adresse change toute seule. Pour voir pourquoi, cochez **Conserver le journal** (*Preserve log*), en haut de l'onglet Réseau, puis retapez la même adresse : la première ligne porte le code **301**, la redirection, et les lignes suivantes montrent le navigateur qui suit la nouvelle adresse. Sans cette case, l'onglet se vide à chaque changement de page, et la ligne du 301 disparaît aussitôt.
+Tapez maintenant `http://wikipedia.org`, avec `http` et non `https`. L'adresse change toute seule : elle devient `https://www.wikipedia.org`. L'onglet Réseau montre pourquoi : la première ligne porte le code **301** (*Moved Permanently*, « déplacé définitivement »), une redirection, et les lignes suivantes montrent le navigateur qui suit la nouvelle adresse, jusqu'au **200** de `www.wikipedia.org`.
+
+Si la première ligne porte **307** (*Internal Redirect*), votre navigateur connaît déjà le site et passe en `https` de lui-même, sans rien demander au serveur : le **301** du serveur est sur la ligne suivante.
+
+> 💡 **Remarque.** L'onglet Réseau se vide chaque fois que vous changez de page. Pour garder les requêtes d'une page à l'autre, cochez **Conserver le journal** en haut de l'onglet (*Preserve log*, ou *Keep log* selon la version).
 
 ## 01.4 - Noter ce que vous avez vu
 
@@ -63,7 +71,7 @@ requetes=…
 |---|---|
 | `page=` | le code de statut de la première requête de la page d'accueil de MDN |
 | `introuvable=` | le code de la page qui n'existe pas |
-| `redirection=` | le code de la première requête vers `http://wikipedia.org` |
+| `redirection=` | le code de la redirection que renvoie le serveur pour `http://wikipedia.org` |
 | `requetes=` | le nombre total de requêtes de la page d'accueil de MDN, lu en bas du panneau ; il varie d'un chargement à l'autre, tout nombre lu convient |
 
 ```verify
@@ -73,6 +81,10 @@ if [ ! -f "$F" ]; then
   exit 1
 fi
 v() { sed -n "s/^$1[[:space:]]*=//p" "$F" | tail -1 | tr -d '[:space:]'; }
+if [ "$(v page)" = 304 ]; then
+  echo "304, c'est la réponse d'un rechargement simple : le navigateur a gardé sa copie. Rechargez MDN en forçant (Cmd+Maj+R ou Ctrl+Maj+R), puis notez le code de la première requête."
+  exit 1
+fi
 if [ "$(v page)" != 200 ]; then
   echo "La ligne page= doit donner le code de statut de la première requête de MDN : la page existe, la voici."
   exit 1
@@ -81,8 +93,12 @@ if [ "$(v introuvable)" != 404 ]; then
   echo "La ligne introuvable= doit donner le code de la page qui n'existe pas."
   exit 1
 fi
+if [ "$(v redirection)" = 307 ]; then
+  echo "307, c'est la redirection interne du navigateur, qui connaît déjà le site. Notez celle du serveur, sur la ligne suivante."
+  exit 1
+fi
 if [ "$(v redirection)" != 301 ]; then
-  echo "La ligne redirection= doit donner le code de la première requête vers http://wikipedia.org. Cochez Conserver le journal pour la voir."
+  echo "La ligne redirection= doit donner le code de la redirection que renvoie le serveur pour http://wikipedia.org : la première ligne de l'onglet Réseau, ou la suivante si la première porte 307."
   exit 1
 fi
 R=$(v requetes)
