@@ -1,0 +1,20 @@
+[
+  {
+    "titre": "Carnet de recettes",
+    "description": "Mes recettes préférées, une page par plat.",
+    "image": "images/recettes.svg",
+    "alt": "Une assiette dessinée entre une fourchette et un couteau"
+  },
+  {
+    "titre": "Le club de lecture",
+    "description": "La page du club : les prochaines rencontres et nos livres.",
+    "image": "images/club.svg",
+    "alt": "Trois livres dessinés, côte à côte"
+  },
+  {
+    "titre": "Météo du jour",
+    "description": "Une petite page qui affichera bientôt la météo.",
+    "image": "images/meteo.svg",
+    "alt": "Un soleil dessiné, à moitié caché par un nuage"
+  }
+]

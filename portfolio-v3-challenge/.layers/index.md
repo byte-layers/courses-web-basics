@@ -1,6 +1,6 @@
 ---
 title: "Mon portfolio, version 3 : une page qui réagit"
-description: "Votre portfolio, sans guide, devient interactif : un script branché au bon endroit, des projets chargés depuis un fichier JSON et construits avec le DOM, un formulaire de contact qui valide ses champs et affiche ses messages dans la page. Dix points vérifiés dans vos fichiers."
+description: "Votre page de liens, sans guide, devient interactive : un script branché au bon endroit, des projets chargés depuis un fichier JSON et construits avec le DOM, un formulaire de contact qui valide ses champs et affiche ses messages dans la page. Dix points vérifiés dans vos fichiers."
 tags:
   - challenge
   - web
@@ -15,7 +15,21 @@ options:
   autoCompleteOnNext: unverifiable
 ---
 
-Ce challenge prouve que vous savez faire réagir une page avec JavaScript, seul, sur votre propre projet : votre portfolio. Les versions 1 et 2 l'ont rendu complet, adaptatif et accessible, avec un formulaire de contact. Cette version 3 lui ajoute du **comportement** : les projets ne sont plus écrits dans le HTML, ils se chargent depuis un fichier de données, et le formulaire vérifie ce qu'on y tape avant de l'accepter. Il n'y a ni fichier à compléter ni corrigé : vos projets, vos textes et vos messages sont les vôtres.
+Ce challenge prouve que vous savez faire réagir une page avec JavaScript, seul, sur votre propre projet : votre page de liens. La version 1 l'a écrite, la version 2 l'a rendue adaptative et accessible, avec des projets et un formulaire de contact. Cette version 3 lui ajoute du **comportement** : les projets ne sont plus écrits dans le HTML, ils se chargent depuis un fichier de données, et le formulaire vérifie ce qu'on y tape avant de l'accepter. Il n'y a ni fichier à compléter ni corrigé : vos projets, vos textes et vos messages sont les vôtres.
+
+L'apparence de la page ne change presque pas : ce qui change, c'est ce qu'elle **fait**. Voici le formulaire d'une page réussie. Un nom fait d'espaces est refusé, puis une adresse sans `@`, sans que les champs se vident ; une saisie correcte est confirmée, d'une autre couleur, et le message rejoint la liste des messages envoyés.
+
+![Animation du formulaire de contact : un nom fait d'espaces est refusé par un message rouge, puis une adresse sans @ est refusée alors que le nom reste rempli ; une saisie correcte affiche une confirmation verte, le message s'ajoute sous « Messages envoyés » et le formulaire se vide](assets/exemple-v3-formulaire.gif)
+
+Et quand les projets ne peuvent pas se charger, la page le dit, au lieu de laisser une section vide :
+
+![La section Mes projets affiche « Les projets n'ont pas pu se charger. Réessayez dans un instant. » à la place des cartes, le reste de la page est intact](assets/exemple-v3-echec.png)
+
+## Ce qu'on attend, et ce qu'on n'attend pas
+
+On attend une page qui **réagit sans se recharger** : des projets construits par le script à partir de `projets.json`, un formulaire qui refuse poliment et confirme clairement, des messages écrits dans la page, et une console sans erreur rouge.
+
+On n'attend **pas** de vrai envoi : il n'y a pas de serveur, les messages restent dans la page et disparaissent au rechargement, c'est normal. Ni bibliothèque, ni framework, ni sauvegarde des messages, ni animation : du JavaScript écrit à la main, dans `script.js`.
 
 Chaque tâche donne des critères, et un bouton vérifie vos fichiers pour chacun. Si vous êtes bloqué, les **indices** se dévoilent un par un et renvoient au contenu qui enseigne le point. Les utiliser ne coûte rien : seule la vérification compte.
 
@@ -152,6 +166,10 @@ Le formulaire de la version 2 envoie ses champs sans rien vérifier, et recharge
 10. Une saisie valide ajoute le message à une liste de la page, construite avec `createElement` (le nom et le texte du message, ou un résumé), affiche une confirmation, et vide le formulaire avec `reset()`.
 
 Testez chaque cas dans le navigateur : tout vide, des espaces seulement, une adresse sans `@`, puis une saisie correcte, puis une seconde. Après un refus, une saisie correcte doit afficher une confirmation qui n'a plus l'apparence d'une erreur.
+
+```hint
+Si vos champs ont gardé l'attribut `required` de la version 2, le navigateur bloque l'envoi avec sa propre bulle, avant que votre script ne soit appelé : vous ne verrez jamais vos messages. Ajoutez `novalidate` sur la balise `<form>` : le navigateur laisse alors votre script valider seul, et `required` garde son sens pour les lecteurs d'écran.
+```
 
 ```hint
 Le formulaire écouté sur `submit`, `preventDefault`, `trim` et `includes("@")` sont à l'étape 07 du lab [Les bases de JavaScript, sur votre machine](https://byte-layers.com/fr/labs/js-basics-lab), section 07.4.
