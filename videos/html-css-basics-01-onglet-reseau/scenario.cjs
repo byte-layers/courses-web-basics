@@ -3,7 +3,7 @@
  * (lab html-css-basics, étape 01, parties 01.2 et 01.3).
  *
  * Scène : barre d'adresse + page à gauche, vrais DevTools de Chromium à
- * droite (voir ../record.cjs). Les DevTools de Chromium sont en anglais : la
+ * droite (moteur byte-layers-videos). Les DevTools de Chromium sont en anglais : la
  * narration donne les deux noms, comme le lab.
  */
 const MDN = 'https://developer.mozilla.org/fr/';
@@ -20,6 +20,7 @@ module.exports = {
   name: 'html-css-basics-01-onglet-reseau',
   title: 'Les bases HTML et CSS',
   subtitle: '01 · L’onglet Réseau',
+  devtools: true,
   disableCache: true,
   segments: [
     {

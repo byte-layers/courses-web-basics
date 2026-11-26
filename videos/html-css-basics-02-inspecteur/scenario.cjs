@@ -25,6 +25,7 @@ module.exports = {
   name: 'html-css-basics-02-inspecteur',
   title: 'Les bases HTML et CSS',
   subtitle: '02 · Modifier une page dans l’inspecteur',
+  devtools: true,
   segments: [
     {
       id: 'intro',

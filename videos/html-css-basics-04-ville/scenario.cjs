@@ -1,6 +1,6 @@
 /**
  * Live coding « La fiche d'une ville : texte, listes, liens et image »
- * (lab html-css-basics, étape 04). VS Code et navigateur (../record-vscode.cjs).
+ * (lab html-css-basics, étape 04). VS Code et navigateur (moteur byte-layers-videos).
  *
  * La fenêtre du navigateur est basse (siteHeight), pour que le lien interne
  * fasse défiler la page, comme le lab le conseille. Numéros de ligne : ceux de

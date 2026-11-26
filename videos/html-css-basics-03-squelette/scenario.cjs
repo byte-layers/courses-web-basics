@@ -1,6 +1,6 @@
 /**
  * Live coding « Écrire le squelette d'une page, et casser ses accents »
- * (lab html-css-basics, étape 03). VS Code et navigateur (../record-vscode.cjs).
+ * (lab html-css-basics, étape 03). VS Code et navigateur (moteur byte-layers-videos).
  *
  * Le squelette est tapé ligne à ligne, aides de VS Code coupées : ce qui est
  * tapé est exactement le fichier. Sans charset, le Chromium de Playwright

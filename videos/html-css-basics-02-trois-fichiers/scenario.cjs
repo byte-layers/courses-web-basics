@@ -2,7 +2,7 @@
  * Live coding « Créer une page en trois fichiers »
  * (lab html-css-basics, étape 02, partie 02.2).
  *
- * VS Code d'abord (voir ../record-vscode.cjs) : créer le dossier dans le
+ * VS Code d'abord (moteur byte-layers-videos) : créer le dossier dans le
  * terminal, l'ouvrir, créer et coller les trois fichiers, enregistrer ; puis
  * le navigateur : la page ouverte depuis le disque, le bouton rose, le clic.
  * Le Finder ne se filme pas : la vidéo passe du menu « Reveal in Finder » à
